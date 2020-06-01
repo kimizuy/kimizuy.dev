@@ -3,8 +3,9 @@ import path from "path"
 import matter from "gray-matter"
 import remark from "remark"
 import html from "remark-html"
+import { MetaPostType } from "../types/post"
 
-const postsDirectory = path.join(process.cwd(), "posts")
+const postsDirectory = path.join(process.cwd(), "_posts")
 
 export function getSortedPostsData() {
   // Get file names under /posts
@@ -23,7 +24,7 @@ export function getSortedPostsData() {
     // Combine the data with the id
     return {
       id,
-      ...(matterResult.data as { date: string; title: string }),
+      ...(matterResult.data as MetaPostType),
     }
   })
   // Sort posts by date
@@ -64,6 +65,6 @@ export async function getPostData(id: string) {
   return {
     id,
     contentHtml,
-    ...(matterResult.data as { date: string; title: string }),
+    ...(matterResult.data as MetaPostType),
   }
 }

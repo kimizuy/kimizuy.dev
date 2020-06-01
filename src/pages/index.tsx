@@ -5,16 +5,15 @@ import { getSortedPostsData } from "../lib/posts"
 import Link from "next/link"
 import Date from "../components/date"
 import { GetStaticProps } from "next"
+import { MetaPostType } from "../types/post"
 
-export default function Home({
-  allPostsData,
-}: {
-  allPostsData: {
-    date: string
-    title: string
-    id: string
-  }[]
-}) {
+type AllPostType = MetaPostType & { id: string }
+
+type Props = {
+  allPostsData: AllPostType[]
+}
+
+export default function Home({ allPostsData }: Props) {
   return (
     <Layout home>
       <Head>
