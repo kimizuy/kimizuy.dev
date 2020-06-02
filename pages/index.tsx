@@ -6,6 +6,7 @@ import Link from "next/link"
 import Date from "../components/date"
 import { GetStaticProps } from "next"
 import { MetaPostType } from "../types/post"
+import { TagList } from "../components/TagList"
 
 type AllPostType = MetaPostType & { id: string }
 
@@ -14,7 +15,7 @@ type Props = {
 }
 
 export default function Home({ allPostsData }: Props) {
-  const tags = [...new Set(allPostsData.flatMap(v => v.tag))].join(", ")
+  const tags = [...new Set(allPostsData.flatMap(v => v.tag))]
 
   return (
     <Layout home>
@@ -30,7 +31,7 @@ export default function Home({ allPostsData }: Props) {
       </section>
       <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
         <h2 className={utilStyles.headingLg}>Blog</h2>
-        <small>{tags}</small>
+        <TagList tags={tags} />
         <ul className={utilStyles.list}>
           {allPostsData.map(({ id, date, title, tag }) => (
             <li className={utilStyles.listItem} key={id}>

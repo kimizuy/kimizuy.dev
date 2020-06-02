@@ -1,4 +1,3 @@
-import React from "react"
 import { TagList } from "./TagList"
 import Link from "next/link"
 
@@ -14,7 +13,7 @@ export function TagPage(props: Props) {
         <TagList tags={[props.tagName]} />
       </div>
       <div>
-        {props.pages.map((page) => {
+        {props.pages.map(page => {
           return (
             <div key={page.slug}>
               <Link href={`/${page.slug}`}>{page.title}</Link>
