@@ -5,11 +5,11 @@ type Props = { tags: (string | undefined)[] }
 export function TagList(props: Props) {
   return (
     <>
-      {props.tags.map(tag => {
+      {props.tags.map((tag, i) => {
         if (!tag) return null
 
         return (
-          <Link href="/tags/[tag]" as={`/tags/${tag}`}>
+          <Link href="/tags/[tag]" as={`/tags/${tag}`} key={i}>
             <a>{tag}</a>
           </Link>
         )
