@@ -8,10 +8,8 @@ import { GetStaticProps } from "next"
 import { MetaPostType } from "../types/post"
 import { TagList } from "../components/TagList"
 
-type AllPostType = MetaPostType & { id: string }
-
 type Props = {
-  allPostsData: AllPostType[]
+  allPostsData: (MetaPostType & { id: string })[]
 }
 
 export default function Home({ allPostsData }: Props) {

@@ -9,9 +9,12 @@ export function TagList(props: Props) {
         if (!tag) return null
 
         return (
-          <Link href="/tags/[tag]" as={`/tags/${tag}`} key={i}>
-            <a>{tag}</a>
-          </Link>
+          <>
+            <Link href="/tags/[tag]" as={`/tags/${tag}`} key={i}>
+              <a>{tag}</a>
+            </Link>
+            {props.tags.length - 1 !== i ? " / " : null}
+          </>
         )
       })}
     </>
