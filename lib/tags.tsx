@@ -1,8 +1,6 @@
 import fs from "fs"
 import path from "path"
 import matter from "gray-matter"
-import remark from "remark"
-import html from "remark-html"
 import { MetaPostType } from "../types/post"
 
 const postsDirectory = path.join(process.cwd(), "_posts")
