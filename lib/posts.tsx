@@ -10,7 +10,7 @@ const postsDirectory = path.join(process.cwd(), "_posts")
 export function getSortedPostsData() {
   // Get file names under /posts
   const fileNames = fs.readdirSync(postsDirectory)
-  const allPostsData = fileNames.map((fileName) => {
+  const allPostsData = fileNames.map(fileName => {
     // Remove ".mdx" from file name to get id
     const id = fileName.replace(/\.mdx$/, "")
 
@@ -39,7 +39,7 @@ export function getSortedPostsData() {
 
 export function getAllPostIds() {
   const fileNames = fs.readdirSync(postsDirectory)
-  return fileNames.map((fileName) => {
+  return fileNames.map(fileName => {
     return {
       params: {
         id: fileName.replace(/\.mdx$/, ""),

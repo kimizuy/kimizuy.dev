@@ -6,14 +6,15 @@ import Link from "next/link"
 import Date from "../components/date"
 import { GetStaticProps } from "next"
 import { MetaPostType } from "../types/post"
-
-type AllPostType = MetaPostType & { id: string }
+import { TagList } from "../components/TagList"
 
 type Props = {
-  allPostsData: AllPostType[]
+  allPostsData: (MetaPostType & { id: string })[]
 }
 
 export default function Home({ allPostsData }: Props) {
+  const tags = [...new Set(allPostsData.flatMap(v => v.tag))]
+
   return (
     <Layout home>
       <Head>
@@ -28,8 +29,9 @@ export default function Home({ allPostsData }: Props) {
       </section>
       <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
         <h2 className={utilStyles.headingLg}>Blog</h2>
+        <TagList tags={tags} />
         <ul className={utilStyles.list}>
-          {allPostsData.map(({ id, date, title }) => (
+          {allPostsData.map(({ id, date, title, tag }) => (
             <li className={utilStyles.listItem} key={id}>
               <Link href="/posts/[id]" as={`/posts/${id}`}>
                 <a>{title}</a>
@@ -38,6 +40,8 @@ export default function Home({ allPostsData }: Props) {
               <small className={utilStyles.lightText}>
                 <Date dateString={date} />
               </small>
+              <br />
+              <small>{typeof tag === "string" ? tag : tag?.join(", ")}</small>
             </li>
           ))}
         </ul>

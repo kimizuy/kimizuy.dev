@@ -1,6 +1,7 @@
 {
   "files.exclude": {
     "node_modules": true,
-    ".next": true
+    ".next": true,
+    "yarn.lock": true
   }
 }
