@@ -5,7 +5,7 @@ type PostType = MetaPostType & {
 export type MetaPostType = {
   title: string
   date: string
-  tag?: string[]
+  tag?: string[] | string
 }
 
 export default PostType
