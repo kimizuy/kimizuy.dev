@@ -7,7 +7,7 @@ import { TagList } from "../components/TagList"
 import { getSortedPostsData } from "../lib/posts"
 import utilStyles from "../styles/utils.module.css"
 import { FrontMatterType } from "../types/post"
-import { format } from "date-fns"
+import { format, parseISO } from "date-fns"
 
 type Props = {
   allPostsData: (FrontMatterType & { id: string })[]
@@ -16,7 +16,7 @@ type Props = {
 export default function Home({ allPostsData }: Props) {
   const tags = [...new Set(allPostsData.flatMap(v => v.tag))]
   const years = [
-    ...new Set(allPostsData.map(v => format(parseInt(v.date), "yyyy"))),
+    ...new Set(allPostsData.map(v => format(parseISO(v.date), "yyyy"))),
   ]
 
   return (
@@ -34,6 +34,11 @@ export default function Home({ allPostsData }: Props) {
       <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
         <h2 className={utilStyles.headingLg}>Blog</h2>
         <TagList tags={tags} />
+        {years.map(year => (
+          <Link href="/years/[year]" as={`/years/${year}`} key={year}>
+            <a>{year}</a>
+          </Link>
+        ))}
         <ul className={utilStyles.list}>
           {allPostsData.map(({ id, date, title, tag }) => (
             <li className={utilStyles.listItem} key={id}>
