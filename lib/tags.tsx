@@ -1,22 +1,16 @@
-import fs from "fs"
-import path from "path"
-import matter from "gray-matter"
-import { MetaPostType } from "../types/post"
+import { getFileNames, getFrontMatter } from "./util"
 
-const postsDirectory = path.join(process.cwd(), "_posts")
+const fileNames = getFileNames()
 
 export function getSelectedTagData(selectedTag: string) {
-  const fileNames = fs.readdirSync(postsDirectory)
   const selectedTagData = fileNames.map(fileName => {
     const id = fileName.replace(/\.mdx$/, "")
-    const fullPath = path.join(postsDirectory, fileName)
-    const fileContents = fs.readFileSync(fullPath, "utf8")
-    const matterResult = matter(fileContents)
-    const tag = matterResult.data["tag"] as string | string[]
-    if (tag === selectedTag || tag.includes(selectedTag)) {
+    const matterData = getFrontMatter(fileName)
+    const tag = matterData.tag
+    if (tag === selectedTag || tag?.includes(selectedTag)) {
       return {
         id,
-        ...(matterResult.data as MetaPostType),
+        ...matterData,
       }
     }
   })
@@ -31,12 +25,9 @@ export function getSelectedTagData(selectedTag: string) {
 }
 
 export function getAllTags() {
-  const fileNames = fs.readdirSync(postsDirectory)
   const tags = fileNames.flatMap(fileName => {
-    const fullPath = path.join(postsDirectory, fileName)
-    const fileContents = fs.readFileSync(fullPath, "utf8")
-    const matterResult = matter(fileContents)
-    const tag = matterResult.data["tag"] as string | string[]
+    const matterData = getFrontMatter(fileName)
+    const tag = matterData.tag
     return tag
   })
 

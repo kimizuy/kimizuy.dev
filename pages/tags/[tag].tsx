@@ -1,15 +1,15 @@
-import Layout from "../../components/layout"
+import { GetStaticPaths, GetStaticProps } from "next"
 import Head from "next/head"
-import Date from "../../components/date"
-import utilStyles from "../../styles/utils.module.css"
-import { GetStaticProps, GetStaticPaths } from "next"
-import { MetaPostType } from "../../types/post"
-import { getAllTags, getSelectedTagData } from "../../lib/tags"
 import Link from "next/link"
+import Date from "../../components/date"
+import Layout from "../../components/layout"
+import { getAllTags, getSelectedTagData } from "../../lib/tags"
+import utilStyles from "../../styles/utils.module.css"
+import { FrontMatterType } from "../../types/post"
 
 type Props = {
   selectedTag: string
-  selectedTagPostsData: (MetaPostType & { id: string })[]
+  selectedTagPostsData: (FrontMatterType & { id: string })[]
 }
 
 export default function Tag({ selectedTag, selectedTagPostsData }: Props) {

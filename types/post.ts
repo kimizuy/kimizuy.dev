@@ -1,8 +1,8 @@
-type PostType = MetaPostType & {
+type PostType = FrontMatterType & {
   contentHtml: string
 }
 
-export type MetaPostType = {
+export type FrontMatterType = {
   title: string
   date: string
   tag?: string[] | string
