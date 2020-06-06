@@ -1,9 +1,9 @@
 import fs from "fs"
-import path from "path"
 import matter from "gray-matter"
+import path from "path"
 import remark from "remark"
 import html from "remark-html"
-import { MetaPostType } from "../types/post"
+import { FrontMatterType } from "../types/post"
 
 const postsDirectory = path.join(process.cwd(), "_posts")
 
@@ -24,7 +24,7 @@ export function getSortedPostsData() {
     // Combine the data with the id
     return {
       id,
-      ...(matterResult.data as MetaPostType),
+      ...(matterResult.data as FrontMatterType),
     }
   })
   // Sort posts by date
@@ -65,6 +65,6 @@ export async function getPostData(id: string) {
   return {
     id,
     contentHtml,
-    ...(matterResult.data as MetaPostType),
+    ...(matterResult.data as FrontMatterType),
   }
 }

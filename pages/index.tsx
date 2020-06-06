@@ -1,19 +1,23 @@
+import { GetStaticProps } from "next"
 import Head from "next/head"
-import Layout, { siteTitle } from "../components/layout"
-import utilStyles from "../styles/utils.module.css"
-import { getSortedPostsData } from "../lib/posts"
 import Link from "next/link"
 import Date from "../components/date"
-import { GetStaticProps } from "next"
-import { MetaPostType } from "../types/post"
+import Layout, { siteTitle } from "../components/layout"
 import { TagList } from "../components/TagList"
+import { getSortedPostsData } from "../lib/posts"
+import utilStyles from "../styles/utils.module.css"
+import { FrontMatterType } from "../types/post"
+import { format, parseISO } from "date-fns"
 
 type Props = {
-  allPostsData: (MetaPostType & { id: string })[]
+  allPostsData: (FrontMatterType & { id: string })[]
 }
 
 export default function Home({ allPostsData }: Props) {
   const tags = [...new Set(allPostsData.flatMap(v => v.tag))]
+  const years = [
+    ...new Set(allPostsData.map(v => format(parseISO(v.date), "yyyy"))),
+  ]
 
   return (
     <Layout home>
@@ -30,6 +34,11 @@ export default function Home({ allPostsData }: Props) {
       <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
         <h2 className={utilStyles.headingLg}>Blog</h2>
         <TagList tags={tags} />
+        {years.map(year => (
+          <Link href="/years/[year]" as={`/years/${year}`} key={year}>
+            <a>{year}</a>
+          </Link>
+        ))}
         <ul className={utilStyles.list}>
           {allPostsData.map(({ id, date, title, tag }) => (
             <li className={utilStyles.listItem} key={id}>
