@@ -8,6 +8,7 @@ import { getSortedPostsData } from "../lib/posts"
 import utilStyles from "../styles/utils.module.css"
 import { FrontMatterType } from "../types/post"
 import { format, parseISO } from "date-fns"
+import TwitterTimeline from "../components/TwitterTimeline"
 
 type Props = {
   allPostsData: (FrontMatterType & { id: string })[]
@@ -30,6 +31,7 @@ export default function Home({ allPostsData }: Props) {
           <a href="https://github.com/kimizuy">GitHub</a> /{" "}
           <a href="https://twitter.com/kimizuy">Twitter</a>
         </p>
+        <TwitterTimeline />
       </section>
       <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
         <h2 className={utilStyles.headingLg}>Blog</h2>
