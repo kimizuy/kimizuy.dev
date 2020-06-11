@@ -18,6 +18,14 @@ type Props = {
 }
 
 const TwitterTimelineComponent = (p: Props) => {
+  useEffect(() => {
+    const script = document.createElement("script")
+    script.src = "https://platform.twitter.com/widgets.js"
+    script.async = true
+    script.charset = "utf-8"
+    document.getElementsByClassName("twitter-embed")[0].appendChild(script)
+  }, [])
+
   const chrome = [
     p.noHeader && "noheader",
     p.noFooter && "nofooter",
@@ -29,34 +37,32 @@ const TwitterTimelineComponent = (p: Props) => {
     .join(" ")
 
   return (
-    <a
-      className="twitter-timeline"
-      href={`https://twitter.com/${p.account}`}
-      data-show-replies={p.showReplies}
-      data-chrome={chrome}
-      data-theme={p.theme}
-      data-width={p.width}
-      data-height={p.height}
-      data-tweet-limit={`${p.tweetLimit}`}
-      data-border-color={p.borderColor}
-      data-aria-polite={p.ariaPolite}
-      data-dnt={p.dnt}
-    />
+    <section className="twitter-embed">
+      <a
+        className="twitter-timeline"
+        href={`https://twitter.com/${p.account}`}
+        data-show-replies={p.showReplies}
+        data-chrome={chrome}
+        data-theme={p.theme}
+        data-width={p.width}
+        data-height={p.height}
+        data-tweet-limit={`${p.tweetLimit}`}
+        data-border-color={p.borderColor}
+        data-aria-polite={p.ariaPolite}
+        data-dnt={p.dnt}
+      />
+    </section>
   )
 }
 
 export default function () {
-  useEffect(() => {
-    const script = document.createElement("script")
-    script.src = "https://platform.twitter.com/widgets.js"
-    script.async = true
-    script.charset = "utf-8"
-    document.getElementsByClassName("twitter-embed")[0].appendChild(script)
-  }, [])
-
   return (
-    <section className="twitter-embed">
-      <TwitterTimelineComponent account="kimizuy" />
-    </section>
+    <TwitterTimelineComponent
+      account="kimizuy"
+      noHeader
+      noFooter
+      noBorders
+      tweetLimit={1}
+    />
   )
 }
