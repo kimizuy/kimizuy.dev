@@ -5,7 +5,7 @@ type Props = { tags: (string | undefined)[] }
 
 export function TagList(props: Props) {
   return (
-    <>
+    <p>
       {props.tags.map((tag, i) => {
         if (!tag) return null
 
@@ -18,6 +18,6 @@ export function TagList(props: Props) {
           </Fragment>
         )
       })}
-    </>
+    </p>
   )
 }
