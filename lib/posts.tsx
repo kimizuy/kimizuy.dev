@@ -3,7 +3,7 @@ import matter from "gray-matter"
 import path from "path"
 import remark from "remark"
 import html from "remark-html"
-import { FrontMatterType } from "../types/post"
+import { FrontMatterType } from "types/post"
 
 const postsDirectory = path.join(process.cwd(), "_posts")
 
