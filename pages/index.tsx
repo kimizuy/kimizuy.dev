@@ -28,19 +28,21 @@ export default function Home({ allPostsData }: Props) {
       <section className={utilStyles.headingMd}>
         <p>Front-end Engineer</p>
         <p>
-          <a href="https://github.com/kimizuy">GitHub</a> /{" "}
-          <a href="https://twitter.com/kimizuy">Twitter</a>
+          <a href="https://github.com/kimizuy">GitHub</a>
         </p>
         <TwitterTimeline />
       </section>
       <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
         <h2 className={utilStyles.headingLg}>Blog</h2>
         <TagList tags={tags} />
-        {years.map(year => (
-          <Link href="/years/[year]" as={`/years/${year}`} key={year}>
-            <a>{year}</a>
-          </Link>
-        ))}
+        <p>
+          {years.map(year => (
+            <Link href="/years/[year]" as={`/years/${year}`} key={year}>
+              <a>{year}</a>
+            </Link>
+          ))}
+        </p>
+
         <ul className={utilStyles.list}>
           {allPostsData.map(({ id, date, title, tag }) => (
             <li className={utilStyles.listItem} key={id}>
