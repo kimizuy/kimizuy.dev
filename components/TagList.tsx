@@ -11,7 +11,7 @@ export function TagList(props: Props) {
 
         return (
           <Fragment key={tag}>
-            <Link href="/tags/[tag]" as={`/tags/${tag}`} key={tag}>
+            <Link href="/tags/[tag]" as={`/tags/${tag}`}>
               <a>{tag}</a>
             </Link>
             {props.tags.length - 1 !== i ? " / " : null}
