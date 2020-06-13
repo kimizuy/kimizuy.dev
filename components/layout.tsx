@@ -1,12 +1,12 @@
 import Head from "next/head"
-import styles from "./layout.module.css"
 import utilStyles from "styles/utils.module.css"
 import Link from "next/link"
+import styled from "styled-components"
 
 const name = "kimizuy"
 export const siteTitle = "kimizuy blog"
 
-export default function Layout({
+export default function ({
   children,
   home,
 }: {
@@ -14,7 +14,7 @@ export default function Layout({
   home?: boolean
 }) {
   return (
-    <div className={styles.container}>
+    <Container>
       <Head>
         <link rel="icon" href="/favicon.ico" />
         <meta
@@ -30,25 +30,17 @@ export default function Layout({
         <meta name="og:title" content={siteTitle} />
         <meta name="twitter:card" content="summary_large_image" />
       </Head>
-      <header className={styles.header}>
+      <Header>
         {home ? (
           <>
-            <img
-              src="/images/profile.jpg"
-              className={`${styles.headerHomeImage} ${utilStyles.borderCircle}`}
-              alt={name}
-            />
+            <HeaderHomeImage src="/images/profile.jpg" alt={name} />
             <h1 className={utilStyles.heading2Xl}>{name}</h1>
           </>
         ) : (
           <>
             <Link href="/">
               <a>
-                <img
-                  src="/images/profile.jpg"
-                  className={`${styles.headerImage} ${utilStyles.borderCircle}`}
-                  alt={name}
-                />
+                <HeaderImage src="/images/profile.jpg" alt={name} />
               </a>
             </Link>
             <h2 className={utilStyles.headingLg}>
@@ -58,15 +50,43 @@ export default function Layout({
             </h2>
           </>
         )}
-      </header>
+      </Header>
       <main>{children}</main>
       {!home && (
-        <div className={styles.backToHome}>
+        <BackToHome>
           <Link href="/">
             <a>← Back to home</a>
           </Link>
-        </div>
+        </BackToHome>
       )}
-    </div>
+    </Container>
   )
 }
+
+const Container = styled.div`
+  max-width: 36rem;
+  padding: 0 1rem;
+  margin: 3rem auto 6rem;
+`
+
+const Header = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`
+
+const HeaderImage = styled.img`
+  width: 6rem;
+  height: 6rem;
+  border-radius: 9999px;
+`
+
+const HeaderHomeImage = styled.img`
+  width: 8rem;
+  height: 8rem;
+  border-radius: 9999px;
+`
+
+const BackToHome = styled.div`
+  margin: 3rem 0 0;
+`
