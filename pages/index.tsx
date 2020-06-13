@@ -8,7 +8,6 @@ import { getSortedPostsData } from "lib/posts"
 import utilStyles from "styles/utils.module.css"
 import { FrontMatterType } from "types/post"
 import { format, parseISO } from "date-fns"
-import TwitterTimeline from "components/TwitterTimeline"
 
 type Props = {
   allPostsData: (FrontMatterType & { id: string })[]
@@ -29,6 +28,8 @@ export default function Home({ allPostsData }: Props) {
         <p>Front-end Engineer</p>
         <p>
           <a href="https://github.com/kimizuy">GitHub</a>
+          {" / "}
+          <a href="https://twitter.com/kimizuy">Twitter</a>
         </p>
         {/* <TwitterTimeline /> */}
       </section>
