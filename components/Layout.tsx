@@ -1,10 +1,10 @@
 import Head from "next/head"
-import utilStyles from "styles/utils.module.css"
 import Link from "next/link"
 import styled from "styled-components"
+import { useRouter } from "next/dist/client/router"
 
 const name = "kimizuy"
-export const siteTitle = "kimizuy blog"
+export const siteTitle = `${name} blog`
 
 export default function ({
   children,
@@ -13,6 +13,8 @@ export default function ({
   children: React.ReactNode
   home?: boolean
 }) {
+  const router = useRouter()
+
   return (
     <Container>
       <Head>
@@ -30,63 +32,77 @@ export default function ({
         <meta name="og:title" content={siteTitle} />
         <meta name="twitter:card" content="summary_large_image" />
       </Head>
-      <Header>
+      <Body>
         {home ? (
-          <>
-            <HeaderHomeImage src="/images/profile.jpg" alt={name} />
-            <h1 className={utilStyles.heading2Xl}>{name}</h1>
-          </>
+          <Header name={name} siteTitle={siteTitle} />
         ) : (
-          <>
-            <Link href="/">
-              <a>
-                <HeaderImage src="/images/profile.jpg" alt={name} />
-              </a>
-            </Link>
-            <h2 className={utilStyles.headingLg}>
-              <Link href="/">
-                <a className={utilStyles.colorInherit}>{name}</a>
-              </Link>
-            </h2>
-          </>
+          <Linkable
+            onClick={() => {
+              router.push("/")
+            }}
+          >
+            <Header name={name} siteTitle={siteTitle} />
+          </Linkable>
         )}
-      </Header>
-      <main>{children}</main>
-      {!home && (
-        <BackToHome>
-          <Link href="/">
-            <a>← Back to home</a>
-          </Link>
-        </BackToHome>
-      )}
+        <main>{children}</main>
+        {!home && (
+          <BackToHome>
+            <Link href="/">
+              <a>← Back to home</a>
+            </Link>
+          </BackToHome>
+        )}
+      </Body>
+      {home && <Sidebar>WIP</Sidebar>}
     </Container>
   )
 }
 
 const Container = styled.div`
-  max-width: 36rem;
+  max-width: 48rem;
   padding: 0 1rem;
-  margin: 3rem auto 6rem;
+  margin: 1rem auto 4rem;
+  display: flex;
+  justify-content: space-between;
 `
 
-const Header = styled.div`
+const Body = styled.div``
+
+const Sidebar = styled.aside`
+  margin: 3rem 0;
+  width: 20%;
+  word-break: break-all;
+`
+
+const Flex = styled.div`
   display: flex;
-  flex-direction: column;
-  align-items: center;
 `
 
 const HeaderImage = styled.img`
-  width: 6rem;
-  height: 6rem;
+  width: 3rem;
+  height: 3rem;
   border-radius: 9999px;
 `
 
-const HeaderHomeImage = styled.img`
-  width: 8rem;
-  height: 8rem;
-  border-radius: 9999px;
+const HeaderTitle = styled.h1`
+  font-weight: 800;
+  margin: auto 0.5rem;
+`
+
+const Linkable = styled.div`
+  cursor: pointer;
+  display: inline-block;
 `
 
 const BackToHome = styled.div`
   margin: 3rem 0 0;
 `
+
+function Header({ name, siteTitle }: { name: string; siteTitle: string }) {
+  return (
+    <Flex>
+      <HeaderImage src="/images/profile.jpg" alt={name} />
+      <HeaderTitle>{siteTitle}</HeaderTitle>
+    </Flex>
+  )
+}
