@@ -1,14 +1,13 @@
 import { GetStaticProps } from "next"
 import Head from "next/head"
 import Link from "next/link"
-import Date from "components/date"
-import Layout, { siteTitle } from "components/layout"
+import Date from "components/Date"
+import Layout, { siteTitle } from "components/Layout"
 import { TagList } from "components/TagList"
 import { getSortedPostsData } from "lib/posts"
 import utilStyles from "styles/utils.module.css"
 import { FrontMatterType } from "types/post"
 import { format, parseISO } from "date-fns"
-import TwitterTimeline from "components/TwitterTimeline"
 
 type Props = {
   allPostsData: (FrontMatterType & { id: string })[]
