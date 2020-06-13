@@ -29,8 +29,10 @@ export default function Home({ allPostsData }: Props) {
         <p>Front-end Engineer</p>
         <p>
           <a href="https://github.com/kimizuy">GitHub</a>
+          {" / "}
+          <a href="https://twitter.com/kimizuy">Twitter</a>
         </p>
-        <TwitterTimeline />
+        {/* <TwitterTimeline /> */}
       </section>
       <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
         <h2 className={utilStyles.headingLg}>Blog</h2>
