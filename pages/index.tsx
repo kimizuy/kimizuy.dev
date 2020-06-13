@@ -8,7 +8,6 @@ import { getSortedPostsData } from "lib/posts"
 import utilStyles from "styles/utils.module.css"
 import { FrontMatterType } from "types/post"
 import { format, parseISO } from "date-fns"
-import TwitterTimeline from "components/TwitterTimeline"
 
 type Props = {
   allPostsData: (FrontMatterType & { id: string })[]
