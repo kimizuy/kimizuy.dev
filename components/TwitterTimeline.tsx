@@ -17,7 +17,7 @@ type Props = {
   dnt?: boolean
 }
 
-const TwitterTimelineComponent = (p: Props) => {
+function TwitterTimelineComponent(p: Props) {
   useEffect(() => {
     const script = document.createElement("script")
     script.src = "https://platform.twitter.com/widgets.js"
