@@ -1,7 +1,7 @@
 import Head from "next/head"
 import Link from "next/link"
 import styled from "styled-components"
-import { useRouter } from "next/dist/client/router"
+import Header from "./Header"
 
 const name = "kimizuy"
 export const siteTitle = `${name} blog`
@@ -13,8 +13,6 @@ export default function ({
   children: React.ReactNode
   home?: boolean
 }) {
-  const router = useRouter()
-
   return (
     <Container>
       <Head>
@@ -33,27 +31,16 @@ export default function ({
         <meta name="twitter:card" content="summary_large_image" />
       </Head>
       <Body>
-        {home ? (
-          <Header name={name} siteTitle={siteTitle} />
-        ) : (
-          <Linkable
-            onClick={() => {
-              router.push("/")
-            }}
-          >
-            <Header name={name} siteTitle={siteTitle} />
-          </Linkable>
-        )}
-        <main>{children}</main>
-        {!home && (
-          <BackToHome>
-            <Link href="/">
-              <a>← Back to home</a>
-            </Link>
-          </BackToHome>
-        )}
+        <HeaderArea>
+          <Header home={home} name={name} siteTitle={siteTitle} />
+        </HeaderArea>
+        <MainArea>{children}</MainArea>
+        {!home && <BackToHome />}
+        <NavArea>
+          Lorem Ipsum is simply dummy text of the printing and typesetting
+          industry.
+        </NavArea>
       </Body>
-      {home && <Sidebar>WIP</Sidebar>}
     </Container>
   )
 }
@@ -62,47 +49,37 @@ const Container = styled.div`
   max-width: 48rem;
   padding: 0 1rem;
   margin: 1rem auto 4rem;
-  display: flex;
-  justify-content: space-between;
 `
 
-const Body = styled.div``
-
-const Sidebar = styled.aside`
-  margin: 3rem 0;
-  width: 20%;
-  word-break: break-all;
+const Body = styled.div`
+  display: grid;
+  grid-template-rows: 4rem 1fr;
+  grid-template-columns: 1fr 20%;
+  grid-template-areas:
+    "header header"
+    "main nav";
 `
 
-const Flex = styled.div`
-  display: flex;
+const HeaderArea = styled.div`
+  grid-area: header;
 `
 
-const HeaderImage = styled.img`
-  width: 3rem;
-  height: 3rem;
-  border-radius: 9999px;
+const MainArea = styled.main`
+  grid-area: main;
+  margin: 0 0 2rem;
 `
 
-const HeaderTitle = styled.h1`
-  font-weight: 800;
-  margin: auto 0.5rem;
+const NavArea = styled.aside`
+  grid-area: nav;
+  overflow-wrap: break-word;
 `
 
-const Linkable = styled.div`
-  cursor: pointer;
-  display: inline-block;
-`
-
-const BackToHome = styled.div`
-  margin: 3rem 0 0;
-`
-
-function Header({ name, siteTitle }: { name: string; siteTitle: string }) {
+function BackToHome() {
   return (
-    <Flex>
-      <HeaderImage src="/images/profile.jpg" alt={name} />
-      <HeaderTitle>{siteTitle}</HeaderTitle>
-    </Flex>
+    <div>
+      <Link href="/">
+        <a>← Back to home</a>
+      </Link>
+    </div>
   )
 }
