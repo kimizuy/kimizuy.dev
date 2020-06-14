@@ -1,13 +1,14 @@
-import { GetStaticProps } from "next"
-import Head from "next/head"
-import Link from "next/link"
 import Date from "components/Date"
 import Layout, { siteTitle } from "components/Layout"
 import { TagList } from "components/TagList"
+import { format, parseISO } from "date-fns"
 import { getSortedPostsData } from "lib/posts"
+import { GetStaticProps } from "next"
+import Head from "next/head"
+import Link from "next/link"
+import styled from "styled-components"
 import utilStyles from "styles/utils.module.css"
 import { FrontMatterType } from "types/post"
-import { format, parseISO } from "date-fns"
 
 type Props = {
   allPostsData: (FrontMatterType & { id: string })[]
@@ -32,8 +33,6 @@ export default function Home({ allPostsData }: Props) {
           <a href="https://twitter.com/kimizuy">Twitter</a>
         </p>
         {/* <TwitterTimeline /> */}
-      </section>
-      <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
         <h2 className={utilStyles.headingLg}>Blog</h2>
         <TagList tags={tags} />
         <p>
@@ -43,7 +42,6 @@ export default function Home({ allPostsData }: Props) {
             </Link>
           ))}
         </p>
-
         <ul className={utilStyles.list}>
           {allPostsData.map(({ id, date, title, tag }) => (
             <li className={utilStyles.listItem} key={id}>
@@ -51,11 +49,11 @@ export default function Home({ allPostsData }: Props) {
                 <a>{title}</a>
               </Link>
               <br />
-              <small className={utilStyles.lightText}>
+              <LightText>
                 <Date dateString={date} />
-              </small>
-              <br />
-              <small>{typeof tag === "string" ? tag : tag?.join(", ")}</small>
+                <br />
+                {typeof tag === "string" ? tag : tag?.join(", ")}
+              </LightText>
             </li>
           ))}
         </ul>
@@ -72,3 +70,9 @@ export const getStaticProps: GetStaticProps = async () => {
     },
   }
 }
+
+const LightText = styled.p`
+  margin: 0 0;
+  font-size: 0.8rem;
+  color: #999;
+`
