@@ -1,3 +1,4 @@
+import { useRouter } from "next/dist/client/router"
 import Head from "next/head"
 import Link from "next/link"
 import styled from "styled-components"
@@ -13,8 +14,10 @@ export default function ({
   children: React.ReactNode
   home?: boolean
 }) {
+  const router = useRouter()
+
   return (
-    <Container>
+    <>
       <Head>
         <link rel="icon" href="/favicon.ico" />
         <meta
@@ -34,49 +37,50 @@ export default function ({
         <HeaderArea>
           <Header home={home} name={name} siteTitle={siteTitle} />
         </HeaderArea>
-        <MainArea>{children}</MainArea>
+        <MainArea>
+          {children}
+          <NavArea>
+            Lorem Ipsum is simply dummy text of the printing and typesetting
+            industry.
+          </NavArea>
+        </MainArea>
         {!home && <BackToHome />}
-        <NavArea>
-          Lorem Ipsum is simply dummy text of the printing and typesetting
-          industry.
-        </NavArea>
       </Body>
-    </Container>
+    </>
   )
 }
-
-const Container = styled.div`
-  max-width: 48rem;
-  padding: 0 1rem;
-  margin: 1rem auto 4rem;
-`
 
 const Body = styled.div`
   display: grid;
   grid-template-rows: 4rem 1fr;
-  grid-template-columns: 1fr 20%;
+  grid-template-columns: 1fr;
   grid-template-areas:
-    "header header"
-    "main nav";
+    "header"
+    "main";
 `
 
 const HeaderArea = styled.div`
   grid-area: header;
+  position: relative;
 `
 
 const MainArea = styled.main`
   grid-area: main;
-  margin: 0 0 2rem;
+  display: flex;
+  justify-content: space-between;
+  max-width: 48rem;
+  margin: 1rem auto 4rem;
+  padding: 0 1rem;
 `
 
 const NavArea = styled.aside`
-  grid-area: nav;
+  max-width: 25%;
   overflow-wrap: break-word;
 `
 
 function BackToHome() {
   return (
-    <div>
+    <div style={{ margin: "0 0 1rem 1rem" }}>
       <Link href="/">
         <a>← Back to home</a>
       </Link>
