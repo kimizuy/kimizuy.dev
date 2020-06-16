@@ -11,34 +11,23 @@ export default function (p: Props) {
   const router = useRouter()
 
   return (
-    <Container>
-      <Clickable
-        home={p.home}
-        onClick={() => {
-          router.push("/")
-        }}
-      >
-        <Flex>
-          <HeaderImage src="/images/profile.jpg" alt={p.name} />
-          <HeaderTitle>{p.siteTitle}</HeaderTitle>
-        </Flex>
-      </Clickable>
-    </Container>
+    <Clickable
+      home={p.home}
+      onClick={() => {
+        router.push("/")
+      }}
+    >
+      <Flex>
+        <HeaderImage src="/images/profile.jpg" alt={p.name} />
+        <HeaderTitle>{p.siteTitle}</HeaderTitle>
+      </Flex>
+    </Clickable>
   )
 }
-
-const Container = styled.div`
-  max-width: 48rem;
-  margin: 0 auto;
-`
 
 const Clickable = styled.div`
   cursor: ${({ home }: { home?: boolean }) => (home ? "auto" : "pointer")};
   display: inline-block;
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  padding: 0 1rem;
 `
 
 const Flex = styled.div`
