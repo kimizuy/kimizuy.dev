@@ -3,6 +3,7 @@ import Head from "next/head"
 import Link from "next/link"
 import styled from "styled-components"
 import Header from "./Header"
+import NavButton from "./NavButton"
 
 const name = "kimizuy"
 export const siteTitle = `${name} blog`
@@ -34,16 +35,22 @@ export default function ({
         <meta name="twitter:card" content="summary_large_image" />
       </Head>
       <Body>
-        <HeaderArea>
-          <Header home={home} name={name} siteTitle={siteTitle} />
-        </HeaderArea>
-        <MainArea>
-          {children}
-          <NavArea>
-            Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry.
-          </NavArea>
-        </MainArea>
+        <HeaderGrid>
+          <HeaderArea>
+            <Header home={home} name={name} siteTitle={siteTitle} />
+            <NavButton />
+          </HeaderArea>
+        </HeaderGrid>
+        <MainGrid>
+          <MainArea>
+            {children}
+            <NavArea>
+              <p>Lorem Ipsum</p>
+              <p>Lorem Ipsum</p>
+              <p>Lorem Ipsum</p>
+            </NavArea>
+          </MainArea>
+        </MainGrid>
         {!home && <BackToHome />}
       </Body>
     </>
@@ -59,22 +66,32 @@ const Body = styled.div`
     "main";
 `
 
-const HeaderArea = styled.div`
+const HeaderGrid = styled.div`
   grid-area: header;
-  position: relative;
 `
 
-const MainArea = styled.main`
+const MainGrid = styled.main`
   grid-area: main;
+`
+
+const HeaderArea = styled.div`
   display: flex;
   justify-content: space-between;
-  max-width: 48rem;
+  max-width: 60rem;
+  margin: 0 auto;
+  padding: 1rem 1rem 0;
+`
+
+const MainArea = styled.div`
+  display: flex;
+  justify-content: space-between;
+  max-width: 60rem;
   margin: 1rem auto 4rem;
   padding: 0 1rem;
 `
 
 const NavArea = styled.aside`
-  max-width: 25%;
+  max-width: 20%;
   overflow-wrap: break-word;
 `
 
