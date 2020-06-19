@@ -38,18 +38,10 @@ export default function ({
         <HeaderGrid>
           <HeaderArea>
             <Header home={home} name={name} siteTitle={siteTitle} />
-            <NavButton />
           </HeaderArea>
         </HeaderGrid>
         <MainGrid>
-          <MainArea>
-            {children}
-            <NavArea>
-              <p>Lorem Ipsum</p>
-              <p>Lorem Ipsum</p>
-              <p>Lorem Ipsum</p>
-            </NavArea>
-          </MainArea>
+          <MainArea>{children}</MainArea>
         </MainGrid>
         {!home && <BackToHome />}
       </Body>
@@ -93,6 +85,7 @@ const MainArea = styled.div`
 const NavArea = styled.aside`
   max-width: 20%;
   overflow-wrap: break-word;
+  background-color: #eee;
 `
 
 function BackToHome() {
