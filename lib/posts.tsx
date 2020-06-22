@@ -3,6 +3,9 @@ import matter from "gray-matter"
 import path from "path"
 import remark from "remark"
 import html from "remark-html"
+import toc from "remark-toc"
+import slug from "remark-slug"
+import collapse from "remark-collapse"
 import { FrontMatterType } from "types/post"
 
 const postsDirectory = path.join(process.cwd(), "_posts")
@@ -58,6 +61,9 @@ export async function getPostData(id: string) {
   // Use remark to convert markdown into HTML string
   const processedContent = await remark()
     .use(html)
+    .use(toc, { tight: true })
+    .use(slug)
+    .use(collapse, { test: "toc" })
     .process(matterResult.content)
   const contentHtml = processedContent.toString()
 
