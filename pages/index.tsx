@@ -71,7 +71,7 @@ export const getStaticProps: GetStaticProps = async () => {
   }
 }
 
-const LightText = styled.p`
+const LightText = styled.div`
   margin: 0 0;
   font-size: 0.8rem;
   color: #999;
