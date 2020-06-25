@@ -3,7 +3,7 @@ import { getFileNames, getFrontMatter } from "./util"
 const fileNames = getFileNames()
 
 export function getSelectedTagData(selectedTag: string) {
-  const selectedTagData = fileNames.map(fileName => {
+  const selectedTagData = fileNames.map((fileName) => {
     const id = fileName.replace(/\.mdx$/, "")
     const matterData = getFrontMatter(fileName)
     const tag = matterData.tag
@@ -25,13 +25,13 @@ export function getSelectedTagData(selectedTag: string) {
 }
 
 export function getAllTags() {
-  const tags = fileNames.flatMap(fileName => {
+  const tags = fileNames.flatMap((fileName) => {
     const matterData = getFrontMatter(fileName)
     const tag = matterData.tag
     return tag
   })
 
-  return tags.map(tag => {
+  return tags.map((tag) => {
     return {
       params: {
         tag,
