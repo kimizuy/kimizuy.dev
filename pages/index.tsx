@@ -15,9 +15,9 @@ type Props = {
 }
 
 export default function Home({ allPostsData }: Props) {
-  const tags = [...new Set(allPostsData.flatMap(v => v.tag))]
+  const tags = [...new Set(allPostsData.flatMap((v) => v.tag))]
   const years = [
-    ...new Set(allPostsData.map(v => format(parseISO(v.date), "yyyy"))),
+    ...new Set(allPostsData.map((v) => format(parseISO(v.date), "yyyy"))),
   ]
 
   return (
@@ -36,7 +36,7 @@ export default function Home({ allPostsData }: Props) {
         <h2 className={utilStyles.headingLg}>Blog</h2>
         <TagList tags={tags} />
         <p>
-          {years.map(year => (
+          {years.map((year) => (
             <Link href="/years/[year]" as={`/years/${year}`} key={year}>
               <a>{year}</a>
             </Link>

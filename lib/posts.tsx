@@ -5,7 +5,6 @@ import remark from "remark"
 import html from "remark-html"
 import toc from "remark-toc"
 import slug from "remark-slug"
-import collapse from "remark-collapse"
 import { FrontMatterType } from "types/post"
 
 const postsDirectory = path.join(process.cwd(), "_posts")
@@ -13,7 +12,7 @@ const postsDirectory = path.join(process.cwd(), "_posts")
 export function getSortedPostsData() {
   // Get file names under /posts
   const fileNames = fs.readdirSync(postsDirectory)
-  const allPostsData = fileNames.map(fileName => {
+  const allPostsData = fileNames.map((fileName) => {
     // Remove ".mdx" from file name to get id
     const id = fileName.replace(/\.mdx$/, "")
 
@@ -42,7 +41,7 @@ export function getSortedPostsData() {
 
 export function getAllPostIds() {
   const fileNames = fs.readdirSync(postsDirectory)
-  return fileNames.map(fileName => {
+  return fileNames.map((fileName) => {
     return {
       params: {
         id: fileName.replace(/\.mdx$/, ""),
@@ -63,7 +62,6 @@ export async function getPostData(id: string) {
     .use(html)
     .use(toc, { tight: true })
     .use(slug)
-    .use(collapse, { test: "toc" })
     .process(matterResult.content)
   const contentHtml = processedContent.toString()
 
