@@ -7,7 +7,7 @@ import { GetStaticProps } from "next"
 import Head from "next/head"
 import Link from "next/link"
 import styled from "styled-components"
-import utilStyles from "styles/utils.module.css"
+import styles from "styles/post.module.css"
 import { FrontMatterType } from "types/post"
 
 type Props = {
@@ -21,43 +21,49 @@ export default function Home({ allPostsData }: Props) {
   ]
 
   return (
-    <Layout home>
-      <Head>
-        <title>{siteTitle}</title>
-      </Head>
-      <section className={utilStyles.headingMd}>
-        <p>Front-end Engineer</p>
-        <p>
-          <a href="https://github.com/kimizuy">GitHub</a>
-          {" / "}
-          <a href="https://twitter.com/kimizuy">Twitter</a>
-        </p>
-        {/* <TwitterTimeline /> */}
-        <h2 className={utilStyles.headingLg}>Blog</h2>
-        <TagList tags={tags} />
-        <p>
-          {years.map((year) => (
-            <Link href="/years/[year]" as={`/years/${year}`} key={year}>
-              <a>{year}</a>
-            </Link>
-          ))}
-        </p>
-        <ul className={utilStyles.list}>
-          {allPostsData.map(({ id, date, title, tag }) => (
-            <li className={utilStyles.listItem} key={id}>
+    <Layout>
+      <div className="post-feed">
+        {allPostsData.map(({ id, date, title, tag }) => {
+          return (
+            <article className={styles.post} key={id}>
+              <header className={styles.postheader}>
+                <h2 className="post-title">
+                  <Link href="/posts/[id]" as={`/posts/${id}`}>
+                    <a rel="bookmark">{title}</a>
+                  </Link>
+                </h2>
+                <div className="post-meta">
+                  Published on <Date dateString={date} />
+                </div>
+              </header>
+
               <Link href="/posts/[id]" as={`/posts/${id}`}>
-                <a>{title}</a>
+                <a className="post-thumbnail">
+                  {/* <img
+                      className="thumbnail"
+                      src={post.page.image}
+                      alt="{post.page.title}"
+                    /> */}
+                  image
+                </a>
               </Link>
-              <br />
-              <LightText>
-                <Date dateString={date} />
-                <br />
-                {typeof tag === "string" ? tag : tag?.join(", ")}
-              </LightText>
-            </li>
-          ))}
-        </ul>
-      </section>
+
+              <div className="post-content">description</div>
+              <p className="read-more">
+                <Link href="/posts/[id]" as={`/posts/${id}`}>
+                  <a className="read-more-link">
+                    Keep reading{" "}
+                    <span
+                      className="icon-arrow-right"
+                      aria-hidden="true"
+                    ></span>
+                  </a>
+                </Link>
+              </p>
+            </article>
+          )
+        })}
+      </div>
     </Layout>
   )
 }

@@ -4,6 +4,7 @@ import Link from "next/link"
 import styled from "styled-components"
 import Header from "./Header"
 import NavButton from "./NavButton"
+import Footer from "./Footer"
 
 const name = "kimizuy"
 export const siteTitle = `${name} blog`
@@ -34,17 +35,13 @@ export default function ({
         <meta name="og:title" content={siteTitle} />
         <meta name="twitter:card" content="summary_large_image" />
       </Head>
-      <Body>
-        <HeaderGrid>
-          <HeaderArea>
-            <Header home={home} name={name} siteTitle={siteTitle} />
-          </HeaderArea>
-        </HeaderGrid>
-        <MainGrid>
-          <MainArea>{children}</MainArea>
-        </MainGrid>
-        {!home && <BackToHome />}
-      </Body>
+      <Header name="kimizuy" siteTitle="kimizuy blog" />
+      <div id="content" className="site-content">
+        <main id="main" className="site-main inner">
+          {children}
+        </main>
+        <Footer />
+      </div>
     </>
   )
 }
