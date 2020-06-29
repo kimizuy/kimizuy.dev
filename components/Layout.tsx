@@ -3,7 +3,6 @@ import Head from "next/head"
 import Link from "next/link"
 import styled from "styled-components"
 import Header from "./Header"
-import NavButton from "./NavButton"
 
 const name = "kimizuy"
 export const siteTitle = `${name} blog`

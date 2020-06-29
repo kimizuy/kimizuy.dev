@@ -7,7 +7,9 @@
     "build": "next build",
     "start": "next start",
     "tsc-watch": "tsc --noEmit --watch",
-    "format": "prettier --write ./**/*.{js,ts,tsx}"
+    "format": "prettier --write ./**/*.{js,ts,tsx}",
+    "sb": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   },
   "dependencies": {
     "@mdx-js/loader": "^1.6.5",
@@ -40,6 +42,14 @@
     "eslint-plugin-react": "^7.20.0",
     "eslint-plugin-react-hooks": "4.0.0",
     "prettier": "2.0.5",
-    "typescript": "^3.9.3"
+    "@storybook/addon-actions": "5.3.19",
+    "@storybook/addon-links": "5.3.19",
+    "@storybook/addons": "5.3.19",
+    "@storybook/preset-typescript": "3.0.0",
+    "@storybook/react": "5.3.19",
+    "babel-loader": "^8.0.5",
+    "fork-ts-checker-webpack-plugin": "5.0.4",
+    "ts-loader": "7.0.5",
+    "typescript": "3.9.5"
   }
 }
