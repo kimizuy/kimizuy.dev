@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "tsc-watch": "tsc --noEmit --watch",
-    "format": "prettier --write ./**/*.{js,ts,tsx}"
+    "format": "prettier --write ./**/*.{js,ts,tsx}",
+    "storybook": "start-storybook"
   },
   "dependencies": {
     "@mdx-js/loader": "^1.6.5",
@@ -26,10 +27,13 @@
     "styled-components": "^5.1.1"
   },
   "devDependencies": {
+    "@babel/core": "^7.10.3",
+    "@storybook/react": "^5.3.19",
     "@types/node": "^14.0.5",
     "@types/react": "^16.9.35",
     "@types/react-dom": "16.9.8",
     "@types/styled-components": "^5.1.0",
+    "babel-loader": "^8.1.0",
     "babel-plugin-styled-components": "^1.10.7",
     "eslint": "7.2.0",
     "eslint-config-airbnb": "18.2.0",
