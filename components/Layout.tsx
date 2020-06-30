@@ -36,53 +36,35 @@ export default function ({
         <meta name="twitter:card" content="summary_large_image" />
       </Head>
       <_Header />
-      <div id="content" className={styles.siteContent}>
-        <main id="main" className={styles.siteMain}>
-          {children}
-        </main>
+      <Content>
+        <Main>{children}</Main>
         <_Footer />
-      </div>
+      </Content>
     </>
   )
 }
 
-const Body = styled.div`
-  display: grid;
-  grid-template-rows: 4rem 1fr;
-  grid-template-columns: 1fr;
-  grid-template-areas:
-    "header"
-    "main";
+const Content = styled.div`
+  padding: 2.5em 4vw 1.66667em;
+
+  @media only screen and (min-width: 801px) {
+    margin-right: 30vw;
+  }
+
+  @media only screen and (min-width: 1091px) {
+    padding-left: 6vw;
+    padding-right: 6vw;
+  }
+
+  @media only screen and (min-width: 1501px) {
+    margin-right: 450px;
+    padding-left: 130px;
+    padding-right: 130px;
+  }
 `
 
-const HeaderGrid = styled.div`
-  grid-area: header;
-`
-
-const MainGrid = styled.main`
-  grid-area: main;
-`
-
-const HeaderArea = styled.div`
-  display: flex;
-  justify-content: space-between;
-  max-width: 60rem;
-  margin: 0 auto;
-  padding: 1rem 1rem 0;
-`
-
-const MainArea = styled.div`
-  display: flex;
-  justify-content: space-between;
-  max-width: 60rem;
-  margin: 1rem auto 4rem;
-  padding: 0 1rem;
-`
-
-const NavArea = styled.aside`
-  max-width: 20%;
-  overflow-wrap: break-word;
-  background-color: #eee;
+const Main = styled.main`
+  padding-bottom: 1.66667em;
 `
 
 function BackToHome() {
