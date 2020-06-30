@@ -2,9 +2,9 @@ import { useRouter } from "next/dist/client/router"
 import Head from "next/head"
 import Link from "next/link"
 import styled from "styled-components"
-import Header from "./Header"
-import NavButton from "./NavButton"
-import Footer from "./Footer"
+import _Header from "./_Header"
+import _Footer from "./_Footer"
+import styles from "styles/layout.module.scss"
 
 const name = "kimizuy"
 export const siteTitle = `${name} blog`
@@ -35,12 +35,12 @@ export default function ({
         <meta name="og:title" content={siteTitle} />
         <meta name="twitter:card" content="summary_large_image" />
       </Head>
-      <Header name="kimizuy" siteTitle="kimizuy blog" />
-      <div id="content" className="site-content">
-        <main id="main" className="site-main inner">
+      <_Header />
+      <div id="content" className={styles.siteContent}>
+        <main id="main" className={styles.siteMain}>
           {children}
         </main>
-        <Footer />
+        <_Footer />
       </div>
     </>
   )
