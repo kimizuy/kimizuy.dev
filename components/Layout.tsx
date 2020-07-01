@@ -1,15 +1,13 @@
 import { useRouter } from "next/dist/client/router"
 import Head from "next/head"
+import styles from "./layout.module.css"
 import Link from "next/link"
-import styled from "styled-components"
-import _Header from "./_Header"
-import _Footer from "./_Footer"
-import styles from "styles/layout.module.scss"
+import SiteTitle from "./SiteTitle"
 
 const name = "kimizuy"
 export const siteTitle = `${name} blog`
 
-export default function ({
+export default function Layout({
   children,
   home,
 }: {
@@ -19,7 +17,7 @@ export default function ({
   const router = useRouter()
 
   return (
-    <>
+    <div className={styles.container}>
       <Head>
         <link rel="icon" href="/favicon.ico" />
         <meta
@@ -35,44 +33,17 @@ export default function ({
         <meta name="og:title" content={siteTitle} />
         <meta name="twitter:card" content="summary_large_image" />
       </Head>
-      <_Header />
-      <Content>
-        <Main>{children}</Main>
-        <_Footer />
-      </Content>
-    </>
-  )
-}
-
-const Content = styled.div`
-  padding: 2.5em 4vw 1.66667em;
-
-  @media only screen and (min-width: 801px) {
-    margin-right: 30vw;
-  }
-
-  @media only screen and (min-width: 1091px) {
-    padding-left: 6vw;
-    padding-right: 6vw;
-  }
-
-  @media only screen and (min-width: 1501px) {
-    margin-right: 450px;
-    padding-left: 130px;
-    padding-right: 130px;
-  }
-`
-
-const Main = styled.main`
-  padding-bottom: 1.66667em;
-`
-
-function BackToHome() {
-  return (
-    <div style={{ margin: "0 0 1rem 1rem" }}>
-      <Link href="/">
-        <a>← Back to home</a>
-      </Link>
+      <header className={styles.header}>
+        <SiteTitle home={home} name={name} siteTitle={siteTitle} />
+      </header>
+      <main>{children}</main>
+      {!home && (
+        <div className={styles.backToHome}>
+          <Link href="/">
+            <a>← Back to home</a>
+          </Link>
+        </div>
+      )}
     </div>
   )
 }

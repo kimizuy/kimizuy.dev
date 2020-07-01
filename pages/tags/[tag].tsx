@@ -1,11 +1,11 @@
-import { GetStaticPaths, GetStaticProps } from "next";
-import Head from "next/head";
-import Link from "next/link";
-import Date from "components/Date";
-import Layout from "components/Layout";
-import { getAllTags, getSelectedTagData } from "lib/tags";
-import utilStyles from "styles/utils.module.css";
-import { FrontMatterType } from "types/post";
+import { GetStaticPaths, GetStaticProps } from "next"
+import Head from "next/head"
+import Link from "next/link"
+import Date from "../../components/Date"
+import Layout from "../../components/Layout"
+import { getAllTags, getSelectedTagData } from "../../lib/tags"
+import utilStyles from "styles/utils.module.css"
+import { FrontMatterType } from "../../types/post"
 
 type Props = {
   selectedTag: string;

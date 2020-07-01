@@ -14,8 +14,7 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "strictNullChecks": true,
-    "downlevelIteration": true,
-    "baseUrl": "."
+    "downlevelIteration": true
   },
   "exclude": ["node_modules"],
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"]
