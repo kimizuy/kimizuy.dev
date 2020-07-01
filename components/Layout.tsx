@@ -1,4 +1,3 @@
-import { useRouter } from "next/dist/client/router"
 import Head from "next/head"
 import styles from "./layout.module.css"
 import Link from "next/link"
@@ -14,8 +13,6 @@ export default function Layout({
   children: React.ReactNode
   home?: boolean
 }) {
-  const router = useRouter()
-
   return (
     <div className={styles.container}>
       <Head>
