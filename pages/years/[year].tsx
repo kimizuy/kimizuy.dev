@@ -8,9 +8,9 @@ import Layout from "../../components/Layout"
 import Date from "../../components/Date"
 
 type Props = {
-  selectedYear: string;
-  selectedYearPostsData: (FrontMatterType & { id: string })[];
-};
+  selectedYear: string
+  selectedYearPostsData: (FrontMatterType & { id: string })[]
+}
 
 export default function Year({ selectedYear, selectedYearPostsData }: Props) {
   return (
@@ -37,24 +37,24 @@ export default function Year({ selectedYear, selectedYearPostsData }: Props) {
         </ul>
       </section>
     </Layout>
-  );
+  )
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const paths = getAllYears();
+  const paths = getAllYears()
   return {
     paths,
     fallback: false,
-  };
-};
+  }
+}
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const selectedYear = params?.year as string;
-  const selectedYearPostsData = getSelectedYearData(selectedYear);
+  const selectedYear = params?.year as string
+  const selectedYearPostsData = getSelectedYearData(selectedYear)
   return {
     props: {
       selectedYear,
       selectedYearPostsData,
     },
-  };
-};
+  }
+}

@@ -8,9 +8,9 @@ import utilStyles from "styles/utils.module.css"
 import { FrontMatterType } from "../../types/post"
 
 type Props = {
-  selectedTag: string;
-  selectedTagPostsData: (FrontMatterType & { id: string })[];
-};
+  selectedTag: string
+  selectedTagPostsData: (FrontMatterType & { id: string })[]
+}
 
 export default function Tag({ selectedTag, selectedTagPostsData }: Props) {
   return (
@@ -37,24 +37,24 @@ export default function Tag({ selectedTag, selectedTagPostsData }: Props) {
         </ul>
       </section>
     </Layout>
-  );
+  )
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const paths = getAllTags();
+  const paths = getAllTags()
   return {
     paths,
     fallback: false,
-  };
-};
+  }
+}
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const selectedTag = params?.tag as string;
-  const selectedTagPostsData = getSelectedTagData(selectedTag);
+  const selectedTag = params?.tag as string
+  const selectedTagPostsData = getSelectedTagData(selectedTag)
   return {
     props: {
       selectedTag,
       selectedTagPostsData,
     },
-  };
-};
+  }
+}
