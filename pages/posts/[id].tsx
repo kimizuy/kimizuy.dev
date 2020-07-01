@@ -1,16 +1,19 @@
-import Layout from "components/Layout"
-import { getAllPostIds, getPostData } from "lib/posts"
+import Layout from "../../components/Layout"
+import { getAllPostIds, getPostData } from "../../lib/posts"
 import Head from "next/head"
-import Date from "components/Date"
-import utilStyles from "styles/utils.module.css"
+import utilStyles from "../../styles/utils.module.css"
 import { GetStaticProps, GetStaticPaths } from "next"
-import PostType from "types/post"
+import Date from "../../components/Date"
 
-type Props = {
-  postData: PostType
-}
-
-export default function Post({ postData }: Props) {
+export default function Post({
+  postData,
+}: {
+  postData: {
+    title: string
+    date: string
+    contentHtml: string
+  }
+}) {
   return (
     <Layout>
       <Head>
@@ -20,11 +23,6 @@ export default function Post({ postData }: Props) {
         <h1 className={utilStyles.headingXl}>{postData.title}</h1>
         <div className={utilStyles.lightText}>
           <Date dateString={postData.date} />
-        </div>
-        <div className={utilStyles.lightText}>
-          {typeof postData.tag === "string"
-            ? postData.tag
-            : postData.tag?.join(", ")}
         </div>
         <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
       </article>

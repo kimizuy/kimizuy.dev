@@ -5,7 +5,7 @@ import remark from "remark"
 import html from "remark-html"
 import toc from "remark-toc"
 import slug from "remark-slug"
-import { FrontMatterType } from "types/post"
+import { FrontMatterType } from "../types/post"
 
 const postsDirectory = path.join(process.cwd(), "_posts")
 

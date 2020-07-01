@@ -1,0 +1,149 @@
+.post {
+  margin-bottom: 3.33333em;
+}
+
+.postHeader {
+  margin-bottom: 2.5em;
+}
+
+.postTitle {
+  margin-bottom: 0.66667rem;
+
+  a {
+    border: 0;
+    color: inherit;
+
+    &:hover {
+      color: _palette(primary);
+    }
+  }
+}
+
+.postMeta {
+  color: _palette(meta);
+  font-size: 0.88889rem;
+}
+
+.postThumbnail {
+  border: 0;
+  display: block;
+  margin-bottom: 2.5em;
+
+  img {
+    width: 100%;
+  }
+}
+
+.postSubtitle {
+  color: _palette(secondary);
+  font-size: 1.33333rem;
+  line-height: 1.5;
+  margin-bottom: 2.5rem;
+}
+
+.readMoreLink {
+  color: _palette(secondary);
+  display: inline-block;
+  font-size: 0.88889rem;
+  font-weight: bold;
+  padding: 0.3em 24px 0.3em 0;
+  position: relative;
+
+  .iconArrowRight {
+    left: auto;
+    margin-left: 0;
+    margin-right: 2px;
+    right: 0;
+  }
+}
+
+.postFull:not(.page) .postHeader {
+  text-align: center;
+}
+
+.postFeed {
+  .post {
+    border-bottom: 1px dashed _palette(border);
+    padding-bottom: 1.66667em;
+
+    &:last-child {
+      border: 0;
+      padding-bottom: 0;
+    }
+  }
+
+  .postHeader,
+  .postThumbnail {
+    margin-bottom: 1.66667em;
+  }
+
+  .postTitle {
+    font-size: 1.66667rem;
+  }
+
+  .postMeta {
+    font-size: 14px;
+  }
+}
+
+/* Pagination */
+.pagination {
+  border-top: 1px dashed _palette(border);
+  margin: 3.33333em 0 1.66667em;
+  padding-top: 3.33333em;
+
+  .navLinks {
+    padding: 0 60px;
+    position: relative;
+    text-align: center;
+  }
+
+  .pageNumber {
+    color: _palette(meta);
+    display: inline-block;
+    font-size: 14px;
+    line-height: 1.5;
+    padding: 0.67857em 0;
+  }
+
+  .newerPosts,
+  .olderPosts {
+    height: 40px;
+    padding: 0;
+    position: absolute;
+    top: 0;
+    width: 45px;
+  }
+
+  .olderPosts {
+    left: 0;
+  }
+
+  .newerPosts {
+    right: 0;
+  }
+}
+
+/* Post navigation */
+.postNavigation {
+  margin-bottom: 3.33333rem;
+
+  .postNavTitle {
+    font-size: 1rem;
+    margin: 0 0 1.66667rem;
+  }
+
+  .post,
+  .postHeader {
+    margin-bottom: 1.66667em;
+  }
+
+  .postTitle {
+    font-size: 1.33333rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .postMeta {
+    font-size: 14px;
+  }
+}

@@ -1,13 +1,13 @@
 import { useRouter } from "next/dist/client/router"
 import Head from "next/head"
+import styles from "./layout.module.css"
 import Link from "next/link"
-import styled from "styled-components"
-import Header from "./Header"
+import SiteTitle from "./SiteTitle"
 
 const name = "kimizuy"
 export const siteTitle = `${name} blog`
 
-export default function ({
+export default function Layout({
   children,
   home,
 }: {
@@ -17,7 +17,7 @@ export default function ({
   const router = useRouter()
 
   return (
-    <>
+    <div className={styles.container}>
       <Head>
         <link rel="icon" href="/favicon.ico" />
         <meta
@@ -33,66 +33,17 @@ export default function ({
         <meta name="og:title" content={siteTitle} />
         <meta name="twitter:card" content="summary_large_image" />
       </Head>
-      <Body>
-        <HeaderGrid>
-          <HeaderArea>
-            <Header home={home} name={name} siteTitle={siteTitle} />
-          </HeaderArea>
-        </HeaderGrid>
-        <MainGrid>
-          <MainArea>{children}</MainArea>
-        </MainGrid>
-        {!home && <BackToHome />}
-      </Body>
-    </>
-  )
-}
-
-const Body = styled.div`
-  display: grid;
-  grid-template-rows: 4rem 1fr;
-  grid-template-columns: 1fr;
-  grid-template-areas:
-    "header"
-    "main";
-`
-
-const HeaderGrid = styled.div`
-  grid-area: header;
-`
-
-const MainGrid = styled.main`
-  grid-area: main;
-`
-
-const HeaderArea = styled.div`
-  display: flex;
-  justify-content: space-between;
-  max-width: 60rem;
-  margin: 0 auto;
-  padding: 1rem 1rem 0;
-`
-
-const MainArea = styled.div`
-  display: flex;
-  justify-content: space-between;
-  max-width: 60rem;
-  margin: 1rem auto 4rem;
-  padding: 0 1rem;
-`
-
-const NavArea = styled.aside`
-  max-width: 20%;
-  overflow-wrap: break-word;
-  background-color: #eee;
-`
-
-function BackToHome() {
-  return (
-    <div style={{ margin: "0 0 1rem 1rem" }}>
-      <Link href="/">
-        <a>← Back to home</a>
-      </Link>
+      <header className={styles.header}>
+        <SiteTitle home={home} name={name} siteTitle={siteTitle} />
+      </header>
+      <main>{children}</main>
+      {!home && (
+        <div className={styles.backToHome}>
+          <Link href="/">
+            <a>← Back to home</a>
+          </Link>
+        </div>
+      )}
     </div>
   )
 }

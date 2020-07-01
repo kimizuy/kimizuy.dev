@@ -1,6 +1,5 @@
 {
   "files.exclude": {
-    "node_modules": true,
-    ".next": true
+    "node_modules": true
   }
 }
