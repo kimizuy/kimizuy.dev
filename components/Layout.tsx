@@ -1,7 +1,7 @@
 import Head from "next/head"
 import styles from "./layout.module.css"
 import Link from "next/link"
-import SiteTitle from "./SiteTitle"
+import Logo from "./Logo"
 
 const name = "kimizuy"
 export const siteTitle = `${name} blog`
@@ -31,7 +31,7 @@ export default function Layout({
         <meta name="twitter:card" content="summary_large_image" />
       </Head>
       <header className={styles.header}>
-        <SiteTitle home={home} name={name} siteTitle={siteTitle} />
+        <Logo home={home} name={name} siteTitle={siteTitle} />
       </header>
       <main>{children}</main>
       {!home && (

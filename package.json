@@ -8,7 +8,7 @@
     "start": "next start",
     "tsc-watch": "tsc --noEmit --watch",
     "format": "prettier --write ./**/*.{js,ts,tsx}",
-    "sb": "start-storybook -p 6006",
+    "sb": "start-storybook -s ./public -p 6006",
     "build-storybook": "build-storybook"
   },
   "dependencies": {
