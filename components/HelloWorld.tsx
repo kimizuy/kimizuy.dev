@@ -4,6 +4,6 @@ type Props = {
   value: string
 }
 
-export default function Home({ value }: Props) {
+export default function ({ value }: Props) {
   return <div className={styles.heading2Xl}>Hello World {value}</div>
 }

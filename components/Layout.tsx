@@ -1,17 +1,19 @@
 import Head from "next/head"
-import styles from "./layout.module.css"
 import Link from "next/link"
+import styles from "./layout.module.css"
 import Logo from "./Logo"
 
 const name = "kimizuy"
-export const siteTitle = `${name} blog`
+export const siteTitle = `kimizuy blog`
 
 export default function Layout({
   children,
   home,
+  navItem,
 }: {
   children: React.ReactNode
   home?: boolean
+  navItem?: JSX.Element
 }) {
   return (
     <div className={styles.container}>
@@ -30,10 +32,13 @@ export default function Layout({
         <meta name="og:title" content={siteTitle} />
         <meta name="twitter:card" content="summary_large_image" />
       </Head>
+
       <header className={styles.header}>
         <Logo home={home} name={name} siteTitle={siteTitle} />
       </header>
-      <main>{children}</main>
+      <main className={styles.main}>{children}</main>
+      <nav className={styles.nav}>nav</nav>
+
       {!home && (
         <div className={styles.backToHome}>
           <Link href="/">
