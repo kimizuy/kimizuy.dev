@@ -1,7 +1,7 @@
 import fs from "fs"
 import matter from "gray-matter"
 import path from "path"
-import { FrontMatterType } from "../types/post"
+import { FrontMatter } from "../types/post"
 
 const postsDirectory = path.join(process.cwd(), "_posts")
 
@@ -11,10 +11,17 @@ export function getFileNames() {
   return fileNames
 }
 
+export function getFileContents(slug: string) {
+  const fullPath = path.join(postsDirectory, `${slug}.mdx`)
+  const fileContents = fs.readFileSync(fullPath, "utf8")
+
+  return fileContents
+}
+
 export function getFrontMatter(fileName: string) {
   const fullPath = path.join(postsDirectory, fileName)
   const fileContents = fs.readFileSync(fullPath, "utf8")
-  const matterData = matter(fileContents).data as FrontMatterType
+  const frontMatter = matter(fileContents).data as FrontMatter
 
-  return matterData
+  return frontMatter
 }

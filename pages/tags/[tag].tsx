@@ -1,18 +1,18 @@
 import { GetStaticPaths, GetStaticProps } from "next"
 import Head from "next/head"
 import Link from "next/link"
+import utilStyles from "styles/utils.module.css"
 import Date from "../../components/Date"
 import Layout from "../../components/Layout"
 import { getAllTags, getSelectedTagData } from "../../lib/tags"
-import utilStyles from "styles/utils.module.css"
-import { FrontMatterType } from "../../types/post"
+import { PostsData } from "../../types/post"
 
 type Props = {
   selectedTag: string
-  selectedTagPostsData: (FrontMatterType & { id: string })[]
+  postsDataList: PostsData[]
 }
 
-export default function Tag({ selectedTag, selectedTagPostsData }: Props) {
+export default function Tag({ selectedTag, postsDataList }: Props) {
   return (
     <Layout>
       <Head>
@@ -21,9 +21,9 @@ export default function Tag({ selectedTag, selectedTagPostsData }: Props) {
       <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
         <h2 className={utilStyles.headingLg}>{selectedTag}</h2>
         <ul className={utilStyles.list}>
-          {selectedTagPostsData.map(({ id, date, title, tag }) => (
-            <li className={utilStyles.listItem} key={id}>
-              <Link href="/posts/[id]" as={`/posts/${id}`}>
+          {postsDataList.map(({ slug, date, title, tag }) => (
+            <li className={utilStyles.listItem} key={slug}>
+              <Link href="/posts/[slug]" as={`/posts/${slug}`}>
                 <a>{title}</a>
               </Link>
               <br />

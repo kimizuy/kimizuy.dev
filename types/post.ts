@@ -1,11 +1,7 @@
-type PostType = FrontMatterType & {
-  contentHtml: string
-}
-
-export type FrontMatterType = {
+export type FrontMatter = {
   title: string
   date: string
   tag?: string[] | string
 }
 
-export default PostType
+export type PostsData = { slug: string } & FrontMatter
