@@ -4,15 +4,15 @@ import Link from "next/link"
 import utilStyles from "styles/utils.module.css"
 import Date from "../../components/Date"
 import Layout from "../../components/Layout"
-import { getAllTags, getSelectedTagData } from "../../lib/tags"
-import { PostsData } from "../../types/post"
+import { getAllTags, getSelectedTagPosts } from "../../lib/tags"
+import { Post } from "../../types/post"
 
 type Props = {
   selectedTag: string
-  postsDataList: PostsData[]
+  selectedTagPosts: Post[]
 }
 
-export default function Tag({ selectedTag, postsDataList }: Props) {
+export default function Tag({ selectedTag, selectedTagPosts }: Props) {
   return (
     <Layout>
       <Head>
@@ -21,7 +21,7 @@ export default function Tag({ selectedTag, postsDataList }: Props) {
       <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
         <h2 className={utilStyles.headingLg}>{selectedTag}</h2>
         <ul className={utilStyles.list}>
-          {postsDataList.map(({ slug, date, title, tag }) => (
+          {selectedTagPosts.map(({ slug, date, title, tag }) => (
             <li className={utilStyles.listItem} key={slug}>
               <Link href="/posts/[slug]" as={`/posts/${slug}`}>
                 <a>{title}</a>
@@ -50,11 +50,11 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   const selectedTag = params?.tag as string
-  const selectedTagPostsData = getSelectedTagData(selectedTag)
+  const selectedTagPosts = getSelectedTagPosts(selectedTag)
   return {
     props: {
       selectedTag,
-      selectedTagPostsData,
+      selectedTagPosts,
     },
   }
 }

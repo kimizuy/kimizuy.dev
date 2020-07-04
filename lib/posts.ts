@@ -15,13 +15,7 @@ export function getSortedPostsData() {
     }
   })
 
-  return allPostsData.sort((a, b) => {
-    if (a.date < b.date) {
-      return 1
-    } else {
-      return -1
-    }
-  })
+  return allPostsData.sort((a, b) => (a.date < b.date ? 1 : -1))
 }
 
 export function getAllSlugs() {

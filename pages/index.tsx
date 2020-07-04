@@ -1,16 +1,15 @@
 import { GetStaticProps } from "next"
 import Head from "next/head"
-import Link from "next/link"
-import Date from "../components/Date"
 import Layout from "../components/Layout"
+import PostList from "../components/PostList"
 import { SITETITLE } from "../lib/constants"
 import { getSortedPostsData } from "../lib/posts"
 import utilStyles from "../styles/utils.module.css"
-import { PostsData } from "../types/post"
+import { Post } from "../types/post"
 
-type Props = { postsDataList: PostsData[] }
+type Props = { posts: Post[] }
 
-export default function Home({ postsDataList }: Props) {
+export default function Home({ posts }: Props) {
   return (
     <Layout home>
       <Head>
@@ -24,30 +23,18 @@ export default function Home({ postsDataList }: Props) {
       </section>
       <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
         <h2 className={utilStyles.headingLg}>Blog</h2>
-        <ul className={utilStyles.list}>
-          {postsDataList.map(({ slug, date, title }) => (
-            <li className={utilStyles.listItem} key={slug}>
-              <Link href="/posts/[slug]" as={`/posts/${slug}`}>
-                <a>{title}</a>
-              </Link>
-              <br />
-              <small>
-                <Date dateString={date} />
-              </small>
-            </li>
-          ))}
-        </ul>
+        <PostList posts={posts} />
       </section>
     </Layout>
   )
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const postsDataList = getSortedPostsData()
+  const posts = getSortedPostsData()
 
   return {
     props: {
-      postsDataList,
+      posts,
     },
   }
 }

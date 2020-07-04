@@ -4,4 +4,4 @@ export type FrontMatter = {
   tag?: string[] | string
 }
 
-export type PostsData = { slug: string } & FrontMatter
+export type Post = { slug: string } & FrontMatter

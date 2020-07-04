@@ -5,7 +5,7 @@
 
 .header {
   grid-column: 1 / 3;
-  padding: 0.5rem;
+  padding: 0.5rem 1rem;
 
   background-color: yellow;
 }
@@ -16,13 +16,36 @@
 }
 
 .nav {
-  grid-column: 2 / 3;
-  width: 20vw;
-  padding: 0.5rem;
-
-  background-color: blue;
+  display: none;
 }
 
 .backToHome {
-  margin: 3rem 0 0;
+  margin: 3rem 1rem 1rem;
+}
+
+@media (min-width: 768px) {
+  .header {
+    padding: 0.5rem 0 0.5rem 15vw;
+  }
+
+  .main {
+    padding: 1rem 5vw 1rem 15vw;
+  }
+
+  .nav {
+    display: block;
+    grid-column: 2 / 3;
+    width: 20vw;
+    padding: 0.5rem;
+
+    background-color: blue;
+  }
+}
+
+.box {
+  height: 500px;
+  width: 500px;
+  border-radius: 10px;
+  background: #ffffff;
+  box-shadow: inset 5px 5px 10px #808080, inset -5px -5px 10px #ffffff;
 }

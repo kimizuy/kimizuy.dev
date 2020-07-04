@@ -1,9 +1,10 @@
 import { getFileNames, getFrontMatter } from "./util"
+import { Post } from "../types/post"
 
 const fileNames = getFileNames()
 
-export function getSelectedTagData(selectedTag: string) {
-  const selectedTagData = fileNames.map((fileName) => {
+export function getSelectedTagPosts(selectedTag: string) {
+  const selectedTagPosts = fileNames.map((fileName) => {
     const slug = fileName.replace(/\.mdx$/, "")
     const frontMatter = getFrontMatter(fileName)
     const tag = frontMatter.tag
@@ -15,13 +16,9 @@ export function getSelectedTagData(selectedTag: string) {
     }
   })
 
-  return selectedTagData.filter(Boolean).sort((a, b) => {
-    if (a!.date < b!.date) {
-      return 1
-    } else {
-      return -1
-    }
-  })
+  return selectedTagPosts
+    .filter((post): post is Post => post !== undefined)
+    .sort((a, b) => (a.date < b.date ? 1 : -1))
 }
 
 export function getAllTags() {
