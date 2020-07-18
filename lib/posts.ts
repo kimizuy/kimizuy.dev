@@ -1,17 +1,18 @@
 import matter from "gray-matter"
 import { FrontMatter } from "../types/post"
 import markdownToHtml from "./markdownToHtml"
-import { getFileContents, getFileNames, getFrontMatter } from "./util"
+import { getFileContents, getFileNames } from "./util"
 
 const fileNames = getFileNames()
 
 export function getSortedPostsData() {
   const allPostsData = fileNames.map((fileName) => {
     const slug = fileName.replace(/\.mdx$/, "")
-    const frontMatter = getFrontMatter(fileName)
+    const fileContents = getFileContents(slug)
+    const { data } = matter(fileContents)
     return {
       slug,
-      ...frontMatter,
+      ...(data as FrontMatter),
     }
   })
 

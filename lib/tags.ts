@@ -1,17 +1,21 @@
-import { getFileNames, getFrontMatter } from "./util"
-import { Post } from "../types/post"
+import matter from "gray-matter"
+import { FrontMatter, Post } from "../types/post"
+import { getFileContents, getFileNames } from "./util"
 
 const fileNames = getFileNames()
 
 export function getSelectedTagPosts(selectedTag: string) {
   const selectedTagPosts = fileNames.map((fileName) => {
     const slug = fileName.replace(/\.mdx$/, "")
-    const frontMatter = getFrontMatter(fileName)
-    const tag = frontMatter.tag
-    if (tag === selectedTag || tag?.includes(selectedTag)) {
+    const fileContents = getFileContents(slug)
+    const frontMatter = matter(fileContents).data as FrontMatter
+    if (
+      frontMatter.tag === selectedTag ||
+      frontMatter.tag?.includes(selectedTag)
+    ) {
       return {
         slug,
-        ...frontMatter,
+        ...(frontMatter as FrontMatter),
       }
     }
   })
@@ -23,7 +27,9 @@ export function getSelectedTagPosts(selectedTag: string) {
 
 export function getAllTags() {
   const tags = fileNames.flatMap((fileName) => {
-    const { tag } = getFrontMatter(fileName)
+    const slug = fileName.replace(/\.mdx$/, "")
+    const fileContents = getFileContents(slug)
+    const { tag } = matter(fileContents).data as FrontMatter
     return { params: { tag } }
   })
 

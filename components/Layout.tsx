@@ -3,6 +3,7 @@ import Link from "next/link"
 import { NAME, SITETITLE } from "../lib/constants"
 import styles from "./layout.module.css"
 import Logo from "./Logo"
+import BackToHome from "./BackToHome"
 
 export default function Layout({
   children,
@@ -36,14 +37,7 @@ export default function Layout({
       </header>
       <main className={styles.main}>{children}</main>
       <nav className={styles.nav}>nav</nav>
-
-      {!home && (
-        <div className={styles.backToHome}>
-          <Link href="/">
-            <a>← Back to home</a>
-          </Link>
-        </div>
-      )}
+      <footer className={styles.footer}>{!home && <BackToHome />}</footer>
     </div>
   )
 }
