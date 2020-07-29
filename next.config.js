@@ -1,11 +1,9 @@
+/* eslint-disable func-names */
 const { createLoader } = require('simple-functional-loader')
 const rehypePrism = require('@mapbox/rehype-prism')
 
 module.exports = {
   pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'mdx'],
-  experimental: {
-    modern: true,
-  },
 
   webpack: (config, options) => {
     config.module.rules.push({
