@@ -31,11 +31,11 @@ export function getAllSlugs() {
 export async function getPostData(slug: string) {
   const fileContents = getFileContents(slug)
   const { data, content } = matter(fileContents)
-  const contentHtml = await markdownToHtml(content)
+  // const contentHtml = await markdownToHtml(content)
 
   return {
     slug,
-    contentHtml,
+    contentHtml: content,
     ...(data as FrontMatter),
   }
 }
