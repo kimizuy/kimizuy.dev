@@ -1,0 +1,16 @@
+.container {
+  display: inline-flex;
+  vertical-align: middle;
+  cursor: pointer;
+}
+
+.headerImage {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 9999px;
+}
+
+.headerTitle {
+  font-weight: 800;
+  margin: auto 0.5rem;
+}
