@@ -13,33 +13,26 @@
   },
   "dependencies": {
     "@mapbox/rehype-prism": "^0.5.0",
-    "@mdx-js/loader": "^1.6.5",
-    "@mdx-js/react": "^1.6.5",
-    "@next/mdx": "^9.4.4",
     "@storybook/react": "^5.3.19",
     "date-fns": "^2.14.0",
     "gray-matter": "^4.0.2",
-    "next": "9.3.5",
+    "next": "^9.4.4",
     "react": "16.13.1",
     "react-dom": "16.13.1",
-    "remark": "^12.0.0",
-    "remark-collapse": "^0.1.2",
-    "remark-highlight.js": "^6.0.0",
-    "remark-html": "^11.0.2",
-    "remark-parse": "^8.0.2",
-    "remark-rehype": "^7.0.0",
-    "remark-slug": "^6.0.0",
-    "remark-toc": "^7.0.0"
+    "simple-functional-loader": "^1.2.1"
   },
   "devDependencies": {
     "@babel/core": "^7.10.3",
+    "@mdx-js/loader": "^1.6.13",
+    "@next/mdx": "^9.4.4",
     "@storybook/addon-actions": "5.3.19",
     "@storybook/addon-links": "5.3.19",
     "@storybook/addons": "5.3.19",
     "@storybook/preset-typescript": "3.0.0",
-    "@types/node": "^14.0.5",
-    "@types/react": "^16.9.35",
+    "@types/node": "^13.11.0",
+    "@types/react": "^16.9.32",
     "@types/react-dom": "16.9.8",
+    "@types/webpack-env": "^1.15.2",
     "babel-loader": "^8.1.0",
     "eslint": "7.2.0",
     "eslint-config-airbnb": "18.2.0",
@@ -49,9 +42,10 @@
     "eslint-plugin-prettier": "^3.1.4",
     "eslint-plugin-react": "^7.20.0",
     "eslint-plugin-react-hooks": "4.0.0",
+    "file-loader": "^6.0.0",
     "fork-ts-checker-webpack-plugin": "5.0.4",
     "prettier": "2.0.5",
     "ts-loader": "7.0.5",
-    "typescript": "3.9.5"
+    "typescript": "^3.8.3"
   }
 }
