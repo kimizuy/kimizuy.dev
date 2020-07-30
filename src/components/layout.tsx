@@ -33,9 +33,10 @@ export default function Layout({
       <header className={styles.header}>
         <Logo name={NAME} siteTitle={SITETITLE} />
       </header>
-      <main className={styles.main}>{children}</main>
-      <nav className={styles.nav}>nav</nav>
-      <footer className={styles.footer}>{!home && <BackToHome />}</footer>
+      <main className={styles.main}>
+        {children}
+        {!home && <BackToHome />}
+      </main>
     </div>
   )
 }
