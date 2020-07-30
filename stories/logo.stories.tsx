@@ -1,7 +1,7 @@
-import Logo from "../components/Logo"
-import styles from "../components/logo.module.css"
+import Logo from '../src/components/logo'
+import styles from '../src/components/logo.module.css'
 
-export default { title: "Logo" }
+export default { title: 'Logo' }
 
 export const logo = () => <Logo name="kimizuy" siteTitle="kimizuy blog" />
 

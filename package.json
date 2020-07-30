@@ -22,7 +22,7 @@
     "simple-functional-loader": "^1.2.1"
   },
   "devDependencies": {
-    "@babel/core": "^7.10.3",
+    "@babel/core": "^7.10.5",
     "@mdx-js/loader": "^1.6.13",
     "@next/mdx": "^9.4.4",
     "@storybook/addon-actions": "5.3.19",
@@ -34,6 +34,7 @@
     "@types/react-dom": "16.9.8",
     "@types/webpack-env": "^1.15.2",
     "babel-loader": "^8.1.0",
+    "css-loader": "^4.1.0",
     "eslint": "7.2.0",
     "eslint-config-airbnb": "18.2.0",
     "eslint-config-prettier": "^6.11.0",
@@ -45,6 +46,7 @@
     "file-loader": "^6.0.0",
     "fork-ts-checker-webpack-plugin": "5.0.4",
     "prettier": "2.0.5",
+    "style-loader": "^1.2.1",
     "ts-loader": "7.0.5",
     "typescript": "^3.8.3"
   }
