@@ -47,7 +47,7 @@ module.exports = {
       test: /\.module\.css$/,
       include: [
         path.resolve(__dirname, '../src/components'),
-        path.resolve(__dirname, '../styles'),
+        path.resolve(__dirname, '../stories'),
       ],
       use: [
         'style-loader',
