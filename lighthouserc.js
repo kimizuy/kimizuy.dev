@@ -1,6 +1,5 @@
 module.exports = {
   ci: {
-    url: ['http://localhost/'],
     collect: {
       staticDistDir: './out',
     },
