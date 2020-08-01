@@ -1,7 +1,24 @@
 @import url('./prism.css');
 
+@media (prefers-color-scheme: dark) {
+  :root {
+    --text-color: #eeeeee;
+    --background: #222831;
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --text-color: #1f1f1f;
+    --background: #ffffff;
+  }
+}
+
 html,
 body {
+  color: var(--text-color);
+  background: var(--background);
+
   padding: 0;
   margin: 0;
   font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN',
@@ -15,7 +32,7 @@ body {
 }
 
 a {
-  color: #0070f3;
+  color: #5bc0a5;
   text-decoration: none;
 }
 
