@@ -3,16 +3,18 @@ import { Meta } from '@/types/post'
 import Link from 'next/link'
 
 type Props = {
-  link: string
-  excerpt: any
-  meta: Meta
+  data: {
+    link: string
+    excerpt?: any
+    meta: Meta
+  }
 }
 
-export default function Preview(p: Props) {
+export default function Preview({ data }: Props) {
   return (
     <li>
-      <Link href={p.link}>
-        <a>{p.meta.title}</a>
+      <Link href={data.link}>
+        <a>{data.meta.title}</a>
       </Link>
     </li>
   )
