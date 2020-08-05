@@ -1,3 +1,3 @@
 module.exports = {
-  extends: ["airbnb", "airbnb/hooks", "plugin:prettier/recommended"],
+  extends: ['airbnb', 'airbnb/hooks', 'plugin:prettier/recommended'],
 }
