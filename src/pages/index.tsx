@@ -7,9 +7,9 @@ import getAllPostPreviews from '@/lib/getAllPostPreviews'
 import { Meta } from '@/types/post'
 import { SITETITLE } from '@/lib/constants'
 
-type Post = { link: string; module: { default: any; meta: Meta } }
+type Preview = { link: string; module: { default: any; meta: Meta } }
 
-const posts: Post[] = getAllPostPreviews()
+const previews: Preview[] = getAllPostPreviews()
 
 export default function Home() {
   return (
@@ -25,7 +25,7 @@ export default function Home() {
       <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
         <h2 className={utilStyles.headingLg}>Blog</h2>
         <ul className={utilStyles.list}>
-          {posts.map(({ link, module: { default: Excerpt, meta } }) => (
+          {previews.map(({ link, module: { default: Excerpt, meta } }) => (
             <li className={utilStyles.listItem} key={link}>
               <Link href={link}>
                 <a>{meta.title}</a>

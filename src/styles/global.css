@@ -1,3 +1,4 @@
+@import url('./reset.css');
 @import url('./prism.css');
 
 @media (prefers-color-scheme: dark) {
