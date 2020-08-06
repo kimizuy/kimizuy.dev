@@ -4,10 +4,9 @@ import utilStyles from '@/styles/utils.module.css'
 import Link from 'next/link'
 import Date from '@/components/date'
 import getAllPostPreviews from '@/lib/getAllPostPreviews'
-import { Meta } from '@/types/post'
+import { Preview } from '@/types/post'
 import { SITETITLE } from '@/lib/constants'
-
-type Preview = { link: string; module: { default: any; meta: Meta } }
+import Previews from '@/components/previews'
 
 const previews: Preview[] = getAllPostPreviews()
 
@@ -22,22 +21,9 @@ export default function Home() {
           <a href="https://github.com/kimizuy">kimizuy</a> のブログです。
         </p>
       </section>
-      <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
-        <h2 className={utilStyles.headingLg}>Blog</h2>
-        <ul className={utilStyles.list}>
-          {previews.map(({ link, module: { default: Excerpt, meta } }) => (
-            <li className={utilStyles.listItem} key={link}>
-              <Link href={link}>
-                <a>{meta.title}</a>
-              </Link>
-              <br />
-              <Excerpt />
-              <small className={utilStyles.lightText}>
-                <Date dateString={meta.date} />
-              </small>
-            </li>
-          ))}
-        </ul>
+      <section className={`${utilStyles.padding1px}`}>
+        <h2>Blog</h2>
+        <Previews previews={previews} />
       </section>
     </Layout>
   )
