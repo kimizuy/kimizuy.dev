@@ -5,7 +5,11 @@
 }
 
 .listItem {
-  margin: 0 0 1.25rem;
+  margin: 1.25rem 0;
   padding: 0 0 1.25rem;
   border-bottom: 1px solid white;
+}
+
+.listItem:last-child {
+  border-bottom: none;
 }

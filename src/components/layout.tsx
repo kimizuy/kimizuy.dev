@@ -1,9 +1,9 @@
 import Head from 'next/head'
-import Link from 'next/link'
 import { NAME, SITETITLE } from '../lib/constants'
 import styles from './layout.module.css'
 import Logo from './logo'
 import BackToHome from './backToHome'
+import CopyRight from './copyRight'
 
 export default function Layout({
   children,
@@ -37,6 +37,9 @@ export default function Layout({
         {children}
         {!home && <BackToHome />}
       </main>
+      <footer className={styles.footer}>
+        <CopyRight />
+      </footer>
     </div>
   )
 }
