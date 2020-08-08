@@ -16,12 +16,7 @@ export default function Home() {
       <Head>
         <title>{SITETITLE}</title>
       </Head>
-      <section className={utilStyles.headingMd}>
-        <p>
-          <a href="https://github.com/kimizuy">kimizuy</a> のブログです。
-        </p>
-      </section>
-      <section className={`${utilStyles.padding1px}`}>
+      <section>
         <h2>Blog</h2>
         <Previews previews={previews} />
       </section>
