@@ -2,8 +2,9 @@ import Head from 'next/head'
 import { NAME, SITETITLE } from '../lib/constants'
 import styles from './layout.module.css'
 import Logo from './logo'
-import BackToHome from './backToHome'
 import CopyRight from './copyRight'
+import Link from 'next/link'
+// import Tag from './tagList'
 
 export default function Layout({
   children,
@@ -38,11 +39,23 @@ export default function Layout({
           {children}
           {!home && <BackToHome />}
         </section>
-        <section className={styles.nav}>nav</section>
+        {home && (
+          <section className={styles.nav}>{/* <Tag name="tag" /> */}</section>
+        )}
       </main>
       <footer className={styles.footer}>
         <CopyRight />
       </footer>
+    </div>
+  )
+}
+
+function BackToHome() {
+  return (
+    <div className={styles.backToHome}>
+      <Link href="/">
+        <a>← Back to home</a>
+      </Link>
     </div>
   )
 }

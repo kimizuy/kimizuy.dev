@@ -1,21 +1,26 @@
 @import url('./reset.css');
 @import url('./prism.css');
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --text-color: #f9fafa;
-    --background: #0d1219;
-    --content-bg: #1a2634;
-  }
+/* @media (prefers-color-scheme: dark) { */
+:root {
+  --text-color: #f9fafa;
+  --background: #0d1219;
+  --content-bg: #1a2634;
+  --link-color: #00c792;
+  --tag-color: #c2c6ca;
+  --tag-bg: #2e3a48;
+  --tag-bg-hov: #444f5b;
 }
+/* } */
 
-@media (prefers-color-scheme: light) {
+/* @media (prefers-color-scheme: light) {
   :root {
     --text-color: #333;
     --background: #f8f8f8;
     --content-bg: #fff;
+    --link-color: #008662;
   }
-}
+} */
 
 html,
 body {
@@ -29,7 +34,7 @@ body {
 }
 
 a {
-  color: #5ec5aa;
+  color: var(--link-color);
   text-decoration: none;
 }
 

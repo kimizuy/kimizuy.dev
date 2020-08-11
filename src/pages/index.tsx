@@ -1,12 +1,9 @@
 import Head from 'next/head'
 import Layout from '@/components/layout'
-import utilStyles from '@/styles/utils.module.css'
-import Link from 'next/link'
-import Date from '@/components/date'
 import getAllPostPreviews from '@/lib/getAllPostPreviews'
 import { Preview } from '@/types/post'
 import { SITETITLE } from '@/lib/constants'
-import Previews from '@/components/previews'
+import CardList from '@/components/cardList'
 
 const previews: Preview[] = getAllPostPreviews()
 
@@ -17,8 +14,7 @@ export default function Home() {
         <title>{SITETITLE}</title>
       </Head>
       <section>
-        <h2>Blog</h2>
-        <Previews previews={previews} />
+        <CardList previews={previews} />
       </section>
     </Layout>
   )
