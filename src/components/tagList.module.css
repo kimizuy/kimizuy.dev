@@ -1,0 +1,16 @@
+.tag {
+  padding: 4px 10px;
+  font-size: 0.875rem;
+  border-width: 0;
+  border-radius: 4px;
+  background-color: var(--tag-bg);
+  color: var(--tag-color);
+  cursor: pointer;
+  transition: cubic-bezier(0.17, 0.67, 0.5, 0.71) 100ms;
+}
+
+.tag:hover,
+.tag:focus {
+  background-color: var(--tag-bg-hov);
+  color: var(--text-color);
+}

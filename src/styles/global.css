@@ -1,39 +1,40 @@
 @import url('./reset.css');
 @import url('./prism.css');
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --text-color: #eeeeee;
-    --background: #222831;
-  }
+/* @media (prefers-color-scheme: dark) { */
+:root {
+  --text-color: #f9fafa;
+  --background: #0d1219;
+  --content-bg: #1a2634;
+  --link-color: #00c792;
+  --tag-color: #c2c6ca;
+  --tag-bg: #2e3a48;
+  --tag-bg-hov: #444f5b;
 }
+/* } */
 
-@media (prefers-color-scheme: light) {
+/* @media (prefers-color-scheme: light) {
   :root {
-    --text-color: #1f1f1f;
-    --background: #ffffff;
+    --text-color: #333;
+    --background: #f8f8f8;
+    --content-bg: #fff;
+    --link-color: #008662;
   }
-}
+} */
 
 html,
 body {
   color: var(--text-color);
   background: var(--background);
 
-  padding: 0;
-  margin: 0;
   font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN',
     'Hiragino Sans', Meiryo, sans-serif;
   line-height: 1.6;
   font-size: 16px;
 }
 
-* {
-  box-sizing: border-box;
-}
-
 a {
-  color: #5bc0a5;
+  color: var(--link-color);
   text-decoration: none;
 }
 
