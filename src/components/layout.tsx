@@ -39,9 +39,6 @@ export default function Layout({
           {children}
           {!home && <BackToHome />}
         </section>
-        {home && (
-          <section className={styles.nav}>{/* <Tag name="tag" /> */}</section>
-        )}
       </main>
       <footer className={styles.footer}>
         <CopyRight />

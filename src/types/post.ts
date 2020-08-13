@@ -1,7 +1,7 @@
 export type Meta = {
   title: string
   date: string
-  // tag: string[]
+  tag: string[]
   image?: any
 }
 
