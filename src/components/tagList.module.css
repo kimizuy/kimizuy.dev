@@ -1,4 +1,9 @@
+.container {
+  padding: 1rem 0.5rem;
+}
+
 .tag {
+  margin: 0.5rem;
   padding: 4px 10px;
   font-size: 0.875rem;
   border-width: 0;
@@ -13,4 +18,10 @@
 .tag:focus {
   background-color: var(--tag-bg-hov);
   color: var(--text-color);
+}
+
+@media screen and (min-width: 479px) {
+  .container {
+    padding: 1rem 0;
+  }
 }

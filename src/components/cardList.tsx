@@ -9,7 +9,7 @@ type Props = {
   previews: Preview[]
 }
 
-export default function Previews(p: Props) {
+export default function CardList(p: Props) {
   return (
     <div className={styles.container}>
       {p.previews.map((preview) => (

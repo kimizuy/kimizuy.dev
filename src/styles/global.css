@@ -10,6 +10,7 @@
   --tag-color: #c2c6ca;
   --tag-bg: #2e3a48;
   --tag-bg-hov: #444f5b;
+  --border-color: rgba(255, 255, 255, 0.3);
 }
 /* } */
 
@@ -31,6 +32,7 @@ body {
     'Hiragino Sans', Meiryo, sans-serif;
   line-height: 1.6;
   font-size: 16px;
+  overflow-wrap: anywhere;
 }
 
 a {

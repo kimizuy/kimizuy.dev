@@ -1,13 +1,10 @@
 .container {
-  display: flex;
-  flex-wrap: wrap;
+  display: block;
 }
 
 .card {
-  width: 100%;
-  padding: 0.5rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.3);
-  cursor: pointer;
+  padding: 1rem;
+  border-top: 1px solid var(--border-color);
 }
 
 .card img {
@@ -22,9 +19,9 @@
   display: none;
   position: relative;
   padding-bottom: 56.25%;
+  cursor: pointer;
   /* はみ出た部分を非表示 */
   overflow: hidden;
-  margin-bottom: 0.5rem;
 }
 
 .imgWrapper img {
@@ -34,19 +31,21 @@
   height: 100%;
 }
 
-.title {
-}
-
 /* tablet */
 @media screen and (min-width: 479px) {
-  .card {
-    padding: 1rem;
-    width: calc(100% / 2);
-    border: 0;
+  .container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
   }
 
-  .card:hover {
-    border: 1px solid var(--link-color);
+  .card {
+    padding: 0;
+    border: none;
+  }
+
+  .title {
+    padding: 0.5rem 0;
   }
 
   .imgWrapper {
@@ -55,14 +54,14 @@
 }
 
 @media screen and (min-width: 767px) {
-  .card {
-    width: calc(100% / 3);
+  .container {
+    grid-template-columns: 1fr 1fr 1fr;
   }
 }
 
 /* desktop */
 @media screen and (min-width: 1023px) {
-  .card {
-    width: calc(100% / 4);
+  .container {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
   }
 }

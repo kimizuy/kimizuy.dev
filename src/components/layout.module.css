@@ -16,14 +16,6 @@
   grid-column: 1 / 2;
   max-width: 1170px;
   margin: 1rem auto;
-  padding: 0;
-}
-
-/* tablet ~ desktop */
-@media screen and (min-width: 479px) {
-  .main {
-    padding: 0 1rem;
-  }
 }
 
 .footer {
@@ -33,24 +25,11 @@
   background: var(--content-bg);
 }
 
-/* nav, content */
-.main {
-  display: grid;
-  grid-template: auto 1fr / 1fr;
-}
-
-.nav {
-  grid-row: 1 / 2;
-  grid-column: 1 / 2;
-  padding: 1rem;
-  background: yellow;
-  margin-bottom: 0.5rem;
-}
-
-.content {
-  grid-row: 2 / 3;
-  grid-column: 1 / 2;
-  padding: 1rem 0;
+/* tablet ~ desktop */
+@media screen and (min-width: 479px) {
+  .main {
+    padding: 0 1rem;
+  }
 }
 
 .backToHome {
