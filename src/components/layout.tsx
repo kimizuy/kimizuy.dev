@@ -35,10 +35,8 @@ export default function Layout({
         <Logo name={NAME} siteTitle={SITETITLE} />
       </header>
       <main className={styles.main}>
-        <section className={styles.content}>
-          {children}
-          {!home && <BackToHome />}
-        </section>
+        {children}
+        {!home && <BackToHome />}
       </main>
       <footer className={styles.footer}>
         <CopyRight />
