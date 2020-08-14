@@ -1,13 +1,19 @@
 import styles from './tagList.module.css'
 
 type Props = {
-  nameList: string[]
+  tags: string[]
 }
 
 export default function TagList(p: Props) {
-  return p.nameList.map((name) => <Tag name={name} />)
+  return (
+    <div className={styles.container}>
+      {p.tags.map((tag) => (
+        <Tag key={tag} tag={tag} />
+      ))}
+    </div>
+  )
 }
 
-function Tag({ name }: { name: string }) {
-  return <button className={`${styles.tag}`}>#{name}</button>
+function Tag({ tag }: { tag: string }) {
+  return <button className={`${styles.tag}`}>#{tag}</button>
 }

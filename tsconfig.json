@@ -16,7 +16,8 @@
     "baseUrl": "node_modules",
     "paths": {
       "@/*": ["../src/*"]
-    }
+    },
+    "downlevelIteration": true
   },
   "exclude": ["node_modules"],
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"]
