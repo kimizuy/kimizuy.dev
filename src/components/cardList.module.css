@@ -31,6 +31,11 @@
   height: 100%;
 }
 
+.lightText {
+  color: #666;
+  font-size: 0.75rem;
+}
+
 /* tablet */
 @media screen and (min-width: 479px) {
   .container {

@@ -1,5 +1,4 @@
 import styles from './cardList.module.css'
-import utilStyles from '@/styles/utils.module.css'
 import { Preview } from '@/types/post'
 import Link from 'next/link'
 import Date from '@/components/date'
@@ -36,7 +35,7 @@ function Card({ preview }: { preview: Preview }) {
         <Link href={link}>
           <a>{meta.title}</a>
         </Link>
-        <div className={utilStyles.lightText}>
+        <div className={styles.lightText}>
           <Date dateString={meta.date} />
         </div>
       </div>
