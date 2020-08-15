@@ -1,5 +1,5 @@
 import { Meta } from '@/types/post'
-import { dateSortDesc } from './util'
+import { dateSortDesc } from './utils'
 
 function importAll(r) {
   return r.keys().map((fileName) => r(fileName).meta) as Meta[]
