@@ -1,27 +1,23 @@
 .container {
-  padding: 1rem 0.5rem;
+  display: flex;
 }
 
 .tag {
+  display: inline-block;
+  cursor: pointer;
   margin: 0.5rem;
   padding: 4px 10px;
   font-size: 0.875rem;
   border-width: 0;
   border-radius: 4px;
+  transition: cubic-bezier(0.17, 0.67, 0.5, 0.71) 100ms;
   background-color: var(--tag-bg);
   color: var(--tag-color);
-  cursor: pointer;
-  transition: cubic-bezier(0.17, 0.67, 0.5, 0.71) 100ms;
 }
 
 .tag:hover,
 .tag:focus {
   background-color: var(--tag-bg-hov);
   color: var(--text-color);
-}
-
-@media screen and (min-width: 479px) {
-  .container {
-    padding: 1rem 0;
-  }
+  text-decoration: none;
 }

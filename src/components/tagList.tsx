@@ -7,18 +7,20 @@ type Props = {
 
 export default function TagList(p: Props) {
   return (
-    <div className={styles.container}>
+    <ul className={styles.container}>
       {p.tags.map((tag) => (
         <Tag key={tag} tag={tag} />
       ))}
-    </div>
+    </ul>
   )
 }
 
 function Tag({ tag }: { tag: string }) {
   return (
     <Link href="/tags/[tag]" as={`/tags/${tag}`}>
-      <button className={`${styles.tag}`}>#{tag}</button>
+      <li>
+        <a className={`${styles.tag}`}>#{tag}</a>
+      </li>
     </Link>
   )
 }
