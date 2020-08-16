@@ -10,11 +10,11 @@ type Props = {
 
 export default function CardList(p: Props) {
   return (
-    <div className={styles.container}>
+    <ul className={styles.container}>
       {p.previews.map((preview) => (
         <Card preview={preview} key={preview.link} />
       ))}
-    </div>
+    </ul>
   )
 }
 
@@ -25,7 +25,7 @@ function Card({ preview }: { preview: Preview }) {
   } = preview
 
   return (
-    <div className={styles.card}>
+    <li className={styles.card}>
       <div className={styles.imgWrapper}>
         <div className={styles.imgZoom}>
           <img src={profile} />
@@ -39,6 +39,6 @@ function Card({ preview }: { preview: Preview }) {
           <Date dateString={meta.date} />
         </div>
       </div>
-    </div>
+    </li>
   )
 }
