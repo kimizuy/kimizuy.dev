@@ -5,7 +5,7 @@ export default function getSelectedTagPreviews(selectedTag: string) {
   return JSON.parse(
     JSON.stringify(
       getAllPostPreviews().filter((preview) =>
-        preview.module.meta.tag.includes(selectedTag)
+        preview.meta.tag.includes(selectedTag)
       )
     )
   )

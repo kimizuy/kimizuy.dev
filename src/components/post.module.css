@@ -1,3 +1,7 @@
+.container {
+  padding: 0 1rem;
+}
+
 .headingXl {
   font-size: 2rem;
   line-height: 1.3;

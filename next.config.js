@@ -31,47 +31,18 @@ module.exports = {
 
     config.module.rules.push({
       test: /\.mdx$/,
-      oneOf: [
-        {
-          resourceQuery: /preview/,
-          use: [
-            ...mdx,
-            createLoader(function (src) {
-              if (src.includes('<!--more-->')) {
-                const [preview] = src.split('<!--more-->')
-                return this.callback(null, preview)
-              }
+      use: [
+        ...mdx,
+        createLoader(function (src) {
+          const content = [
+            'import Post from "@/components/post"',
+            'export { getStaticProps } from "@/lib/getStaticProps"',
+            src,
+            'export default (props) => <Post meta={meta} {...props} />',
+          ].join('\n')
 
-              const [preview] = src.split('<!--/excerpt-->')
-              return this.callback(null, preview.replace('<!--excerpt-->', ''))
-            }),
-          ],
-        },
-        {
-          use: [
-            ...mdx,
-            createLoader(function (src) {
-              const content = [
-                'import Post from "@/components/post"',
-                'export { getStaticProps } from "@/lib/getStaticProps"',
-                src,
-                'export default (props) => <Post meta={meta} {...props} />',
-              ].join('\n')
-
-              if (content.includes('<!--more-->')) {
-                return this.callback(
-                  null,
-                  content.split('<!--more-->').join('\n')
-                )
-              }
-
-              return this.callback(
-                null,
-                content.replace(/<!--excerpt-->.*<!--\/excerpt-->/s, '')
-              )
-            }),
-          ],
-        },
+          return this.callback(null, content)
+        }),
       ],
     })
 

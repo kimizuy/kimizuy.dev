@@ -16,7 +16,7 @@ export default function Post({
       <Head>
         <title>{meta.title}</title>
       </Head>
-      <article>
+      <article className={styles.container}>
         <h1 className={styles.headingXl}>{meta.title}</h1>
         <div className={styles.lightText}>
           <Date dateString={meta.date} />
