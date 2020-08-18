@@ -1,0 +1,51 @@
+import card from './card.png'
+
+export const meta = {
+  title: 'aaa',
+  date: '2020-01-02',
+  tag: ['test'],
+  image: card,
+}
+
+[Next.js](https://nextjs.org/)と[MDX](https://mdxjs.com/)と[TypeScript](https://www.typescriptlang.org/)でブログを作った。
+
+実際にブログをデプロイしたのは結構前になるが、本記事がこのブログの 1 本目になる。
+
+とりあえず、Next.js チュートリアルのサンプルブログの TS 版をベースにブログを作り、Google Domain で ドメインを取得し Vercel でデプロイした。
+
+そこから Styled-Components を入れたり入れなかったりして、紆余曲折を経て今に至る
+
+.mdx ファイルからプレビューなどのメタ情報を取得する方法は[tailwind Blog](https://blog.tailwindcss.com/)を大いに~~パクら~~参考にさせてもらった。
+
+使っている
+
+## require.context()
+
+例えば、このエントリでも書いてあるように MDX から本文の一部を抜粋するために
+
+## resouceQuery
+
+## かなり参考にさせてもらったサイトや記事
+
+### 機能面
+
+- [tailwind Blog](https://blog.tailwindcss.com/)
+  - Next.js + MDX + tailwindcss で構築されている。とくに.mdx ファイルから本文の一部やメタ情報を取得する際の方法を参考にした。本ブログは tailwindcss を使わないうえで TS 化したようなものになっている。
+
+### デザイン面
+
+- [dev.to](https://dev.to/)
+
+  ダークテーマの色を参考にした。
+
+- [UX MILK](https://uxmilk.jp/)
+
+  「UX を取り扱っているなら信頼できる！」と思って、レイアウトの幅や wrapper の使い方、CSS の命名方法などを参考にした。レイアウトも近しいものにしようと思ったが、もうちょっと凝っている見た目にしたかったので最終的にカードコンポーネントの方を採用した。
+
+- [blog.ojisan.io](https://blog.ojisan.io)
+
+  GatsbyJS + TS のブログ。サイト上の文言やレイアウトなどを参考にした。この記事とは関係ないが、[ESLint の Plugin と Extend の違い](https://blog.ojisan.io/eslint-plugin-and-extend) はめちゃくちゃ読んだ。
+
+## さいごに（雑感）
+
+Next.js + MDX の技術スタック自体が新しいものなので、なかなか調べても目当ての情報を見つけることができず、時間がかかってしまったが、あと細かなレイアウトや色でかなり迷うことが多かった。もともとデザインの知識には疎いが、[ブログは完璧を目指しているといつまでも完成しない](https://blog.ojisan.io/1st-blog-stack#%E6%8A%80%E8%A1%93%E3%82%B9%E3%82%BF%E3%83%83%E3%82%AF)と書かれていたとおり、こだわりだすといつまでも終わらない感じがした。図工の時間で作品をなかなか完成させられず、最後まで居残っていたことを思い出した。

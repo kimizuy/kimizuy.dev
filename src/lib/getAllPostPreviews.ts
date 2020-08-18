@@ -1,15 +1,17 @@
 import { dateSortDesc } from './utils'
 import { Preview } from '@/types/post'
 
-function importAll(r) {
-  return r.keys().map((fileName) => ({
-    link: `/posts${fileName.substr(1).replace(/\/index\.mdx$/, '')}`,
-    module: r(fileName),
-  }))
+function importAll(r): Preview[] {
+  return r.keys().map(
+    (fileName): Preview => ({
+      link: `/posts${fileName.substr(1).replace(/\/index\.mdx$/, '')}`,
+      meta: r(fileName).meta,
+    })
+  )
 }
 
 export default function getAllPostPreviews(): Preview[] {
   return importAll(
-    require.context('../pages/posts/?preview', true, /\.mdx$/)
-  ).sort((a, b) => dateSortDesc(a.module.meta.date, b.module.meta.date))
+    require.context('../pages/posts/', true, /\.mdx$/)
+  ).sort((a, b) => dateSortDesc(a.meta.date, b.meta.date))
 }
