@@ -2,7 +2,6 @@ import styles from './cardList.module.css'
 import { Preview } from '@/types/post'
 import Link from 'next/link'
 import Date from '@/components/date'
-import profile from '../../public/images/profile.jpg'
 
 type Props = {
   previews: Preview[]
@@ -19,24 +18,23 @@ export default function CardList(p: Props) {
 }
 
 function Card({ preview }: { preview: Preview }) {
-  const {
-    link,
-    module: { default: Excerpt, meta },
-  } = preview
+  const { link, meta } = preview
 
   return (
     <li className={styles.card}>
-      <div className={styles.imgWrapper}>
-        <div className={styles.imgZoom}>
-          <img src={profile} />
+      <Link href={link}>
+        <div className={styles.imgWrapper}>
+          <div className={styles.imgZoom}>
+            <img src={meta.image} />
+          </div>
         </div>
-      </div>
+      </Link>
       <div className={styles.title}>
         <Link href={link}>
           <a>{meta.title}</a>
         </Link>
         <div className={styles.lightText}>
-          <Date dateString={meta.date} />
+          <Date dates={meta.dates} />
         </div>
       </div>
     </li>

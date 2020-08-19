@@ -1,8 +1,13 @@
 export type Meta = {
   title: string
-  date: string
+  dates: Dates
   tag: string[]
-  image?: any
+  image: any
 }
 
-export type Preview = { link: string; module: { default: any; meta: Meta } }
+export type Preview = { link: string; meta: Meta }
+
+export type Dates = {
+  published: string
+  updated?: string
+}
