@@ -19,7 +19,7 @@ export default function Post({
       <article className={styles.container}>
         <h1 className={styles.headingXl}>{meta.title}</h1>
         <div className={styles.lightText}>
-          <Date dateString={meta.date} />
+          <Date dates={meta.dates} />
         </div>
         {children}
       </article>

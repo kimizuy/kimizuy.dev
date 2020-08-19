@@ -1,6 +1,21 @@
 import { parseISO, format } from 'date-fns'
+import { Dates } from '@/types/post'
 
-export default function Date({ dateString }: { dateString: string }) {
-  const date = parseISO(dateString)
-  return <time dateTime={dateString}>{format(date, 'LLLL d, yyyy')}</time>
+type Props = {
+  dates: Dates
+}
+
+export default function Date(p: Props) {
+  return (
+    <>
+      published at <Time value={p.dates.published} />
+      <br />
+      {p.dates.updated && 'updated at ' + <Time value={p.dates.updated} />}
+    </>
+  )
+}
+
+function Time({ value }: { value: string }) {
+  const date = parseISO(value)
+  return <time dateTime={value}>{format(date, 'yyyy/M/d')}</time>
 }

@@ -12,6 +12,9 @@
   --tag-bg: #2e3a48;
   --tag-bg-hov: #444f5b;
   --border-color: rgba(255, 255, 255, 0.3);
+  --code-font: Menlo, Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  --code-color: #d4d4d4;
+  --code-bg: #1e1e1e;
 }
 /* } */
 
@@ -45,7 +48,13 @@ a:hover {
   text-decoration: underline;
 }
 
-img {
-  max-width: 100%;
-  display: block;
+p {
+  line-height: 2;
+}
+
+p > code {
+  font-family: var(--code-font);
+  color: var(--code-color);
+  background-color: var(--code-bg);
+  padding: 0.2rem 0.5rem;
 }
