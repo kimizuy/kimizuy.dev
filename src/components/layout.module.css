@@ -1,24 +1,16 @@
 .container {
-  display: grid;
-  grid-template: auto 1fr auto / 1fr;
 }
 
 .header {
-  grid-row: 1 / 2;
-  grid-column: 1 / 2;
   padding: 0.5rem;
   background: var(--content-bg);
 }
 
 .main {
-  grid-row: 2 / 3;
-  grid-column: 1 / 2;
   max-width: 1170px;
 }
 
 .footer {
-  grid-row: 3 / 4;
-  grid-column: 1 / 2;
   padding: 0.5rem;
   background: var(--content-bg);
 }
@@ -26,8 +18,9 @@
 /* tablet ~ desktop */
 @media screen and (min-width: 479px) {
   .main {
-    margin: 1rem auto;
-    padding: 0 1rem;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 1rem;
   }
 }
 
