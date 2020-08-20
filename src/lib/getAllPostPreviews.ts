@@ -13,5 +13,5 @@ function importAll(r): Preview[] {
 export default function getAllPostPreviews(): Preview[] {
   return importAll(
     require.context('../pages/posts/', true, /\.mdx$/)
-  ).sort((a, b) => dateSortDesc(a.meta.dates.published, b.meta.dates.published))
+  ).sort((a, b) => dateSortDesc(a.meta.date.published, b.meta.date.published))
 }
