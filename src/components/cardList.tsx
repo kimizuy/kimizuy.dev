@@ -36,7 +36,7 @@ function Card({ preview }: { preview: Preview }) {
           <a>{meta.title}</a>
         </Link>
         <div className={styles.lightText}>
-          <Date dates={meta.dates} />
+          <Date date={meta.date} />
         </div>
       </div>
     </li>

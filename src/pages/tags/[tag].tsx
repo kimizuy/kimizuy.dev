@@ -17,6 +17,7 @@ export default function Tag({ selectedTag, selectedTagPreviews }: Props) {
       <Head>
         <title>{selectedTag}</title>
       </Head>
+      <h1>#{selectedTag}</h1>
       <section>
         <CardList previews={selectedTagPreviews} />
       </section>
