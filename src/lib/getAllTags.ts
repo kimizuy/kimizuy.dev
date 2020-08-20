@@ -8,6 +8,6 @@ function importAll(r) {
 export default function getAllTags() {
   const metas = importAll(
     require.context('../pages/posts/?preview', true, /\.mdx$/)
-  ).sort((a, b) => dateSortDesc(a.dates.published, b.dates.published))
+  ).sort((a, b) => dateSortDesc(a.date.published, b.date.published))
   return [...new Set(metas.flatMap((meta) => meta.tag))]
 }

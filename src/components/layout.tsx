@@ -4,7 +4,6 @@ import styles from './layout.module.css'
 import Logo from './logo'
 import CopyRight from './copyRight'
 import Link from 'next/link'
-// import Tag from './tagList'
 
 export default function Layout({
   children,

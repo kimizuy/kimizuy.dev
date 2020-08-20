@@ -1,16 +1,16 @@
 import { parseISO, format } from 'date-fns'
-import { Dates } from '@/types/post'
+import { Meta } from '@/types/post'
 
 type Props = {
-  dates: Dates
+  date: Meta['date']
 }
 
 export default function Date(p: Props) {
   return (
     <>
-      published at <Time value={p.dates.published} />
+      published at <Time value={p.date.published} />
       <br />
-      {p.dates.updated && 'updated at ' + <Time value={p.dates.updated} />}
+      {p.date.updated && 'updated at ' + <Time value={p.date.updated} />}
     </>
   )
 }

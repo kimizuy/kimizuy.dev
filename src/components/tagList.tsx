@@ -7,20 +7,22 @@ type Props = {
 
 export default function TagList(p: Props) {
   return (
-    <ul className={styles.container}>
-      {p.tags.map((tag) => (
-        <Tag key={tag} tag={tag} />
-      ))}
-    </ul>
+    <section className={styles.container}>
+      <ul className={styles.tagList}>
+        {p.tags.map((tag) => (
+          <Tag key={tag} tag={tag} />
+        ))}
+      </ul>
+    </section>
   )
 }
 
 function Tag({ tag }: { tag: string }) {
   return (
-    <Link href="/tags/[tag]" as={`/tags/${tag}`}>
-      <li>
-        <a className={`${styles.tag}`}>#{tag}</a>
-      </li>
-    </Link>
+    <li className={styles.tag}>
+      <Link href="/tags/[tag]" as={`/tags/${tag}`}>
+        <a>#{tag}</a>
+      </Link>
+    </li>
   )
 }

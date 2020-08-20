@@ -9,11 +9,13 @@ type Props = {
 
 export default function CardList(p: Props) {
   return (
-    <ul className={styles.container}>
-      {p.previews.map((preview) => (
-        <Card preview={preview} key={preview.link} />
-      ))}
-    </ul>
+    <section className={styles.container}>
+      <ul className={styles.cardList}>
+        {p.previews.map((preview) => (
+          <Card preview={preview} key={preview.link} />
+        ))}
+      </ul>
+    </section>
   )
 }
 
@@ -34,7 +36,7 @@ function Card({ preview }: { preview: Preview }) {
           <a>{meta.title}</a>
         </Link>
         <div className={styles.lightText}>
-          <Date dates={meta.dates} />
+          <Date date={meta.date} />
         </div>
       </div>
     </li>
