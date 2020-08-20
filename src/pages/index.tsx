@@ -16,12 +16,8 @@ export default function Home() {
       <Head>
         <title>{SITETITLE}</title>
       </Head>
-      <section className={styles.tagList}>
-        <TagList tags={tags} />
-      </section>
-      <section>
-        <CardList previews={previews} />
-      </section>
+      <TagList tags={tags} />
+      <CardList previews={previews} />
     </Layout>
   )
 }
