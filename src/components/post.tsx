@@ -3,6 +3,7 @@ import Layout from '@/components/layout'
 import styles from './post.module.css'
 import { Meta } from '@/types/post'
 import Head from 'next/head'
+import Tag from './tag'
 
 export default function Post({
   meta,
@@ -19,6 +20,10 @@ export default function Post({
       <article className={styles.container}>
         <h1 className={styles.headingXl}>{meta.title}</h1>
         <div className={styles.lightText}>
+          {meta.tag.map((t) => (
+            <Tag key={t} tag={t} />
+          ))}
+          <br />
           <Date date={meta.date} />
         </div>
         {children}
