@@ -10,14 +10,14 @@ export default function TagList(p: Props) {
     <section className={styles.container}>
       <ul className={styles.tagList}>
         {p.tags.map((tag) => (
-          <Tag key={tag} tag={tag} />
+          <TagButton key={tag} tag={tag} />
         ))}
       </ul>
     </section>
   )
 }
 
-function Tag({ tag }: { tag: string }) {
+function TagButton({ tag }: { tag: string }) {
   return (
     <li className={styles.tag}>
       <Link href="/tags/[tag]" as={`/tags/${tag}`}>

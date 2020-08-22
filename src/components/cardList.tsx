@@ -2,6 +2,7 @@ import styles from './cardList.module.css'
 import { Preview } from '@/types/post'
 import Link from 'next/link'
 import Date from '@/components/date'
+import Tag from './tag'
 
 type Props = {
   previews: Preview[]
@@ -35,9 +36,13 @@ function Card({ preview }: { preview: Preview }) {
         <Link href={link}>
           <a>{meta.title}</a>
         </Link>
-        <div className={styles.lightText}>
-          <Date date={meta.date} />
-        </div>
+      </div>
+      <div className={styles.lightText}>
+        {meta.tag.map((t) => (
+          <Tag key={t} tag={t} />
+        ))}
+        <br />
+        <Date date={meta.date} />
       </div>
     </li>
   )
