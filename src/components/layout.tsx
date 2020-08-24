@@ -1,10 +1,9 @@
 import Head from 'next/head'
-import { NAME, SITETITLE } from '../lib/constants'
 import styles from './layout.module.css'
 import Logo from './logo'
 import CopyRight from './copyRight'
 import Link from 'next/link'
-import profile from '../../public/images/profile.jpg'
+import SEO from './SEO'
 
 export default function Layout({
   children,
@@ -16,15 +15,11 @@ export default function Layout({
   return (
     <div className={styles.container}>
       <Head>
-        <link rel="icon" href="/favicon.ico" />
-        <meta name="description" content="kimizuy のブログです" />
-        <meta property="og:image" content={`https://kimizuy.dev${profile}`} />
-        <meta name="og:title" content={SITETITLE} />
-        <meta name="twitter:card" content="summary_large_image" />
+        <SEO />
       </Head>
 
       <header className={styles.header}>
-        <Logo name={NAME} siteTitle={SITETITLE} />
+        <Logo />
       </header>
       <main className={styles.main}>
         {children}

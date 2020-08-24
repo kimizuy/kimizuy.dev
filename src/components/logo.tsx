@@ -1,12 +1,8 @@
 import { useRouter } from 'next/dist/client/router'
 import styles from './logo.module.css'
+import { NAME, SITETITLE } from '@/lib/constants'
 
-type Props = {
-  name: string
-  siteTitle: string
-}
-
-export default function Logo(p: Props) {
+export default function Logo() {
   const router = useRouter()
 
   return (
@@ -19,9 +15,9 @@ export default function Logo(p: Props) {
       <img
         className={styles.headerImage}
         src="/images/profile.jpg"
-        alt={p.name}
+        alt={NAME}
       />
-      <h1 className={styles.headerTitle}>{p.siteTitle}</h1>
+      <h1 className={styles.headerTitle}>{SITETITLE}</h1>
     </div>
   )
 }
