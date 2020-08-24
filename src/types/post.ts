@@ -1,5 +1,6 @@
 export type Meta = {
   title: string
+  description: string
   date: {
     published: string
     updated?: string
