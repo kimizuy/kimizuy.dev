@@ -4,6 +4,7 @@ import styles from './post.module.css'
 import { Meta } from '@/types/post'
 import Head from 'next/head'
 import Tag from './tag'
+import SEO from './SEO'
 
 export default function Post({
   meta,
@@ -15,7 +16,7 @@ export default function Post({
   return (
     <Layout>
       <Head>
-        <title>{meta.title}</title>
+        <SEO meta={meta} />
       </Head>
       <article className={styles.container}>
         <h1 className={styles.headingXl}>{meta.title}</h1>
