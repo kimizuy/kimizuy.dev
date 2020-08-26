@@ -16,7 +16,7 @@
     "@storybook/react": "^5.3.19",
     "date-fns": "^2.14.0",
     "gray-matter": "^4.0.2",
-    "next": "^9.4.4",
+    "next": "^9.5.3-canary.23",
     "react": "16.13.1",
     "react-dom": "16.13.1",
     "simple-functional-loader": "^1.2.1"
@@ -49,5 +49,8 @@
     "style-loader": "^1.2.1",
     "ts-loader": "7.0.5",
     "typescript": "^3.8.3"
+  },
+  "resolutions": {
+    "webpack": "^5.0.0-beta.28"
   }
 }
