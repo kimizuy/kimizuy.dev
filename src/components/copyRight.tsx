@@ -16,13 +16,13 @@ export default function CopyRight() {
         </a>
       </p>
       <p>
-        This site's
+        This site's{' '}
         <a
           href="https://github.com/kimizuy/blog"
           target="_blank"
           rel="noopener"
         >
-          source code
+          repo
         </a>
       </p>
     </div>

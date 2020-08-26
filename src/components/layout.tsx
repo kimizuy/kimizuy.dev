@@ -1,9 +1,7 @@
-import Head from 'next/head'
 import styles from './layout.module.css'
 import Logo from './logo'
 import CopyRight from './copyRight'
 import Link from 'next/link'
-import SEO from './SEO'
 
 export default function Layout({
   children,
@@ -14,10 +12,6 @@ export default function Layout({
 }) {
   return (
     <div className={styles.container}>
-      <Head>
-        <SEO />
-      </Head>
-
       <header className={styles.header}>
         <Logo />
       </header>
