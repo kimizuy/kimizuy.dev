@@ -20,11 +20,6 @@
 
 .imgWrapper {
   display: none;
-  position: relative;
-  padding-bottom: 56.25%;
-  cursor: pointer;
-  /* はみ出た部分を非表示 */
-  overflow: hidden;
 }
 
 .imgWrapper img {
@@ -47,42 +42,35 @@
 
   .cardList {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     gap: 1rem;
   }
 
   .card {
-    min-width: calc(100% / 2);
+    flex: 0 1 200px;
+    display: flex;
+    flex-direction: column;
     padding: 0;
     border: none;
   }
 
-  .title {
-    padding: 0.5rem 0;
-  }
-
   .imgWrapper {
     display: block;
-  }
-}
-
-@media screen and (min-width: 767px) {
-  .card {
-    min-width: calc(100% / 3);
-  }
-
-  .cardList {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-/* desktop */
-@media screen and (min-width: 1023px) {
-  .card {
-    min-width: calc(100% / 4);
+    position: relative;
+    padding-bottom: 56.25%;
+    margin-bottom: 0.5rem;
+    cursor: pointer;
+    /* はみ出た部分を非表示 */
+    overflow: hidden;
   }
 
-  .cardList {
-    grid-template-columns: repeat(4, 1fr);
+  .contentWrapper {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+
+  .lightText {
+    margin-top: auto;
   }
 }

@@ -27,22 +27,22 @@ function Card({ preview }: { preview: Preview }) {
     <li className={styles.card}>
       <Link href={link}>
         <div className={styles.imgWrapper}>
-          <div className={styles.imgZoom}>
-            <img src={meta.image} />
-          </div>
+          <img src={meta.image} />
         </div>
       </Link>
-      <div className={styles.title}>
-        <Link href={link}>
-          <a>{meta.title}</a>
-        </Link>
-      </div>
-      <div className={styles.lightText}>
-        {meta.tag.map((t) => (
-          <Tag key={t} tag={t} />
-        ))}
-        <br />
-        <Date date={meta.date} />
+      <div className={styles.contentWrapper}>
+        <div className={styles.title}>
+          <Link href={link}>
+            <a>{meta.title}</a>
+          </Link>
+        </div>
+        <div className={styles.lightText}>
+          {meta.tag.map((t) => (
+            <Tag key={t} tag={t} />
+          ))}
+          <br />
+          <Date date={meta.date} />
+        </div>
       </div>
     </li>
   )
