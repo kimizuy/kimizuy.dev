@@ -5,7 +5,6 @@
 .tagList {
   display: flex;
   flex-wrap: wrap;
-  align-content: space-between;
 }
 
 .tag {
