@@ -1,0 +1,4 @@
+.lightText {
+  color: var(--sub-text-color);
+  font-size: 0.75rem;
+}

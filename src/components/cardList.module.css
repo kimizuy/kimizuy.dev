@@ -29,11 +29,6 @@
   height: 100%;
 }
 
-.lightText {
-  color: var(--sub-text-color);
-  font-size: 0.75rem;
-}
-
 /* tablet */
 @media screen and (min-width: 479px) {
   .container {
@@ -42,7 +37,7 @@
 
   .cardList {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 1rem;
   }
 
