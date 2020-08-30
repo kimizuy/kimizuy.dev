@@ -10,7 +10,14 @@
   margin: 1rem 0;
 }
 
-.lightText {
-  color: var(--sub-text-color);
-  font-size: 0.75rem;
+@media screen and (min-width: 767px) {
+  .image {
+    width: 92%;
+  }
+}
+
+@media screen and (min-width: 1023px) {
+  .image {
+    width: 88%;
+  }
 }

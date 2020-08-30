@@ -2,6 +2,7 @@ import styles from './layout.module.css'
 import Logo from './logo'
 import CopyRight from './copyRight'
 import Link from 'next/link'
+import utilStyles from './utils.module.css'
 
 export default function Layout({
   children,
@@ -17,7 +18,12 @@ export default function Layout({
       </header>
       <main className={styles.main}>
         {children}
-        {!home && <BackToHome />}
+        {!home && (
+          <>
+            <Mention />
+            <BackToHome />
+          </>
+        )}
       </main>
       <footer className={styles.footer}>
         <CopyRight />
@@ -26,9 +32,21 @@ export default function Layout({
   )
 }
 
+function Mention() {
+  return (
+    <div className={`${utilStyles.lightText} ${styles.margin1}`}>
+      指摘や不明点があれば筆者の
+      <Link href="https://twitter.com/kimizuy">
+        <a>Twitter</a>
+      </Link>
+      までおねがいします。
+    </div>
+  )
+}
+
 function BackToHome() {
   return (
-    <div className={styles.backToHome}>
+    <div className={styles.margin1}>
       <Link href="/">
         <a>← Back to home</a>
       </Link>

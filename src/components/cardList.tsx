@@ -3,6 +3,7 @@ import { Preview } from '@/types/post'
 import Link from 'next/link'
 import Date from '@/components/date'
 import Tag from './tag'
+import utilStyles from './utils.module.css'
 
 type Props = {
   previews: Preview[]
@@ -27,7 +28,7 @@ function Card({ preview }: { preview: Preview }) {
     <li className={styles.card}>
       <Link href={link}>
         <div className={styles.imgWrapper}>
-          <img src={meta.image} />
+          <img src={meta.image} loading="lazy" />
         </div>
       </Link>
       <div className={styles.contentWrapper}>

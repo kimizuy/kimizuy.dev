@@ -1,10 +1,16 @@
 import Date from '@/components/date'
 import Layout from '@/components/layout'
-import styles from './post.module.css'
 import { Meta } from '@/types/post'
-import Tag from './tag'
+import { Components, MDXProvider } from '@mdx-js/react'
 import Head from 'next/head'
 import { useRouter } from 'next/router'
+import styles from './post.module.css'
+import Tag from './tag'
+import utilStyles from './utils.module.css'
+
+const mdxComponents: Components = {
+  img: (props) => <img className={styles.image} loading="lazy" {...props} />,
+}
 
 export default function Post({
   meta,
@@ -43,14 +49,14 @@ export default function Post({
       </Head>
       <article className={styles.container}>
         <h1 className={styles.headingXl}>{meta.title}</h1>
-        <div className={styles.lightText}>
+        <div className={utilStyles.lightText}>
           {meta.tag.map((t) => (
             <Tag key={t} tag={t} />
           ))}
           <br />
           <Date date={meta.date} />
         </div>
-        {children}
+        <MDXProvider components={mdxComponents}>{children}</MDXProvider>
       </article>
     </Layout>
   )
