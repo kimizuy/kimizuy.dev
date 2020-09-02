@@ -1,21 +1,16 @@
 {
-  "name": "learn-starter",
-  "version": "0.1.0",
+  "name": "kimizuy-blog",
   "private": true,
   "scripts": {
     "dev": "next dev -p 8000",
     "build": "next build && next export",
     "start": "next start",
     "tsc-watch": "tsc --noEmit --watch",
-    "format": "prettier --write ./**/*.{js,ts,tsx}",
-    "sb": "start-storybook -s ./public -p 6006",
-    "build-storybook": "build-storybook"
+    "format": "prettier --write ./**/*.{js,ts,tsx}"
   },
   "dependencies": {
     "@mapbox/rehype-prism": "^0.5.0",
-    "@storybook/react": "^5.3.19",
     "date-fns": "^2.14.0",
-    "gray-matter": "^4.0.2",
     "next": "^9.5.3-canary.23",
     "react": "16.13.1",
     "react-dom": "16.13.1",
@@ -25,16 +20,10 @@
     "@babel/core": "^7.10.5",
     "@mdx-js/loader": "^1.6.13",
     "@next/mdx": "^9.4.4",
-    "@storybook/addon-actions": "5.3.19",
-    "@storybook/addon-links": "5.3.19",
-    "@storybook/addons": "5.3.19",
-    "@storybook/preset-typescript": "3.0.0",
     "@types/node": "^13.11.0",
     "@types/react": "^16.9.32",
     "@types/react-dom": "16.9.8",
     "@types/webpack-env": "^1.15.2",
-    "babel-loader": "^8.1.0",
-    "css-loader": "^4.1.0",
     "eslint": "7.2.0",
     "eslint-config-airbnb": "18.2.0",
     "eslint-config-prettier": "^6.11.0",
@@ -44,10 +33,7 @@
     "eslint-plugin-react": "^7.20.0",
     "eslint-plugin-react-hooks": "4.0.0",
     "file-loader": "^6.0.0",
-    "fork-ts-checker-webpack-plugin": "5.0.4",
     "prettier": "2.0.5",
-    "style-loader": "^1.2.1",
-    "ts-loader": "7.0.5",
     "typescript": "^3.8.3"
   },
   "resolutions": {
