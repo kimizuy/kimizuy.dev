@@ -13,7 +13,7 @@ type Props = {
 
 export default function Tag({ selectedTag, selectedTagPreviews }: Props) {
   return (
-    <Layout>
+    <Layout home>
       <Head>
         <title>{selectedTag}</title>
       </Head>
