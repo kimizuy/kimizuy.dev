@@ -37,7 +37,7 @@ function Card({ preview }: { preview: Preview }) {
             <a>{meta.title}</a>
           </Link>
         </div>
-        <div className={utilStyles.lightText}>
+        <div className={`${styles.marginTopAuto} ${utilStyles.lightText}`}>
           {meta.tag.map((t) => (
             <Tag key={t} tag={t} />
           ))}
