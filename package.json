@@ -6,10 +6,12 @@
     "build": "next build && next export",
     "start": "next start",
     "tsc-watch": "tsc --noEmit --watch",
-    "format": "prettier --write ./**/*.{js,ts,tsx}"
+    "format": "prettier --write .",
+    "lint": "eslint . --ext ts --ext tsx --ext js"
   },
   "dependencies": {
     "@mapbox/rehype-prism": "^0.5.0",
+    "@mdx-js/react": "^1.6.17",
     "date-fns": "^2.14.0",
     "next": "^9.5.3",
     "react": "16.13.1",
@@ -24,16 +26,17 @@
     "@types/react": "^16.9.32",
     "@types/react-dom": "16.9.8",
     "@types/webpack-env": "^1.15.2",
-    "eslint": "7.2.0",
-    "eslint-config-airbnb": "18.2.0",
+    "@typescript-eslint/eslint-plugin": "^4.0.1",
+    "@typescript-eslint/parser": "^4.1.1",
+    "eslint": "^7.9.0",
+    "eslint-config-airbnb-typescript": "^10.0.0",
     "eslint-config-prettier": "^6.11.0",
-    "eslint-plugin-import": "^2.21.2",
-    "eslint-plugin-jsx-a11y": "^6.3.0",
-    "eslint-plugin-prettier": "^3.1.4",
-    "eslint-plugin-react": "^7.20.0",
-    "eslint-plugin-react-hooks": "4.0.0",
+    "eslint-plugin-import": "^2.22.0",
+    "eslint-plugin-jsx-a11y": "^6.3.1",
+    "eslint-plugin-react": "^7.20.3",
+    "eslint-plugin-react-hooks": "^4.0.8",
     "file-loader": "^6.0.0",
-    "prettier": "2.0.5",
+    "prettier": "^2.1.1",
     "typescript": "^3.8.3"
   }
 }
