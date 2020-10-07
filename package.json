@@ -3,12 +3,11 @@
   "private": true,
   "scripts": {
     "dev": "next dev -p 8000",
-    "build": "next build && next export && yarn build:rss",
+    "build": "next build && next export",
     "start": "next start",
     "tsc-watch": "tsc --noEmit --watch",
     "format": "prettier --write .",
-    "lint": "eslint . --ext ts --ext tsx --ext js",
-    "build:rss": "node ./.next/server/scripts/build-rss.js"
+    "lint": "eslint . --ext ts --ext tsx --ext js"
   },
   "dependencies": {
     "@mapbox/rehype-prism": "^0.5.0",
@@ -38,7 +37,6 @@
     "eslint-plugin-react-hooks": "^4.0.8",
     "file-loader": "^6.0.0",
     "prettier": "^2.1.1",
-    "rss": "^1.2.2",
     "typescript": "^3.8.3"
   }
 }
