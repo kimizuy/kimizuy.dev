@@ -5,6 +5,15 @@ const rehypePrism = require('@mapbox/rehype-prism')
 module.exports = {
   pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'mdx'],
 
+  rewrites() {
+    return [
+      {
+        source: '/feed.xml',
+        destination: '/_next/static/feed.xml',
+      },
+    ]
+  },
+
   webpack: (config, options) => {
     config.module.rules.push({
       test: /\.(jpe?g|png|svg|gif|ico|webp|jp2)$/,
@@ -46,15 +55,16 @@ module.exports = {
       ],
     })
 
-    // if (!options.dev && options.isServer) {
-    //   const originalEntry = config.entry
+    if (!options.dev && options.isServer) {
+      const originalEntry = config.entry
 
-    //   config.entry = async () => {
-    //     const entries = { ...(await originalEntry()) }
-    //     entries['./scripts/build-rss.js'] = './scripts/build-rss.js'
-    //     return entries
-    //   }
-    // }
+      config.entry = async () => {
+        const entries = { ...(await originalEntry()) }
+        entries['./scripts/build-rss'] = './scripts/build-rss.js'
+
+        return entries
+      }
+    }
 
     return config
   },
