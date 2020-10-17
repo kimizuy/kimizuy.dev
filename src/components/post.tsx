@@ -12,13 +12,10 @@ const mdxComponents: Components = {
   img: (props) => <img className={styles.image} loading="lazy" {...props} />,
 }
 
-export default function Post({
-  meta,
-  children,
-}: {
+const Post: React.FC<{
   meta: Meta
   children: React.ReactNode
-}) {
+}> = ({ meta, children }) => {
   const router = useRouter()
 
   return (
@@ -61,3 +58,5 @@ export default function Post({
     </Layout>
   )
 }
+
+export default Post

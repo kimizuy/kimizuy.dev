@@ -5,7 +5,7 @@ type Props = {
   tags: string[]
 }
 
-export default function TagList(p: Props) {
+const TagList: React.FC<Props> = (p) => {
   return (
     <section className={styles.container}>
       <ul className={styles.tagList}>
@@ -17,7 +17,7 @@ export default function TagList(p: Props) {
   )
 }
 
-function TagButton({ tag }: { tag: string }) {
+const TagButton: React.FC<{ tag: string }> = ({ tag }) => {
   return (
     <li className={styles.tag}>
       <Link href="/tags/[tag]" as={`/tags/${tag}`}>
@@ -26,3 +26,5 @@ function TagButton({ tag }: { tag: string }) {
     </li>
   )
 }
+
+export default TagList

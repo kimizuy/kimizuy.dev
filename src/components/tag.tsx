@@ -1,6 +1,6 @@
 import Link from 'next/link'
 
-export default function Tag({ tag }: { tag: string }) {
+const Tag: React.FC<{ tag: string }> = ({ tag }) => {
   return (
     <>
       <Link href="/tags/[tag]" as={`/tags/${tag}`}>
@@ -9,3 +9,5 @@ export default function Tag({ tag }: { tag: string }) {
     </>
   )
 }
+
+export default Tag

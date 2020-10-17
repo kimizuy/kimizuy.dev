@@ -5,7 +5,7 @@ type Props = {
   date: Meta['date']
 }
 
-export default function Date(p: Props) {
+const Date: React.FC<Props> = (p) => {
   return (
     <>
       published at <Time value={p.date.published} />
@@ -15,7 +15,9 @@ export default function Date(p: Props) {
   )
 }
 
-function Time({ value }: { value: string }) {
+const Time: React.FC<{ value: string }> = ({ value }) => {
   const date = parseISO(value)
   return <time dateTime={value}>{format(date, 'yyyy/M/d')}</time>
 }
+
+export default Date

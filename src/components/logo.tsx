@@ -3,7 +3,7 @@ import styles from './logo.module.css'
 import { NAME, SITETITLE } from '@/lib/constants'
 import profile from '../../public/profile.jpg'
 
-export default function Logo() {
+const Logo: React.FC = () => {
   const router = useRouter()
 
   return (
@@ -18,3 +18,5 @@ export default function Logo() {
     </div>
   )
 }
+
+export default Logo
