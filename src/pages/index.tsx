@@ -9,7 +9,7 @@ import profile from '../../public/profile.jpg'
 const previews = getAllPostPreviews()
 const tags = getAllTags()
 
-export default function Home() {
+const Home: React.FC = () => {
   return (
     <Layout home>
       <Head>
@@ -38,3 +38,5 @@ export default function Home() {
     </Layout>
   )
 }
+
+export default Home

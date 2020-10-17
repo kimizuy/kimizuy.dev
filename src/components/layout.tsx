@@ -4,13 +4,10 @@ import CopyRight from './copyRight'
 import Link from 'next/link'
 import utilStyles from './utils.module.css'
 
-export default function Layout({
-  children,
-  home,
-}: {
+const Layout: React.FC<{
   children: React.ReactNode
   home?: boolean
-}) {
+}> = ({ children, home }) => {
   return (
     <div className={styles.container}>
       <header className={styles.header}>
@@ -32,7 +29,7 @@ export default function Layout({
   )
 }
 
-function Mention() {
+const Mention = () => {
   return (
     <div className={`${utilStyles.lightText} ${styles.margin1}`}>
       指摘や不明点があれば筆者の
@@ -44,7 +41,7 @@ function Mention() {
   )
 }
 
-function BackToHome() {
+const BackToHome = () => {
   return (
     <div className={styles.margin1}>
       <Link href="/">
@@ -53,3 +50,5 @@ function BackToHome() {
     </div>
   )
 }
+
+export default Layout

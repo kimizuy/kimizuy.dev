@@ -11,13 +11,13 @@ type Props = {
   selectedTagPreviews: Preview[]
 }
 
-export default function Tag({ selectedTag, selectedTagPreviews }: Props) {
+const Tag: React.FC<Props> = ({ selectedTag, selectedTagPreviews }) => {
   return (
     <Layout home>
       <Head>
         <title>{selectedTag}</title>
       </Head>
-      <h1>#{selectedTag}</h1>
+      <h1 style={{ padding: '0 1rem' }}>#{selectedTag}</h1>
       <section>
         <CardList previews={selectedTagPreviews} />
       </section>
@@ -50,3 +50,5 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     },
   }
 }
+
+export default Tag

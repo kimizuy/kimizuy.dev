@@ -1,6 +1,6 @@
 module.exports = {
   parser: '@typescript-eslint/parser',
-  plugins: ['@typescript-eslint'],
+  plugins: ['@typescript-eslint', 'prefer-arrow'],
   extends: [
     'eslint:recommended',
     'plugin:react/recommended',
@@ -44,5 +44,21 @@ module.exports = {
       },
     ],
     '@typescript-eslint/semi': 0,
+
+    '@typescript-eslint/explicit-module-boundary-types': [
+      1,
+      {
+        allowedNames: ['render', 'getInitialProps'],
+      },
+    ],
+    // アロー関数のみ使う
+    'prefer-arrow/prefer-arrow-functions': [
+      1,
+      {
+        disallowPrototype: true,
+        singleReturnOnly: false,
+        classPropertiesAllowed: false,
+      },
+    ],
   },
 }

@@ -1,6 +1,7 @@
 import getAllPostPreviews from './getAllPostPreviews'
 
-export default function getSelectedTagPreviews(selectedTag: string) {
+// FIXME
+const getSelectedTagPreviews: any = (selectedTag: string) => {
   // issue: https://github.com/vercel/next.js/issues/11993
   return JSON.parse(
     JSON.stringify(
@@ -10,3 +11,5 @@ export default function getSelectedTagPreviews(selectedTag: string) {
     )
   )
 }
+
+export default getSelectedTagPreviews

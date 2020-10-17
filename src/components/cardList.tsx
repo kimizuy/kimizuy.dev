@@ -9,7 +9,7 @@ type Props = {
   previews: Preview[]
 }
 
-export default function CardList(p: Props) {
+const CardList: React.FC<Props> = (p: Props) => {
   return (
     <section className={styles.container}>
       <ul className={styles.cardList}>
@@ -21,7 +21,7 @@ export default function CardList(p: Props) {
   )
 }
 
-function Card({ preview }: { preview: Preview }) {
+const Card: React.FC<{ preview: Preview }> = ({ preview }) => {
   const { link, meta } = preview
 
   return (
@@ -48,3 +48,5 @@ function Card({ preview }: { preview: Preview }) {
     </li>
   )
 }
+
+export default CardList

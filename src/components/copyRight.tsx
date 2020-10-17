@@ -1,6 +1,6 @@
 import styles from './copyRight.module.css'
 
-export default function CopyRight() {
+const CopyRight: React.FC = () => {
   return (
     <div className={styles.container}>
       <p>
@@ -31,3 +31,5 @@ export default function CopyRight() {
     </div>
   )
 }
+
+export default CopyRight
