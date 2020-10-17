@@ -17,7 +17,7 @@ const Tag: React.FC<Props> = ({ selectedTag, selectedTagPreviews }) => {
       <Head>
         <title>{selectedTag}</title>
       </Head>
-      <h1>#{selectedTag}</h1>
+      <h1 style={{ padding: '0 1rem' }}>#{selectedTag}</h1>
       <section>
         <CardList previews={selectedTagPreviews} />
       </section>
