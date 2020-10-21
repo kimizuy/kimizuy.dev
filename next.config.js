@@ -5,6 +5,7 @@ const rehypePrism = require('@mapbox/rehype-prism')
 module.exports = {
   pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'mdx'],
 
+  // eslint-disable-next-line prefer-arrow/prefer-arrow-functions
   rewrites() {
     return [
       {
@@ -60,7 +61,7 @@ module.exports = {
 
       config.entry = async () => {
         const entries = { ...(await originalEntry()) }
-        entries['./scripts/build-rss'] = './scripts/build-rss.js'
+        entries['./scripts/build-rss.js'] = './scripts/build-rss.js'
 
         return entries
       }
