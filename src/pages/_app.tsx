@@ -2,7 +2,7 @@ import '@/styles/global.css'
 import Head from 'next/head'
 import { AppProps } from 'next/app'
 
-export default function App({ Component, pageProps }: AppProps) {
+const App: React.FC<AppProps> = ({ Component, pageProps }) => {
   return (
     <div>
       <Head>
@@ -12,3 +12,5 @@ export default function App({ Component, pageProps }: AppProps) {
     </div>
   )
 }
+
+export default App

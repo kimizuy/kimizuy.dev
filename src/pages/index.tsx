@@ -5,11 +5,12 @@ import getAllTags from '@/lib/getAllTags'
 import TagList from '@/components/tagList'
 import Head from 'next/head'
 import profile from '../../public/profile.jpg'
+import { SITE_URL } from '@/lib/constants'
 
 const previews = getAllPostPreviews()
 const tags = getAllTags()
 
-export default function Home() {
+const Home: React.FC = () => {
   return (
     <Layout home>
       <Head>
@@ -18,18 +19,12 @@ export default function Home() {
         <meta name="twitter:creator" content="@kimizuy" />
         <meta name="twitter:title" content="kimizuy blog" />
         <meta name="twitter:description" content="kimizuy のブログです" />
-        <meta
-          name="twitter:image"
-          content={`https://blog.kimizuy.dev${profile}`}
-        />
-        <meta property="og:url" content="https://blog.kimizuy.dev" />
+        <meta name="twitter:image" content={`${SITE_URL}${profile}`} />
+        <meta property="og:url" content="${SITE_URL}" />
         <meta property="og:type" content="article" />
         <meta property="og:title" content="kimizuy blog" />
         <meta property="og:description" content="kimizuy のブログです" />
-        <meta
-          property="og:image"
-          content={`https://blog.kimizuy.dev${profile}`}
-        />
+        <meta property="og:image" content={`${SITE_URL}${profile}`} />
         <title>kimizuy blog</title>
         <meta name="description" content="kimizuy のブログです" />
       </Head>
@@ -38,3 +33,5 @@ export default function Home() {
     </Layout>
   )
 }
+
+export default Home

@@ -4,11 +4,12 @@
   "scripts": {
     "dev": "next dev -p 8000",
     "build": "next build && yarn build:rss",
+    "build:rss": "node ./.next/server/scripts/build-rss.js",
     "start": "next start",
     "tsc-watch": "tsc --noEmit --watch",
-    "format": "prettier --write .",
-    "lint": "eslint . --ext ts --ext tsx --ext js",
-    "build:rss": "node ./.next/server/scripts/build-rss.js"
+    "fix": "run-s fix:eslint fix:prettier",
+    "fix:eslint": "eslint .",
+    "fix:prettier": "prettier --write ."
   },
   "dependencies": {
     "@mapbox/rehype-prism": "^0.5.0",
@@ -34,9 +35,11 @@
     "eslint-config-prettier": "^6.11.0",
     "eslint-plugin-import": "^2.22.0",
     "eslint-plugin-jsx-a11y": "^6.3.1",
+    "eslint-plugin-prefer-arrow": "^1.2.2",
     "eslint-plugin-react": "^7.20.3",
     "eslint-plugin-react-hooks": "^4.0.8",
     "file-loader": "^6.0.0",
+    "npm-run-all": "^4.1.5",
     "prettier": "^2.1.1",
     "rss": "^1.2.2",
     "typescript": "^3.8.3"

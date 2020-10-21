@@ -1,5 +1,6 @@
 import Date from '@/components/date'
 import Layout from '@/components/layout'
+import { SITE_URL } from '@/lib/constants'
 import { Meta } from '@/types/post'
 import { Components, MDXProvider } from '@mdx-js/react'
 import Head from 'next/head'
@@ -12,13 +13,10 @@ const mdxComponents: Components = {
   img: (props) => <img className={styles.image} loading="lazy" {...props} />,
 }
 
-export default function Post({
-  meta,
-  children,
-}: {
+const Post: React.FC<{
   meta: Meta
   children: React.ReactNode
-}) {
+}> = ({ meta, children }) => {
   const router = useRouter()
 
   return (
@@ -30,21 +28,12 @@ export default function Post({
         <meta name="twitter:creator" content="@kimizuy" />
         <meta name="twitter:title" content={`${meta.title} – kimizuy blog`} />
         <meta name="twitter:description" content={meta.description} />
-        <meta
-          name="twitter:image"
-          content={`https://blog.kimizuy.dev${meta.image}`}
-        />
-        <meta
-          property="og:url"
-          content={`https://blog.kimizuy.dev${router.pathname}`}
-        />
+        <meta name="twitter:image" content={`${SITE_URL}${meta.image}`} />
+        <meta property="og:url" content={`${SITE_URL}${router.pathname}`} />
         <meta property="og:type" content="article" />
         <meta property="og:title" content={`${meta.title} – kimizuy blog`} />
         <meta property="og:description" content={meta.description} />
-        <meta
-          property="og:image"
-          content={`https://blog.kimizuy.dev${meta.image}`}
-        />
+        <meta property="og:image" content={`${SITE_URL}${meta.image}`} />
         <meta name="description" content={meta.description}></meta>
       </Head>
       <article className={styles.container}>
@@ -61,3 +50,5 @@ export default function Post({
     </Layout>
   )
 }
+
+export default Post
