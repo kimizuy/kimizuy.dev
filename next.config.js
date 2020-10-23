@@ -61,7 +61,7 @@ module.exports = {
 
       config.entry = async () => {
         const entries = { ...(await originalEntry()) }
-        entries['./scripts/build-rss.js'] = './scripts/build-rss.ts'
+        entries['./scripts/build-rss.js'] = './scripts/build-rss.tsx'
 
         return entries
       }
