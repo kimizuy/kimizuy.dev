@@ -34,7 +34,12 @@ const generate = async () => {
   })
 
   previews.forEach(({ link, module: { default: Content, meta } }) => {
-    const html = ReactDOMServer.renderToStaticMarkup(<Content />)
+    const mdx = (
+      <MDXProvider components={{ p: () => <p /> }}>
+        <Content />
+      </MDXProvider>
+    )
+    const html = ReactDOMServer.renderToStaticMarkup(mdx)
 
     feed.addItem({
       title: meta.title,
