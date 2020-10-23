@@ -3,7 +3,6 @@ import { Feed } from 'feed'
 import ReactDOMServer from 'react-dom/server'
 import { dateSortDesc } from '@/lib/utils'
 import { Meta } from '@/types/post'
-import { MDXProvider } from '@mdx-js/react'
 
 export type Preview = { link: string; module: { default: any; meta: Meta } }
 
@@ -14,7 +13,7 @@ const importAll = (r) => {
   }))
 }
 
-const getAllPostPreviews = async (): Promise<Preview[]> => {
+const getAllPostPreviews = (): Preview[] => {
   return importAll(
     require.context('../src/pages/posts/', true, /\.mdx$/)
   ).sort((a, b) =>
@@ -22,8 +21,8 @@ const getAllPostPreviews = async (): Promise<Preview[]> => {
   )
 }
 
-const generate = async () => {
-  const previews = await getAllPostPreviews()
+const generate = () => {
+  const previews = getAllPostPreviews()
 
   const feed = new Feed({
     title: 'Blog – kimizuy',
