@@ -4,6 +4,7 @@ import ReactDOMServer from 'react-dom/server'
 import { dateSortDesc } from '@/lib/utils'
 import { Meta } from '@/types/post'
 import mdx from '@mdx-js/mdx'
+import path from 'path'
 
 export type Preview = { link: string; module: { default: any; meta: Meta } }
 
@@ -22,6 +23,14 @@ const getAllPostPreviews = (): Preview[] => {
   )
 }
 
+const getallposts = () => {
+  const directory = path.join(process.cwd(), 'src', 'pages', 'posts')
+  const files = fs.readdirSync(directory)
+
+  files.forEach((v) => console.log(v))
+}
+getallposts()
+
 const generate = () => {
   const previews = getAllPostPreviews()
 
@@ -34,14 +43,14 @@ const generate = () => {
   })
 
   previews.forEach(async ({ link, module: { default: Content, meta } }) => {
-    const Jsx = await mdx(Content)
+    // const Jsx = await mdx(Content)
 
     feed.addItem({
       title: meta.title,
       id: link,
       link: `https://blog.kimizuy.dev${link}`,
       date: new Date(meta.date.published),
-      description: ReactDOMServer.renderToStaticMarkup(<Jsx />),
+      description: meta.description,
     })
   })
 
