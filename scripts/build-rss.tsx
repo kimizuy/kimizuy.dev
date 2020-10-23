@@ -3,6 +3,7 @@ import { Feed } from 'feed'
 import ReactDOMServer from 'react-dom/server'
 import { dateSortDesc } from '@/lib/utils'
 import { Meta } from '@/types/post'
+import mdx from '@mdx-js/mdx'
 
 export type Preview = { link: string; module: { default: any; meta: Meta } }
 
@@ -32,13 +33,15 @@ const generate = () => {
     feedLinks: 'https://blog.kimizuy.dev/feed.xml',
   })
 
-  previews.forEach(({ link, module: { default: Content, meta } }) => {
+  previews.forEach(async ({ link, module: { default: Content, meta } }) => {
+    const Jsx = await mdx(Content)
+
     feed.addItem({
       title: meta.title,
       id: link,
       link: `https://blog.kimizuy.dev${link}`,
       date: new Date(meta.date.published),
-      description: ReactDOMServer.renderToStaticMarkup(<h1>test</h1>),
+      description: ReactDOMServer.renderToStaticMarkup(<Jsx />),
     })
   })
 
