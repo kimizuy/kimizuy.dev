@@ -34,19 +34,12 @@ const generate = async () => {
   })
 
   previews.forEach(({ link, module: { default: Content, meta } }) => {
-    const mdx = (
-      <MDXProvider components={{ p: () => <p /> }}>
-        <Content />
-      </MDXProvider>
-    )
-    const html = ReactDOMServer.renderToStaticMarkup(mdx)
-
     feed.addItem({
       title: meta.title,
       id: link,
       link: `https://blog.kimizuy.dev${link}`,
       date: new Date(meta.date.published),
-      description: html,
+      description: ReactDOMServer.renderToStaticMarkup(<Content />),
     })
   })
 
