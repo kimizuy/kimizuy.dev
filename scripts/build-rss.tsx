@@ -3,6 +3,7 @@ import { Feed } from 'feed'
 import ReactDOMServer from 'react-dom/server'
 import { dateSortDesc } from '@/lib/utils'
 import { Meta } from '@/types/post'
+import { MDXProvider } from '@mdx-js/react'
 
 export type Preview = { link: string; module: { default: any; meta: Meta } }
 
@@ -13,7 +14,7 @@ const importAll = (r) => {
   }))
 }
 
-const getAllPostPreviews = (): Preview[] => {
+const getAllPostPreviews = async (): Promise<Preview[]> => {
   return importAll(
     require.context('../src/pages/posts/', true, /\.mdx$/)
   ).sort((a, b) =>
@@ -21,26 +22,32 @@ const getAllPostPreviews = (): Preview[] => {
   )
 }
 
-const feed = new Feed({
-  title: 'Blog – kimizuy',
-  id: 'https://blog.kimizuy.dev',
-  link: 'https://blog.kimizuy.dev',
-  copyright: 'All rights reserved 2020, kimizuy',
-  feedLinks: 'https://blog.kimizuy.dev/feed.xml',
-})
+const generate = async () => {
+  const previews = await getAllPostPreviews()
 
-getAllPostPreviews().forEach(({ link, module: { default: Content, meta } }) => {
-  const html = ReactDOMServer.renderToStaticMarkup(<Content />)
-
-  feed.addItem({
-    title: meta.title,
-    id: link,
-    link: `https://blog.kimizuy.dev${link}`,
-    date: new Date(meta.date.published),
-    description: html,
+  const feed = new Feed({
+    title: 'Blog – kimizuy',
+    id: 'https://blog.kimizuy.dev',
+    link: 'https://blog.kimizuy.dev',
+    copyright: 'All rights reserved 2020, kimizuy',
+    feedLinks: 'https://blog.kimizuy.dev/feed.xml',
   })
-})
 
-const rss = feed.rss2()
+  previews.forEach(({ link, module: { default: Content, meta } }) => {
+    const html = ReactDOMServer.renderToStaticMarkup(<Content />)
 
-fs.writeFileSync('./.next/static/feed.xml', rss)
+    feed.addItem({
+      title: meta.title,
+      id: link,
+      link: `https://blog.kimizuy.dev${link}`,
+      date: new Date(meta.date.published),
+      description: html,
+    })
+  })
+
+  const rss = feed.rss2()
+
+  fs.writeFileSync('./.next/static/feed.xml', rss)
+}
+
+generate()
