@@ -38,7 +38,7 @@ const generate = () => {
       id: link,
       link: `https://blog.kimizuy.dev${link}`,
       date: new Date(meta.date.published),
-      description: ReactDOMServer.renderToStaticMarkup(<Content />),
+      description: ReactDOMServer.renderToStaticMarkup(<h1>test</h1>),
     })
   })
 
