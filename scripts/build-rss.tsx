@@ -27,7 +27,7 @@ const getAllPostPreviews = async () => {
   const files = fs.readdirSync(directory)
 
   const entries: { default: any; meta: Meta }[] = await Promise.all(
-    files.map((file) => import(`../src/pages/posts/${file}`))
+    files.map((file) => import(`../src/pages/posts/${file}/index.mdx`))
   )
 
   const posts = entries.map(({ default: Content, meta }, i) => ({
