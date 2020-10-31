@@ -4,13 +4,17 @@ import { SITE_URL } from '@/lib/constants'
 import { Meta } from '@/types/post'
 import { Components, MDXProvider } from '@mdx-js/react'
 import Head from 'next/head'
+import Image from 'next/image'
 import { useRouter } from 'next/router'
 import styles from './post.module.css'
 import Tag from './tag'
 import utilStyles from './utils.module.css'
 
 const mdxComponents: Components = {
-  img: (props) => <img className={styles.image} loading="lazy" {...props} />,
+  // FIXME: "src" is required
+  img: ((props) => (
+    <Image className={styles.image} {...props} unsized />
+  )) as any,
 }
 
 const Post: React.FC<{

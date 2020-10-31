@@ -4,6 +4,7 @@ import Link from 'next/link'
 import Date from '@/components/date'
 import Tag from './tag'
 import utilStyles from './utils.module.css'
+import Image from 'next/image'
 
 type Props = {
   previews: Preview[]
@@ -28,7 +29,7 @@ const Card: React.FC<{ preview: Preview }> = ({ preview }) => {
     <li className={styles.card}>
       <Link href={link}>
         <div className={styles.imgWrapper}>
-          <img src={meta.image} loading="lazy" />
+          <Image src={meta.image} unsized />
         </div>
       </Link>
       <div className={styles.contentWrapper}>
