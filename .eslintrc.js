@@ -53,7 +53,7 @@ module.exports = {
     ],
     // アロー関数のみ使う
     'prefer-arrow/prefer-arrow-functions': [
-      1,
+      2,
       {
         disallowPrototype: true,
         singleReturnOnly: false,
