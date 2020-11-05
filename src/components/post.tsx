@@ -11,10 +11,8 @@ import Tag from './tag'
 import utilStyles from './utils.module.css'
 
 const mdxComponents: Components = {
-  // FIXME: "src" is required
-  img: ((props) => (
-    <Image className={styles.image} {...props} unsized />
-  )) as any,
+  // @ts-expect-error: "src" is required
+  img: (props) => <Image className={styles.image} {...props} unsized />,
 }
 
 const Post: React.FC<{
