@@ -2,7 +2,7 @@ import styles from './layout.module.css'
 import Logo from './logo'
 import CopyRight from './copyRight'
 import Link from 'next/link'
-import utilStyles from './utils.module.css'
+import LightText from './lightText'
 
 const Layout: React.FC<{
   children: React.ReactNode
@@ -31,13 +31,13 @@ const Layout: React.FC<{
 
 const Mention = () => {
   return (
-    <div className={`${utilStyles.lightText} ${styles.margin1}`}>
+    <LightText className={`${styles.margin1}`}>
       指摘や不明点があれば筆者の
       <Link href="https://twitter.com/kimizuy">
         <a>Twitter</a>
       </Link>
       までおねがいします。
-    </div>
+    </LightText>
   )
 }
 
