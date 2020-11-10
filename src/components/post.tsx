@@ -6,9 +6,9 @@ import { Components, MDXProvider } from '@mdx-js/react'
 import Head from 'next/head'
 import Image from 'next/image'
 import { useRouter } from 'next/router'
+import LightText from './lightText'
 import styles from './post.module.css'
 import Tag from './tag'
-import utilStyles from './utils.module.css'
 
 const mdxComponents: Components = {
   // @ts-expect-error: "src" is required
@@ -40,13 +40,13 @@ const Post: React.FC<{
       </Head>
       <article className={styles.container}>
         <h1 className={styles.headingXl}>{meta.title}</h1>
-        <div className={utilStyles.lightText}>
+        <LightText>
           {meta.tag.map((t) => (
             <Tag key={t} tag={t} />
           ))}
           <br />
           <Date date={meta.date} />
-        </div>
+        </LightText>
         <MDXProvider components={mdxComponents}>{children}</MDXProvider>
       </article>
     </Layout>

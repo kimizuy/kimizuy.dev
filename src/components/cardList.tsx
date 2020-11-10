@@ -3,8 +3,8 @@ import { Preview } from '@/types/post'
 import Link from 'next/link'
 import Date from '@/components/date'
 import Tag from './tag'
-import utilStyles from './utils.module.css'
 import Image from 'next/image'
+import LightText from './lightText'
 
 type Props = {
   previews: Preview[]
@@ -38,13 +38,13 @@ const Card: React.FC<{ preview: Preview }> = ({ preview }) => {
             <a>{meta.title}</a>
           </Link>
         </div>
-        <div className={`${styles.marginTopAuto} ${utilStyles.lightText}`}>
+        <LightText className={`${styles.marginTopAuto}`}>
           {meta.tag.map((t) => (
             <Tag key={t} tag={t} />
           ))}
           <br />
           <Date date={meta.date} />
-        </div>
+        </LightText>
       </div>
     </li>
   )
