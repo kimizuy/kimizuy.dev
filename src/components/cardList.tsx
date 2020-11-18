@@ -23,7 +23,10 @@ const CardList: React.FC<Props> = (p: Props) => {
 }
 
 const Card: React.FC<{ preview: Preview }> = ({ preview }) => {
-  const { link, meta } = preview
+  const {
+    link,
+    module: { meta },
+  } = preview
 
   return (
     <li className={styles.card}>

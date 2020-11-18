@@ -5,7 +5,7 @@ export const getStaticProps = async () => {
   return {
     props: {
       posts: getAllPostPreviews().map((post) => ({
-        title: post.meta.title,
+        title: post.module.meta.title,
         link: post.link,
       })),
     },

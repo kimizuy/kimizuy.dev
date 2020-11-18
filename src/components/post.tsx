@@ -10,7 +10,7 @@ import LightText from './lightText'
 import styles from './post.module.css'
 import Tag from './tag'
 
-const mdxComponents: Components = {
+export const mdxComponents: Components = {
   // @ts-expect-error: "src" is required
   img: (props) => <Image className={styles.image} {...props} unsized />,
 }
