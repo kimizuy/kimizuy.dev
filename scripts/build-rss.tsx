@@ -1,6 +1,9 @@
 import fs from 'fs'
 import { Feed } from 'feed'
 import getAllPostPreviews from '../src/lib/getAllPostPreviews'
+import { MDXProvider } from '@mdx-js/react'
+import { mdxComponents } from '@/components/post'
+import ReactDOMServer from 'react-dom/server'
 
 const feed = new Feed({
   title: 'Blog – kimizuy',
@@ -10,13 +13,20 @@ const feed = new Feed({
   feedLinks: 'https://blog.kimizuy.dev/feed.xml',
 })
 
-getAllPostPreviews().forEach(({ link, meta }) => {
+getAllPostPreviews().forEach(({ link, module: { default: Content, meta } }) => {
+  const mdx = (
+    <MDXProvider components={mdxComponents}>
+      <Content />
+    </MDXProvider>
+  )
+  const html = ReactDOMServer.renderToStaticMarkup(mdx)
+
   feed.addItem({
     title: meta.title,
     id: link,
     link: `https://blog.kimizuy.dev${link}`,
     date: new Date(meta.date.published),
-    description: meta.description,
+    description: html,
   })
 })
 
