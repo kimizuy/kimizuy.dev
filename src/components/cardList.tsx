@@ -29,7 +29,7 @@ const Card: React.FC<{ preview: Preview }> = ({ preview }) => {
     <li className={styles.card}>
       <Link href={link}>
         <div className={styles.imgWrapper}>
-          <Image src={meta.image} unsized />
+          <Image src={meta.image} layout="fill" />
         </div>
       </Link>
       <div className={styles.contentWrapper}>
