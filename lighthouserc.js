@@ -1,8 +1,9 @@
 module.exports = {
   ci: {
     collect: {
-      staticDistDir: './out',
-      url: '/index.html',
+      numberOfRuns: 1,
+      startServerCommand: 'yarn start',
+      url: ['http://localhost:3000/'],
     },
     upload: {
       target: 'temporary-public-storage',
