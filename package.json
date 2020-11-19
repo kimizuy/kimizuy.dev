@@ -5,7 +5,7 @@
     "dev": "next dev -p 8000",
     "build": "next build && yarn build:rss",
     "build:rss": "node ./.next/serverless/scripts/build-rss.js",
-    "build:lhci": "next build && next export",
+    "build:lhci": "next build",
     "start": "next start",
     "tsc-watch": "tsc --noEmit --watch",
     "fix": "run-s fix:eslint fix:prettier",
