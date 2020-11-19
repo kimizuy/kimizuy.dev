@@ -10,7 +10,8 @@ const Date: React.FC<Props> = (p) => {
     <>
       published at <Time value={p.date.published} />
       <br />
-      {p.date.updated && 'updated at ' + <Time value={p.date.updated} />}
+      {p.date.updated && 'updated at '}
+      {p.date.updated && <Time value={p.date.updated} />}
     </>
   )
 }

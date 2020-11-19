@@ -12,7 +12,7 @@ export const meta = {
   title: 'Github Actions × Lighthouse CI を Next.js プロジェクトに導入する',
   description:
     '最近いろいろなサイトの Lighthouse スコアを見るのが趣味になっている。このサイトもスコアを参考に修正しているがデプロイする前に確認したい。 ググってみると Github Actions × Lighthouse CI で可能なことがわかった。Next.js プロジェクトでの紹介事例がないようだったのでまとめておく。',
-  date: { published: '2020-08-22' },
+  date: { published: '2020-08-22', updated: '2020-11-20' },
   tag: ['next', 'github'],
   image: card,
 }
@@ -73,7 +73,7 @@ jobs:
       - name: npm install, build
         run: |
           npm install
-          npm run build
+          npm run build:lhci
       - name: run Lighthouse CI
         run: |
           npm install -g @lhci/cli@0.4.x
@@ -90,8 +90,9 @@ jobs:
 module.exports = {
   ci: {
     collect: {
-      staticDistDir: './out',
-      url: '/index.html',
+      numberOfRuns: 1, // Lighthouse の試行回数は1回
+      startServerCommand: 'npm run start', // プロダクションモードでローカルサーバーを起動する
+      url: ['http://localhost:3000/'], // 評価対象のURL
     },
     upload: {
       target: 'temporary-public-storage',
@@ -100,24 +101,22 @@ module.exports = {
 }
 ```
 
-### 解説
+## package.json に scripts を追加する
 
-Next.js は SSG のため（v9.3 以降？）、静的生成されたディレクトリを評価対象として設定する必要がある。Next.js の場合はビルドすると ./out ディレクトリが作られるので、その Path を指定する。
+`build:lhci` と `start` コマンドを追加する。
 
-```js
-staticDistDir: './out',
-```
-
-url を指定するとその HTML ファイルのみをテスト対象とする。つまり url を指定しない場合はすべての HTML ファイルが対象となる。これから記事が増えてページ数が増えるとその分実行時間がかかってしまうため、今のところホームページのみを対象としている。
-
-```js
-url: '/index.html',
+```json
+  "scripts": {
+    ~~~
+    "build:lhci": "next build",
+    "start": "next start"
+    ~~~
+},
 ```
 
 ## 実際に実行してみる
 
-設定ではリモートリポジトリにプッシュするたびに実行されるようになっている。
-例として dev ブランチの Actions タブを開いて確認してみる。
+設定ではプルリクエストを作成し、プッシュするたびに実行されるようになっている。
 
 <img src={result1} />
 
@@ -125,7 +124,7 @@ url: '/index.html',
 
 <img src={result2} />
 
-Yeah !!
+以上。
 
 <img src={result3} />
 
