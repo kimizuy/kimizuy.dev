@@ -9,4 +9,4 @@ export type Meta = {
   image: any
 }
 
-export type Preview = { link: string; meta: Meta }
+export type Preview = { link: string; module: { default: any; meta: Meta } }

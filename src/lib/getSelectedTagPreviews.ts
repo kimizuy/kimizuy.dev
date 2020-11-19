@@ -6,7 +6,7 @@ const getSelectedTagPreviews: any = (selectedTag: string) => {
   return JSON.parse(
     JSON.stringify(
       getAllPostPreviews().filter((preview) =>
-        preview.meta.tag.includes(selectedTag)
+        preview.module.meta.tag.includes(selectedTag)
       )
     )
   )

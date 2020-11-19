@@ -10,7 +10,7 @@ import LightText from './lightText'
 import styles from './post.module.css'
 import Tag from './tag'
 
-const mdxComponents: Components = {
+export const mdxComponents: Components = {
   img: (props) => (
     // @ts-expect-error: "src" is required
     <Image {...props} width={1170} height={658.125} objectFit="contain" />
