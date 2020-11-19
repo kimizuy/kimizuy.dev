@@ -9,15 +9,3 @@
   letter-spacing: -0.05rem;
   margin: 1rem 0;
 }
-
-@media screen and (min-width: 767px) {
-  .image {
-    /* width: 92%; */
-  }
-}
-
-@media screen and (min-width: 1023px) {
-  .image {
-    /* width: 88%; */
-  }
-}

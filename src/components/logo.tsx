@@ -14,7 +14,9 @@ const Logo: React.FC = () => {
         router.push('/')
       }}
     >
-      <Image className={styles.headerImage} src={profile} alt={NAME} unsized />
+      <div className={styles.imgWrapper}>
+        <Image src={profile} alt={NAME} layout="fill" objectFit="contain" />
+      </div>
       <h1 className={styles.headerTitle}>{SITE_TITLE}</h1>
     </div>
   )

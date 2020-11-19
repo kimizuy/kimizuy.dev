@@ -11,8 +11,10 @@ import styles from './post.module.css'
 import Tag from './tag'
 
 const mdxComponents: Components = {
-  // @ts-expect-error: "src" is required
-  img: (props) => <Image className={styles.image} {...props} unsized />,
+  img: (props) => (
+    // @ts-expect-error: "src" is required
+    <Image {...props} width={1170} height={658.125} objectFit="contain" />
+  ),
 }
 
 const Post: React.FC<{

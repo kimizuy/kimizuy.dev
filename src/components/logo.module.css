@@ -4,9 +4,13 @@
   cursor: pointer;
 }
 
-.headerImage {
+.imgWrapper {
+  position: relative;
   width: 3rem;
   height: 3rem;
+}
+
+.imgWrapper img {
   border-radius: 9999px;
 }
 
