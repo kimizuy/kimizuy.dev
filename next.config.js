@@ -5,16 +5,6 @@ const rehypePrism = require('@mapbox/rehype-prism')
 module.exports = {
   pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'mdx'],
 
-  // eslint-disable-next-line prefer-arrow/prefer-arrow-functions
-  rewrites() {
-    return [
-      {
-        source: '/feed.xml',
-        destination: '/_next/static/feed.xml',
-      },
-    ]
-  },
-
   webpack: (config, options) => {
     config.module.rules.push({
       test: /\.(jpe?g|png|svg|gif|ico|webp|jp2)$/,
@@ -68,5 +58,15 @@ module.exports = {
     }
 
     return config
+  },
+
+  // eslint-disable-next-line prefer-arrow/prefer-arrow-functions
+  async rewrites() {
+    return [
+      {
+        source: '/feed.xml',
+        destination: '/_next/static/feed.xml',
+      },
+    ]
   },
 }
