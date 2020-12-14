@@ -18,7 +18,7 @@ export const meta = {
     'Next.js × Firebase Authentication × Vercel で認証アプリをお手軽に作ってデプロイする',
   description:
     'Next.js が用意してくれている examples のひとつである with-firebase-authentication を利用すれば、メールアドレスでの認証アプリがとても簡単に作れたのでその方法をまとめる。この記事をざっと読めば必要な環境変数の取得といった環境構築で迷わないようになると思う',
-  date: { published: '2020-08-31' },
+  date: { published: '2020-08-31', updated: '2020-12-14' },
   tag: ['next', 'firebase', 'vercel'],
   image: card,
 }
@@ -33,7 +33,7 @@ export const meta = {
 
 実際の[サンプル](https://next-firebase-auth-sample.kimizuy.vercel.app)。
 
-Next.js が用意してくれている examples の [with-firebase-authentication](https://github.com/vercel/next.js/tree/canary/examples/with-firebase-authentication) を利用し認証アプリをデプロイするまでを説明する。この雛形を使うため内容量としては Firebase : Vercel : Next.js = 7 : 2 : 1 くらいの比率になる。サービスやツールに全依存すればだいたいコピペとクリックでいけるぞ！
+Next.js が用意してくれている examples の [with-firebase-authentication](https://github.com/vercel/next.js/tree/canary/examples/with-firebase-authentication) を利用し認証アプリをデプロイするまでを説明する。この雛形を使うため内容量としては Firebase : Vercel : Next.js = 7 : 2 : 1 くらいの比率になる。サービスやフレームワークに全依存すればだいたいコピペとクリックでいけるぞ！
 
 ## 前提条件
 
@@ -115,7 +115,9 @@ Next.js プロジェクトと連携するため Firebase から必要な環境�
 
 まず .env.local.example ファイルをコピーして .env.local ファイルを作る。それぞれ対応する値を設定していく。
 
-JSON ファイルからは project_id, private_key, client_email を利用する。`var firebaseConfig = {...}`からは apiKey, authDomain, databaseURL を利用する。""内の値をそのままコピペ。
+JSON ファイルからは project_id, private_key, client_email を利用する。`var firebaseConfig = {...}`からは apiKey, authDomain, databaseUrl[^*1] を利用する。""内の値をそのままコピペ。
+
+[^*1]: Firebase の仕様が変わったのか、firebaseConfig に databaseUrl が含まれない場合がある。プロジェクト上に Realtime Database を作成すると生成される変数なので、特に Authentication には直接関係がなく無視してよい。関連 → https://twitter.com/hapitomax/status/1335184425798123520?s=20
 
 環境変数を設定し終わったら`yarn dev`を実行し、ローカルでメール認証ができるかどうか確認してみる。
 
