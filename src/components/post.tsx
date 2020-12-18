@@ -17,7 +17,7 @@ const mdxComponents: Components = {
   ),
 }
 
-const Post: React.FC<{
+const Post: React.VFC<{
   meta: Meta
   children: React.ReactNode
 }> = ({ meta, children }) => {

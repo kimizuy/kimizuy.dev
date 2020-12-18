@@ -4,7 +4,7 @@ import { NAME, SITE_TITLE } from '@/lib/constants'
 import profile from '../../public/profile.jpg'
 import Image from 'next/image'
 
-const Logo: React.FC = () => {
+const Logo: React.VFC = () => {
   const router = useRouter()
 
   return (

@@ -4,7 +4,7 @@ import CopyRight from './copyRight'
 import Link from 'next/link'
 import LightText from './lightText'
 
-const Layout: React.FC<{
+const Layout: React.VFC<{
   children: React.ReactNode
   home?: boolean
 }> = ({ children, home }) => {

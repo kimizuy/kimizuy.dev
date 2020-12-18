@@ -1,6 +1,6 @@
 import styles from './copyRight.module.css'
 
-const CopyRight: React.FC = () => {
+const CopyRight: React.VFC = () => {
   return (
     <div className={styles.container}>
       <p>

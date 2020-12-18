@@ -5,7 +5,7 @@ type Props = {
   date: Meta['date']
 }
 
-const Date: React.FC<Props> = (p) => {
+const Date: React.VFC<Props> = (p) => {
   return (
     <>
       published at <Time value={p.date.published} />
@@ -16,7 +16,7 @@ const Date: React.FC<Props> = (p) => {
   )
 }
 
-const Time: React.FC<{ value: string }> = ({ value }) => {
+const Time: React.VFC<{ value: string }> = ({ value }) => {
   const date = parseISO(value)
   return <time dateTime={value}>{format(date, 'yyyy/M/d')}</time>
 }

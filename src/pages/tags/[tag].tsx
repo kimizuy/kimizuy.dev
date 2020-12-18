@@ -11,7 +11,7 @@ type Props = {
   selectedTagPreviews: Preview[]
 }
 
-const Tag: React.FC<Props> = ({ selectedTag, selectedTagPreviews }) => {
+const Tag: React.VFC<Props> = ({ selectedTag, selectedTagPreviews }) => {
   return (
     <Layout home>
       <Head>

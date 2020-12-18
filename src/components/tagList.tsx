@@ -5,7 +5,7 @@ type Props = {
   tags: string[]
 }
 
-const TagList: React.FC<Props> = (p) => {
+const TagList: React.VFC<Props> = (p) => {
   return (
     <section className={styles.container}>
       <ul className={styles.tagList}>
@@ -17,7 +17,7 @@ const TagList: React.FC<Props> = (p) => {
   )
 }
 
-const TagButton: React.FC<{ tag: string }> = ({ tag }) => {
+const TagButton: React.VFC<{ tag: string }> = ({ tag }) => {
   return (
     <li className={styles.tag}>
       <Link href="/tags/[tag]" as={`/tags/${tag}`}>
