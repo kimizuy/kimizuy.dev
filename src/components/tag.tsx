@@ -1,6 +1,6 @@
 import Link from 'next/link'
 
-const Tag: React.FC<{ tag: string }> = ({ tag }) => {
+const Tag: React.VFC<{ tag: string }> = ({ tag }) => {
   return (
     <>
       <Link href="/tags/[tag]" as={`/tags/${tag}`}>

@@ -10,7 +10,7 @@ import { SITE_URL } from '@/lib/constants'
 const previews = getAllPostPreviews()
 const tags = getAllTags()
 
-const Home: React.FC = () => {
+const Home: React.VFC = () => {
   return (
     <Layout home>
       <Head>

@@ -2,7 +2,7 @@ import '@/styles/global.css'
 import Head from 'next/head'
 import { AppProps } from 'next/app'
 
-const App: React.FC<AppProps> = ({ Component, pageProps }) => {
+const App: React.VFC<AppProps> = ({ Component, pageProps }) => {
   return (
     <div>
       <Head>

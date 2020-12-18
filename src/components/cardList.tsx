@@ -10,7 +10,7 @@ type Props = {
   previews: Preview[]
 }
 
-const CardList: React.FC<Props> = (p: Props) => {
+const CardList: React.VFC<Props> = (p: Props) => {
   return (
     <section className={styles.container}>
       <ul className={styles.cardList}>
@@ -22,7 +22,7 @@ const CardList: React.FC<Props> = (p: Props) => {
   )
 }
 
-const Card: React.FC<{ preview: Preview }> = ({ preview }) => {
+const Card: React.VFC<{ preview: Preview }> = ({ preview }) => {
   const { link, meta } = preview
 
   return (
