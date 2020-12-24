@@ -18,16 +18,16 @@ const CopyRight: React.VFC = () => {
         >
           @kimizuy
         </a>
-      </p>
-      <p>
+        {` & `}
         <a
           href="https://github.com/kimizuy/blog"
           target="_blank"
           rel="noopener noreferrer"
         >
-          GitHub
+          Repo
         </a>
       </p>
+      <p>This site uses Google Analytics.</p>
     </div>
   )
 }
