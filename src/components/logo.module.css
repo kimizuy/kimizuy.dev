@@ -1,6 +1,5 @@
 .container {
   display: inline-flex;
-  vertical-align: middle;
   cursor: pointer;
 }
 
