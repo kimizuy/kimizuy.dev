@@ -68,13 +68,14 @@ const Theme: React.VFC<{ children: React.ReactNode }> = ({ children }) => {
 }
 
 const ThemeSwitch: React.VFC = () => {
-  const { toggleTheme } = useTheme()
+  const { theme, toggleTheme } = useTheme()
 
   return (
     <div className={styles.switchContainer}>
       <label className={styles.switch}>
         <input
           type="checkbox"
+          checked={theme === 'light'}
           onChange={() => toggleTheme()}
           className={styles.slider}
         />
