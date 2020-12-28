@@ -97,6 +97,9 @@
   vertical-align: middle;
   width: 60px;
   height: 34px;
+
+  /* hide text */
+  font-size: 0;
 }
 
 /* Hide default HTML checkbox */

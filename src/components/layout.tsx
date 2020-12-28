@@ -73,6 +73,7 @@ const ThemeSwitch: React.VFC = () => {
   return (
     <div className={styles.switchContainer}>
       <label className={styles.switch}>
+        Theme Switch
         <input
           type="checkbox"
           checked={theme === 'light'}
