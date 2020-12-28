@@ -1,37 +1,8 @@
 @import url('./reset.css');
 @import url('./prism.css');
 
-/* @media (prefers-color-scheme: dark) { */
-:root {
-  --text-color: #f9fafa;
-  --sub-text-color: #9e9e9e;
-  --background: #0d1219;
-  --content-bg: #1a2634;
-  --link-color: #00c792;
-  --tag-color: #c2c6ca;
-  --tag-bg: #2e3a48;
-  --tag-bg-hov: #444f5b;
-  --border-color: rgba(255, 255, 255, 0.3);
-  --code-font: Menlo, Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
-  --code-color: #d4d4d4;
-  --code-bg: #1e1e1e;
-}
-/* } */
-
-/* @media (prefers-color-scheme: light) {
-  :root {
-    --text-color: #333;
-    --background: #f8f8f8;
-    --content-bg: #fff;
-    --link-color: #008662;
-  }
-} */
-
 html,
 body {
-  color: var(--text-color);
-  background: var(--background);
-
   font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN',
     'Hiragino Sans', Meiryo, sans-serif;
   line-height: 1.6;
@@ -40,7 +11,6 @@ body {
 }
 
 a {
-  color: var(--link-color);
   text-decoration: none;
 }
 
@@ -53,8 +23,5 @@ p {
 }
 
 p > code {
-  font-family: var(--code-font);
-  color: var(--code-color);
-  background-color: var(--code-bg);
   padding: 0.2rem 0.5rem;
 }
