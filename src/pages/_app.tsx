@@ -1,6 +1,7 @@
 import '@/styles/global.css'
 import Head from 'next/head'
 import { AppProps } from 'next/app'
+import { ThemeProvider } from '@/lib/ThemeProvider'
 
 const App: React.VFC<AppProps> = ({ Component, pageProps }) => {
   return (
@@ -8,7 +9,9 @@ const App: React.VFC<AppProps> = ({ Component, pageProps }) => {
       <Head>
         <link rel="alternate" type="application/rss+xml" href="/feed.xml" />
       </Head>
-      <Component {...pageProps} />
+      <ThemeProvider>
+        <Component {...pageProps} />
+      </ThemeProvider>
     </div>
   )
 }
