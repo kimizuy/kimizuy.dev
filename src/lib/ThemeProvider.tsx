@@ -1,4 +1,4 @@
-import { useState, createContext, useContext } from 'react'
+import { useState, createContext, useContext, useEffect } from 'react'
 
 type Theme = 'light' | 'dark'
 type ThemeContext = { theme: Theme; toggleTheme: () => void }
@@ -8,8 +8,15 @@ export const useTheme = (): ThemeContext => useContext(ThemeContext)
 
 export const ThemeProvider: React.FC = ({ children }) => {
   const [theme, setTheme] = useState<Theme>('dark')
+  useEffect(() => {
+    const currentTheme = (localStorage.getItem('theme') || theme) as Theme
+    setTheme(currentTheme)
+  }, [])
+
   const toggleTheme = () => {
-    setTheme(theme === 'light' ? 'dark' : 'light')
+    const nextTheme = theme === 'dark' ? 'light' : 'dark'
+    setTheme(nextTheme)
+    localStorage.setItem('theme', nextTheme)
   }
 
   return (
