@@ -77,7 +77,7 @@ const ThemeSwitch: React.VFC = () => {
         <input
           type="checkbox"
           checked={theme === 'light'}
-          onChange={() => toggleTheme()}
+          onChange={toggleTheme}
           className={styles.slider}
         />
         <span className={`${styles.slider} ${styles.round}`} />
