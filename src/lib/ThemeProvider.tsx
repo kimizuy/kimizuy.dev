@@ -15,8 +15,8 @@ export const ThemeProvider: React.FC = ({ children }) => {
 
   const toggleTheme = () => {
     const nextTheme = theme === 'dark' ? 'light' : 'dark'
+    localStorage.setItem('theme', nextTheme) // setState は非同期で state は即座に更新されないため、このタイミングで保存する
     setTheme(nextTheme)
-    localStorage.setItem('theme', nextTheme)
   }
 
   return (
