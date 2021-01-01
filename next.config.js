@@ -31,18 +31,31 @@ module.exports = {
 
     config.module.rules.push({
       test: /\.mdx$/,
-      use: [
-        ...mdx,
-        createLoader(function (src) {
-          const content = [
-            'import Post from "@/components/post"',
-            'export { getStaticProps } from "@/lib/getStaticProps"',
-            src,
-            'export default (props) => <Post meta={meta} {...props} />',
-          ].join('\n')
+      oneOf: [
+        {
+          resourceQuery: /rss/,
+          use: [
+            ...mdx,
+            createLoader(function (src) {
+              return this.callback(null, src)
+            }),
+          ],
+        },
+        {
+          use: [
+            ...mdx,
+            createLoader(function (src) {
+              const content = [
+                'import Post from "@/components/post"',
+                'export { getStaticProps } from "@/lib/getStaticProps"',
+                src,
+                'export default (props) => <Post meta={meta} {...props} />',
+              ].join('\n')
 
-          return this.callback(null, content)
-        }),
+              return this.callback(null, content)
+            }),
+          ],
+        },
       ],
     })
 
@@ -51,7 +64,7 @@ module.exports = {
 
       config.entry = async () => {
         const entries = { ...(await originalEntry()) }
-        entries['./scripts/build-rss.js'] = './scripts/build-rss.ts'
+        entries['./scripts/build-rss.js'] = './scripts/build-rss.tsx'
 
         return entries
       }
