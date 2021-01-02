@@ -6,6 +6,7 @@ import { Components, MDXProvider } from '@mdx-js/react'
 import Head from 'next/head'
 import Image from 'next/image'
 import { useRouter } from 'next/router'
+import CodeBlock from './codeBlock'
 import LightText from './lightText'
 import styles from './post.module.css'
 import Tag from './tag'
@@ -15,6 +16,7 @@ const mdxComponents: Components = {
     // @ts-expect-error: "src" is required
     <Image {...props} width={1170} height={658.125} objectFit="contain" />
   ),
+  code: CodeBlock,
 }
 
 const Post: React.VFC<{
