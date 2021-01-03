@@ -3,10 +3,12 @@ import { useState, createContext, useContext, useEffect } from 'react'
 type Theme = 'light' | 'dark'
 type ThemeContext = { theme: Theme; toggleTheme: () => void }
 
-const ThemeContext = createContext<ThemeContext>({} as ThemeContext)
-export const useTheme = (): ThemeContext => useContext(ThemeContext)
+const themeContext = createContext<ThemeContext>({} as ThemeContext)
+export const useTheme = (): ThemeContext => useContext(themeContext)
 
-export const ThemeProvider: React.FC = ({ children }) => {
+export const ThemeProvider: React.VFC<{ children: React.ReactNode }> = ({
+  children,
+}) => {
   const [theme, setTheme] = useState<Theme>('dark')
   useEffect(() => {
     const currentTheme = (localStorage.getItem('theme') || theme) as Theme
@@ -20,8 +22,8 @@ export const ThemeProvider: React.FC = ({ children }) => {
   }
 
   return (
-    <ThemeContext.Provider value={{ theme, toggleTheme }}>
+    <themeContext.Provider value={{ theme, toggleTheme }}>
       {children}
-    </ThemeContext.Provider>
+    </themeContext.Provider>
   )
 }

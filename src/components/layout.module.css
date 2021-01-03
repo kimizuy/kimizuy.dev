@@ -61,15 +61,6 @@
   background: var(--content-bg);
 }
 
-/* tablet ~ desktop */
-@media screen and (min-width: 479px) {
-  .main {
-    margin-left: auto;
-    margin-right: auto;
-    padding: 1rem 1rem 6rem;
-  }
-}
-
 .margin1 {
   margin: 1rem;
 }
@@ -155,4 +146,13 @@ input:checked + .slider:before {
 
 .slider.round:before {
   border-radius: 50%;
+}
+
+/* tablet ~ desktop */
+@media screen and (min-width: 479px) {
+  .main {
+    margin-left: auto;
+    margin-right: auto;
+    padding: 1rem 1rem 6rem;
+  }
 }
