@@ -42,7 +42,7 @@ const Card: React.VFC<{ preview: Preview }> = ({ preview }) => {
           </Link>
         </div>
         <LightText className={`${styles.marginTopAuto}`}>
-          {meta.tag.map((t) => (
+          {meta.tags.map((t) => (
             <Tag key={t} tag={t} />
           ))}
           <br />

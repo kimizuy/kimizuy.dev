@@ -6,7 +6,7 @@ const getSelectedTagPreviews: any = (selectedTag: string) => {
   return JSON.parse(
     JSON.stringify(
       getAllPostPreviews().filter(({ module: { meta } }) =>
-        meta.tag.includes(selectedTag)
+        meta.tags.includes(selectedTag)
       )
     )
   )

@@ -5,7 +5,7 @@ export type Meta = {
     published: string
     updated?: string
   }
-  tag: string[]
+  tags: string[]
   image: any
 }
 
