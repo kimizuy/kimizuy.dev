@@ -6,15 +6,23 @@ import { Components, MDXProvider } from '@mdx-js/react'
 import Head from 'next/head'
 import Image from 'next/image'
 import { useRouter } from 'next/router'
+import CodeBlock from './codeBlock'
 import LightText from './lightText'
 import styles from './post.module.css'
 import Tag from './tag'
 
 const mdxComponents: Components = {
   img: (props) => (
-    // @ts-expect-error: "src" is required
-    <Image {...props} width={1170} height={658.125} objectFit="contain" />
+    <a href={props.src}>
+      <Image
+        src={props.src}
+        width={1170}
+        height={658.125}
+        objectFit="contain"
+      />
+    </a>
   ),
+  code: CodeBlock,
 }
 
 const Post: React.VFC<{
@@ -43,7 +51,7 @@ const Post: React.VFC<{
       <article className={styles.container}>
         <h1 className={styles.headingXl}>{meta.title}</h1>
         <LightText>
-          {meta.tag.map((t) => (
+          {meta.tags.map((t) => (
             <Tag key={t} tag={t} />
           ))}
           <br />

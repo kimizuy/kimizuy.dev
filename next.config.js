@@ -1,6 +1,5 @@
 /* eslint-disable func-names */
 const { createLoader } = require('simple-functional-loader')
-const rehypePrism = require('@mapbox/rehype-prism')
 
 module.exports = {
   pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'mdx'],
@@ -23,9 +22,6 @@ module.exports = {
       options.defaultLoaders.babel,
       {
         loader: '@mdx-js/loader',
-        options: {
-          rehypePlugins: [rehypePrism],
-        },
       },
     ]
 

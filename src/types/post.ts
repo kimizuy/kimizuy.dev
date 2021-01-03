@@ -5,8 +5,8 @@ export type Meta = {
     published: string
     updated?: string
   }
-  tag: string[]
+  tags: string[]
   image: any
 }
 
-export type Preview = { link: string; meta: Meta }
+export type Preview = { link: string; module: { default: any; meta: Meta } }
