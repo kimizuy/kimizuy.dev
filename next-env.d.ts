@@ -17,7 +17,7 @@ declare module '@mdx-js/react' {
     | 'a'
     | 'blockquote'
     | 'code'
-    | 'delete'
+    | 'del'
     | 'em'
     | 'h1'
     | 'h2'
@@ -40,7 +40,7 @@ declare module '@mdx-js/react' {
     | 'tr'
     | 'ul'
   export type Components = {
-    [key in ComponentType]?: React.ComponentType<{ children: React.ReactNode }>
+    [key in ComponentType]?: React.ComponentType<any>
   }
   export interface MDXProviderProps {
     children: React.ReactNode
