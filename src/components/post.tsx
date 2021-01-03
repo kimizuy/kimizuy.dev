@@ -13,8 +13,14 @@ import Tag from './tag'
 
 const mdxComponents: Components = {
   img: (props) => (
-    // @ts-expect-error: "src" is required
-    <Image {...props} width={1170} height={658.125} objectFit="contain" />
+    <a href={props.src}>
+      <Image
+        src={props.src}
+        width={1170}
+        height={658.125}
+        objectFit="contain"
+      />
+    </a>
   ),
   code: CodeBlock,
 }
