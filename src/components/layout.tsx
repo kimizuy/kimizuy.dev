@@ -1,9 +1,9 @@
-import styles from './layout.module.css'
-import Logo from './logo'
-import CopyRight from './copyRight'
+import { useTheme } from '@/providers/themeProvider'
 import Link from 'next/link'
+import CopyRight from './copyRight'
+import styles from './layout.module.css'
 import LightText from './lightText'
-import { useTheme } from '@/lib/ThemeProvider'
+import Logo from './logo'
 
 const Layout: React.VFC<{
   children: React.ReactNode
@@ -61,9 +61,9 @@ const Theme: React.VFC<{ children: React.ReactNode }> = ({ children }) => {
   const { theme } = useTheme()
 
   return (
-    <div className={`${theme === 'dark' ? styles.dark : styles.light}`}>
+    <span className={`${theme === 'dark' ? styles.dark : styles.light}`}>
       {children}
-    </div>
+    </span>
   )
 }
 
