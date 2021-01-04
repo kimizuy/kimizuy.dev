@@ -35,11 +35,3 @@
   width: 98%;
   height: 98%;
 }
-
-/* tablet ~ desktop */
-@media screen and (min-width: 479px) {
-  .imgWrapper {
-    width: 75%;
-    height: 75%;
-  }
-}
