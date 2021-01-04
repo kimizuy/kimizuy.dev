@@ -29,6 +29,7 @@ const mdxComponents: Components = {
       />
     )
   },
+  pre: (props) => <div {...props} />,
   code: CodeBlock,
 }
 
