@@ -15,13 +15,15 @@ export const ImageOverlayProvider: React.VFC<{ children: React.ReactNode }> = ({
   children,
 }) => {
   const [src, setSrc] = useState('')
+  const [scrollPosition, setScrollPosition] = useState(0)
   const updateSrc = (value: string) => {
     if (value) {
       setSrc(value)
-      document.body.style.overflow = 'hidden'
+      setScrollPosition(window.scrollY)
+      enableScrollLock()
     } else {
       setSrc('')
-      document.body.style.overflow = null
+      disableScrollLock(scrollPosition)
     }
   }
 
@@ -30,4 +32,20 @@ export const ImageOverlayProvider: React.VFC<{ children: React.ReactNode }> = ({
       {children}
     </imageOverlayContext.Provider>
   )
+}
+
+//https://markus.oberlehner.net/blog/simple-solution-to-prevent-body-scrolling-on-ios/
+const enableScrollLock = () => {
+  document.body.style.overflow = 'hidden'
+  document.body.style.top = `-${window.scrollY}px`
+  document.body.style.position = 'fixed'
+  document.body.style.width = '100%'
+}
+
+const disableScrollLock = (scrollPosition: number) => {
+  document.body.style.overflow = null
+  document.body.style.top = null
+  document.body.style.position = null
+  document.body.style.width = null
+  window.scroll(0, scrollPosition)
 }
