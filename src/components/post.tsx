@@ -19,9 +19,11 @@ const mdxComponents: Components = {
     return (
       <Image
         src={props.src}
+        // https://nextjs.org/docs/api-reference/next/image#layout
+        layout="responsive"
+        objectFit="contain"
         width={1170}
         height={658.125}
-        objectFit="contain"
         className={styles.img}
         onClick={() => {
           updateSrc(props.src)
