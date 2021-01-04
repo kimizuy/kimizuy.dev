@@ -1,4 +1,5 @@
-import { useState, createContext, useContext } from 'react'
+import { useRouter } from 'next/router'
+import { createContext, useContext, useEffect, useState } from 'react'
 
 type ImageOverlayContext = {
   src: string
@@ -14,11 +15,22 @@ export const useImageOverlay = (): ImageOverlayContext =>
 export const ImageOverlayProvider: React.VFC<{ children: React.ReactNode }> = ({
   children,
 }) => {
+  const router = useRouter()
   const [src, setSrc] = useState('')
+  const [imageOverlayLocation, setImageOverlayLocation] = useState('')
   const [scrollPosition, setScrollPosition] = useState(0)
+
+  useEffect(() => {
+    if (imageOverlayLocation !== router.pathname) {
+      setSrc('')
+      disableScrollLock(0)
+    }
+  })
+
   const updateSrc = (value: string) => {
     if (value) {
       setSrc(value)
+      setImageOverlayLocation(router.pathname)
       setScrollPosition(window.scrollY)
       enableScrollLock()
     } else {
