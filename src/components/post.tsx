@@ -7,6 +7,7 @@ import { Components, MDXProvider } from '@mdx-js/react'
 import Head from 'next/head'
 import Image from 'next/image'
 import { useRouter } from 'next/router'
+import { Fragment } from 'react'
 import CodeBlock from './codeBlock'
 import LightText from './lightText'
 import styles from './post.module.css'
@@ -31,7 +32,7 @@ const mdxComponents: Components = {
       />
     )
   },
-  pre: (props) => <div {...props} />,
+  pre: (props) => <Fragment {...props} />,
   code: CodeBlock,
 }
 
