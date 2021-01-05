@@ -7,6 +7,7 @@ import { Components, MDXProvider } from '@mdx-js/react'
 import Head from 'next/head'
 import Image from 'next/image'
 import { useRouter } from 'next/router'
+import { Fragment } from 'react'
 import CodeBlock from './codeBlock'
 import LightText from './lightText'
 import styles from './post.module.css'
@@ -19,9 +20,11 @@ const mdxComponents: Components = {
     return (
       <Image
         src={props.src}
+        // https://nextjs.org/docs/api-reference/next/image#layout
+        layout="responsive"
+        objectFit="contain"
         width={1170}
         height={658.125}
-        objectFit="contain"
         className={styles.img}
         onClick={() => {
           updateSrc(props.src)
@@ -29,6 +32,7 @@ const mdxComponents: Components = {
       />
     )
   },
+  pre: (props) => <Fragment {...props} />,
   code: CodeBlock,
 }
 
