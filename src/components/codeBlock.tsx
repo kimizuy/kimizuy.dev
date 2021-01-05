@@ -19,7 +19,7 @@ const CodeBlock: React.VFC<{
       {({ className, style, tokens, getLineProps, getTokenProps }) => (
         <pre
           className={`${styles.pre} ${className}`}
-          style={{ ...style, padding: '20px' }}
+          style={{ ...style, padding: '16px', borderRadius: '8px' }}
         >
           {tokens.map((line, i) => (
             <div
