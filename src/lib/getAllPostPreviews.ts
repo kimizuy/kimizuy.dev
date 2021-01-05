@@ -10,9 +10,13 @@ const importAll = (r): Preview[] => {
   )
 }
 
-const getAllPostPreviews = (): Preview[] => {
+const getAllPostPreviews = (query?: string): Preview[] => {
   return importAll(
-    require.context('../pages/posts/', true, /\.mdx$/)
+    require.context(
+      `./src/pages/posts/${query ? '?' + query : ''}`,
+      true,
+      /\.mdx$/
+    )
   ).sort((a, b) =>
     dateSortDesc(a.module.meta.date.published, b.module.meta.date.published)
   )

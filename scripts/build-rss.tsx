@@ -1,26 +1,7 @@
-import { Meta } from '@/types/post'
+import getAllPostPreviews from '@/lib/getAllPostPreviews'
 import { Feed } from 'feed'
 import fs from 'fs'
 import ReactDOMServer from 'react-dom/server'
-import { dateSortDesc } from '../src/lib/utils'
-
-const importAll = (r) => {
-  return r.keys().map((fileName) => ({
-    link: `/posts${fileName.substr(1).replace(/\/index\.mdx$/, '')}`,
-    module: r(fileName),
-  }))
-}
-
-const getAllPostPreviews = (): {
-  link: string
-  module: { default: any; meta: Meta }
-}[] => {
-  return importAll(
-    require.context('../src/pages/posts/?rss', true, /\.mdx$/)
-  ).sort((a, b) =>
-    dateSortDesc(a.module.meta.date.published, b.module.meta.date.published)
-  )
-}
 
 const generate = () => {
   const feed = new Feed({
@@ -31,7 +12,7 @@ const generate = () => {
     feedLinks: 'https://blog.kimizuy.dev/feed.xml',
   })
 
-  const posts = getAllPostPreviews()
+  const posts = getAllPostPreviews('rss')
 
   posts.forEach(({ link, module: { default: MDXDocument, meta } }) => {
     const html = ReactDOMServer.renderToStaticMarkup(<MDXDocument />)
