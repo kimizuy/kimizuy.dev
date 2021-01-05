@@ -11,7 +11,7 @@
 }
 
 .img {
-  cursor: pointer;
+  cursor: zoom-in;
 }
 
 /* Image overlay */
@@ -23,7 +23,7 @@
   width: 100%;
   height: 100%;
   background-color: hsla(0, 0%, 8%, 0.4);
-  cursor: pointer;
+  cursor: zoom-out;
 }
 
 .imgWrapper {
