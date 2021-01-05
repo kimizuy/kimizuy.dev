@@ -9,27 +9,31 @@ const Layout: React.VFC<{
   children: React.ReactNode
   home?: boolean
 }> = ({ children, home }) => {
+  const { theme, toggleTheme } = useTheme()
+
   return (
-    <Theme>
-      <div className={styles.container}>
-        <header className={styles.header}>
-          <Logo />
-          <ThemeSwitch />
-        </header>
-        <main className={styles.main}>
-          {children}
-          {!home && (
-            <>
-              <Mention />
-              <BackToHome />
-            </>
-          )}
-        </main>
-        <footer className={styles.footer}>
-          <CopyRight />
-        </footer>
-      </div>
-    </Theme>
+    <div
+      className={`${theme === 'dark' ? styles.dark : styles.light} ${
+        styles.container
+      }`}
+    >
+      <header className={styles.header}>
+        <Logo />
+        <ThemeSwitch theme={theme} toggleTheme={toggleTheme} />
+      </header>
+      <main className={styles.main}>
+        {children}
+        {!home && (
+          <>
+            <Mention />
+            <BackToHome />
+          </>
+        )}
+      </main>
+      <footer className={styles.footer}>
+        <CopyRight />
+      </footer>
+    </div>
   )
 }
 
@@ -55,21 +59,13 @@ const BackToHome = () => {
   )
 }
 
-export default Layout
-
-const Theme: React.VFC<{ children: React.ReactNode }> = ({ children }) => {
-  const { theme } = useTheme()
-
-  return (
-    <span className={`${theme === 'dark' ? styles.dark : styles.light}`}>
-      {children}
-    </span>
-  )
-}
-
-const ThemeSwitch: React.VFC = () => {
-  const { theme, toggleTheme } = useTheme()
-
+const ThemeSwitch = ({
+  theme,
+  toggleTheme,
+}: {
+  theme: string
+  toggleTheme: () => void
+}) => {
   return (
     <div className={styles.switchContainer}>
       <label className={styles.switch}>
@@ -85,3 +81,5 @@ const ThemeSwitch: React.VFC = () => {
     </div>
   )
 }
+
+export default Layout
