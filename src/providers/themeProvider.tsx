@@ -10,14 +10,20 @@ export const ThemeProvider: React.VFC<{ children: React.ReactNode }> = ({
   children,
 }) => {
   const [theme, setTheme] = useState<Theme>('dark')
+
   useEffect(() => {
-    const currentTheme = (localStorage.getItem('theme') || theme) as Theme
-    setTheme(currentTheme)
+    if (localStorage.getItem('theme')) {
+      const currentTheme = localStorage.getItem('theme') as Theme
+      setTheme(currentTheme)
+    }
   }, [])
+
+  useEffect(() => {
+    localStorage.setItem('theme', theme)
+  }, [theme])
 
   const toggleTheme = () => {
     const nextTheme = theme === 'dark' ? 'light' : 'dark'
-    localStorage.setItem('theme', nextTheme) // setState は非同期で state は即座に更新されないため、このタイミングで保存する
     setTheme(nextTheme)
   }
 
