@@ -29,27 +29,23 @@ const Card: React.VFC<{ preview: Preview }> = ({ preview }) => {
   } = preview
 
   return (
-    <li className={styles.card}>
-      <Link href={link}>
+    <Link href={link}>
+      <li className={styles.card}>
         <div className={styles.imgWrapper}>
           <Image src={meta.image} layout="fill" />
         </div>
-      </Link>
-      <div className={styles.contentWrapper}>
-        <div className={styles.title}>
-          <Link href={link}>
-            <a>{meta.title}</a>
-          </Link>
+        <div className={styles.contentWrapper}>
+          <div className={styles.title}>{meta.title}</div>
+          <LightText className={`${styles.marginTopAuto}`}>
+            {meta.tags.map((t) => (
+              <Tag key={t} tag={t} />
+            ))}
+            <br />
+            <Date date={meta.date} />
+          </LightText>
         </div>
-        <LightText className={`${styles.marginTopAuto}`}>
-          {meta.tags.map((t) => (
-            <Tag key={t} tag={t} />
-          ))}
-          <br />
-          <Date date={meta.date} />
-        </LightText>
-      </div>
-    </li>
+      </li>
+    </Link>
   )
 }
 
