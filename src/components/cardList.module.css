@@ -7,7 +7,8 @@
 
 .card {
   border-top: 1px solid var(--content-border);
-  background-color: var(--content-bg-primary);
+  /* モバイル画面時はタグリスト背景とカード背景を同じ色にする */
+  background-color: var(--bg-primary);
   padding: 1rem;
 }
 
@@ -48,12 +49,13 @@
   }
 
   .card {
+    background-color: var(--content-bg-primary);
+    border: 1px solid var(--content-border);
     flex: 0 1 200px;
     display: flex;
     flex-direction: column;
     border-radius: 0.25rem;
     cursor: pointer;
-    border: 1px solid var(--content-border);
   }
 
   .card:hover,
