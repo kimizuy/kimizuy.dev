@@ -14,10 +14,6 @@
   cursor: zoom-in;
 }
 
-.postLink {
-  color: var(--link);
-}
-
 /* Image overlay */
 .overlay {
   position: absolute; /* Sit on top of the page content */

@@ -8,8 +8,6 @@ const Layout: React.VFC<{
   children: React.ReactNode
   home?: boolean
 }> = ({ children, home }) => {
-  const { theme, toggleTheme } = useTheme()
-
   return (
     <Theme>
       <div className={styles.container}>
