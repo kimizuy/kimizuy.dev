@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { useEffect } from 'react'
 import CopyRight from './copyRight'
 import styles from './layout.module.css'
 import Logo from './logo'
@@ -8,6 +9,19 @@ const Layout: React.VFC<{
   children: React.ReactNode
   home?: boolean
 }> = ({ children, home }) => {
+  useEffect(() => {
+    const setFillHeight = () => {
+      const vh = window.innerHeight * 0.01
+      document.documentElement.style.setProperty('--vh', `${vh}px`)
+    }
+
+    window.addEventListener('resize', setFillHeight, { passive: true })
+
+    setFillHeight()
+
+    return () => window.removeEventListener('resize', setFillHeight)
+  }, [])
+
   return (
     <Theme>
       <div className={styles.container}>
