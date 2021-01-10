@@ -24,13 +24,3 @@ p {
 p > code {
   padding: 0.2rem 0.5rem;
 }
-
-/* https://coliss.com/articles/build-websites/operation/css/css-fix-for-100vh-in-ios.html */
-body {
-  height: 100vh;
-}
-@supports (-webkit-touch-callout: none) {
-  body {
-    height: -webkit-fill-available;
-  }
-}
