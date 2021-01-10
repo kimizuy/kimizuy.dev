@@ -50,3 +50,10 @@
     padding: 1rem 1rem 6rem;
   }
 }
+
+/* https://coliss.com/articles/build-websites/operation/css/css-fix-for-100vh-in-ios.html */
+@supports (-webkit-touch-callout: none) {
+  .container {
+    min-height: -webkit-fill-available;
+  }
+}
