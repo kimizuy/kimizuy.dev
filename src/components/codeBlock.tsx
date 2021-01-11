@@ -20,9 +20,9 @@ const CodeBlock: React.VFC<{
         <pre className={`${styles.pre} ${className}`} style={{ ...style }}>
           {tokens.map((line, i) => (
             <div
-              className={styles.line}
               key={i}
               {...getLineProps({ line, key: i })}
+              className={styles.line}
             >
               <span className={styles.lineNo}>{i + 1}</span>
               <span className={styles.lineContent}>
