@@ -17,7 +17,7 @@ const CodeBlock: React.VFC<{
       language={language}
     >
       {({ className, style, tokens, getLineProps, getTokenProps }) => (
-        <pre className={`${styles.pre} ${className}`} style={{ ...style }}>
+        <pre className={`${className} ${styles.pre}`} style={style}>
           {tokens.map((line, i) => (
             <div
               key={i}

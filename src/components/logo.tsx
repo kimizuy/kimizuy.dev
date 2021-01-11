@@ -18,4 +18,4 @@ const Logo: React.VFC = () => {
   )
 }
 
-export default React.memo(Logo)
+export default Logo
