@@ -18,18 +18,21 @@ const mdxComponents: Components = {
     const { updateSrc } = useImageOverlay()
 
     return (
-      <Image
-        src={props.src}
-        // https://nextjs.org/docs/api-reference/next/image#layout
-        layout="responsive"
-        objectFit="contain"
-        width={1170}
-        height={658.125}
-        className={styles.img}
-        onClick={() => {
-          updateSrc(props.src)
-        }}
-      />
+      // なぜか className が使えないので inline style を使う
+      <div style={{ margin: '1rem auto' }}>
+        <Image
+          src={props.src}
+          // https://nextjs.org/docs/api-reference/next/image#layout
+          layout="responsive"
+          objectFit="contain"
+          width={1170}
+          height={658.125}
+          className={styles.img}
+          onClick={() => {
+            updateSrc(props.src)
+          }}
+        />
+      </div>
     )
   },
   pre: (props) => <Fragment {...props} />,
