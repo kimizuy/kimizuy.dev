@@ -9,7 +9,6 @@
   --link: #58a6ff;
 }
 
-/* TODO: ちゃんと考える */
 .light {
   --bg-primary: #ffffff;
   --bg-secondary: #f6f8fa;
@@ -39,7 +38,7 @@
   width: 60px;
   height: 34px;
 
-  /* Hide text */
+  /* Hide text & Improve accessibility */
   font-size: 0;
 }
 
