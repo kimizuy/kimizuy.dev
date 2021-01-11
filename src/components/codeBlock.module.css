@@ -1,13 +1,12 @@
 .pre {
   text-align: left;
-  margin: 1em 0;
-  padding: 0.5em;
+  margin: 1rem auto;
+  padding: 1rem;
+  border-radius: 4px;
   overflow: scroll;
-}
-
-.pre.token-line {
-  line-height: 1.3em;
-  height: 1.3em;
+  font-size: 14px;
+  font-family: Menlo, Monaco, 'Courier New', monospace;
+  line-height: 1.9;
 }
 
 .line {
