@@ -8,6 +8,7 @@
 }
 
 .tag {
+  color: var(--link);
   background-color: var(--content-bg-primary);
   border: 1px solid var(--content-border);
   display: inline-block;
@@ -22,9 +23,4 @@
 .tag:hover,
 .tag:focus {
   background-color: var(--content-bg-secondary);
-}
-
-.tag a:hover,
-.tag a:focus {
-  text-decoration: none;
 }
