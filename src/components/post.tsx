@@ -16,12 +16,15 @@ import Tag from './tag'
 const mdxComponents: Components = {
   img: (props) => {
     const { updateSrc } = useImageOverlay()
+    const src: string = props.src
+    const srcName = src.split('/')[src.split('/').length - 1].split('.')[0]
 
     return (
       // なぜか className が使えないので inline style を使う
       <div style={{ margin: '1rem auto' }}>
         <Image
-          src={props.src}
+          src={src}
+          alt={srcName}
           // https://nextjs.org/docs/api-reference/next/image#layout
           layout="responsive"
           objectFit="contain"

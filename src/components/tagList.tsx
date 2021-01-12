@@ -19,11 +19,9 @@ const TagList: React.VFC<Props> = (p) => {
 
 const TagButton: React.VFC<{ tag: string }> = ({ tag }) => {
   return (
-    <li className={styles.tag}>
-      <Link href="/tags/[tag]" as={`/tags/${tag}`}>
-        <a>#{tag}</a>
-      </Link>
-    </li>
+    <Link href="/tags/[tag]" as={`/tags/${tag}`}>
+      <li className={styles.tag}>#{tag}</li>
+    </Link>
   )
 }
 

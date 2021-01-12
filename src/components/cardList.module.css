@@ -12,31 +12,15 @@
   padding: 1rem;
 }
 
-.card img {
-  transition: all 0.5s ease;
-}
-
-.card img:hover,
-.card img:focus {
-  transform: scale(1.2);
-}
-
 .imgWrapper {
   display: none;
-}
-
-.imgWrapper img {
-  position: absolute;
-  object-fit: cover;
-  width: 100%;
-  height: 100%;
 }
 
 .title {
   padding-bottom: 0.75rem;
 }
 
-/* tablet */
+/* tablet ~ laptop */
 @media screen and (min-width: 479px) {
   .container {
     padding: 1rem;
@@ -63,6 +47,15 @@
     background-color: var(--content-bg-secondary);
   }
 
+  .card img {
+    transition: all 0.5s ease;
+  }
+
+  .card:hover img,
+  .card:focus img {
+    transform: scale(1.2);
+  }
+
   .imgWrapper {
     display: block;
     position: relative;
@@ -72,6 +65,13 @@
     cursor: pointer;
     /* はみ出た部分を非表示 */
     overflow: hidden;
+  }
+
+  .imgWrapper img {
+    position: absolute;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
   }
 
   .contentWrapper {
