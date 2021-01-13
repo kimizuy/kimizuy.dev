@@ -20,8 +20,7 @@ const mdxComponents: Components = {
     const srcName = src.split('/')[src.split('/').length - 1].split('.')[0]
 
     return (
-      // なぜか className が使えないので inline style を使う
-      <div style={{ margin: '1rem auto' }}>
+      <div className={styles.imgWrapper}>
         <Image
           src={src}
           alt={srcName}
@@ -92,7 +91,7 @@ const ImageOverlay: React.VFC = () => {
 
   return (
     <div className={styles.overlay} onClick={() => updateSrc('')}>
-      <div className={styles.imgWrapper}>
+      <div className={styles.overlayImgWrapper}>
         <Image src={src} layout="fill" objectFit="contain" />
       </div>
     </div>
