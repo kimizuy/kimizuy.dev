@@ -10,7 +10,13 @@ const Logo: React.VFC = () => {
     <Link href="/">
       <div className={styles.container}>
         <div className={styles.imgWrapper}>
-          <Image src={profile} alt={NAME} layout="fill" objectFit="contain" />
+          <Image
+            src={profile}
+            alt={NAME}
+            layout="fill"
+            objectFit="contain"
+            priority
+          />
         </div>
         <h1 className={styles.headerTitle}>{SITE_TITLE}</h1>
       </div>
