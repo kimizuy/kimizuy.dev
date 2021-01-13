@@ -10,6 +10,10 @@
   margin: 1rem 0;
 }
 
+.imgWrapper {
+  margin: 1rem auto;
+}
+
 .img {
   cursor: zoom-in;
 }
@@ -26,7 +30,7 @@
   cursor: zoom-out;
 }
 
-.imgWrapper {
+.overlayImgWrapper {
   position: fixed;
   top: 50%;
   left: 50%;
