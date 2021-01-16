@@ -28,3 +28,8 @@ p > code {
   font-size: 14px;
   font-family: Menlo, Monaco, 'Courier New', monospace;
 }
+
+/* https://coliss.com/articles/build-websites/operation/css/fixing-smooth-scrolling-with-page-search.html */
+html:focus-within {
+  scroll-behavior: smooth;
+}
