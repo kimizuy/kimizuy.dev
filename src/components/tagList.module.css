@@ -1,5 +1,4 @@
 .container {
-  padding: 0.5rem;
 }
 
 .tagList {
@@ -12,7 +11,6 @@
   background-color: var(--content-bg-primary);
   border: 1px solid var(--content-border);
   display: inline-block;
-  margin: 0.5rem;
   padding: 4px 10px;
   font-size: 0.875rem;
   border-radius: 0.25rem;
@@ -20,7 +18,32 @@
   transition: cubic-bezier(0.17, 0.67, 0.5, 0.71) 100ms;
 }
 
+.tag:last-child {
+  margin-right: 0;
+}
+
 .tag:hover,
 .tag:focus {
   background-color: var(--content-bg-secondary);
+}
+
+@media screen and (min-width: 479px) {
+  .container {
+    padding: 1rem 1rem 0 1rem;
+  }
+
+  .tag {
+    margin-right: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .tag:last-child {
+    margin-right: 0rem;
+  }
+}
+
+@media screen and (min-width: 767px) {
+  .container {
+    padding: 0;
+  }
 }
