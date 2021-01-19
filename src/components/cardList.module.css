@@ -28,7 +28,7 @@
 
   .cardList {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
     gap: 1.25rem;
   }
 
@@ -83,5 +83,11 @@
 
   .marginTopAuto {
     margin-top: auto;
+  }
+}
+
+@media screen and (min-width: 767px) {
+  .container {
+    padding: 0;
   }
 }

@@ -1,5 +1,6 @@
+import TagList from '@/components/tagList'
 import Link from 'next/link'
-import { useEffect } from 'react'
+import React, { useEffect } from 'react'
 import CopyRight from './copyRight'
 import styles from './layout.module.css'
 import Logo from './logo'
@@ -14,11 +15,8 @@ const Layout: React.VFC<{
       const vh = window.innerHeight * 0.01
       document.documentElement.style.setProperty('--vh', `${vh}px`)
     }
-
     window.addEventListener('resize', setFillHeight, { passive: true })
-
     setFillHeight()
-
     return () => window.removeEventListener('resize', setFillHeight)
   }, [])
 
@@ -30,8 +28,15 @@ const Layout: React.VFC<{
           <ThemeSwitch />
         </header>
         <main className={styles.main}>
-          {children}
-          {!home && <Mention />}
+          <div className={styles.mainContainer}>
+            <section className={styles.content}>
+              {children}
+              {!home && <Mention />}
+            </section>
+            <aside className={styles.sideBar}>
+              <TagList />
+            </aside>
+          </div>
         </main>
         <footer className={styles.footer}>
           <CopyRight />

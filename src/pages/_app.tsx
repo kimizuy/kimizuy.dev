@@ -23,7 +23,7 @@ const App: React.VFC<AppProps> = ({ Component, pageProps }) => {
   return (
     <>
       <Head>
-        {/* https://evilmartians.com/chronicles/how-to-favicon-in-2021-six-files-that-fit-most-nee1ds */}
+        {/* https://evilmartians.com/chronicles/how-to-favicon-in-2021-six-files-that-fit-most-needs */}
         <link
           rel="apple-touch-icon"
           sizes="180x180"

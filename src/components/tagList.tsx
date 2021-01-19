@@ -1,15 +1,14 @@
 import styles from './tagList.module.css'
 import Link from 'next/link'
+import getAllTags from '@/lib/getAllTags'
 
-type Props = {
-  tags: string[]
-}
+const tags = getAllTags()
 
-const TagList: React.VFC<Props> = (p) => {
+const TagList: React.VFC = () => {
   return (
     <section className={styles.container}>
       <ul className={styles.tagList}>
-        {p.tags.map((tag) => (
+        {tags.map((tag) => (
           <TagButton key={tag} tag={tag} />
         ))}
       </ul>
