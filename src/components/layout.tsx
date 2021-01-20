@@ -15,8 +15,7 @@ const Layout: React.VFC<{
       const vh = window.innerHeight * 0.01
       document.documentElement.style.setProperty('--vh', `${vh}px`)
     }
-    window.addEventListener('resize', setFillHeight, { passive: true })
-    setFillHeight()
+    window.addEventListener('resize', setFillHeight)
     return () => window.removeEventListener('resize', setFillHeight)
   }, [])
 
