@@ -34,3 +34,8 @@ p > code {
 html:focus-within {
   scroll-behavior: smooth;
 }
+
+/* FIXME: MDXComponents 内でやりたい */
+div.footnotes {
+  margin: 3rem 0 1rem;
+}
