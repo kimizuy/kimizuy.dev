@@ -7,11 +7,7 @@ export const Theme: React.VFC<{ children: React.ReactNode }> = ({
   const { theme } = useTheme()
 
   return (
-    <div
-      className={`${theme === 'dark' ? styles.dark : styles.light} ${
-        styles.container
-      }`}
-    >
+    <div className={theme === 'dark' ? styles.dark : styles.light}>
       {children}
     </div>
   )
