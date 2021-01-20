@@ -3,43 +3,14 @@ import Layout from '@/components/layout'
 import { SITE_URL } from '@/lib/constants'
 import { useImageOverlay } from '@/providers/imageOverlayProvider'
 import { Meta } from '@/types/post'
-import { Components, MDXProvider } from '@mdx-js/react'
+import { MDXProvider } from '@mdx-js/react'
 import Head from 'next/head'
 import Image from 'next/image'
 import { useRouter } from 'next/router'
-import { Fragment } from 'react'
-import CodeBlock from './codeBlock'
 import LightText from './lightText'
+import MDXComponents from './mdxComponents'
 import styles from './post.module.css'
 import Tag from './tag'
-
-const mdxComponents: Components = {
-  img: (props) => {
-    const { updateSrc } = useImageOverlay()
-    const src: string = props.src
-    const srcName = src.split('/')[src.split('/').length - 1].split('.')[0]
-
-    return (
-      <div className={styles.imgWrapper}>
-        <Image
-          src={src}
-          alt={srcName}
-          // https://nextjs.org/docs/api-reference/next/image#layout
-          layout="responsive"
-          objectFit="contain"
-          width={1170}
-          height={658.125}
-          className={styles.img}
-          onClick={() => {
-            updateSrc(props.src)
-          }}
-        />
-      </div>
-    )
-  },
-  pre: (props) => <Fragment {...props} />,
-  code: CodeBlock,
-}
 
 const Post: React.VFC<{
   meta: Meta
@@ -67,14 +38,16 @@ const Post: React.VFC<{
       <Layout>
         <article className={styles.container}>
           <h1 className={styles.headingXl}>{meta.title}</h1>
-          <LightText>
+          <LightText className={styles.lightText}>
             {meta.tags.map((t) => (
               <Tag key={t} tag={t} />
             ))}
             <br />
             <Date date={meta.date} />
           </LightText>
-          <MDXProvider components={mdxComponents}>{children}</MDXProvider>
+          <div className="post">
+            <MDXProvider components={MDXComponents}>{children}</MDXProvider>
+          </div>
         </article>
         <ImageOverlay />
       </Layout>

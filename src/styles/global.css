@@ -1,4 +1,5 @@
 @import url('./reset.css');
+@import url('./toc.css');
 
 html,
 body {
@@ -6,10 +7,11 @@ body {
     'Hiragino Sans', Meiryo, sans-serif;
   line-height: 1.6;
   font-size: 16px;
-  overflow-wrap: anywhere;
+  overflow-wrap: break-word;
 }
 
 a {
+  color: var(--link);
   text-decoration: none;
 }
 
@@ -23,7 +25,7 @@ p {
 
 p > code {
   background-color: var(--code);
-  padding: 8px 12px;
+  padding: 0.25rem 0.5rem;
   border-radius: 4px;
   font-size: 14px;
   font-family: Menlo, Monaco, 'Courier New', monospace;
@@ -32,4 +34,9 @@ p > code {
 /* https://coliss.com/articles/build-websites/operation/css/fixing-smooth-scrolling-with-page-search.html */
 html:focus-within {
   scroll-behavior: smooth;
+}
+
+/* FIXME: MDXComponents 内でやりたい */
+div.footnotes {
+  margin: 3rem 0 1rem;
 }

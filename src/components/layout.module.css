@@ -6,10 +6,6 @@
   min-height: calc(var(--vh, 1vh) * 100);
 }
 
-.container a {
-  color: var(--link);
-}
-
 .header {
   background-color: var(--bg-secondary);
   display: flex;
@@ -33,6 +29,11 @@
   display: none;
 }
 
+.sticky {
+  top: 2rem;
+  position: sticky;
+}
+
 .footer {
   background-color: var(--bg-secondary);
   position: absolute;
@@ -43,14 +44,17 @@
   font-size: 14px;
 }
 
+.mentionContainer {
+  padding: 4rem 1rem 0;
+}
+
 .mention {
   color: var(--text-secondary);
   font-size: 0.75rem;
-  padding: 1rem;
 }
 
 .backToHome {
-  padding: 0 1rem 1rem;
+  margin-top: 1rem;
 }
 
 /* tablet */

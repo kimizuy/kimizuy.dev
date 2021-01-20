@@ -5,6 +5,7 @@ import CopyRight from './copyRight'
 import styles from './layout.module.css'
 import Logo from './logo'
 import { Theme, ThemeSwitch } from './theme'
+import Toc from './toc'
 
 const Layout: React.VFC<{
   children: React.ReactNode
@@ -33,7 +34,10 @@ const Layout: React.VFC<{
               {!home && <Mention />}
             </section>
             <aside className={styles.sideBar}>
-              <TagList />
+              <div className={styles.sticky}>
+                {home && <TagList />}
+                {!home && <Toc />}
+              </div>
             </aside>
           </div>
         </main>
@@ -47,7 +51,7 @@ const Layout: React.VFC<{
 
 const Mention = () => {
   return (
-    <>
+    <div className={styles.mentionContainer}>
       <div className={styles.mention}>
         指摘や不明点があれば筆者の
         <Link href="https://twitter.com/kimizuy">
@@ -60,7 +64,7 @@ const Mention = () => {
           <a>← Back to home</a>
         </Link>
       </div>
-    </>
+    </div>
   )
 }
 

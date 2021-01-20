@@ -7,15 +7,6 @@
   line-height: 1.3;
   font-weight: 800;
   letter-spacing: -0.05rem;
-  margin: 1rem 0;
-}
-
-.imgWrapper {
-  margin: 1rem auto;
-}
-
-.img {
-  cursor: zoom-in;
 }
 
 /* Image overlay */
@@ -38,4 +29,8 @@
 
   width: 98%;
   height: 80%;
+}
+
+.lightText {
+  margin-top: 1rem;
 }

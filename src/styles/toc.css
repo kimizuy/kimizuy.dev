@@ -1,0 +1,44 @@
+.toc {
+  background-color: var(--content-bg-primary);
+  border: 1px solid var(--content-border);
+  border-radius: 0.25rem;
+  padding: 1rem;
+  font-size: 14px;
+}
+
+.toc-list {
+}
+
+.toc-list .toc-list {
+  padding-left: 1rem;
+  padding-top: 0.5rem;
+}
+
+.toc-list-item {
+  padding-bottom: 0.5rem;
+}
+
+.toc-list-item:last-child {
+  padding-bottom: 0;
+}
+
+.toc-link {
+  color: var(--text-secondary);
+}
+
+.is-active-link {
+  color: var(--text-primary);
+  font-weight: 700;
+}
+
+@media screen and (min-width: 479px) {
+  .toc-wrapper {
+    padding: 1rem;
+  }
+}
+
+@media screen and (min-width: 767px) {
+  .toc-wrapper {
+    padding: 0;
+  }
+}
