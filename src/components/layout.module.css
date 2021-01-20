@@ -33,6 +33,11 @@
   display: none;
 }
 
+.sticky {
+  top: 2rem;
+  position: sticky;
+}
+
 .footer {
   background-color: var(--bg-secondary);
   position: absolute;

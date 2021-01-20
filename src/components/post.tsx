@@ -74,7 +74,9 @@ const Post: React.VFC<{
             <br />
             <Date date={meta.date} />
           </LightText>
+          <div className="post">
           <MDXProvider components={mdxComponents}>{children}</MDXProvider>
+          </div>
         </article>
         <ImageOverlay />
       </Layout>

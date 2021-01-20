@@ -5,6 +5,7 @@ import CopyRight from './copyRight'
 import styles from './layout.module.css'
 import Logo from './logo'
 import { Theme, ThemeSwitch } from './theme'
+import Toc from './toc'
 
 const Layout: React.VFC<{
   children: React.ReactNode
@@ -33,7 +34,10 @@ const Layout: React.VFC<{
               {!home && <Mention />}
             </section>
             <aside className={styles.sideBar}>
-              <TagList />
+              <div className={styles.sticky}>
+                {home && <TagList />}
+                {!home && <Toc />}
+              </div>
             </aside>
           </div>
         </main>
