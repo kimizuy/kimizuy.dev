@@ -7,10 +7,11 @@ body {
     'Hiragino Sans', Meiryo, sans-serif;
   line-height: 1.6;
   font-size: 16px;
-  overflow-wrap: anywhere;
+  overflow-wrap: break-word;
 }
 
 a {
+  color: var(--link);
   text-decoration: none;
 }
 
@@ -24,7 +25,7 @@ p {
 
 p > code {
   background-color: var(--code);
-  padding: 8px 12px;
+  padding: 0.25rem 0.5rem;
   border-radius: 4px;
   font-size: 14px;
   font-family: Menlo, Monaco, 'Courier New', monospace;

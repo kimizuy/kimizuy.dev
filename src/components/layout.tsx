@@ -51,7 +51,7 @@ const Layout: React.VFC<{
 
 const Mention = () => {
   return (
-    <>
+    <div className={styles.mentionContainer}>
       <div className={styles.mention}>
         指摘や不明点があれば筆者の
         <Link href="https://twitter.com/kimizuy">
@@ -64,7 +64,7 @@ const Mention = () => {
           <a>← Back to home</a>
         </Link>
       </div>
-    </>
+    </div>
   )
 }
 
