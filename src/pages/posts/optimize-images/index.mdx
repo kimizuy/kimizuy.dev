@@ -11,7 +11,7 @@ export const meta = {
 
 またも GitHub Actions。今回はプルリクエスト作成時に自動で画像の最適化・圧縮する方法をまとめる。かなりお手軽。
 
-## Github Actions の設定ファイルを追加する
+# Github Actions の設定ファイルを追加する
 
 プロジェクトのルートに以下の内容のファイルを追加する。
 
@@ -54,7 +54,7 @@ jobs:
 
 `jpegProgressive` は jpeg ファイルをプログレッシブ形式に変換するかどうか。プログレッシブ形式については[こちら](https://naifix.com/jpeg/)。jpeg はベースラインとプログレッシブの二種類あるのか。へぇー。
 
-## 実際にプルリクエストを作成する
+# 実際にプルリクエストを作成する
 
 master に対してプルリクエストを作成すると GitHub Action が実行され少し待って以下のような結果が表示される。
 
@@ -62,7 +62,7 @@ master に対してプルリクエストを作成すると GitHub Action が実�
 
 注意点として、このアクションが実行されるとプルリクエストに最適化された画像が再度コミットされること。master ← dev のようなプルリクエストの場合、dev ブランチで差分が生じるので混乱しないようにしたい。
 
-## 参考
+# 参考
 
 [calibreapp/image-actions](https://github.com/calibreapp/image-actions)
 
