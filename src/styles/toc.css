@@ -3,7 +3,7 @@
   border: 1px solid var(--content-border);
   border-radius: 0.25rem;
   padding: 1rem;
-  font-size: 14px;
+  font-size: 0.875rem;
 }
 
 .toc-list {
