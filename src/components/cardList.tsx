@@ -2,7 +2,6 @@ import styles from './cardList.module.css'
 import { Preview } from '@/types/post'
 import Link from 'next/link'
 import Date from '@/components/date'
-import Tag from './tag'
 import Image from 'next/image'
 import LightText from './lightText'
 
@@ -35,8 +34,12 @@ const Card: React.VFC<{ preview: Preview }> = ({ preview }) => {
         <div className={styles.contentWrapper}>
           <div className={styles.title}>{meta.title}</div>
           <LightText className={`${styles.marginTopAuto}`}>
-            {meta.tags.map((t) => (
-              <Tag key={t} tag={t} />
+            {meta.tags.map((tag) => (
+              <>
+                <Link key={tag} href="/tags/[tag]" as={`/tags/${tag}`}>
+                  <a>#{tag}</a>
+                </Link>{' '}
+              </>
             ))}
             <br />
             <Date date={meta.date} />

@@ -11,7 +11,6 @@ import { useRouter } from 'next/router'
 import LightText from './lightText'
 import MDXComponents from './mdxComponents'
 import styles from './post.module.css'
-import Tag from './tag'
 
 const Post: React.VFC<{
   meta: Meta
@@ -40,8 +39,12 @@ const Post: React.VFC<{
         <article className={styles.container}>
           <h1 className={styles.headingXl}>{meta.title}</h1>
           <LightText className={styles.lightText}>
-            {meta.tags.map((t) => (
-              <Tag key={t} tag={t} />
+            {meta.tags.map((tag) => (
+              <>
+                <Link key={tag} href="/tags/[tag]" as={`/tags/${tag}`}>
+                  <a>#{tag}</a>
+                </Link>{' '}
+              </>
             ))}
             <br />
             <Date date={meta.date} />
