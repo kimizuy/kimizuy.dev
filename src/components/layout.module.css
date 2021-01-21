@@ -59,14 +59,13 @@
   .main {
     margin-left: auto;
     margin-right: auto;
-    padding: 1rem 1rem 7rem;
+    padding: 2rem 2rem 8rem;
   }
 
   .content {
     display: flex;
     justify-content: space-between;
     flex-direction: column-reverse;
-    padding: 1rem;
   }
 }
 

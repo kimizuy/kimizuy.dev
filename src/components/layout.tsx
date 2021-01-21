@@ -1,5 +1,4 @@
 import TagList from '@/components/tagList'
-import Link from 'next/link'
 import React, { useEffect } from 'react'
 import CopyRight from './copyRight'
 import styles from './layout.module.css'
@@ -29,10 +28,7 @@ const Layout: React.VFC<{
         </header>
         <main className={styles.main}>
           <div className={styles.content}>
-            <section className={styles.article}>
-              {children}
-              {!home && <Mention />}
-            </section>
+            <section className={styles.article}>{children}</section>
             <aside className={styles.sideBar}>
               <div className={styles.sticky}>
                 {home && (
@@ -54,25 +50,6 @@ const Layout: React.VFC<{
         </footer>
       </div>
     </Theme>
-  )
-}
-
-const Mention = () => {
-  return (
-    <div className={styles.mentionContainer}>
-      <div className={styles.mention}>
-        指摘や不明点があれば筆者の
-        <Link href="https://twitter.com/kimizuy">
-          <a>Twitter</a>
-        </Link>
-        までおねがいします。
-      </div>
-      <div className={styles.backToHome}>
-        <Link href="/">
-          <a>← Back to home</a>
-        </Link>
-      </div>
-    </div>
   )
 }
 

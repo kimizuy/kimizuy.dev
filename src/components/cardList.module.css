@@ -4,8 +4,6 @@
 
 .card {
   border-top: 1px solid var(--content-border);
-  /* モバイル画面時はタグリスト背景とカード背景を同じ色にする */
-  background-color: var(--bg-primary);
   padding: 1rem;
 }
 
