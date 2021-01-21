@@ -12,11 +12,7 @@ const Toc: React.VFC = () => {
     return () => tocbot.destroy()
   }, [])
 
-  return (
-    <div className="toc-wrapper">
-      <div className="toc" />
-    </div>
-  )
+  return <div className="toc" />
 }
 
 export default Toc
