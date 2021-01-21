@@ -12,13 +12,11 @@ type Props = {
 
 const CardList: React.VFC<Props> = (p: Props) => {
   return (
-    <section className={styles.container}>
-      <ul className={styles.cardList}>
-        {p.previews.map((preview) => (
-          <Card preview={preview} key={preview.link} />
-        ))}
-      </ul>
-    </section>
+    <ul className={styles.cardList}>
+      {p.previews.map((preview) => (
+        <Card preview={preview} key={preview.link} />
+      ))}
+    </ul>
   )
 }
 

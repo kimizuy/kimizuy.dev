@@ -28,15 +28,23 @@ const Layout: React.VFC<{
           <ThemeSwitch />
         </header>
         <main className={styles.main}>
-          <div className={styles.mainContainer}>
-            <section className={styles.content}>
+          <div className={styles.content}>
+            <section className={styles.article}>
               {children}
               {!home && <Mention />}
             </section>
             <aside className={styles.sideBar}>
               <div className={styles.sticky}>
-                {home && <TagList />}
-                {!home && <Toc />}
+                {home && (
+                  <div className={styles.tagListWrapper}>
+                    <TagList />
+                  </div>
+                )}
+                {!home && (
+                  <div className={styles.tocWrapper}>
+                    <Toc />
+                  </div>
+                )}
               </div>
             </aside>
           </div>

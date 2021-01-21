@@ -30,15 +30,3 @@
   color: var(--text-primary);
   font-weight: 700;
 }
-
-@media screen and (min-width: 479px) {
-  .toc-wrapper {
-    padding: 1rem;
-  }
-}
-
-@media screen and (min-width: 767px) {
-  .toc-wrapper {
-    padding: 0;
-  }
-}
