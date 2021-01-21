@@ -1,0 +1,222 @@
+import card from './card.png'
+
+export const meta = {
+  title: 'Next.js × MDX ブログに tocbot でいい感じの Table of Contents を作る',
+  description:
+    '本記事では、Next.js × MDX での tocbot の使い方をコード例を示しながら紹介します。いい感じの Table of Contents を作りましょう！',
+  date: { published: '2021-01-21' },
+  tags: ['next', 'mdx'],
+  image: card,
+}
+
+# はじめに
+
+[tocbot]("https://github.com/tscanlin/tocbot") で Table of Contents を作りました。Table of Contents とは記事の見出し（heading 要素）をまとめた目次を指します。例えば、デスクトップのような広い画面でこのサイトの記事を見るとサイドバーに表示されます。
+
+tocbot はその目次を自動生成してくれるライブラリです。記事の任意の場所にジャンプしたり、スクロールに応じて動的にスタイルを変化させたりすることで UX 向上に繋がります。[zenn.dev]("https://zenn.dev/") でも利用しているようです。かっこいい UI ですよね。
+
+本記事では、Next.js × MDX での tocbot の使い方をコード例を示しながら紹介します。いい感じの Table of Contents を作りましょう！
+
+# 環境
+
+- Next.js: v10.0.5
+
+- MDX: v1.6.22
+
+# tocbot を追加する
+
+まず tocbot パッケージをプロジェクトにインストールします。
+
+```sh
+yarn add tocbot
+// or
+// npm install tocbot
+```
+
+# TOC コンポーネントを作る
+
+```tsx
+import { useEffect } from 'react'
+import tocbot from 'tocbot'
+
+const Toc: React.VFC = () => {
+  useEffect(() => {
+    tocbot.init({
+      tocSelector: '.toc',
+      contentSelector: '.post',
+      headingSelector: 'h1, h2, h3',
+    })
+
+    return () => tocbot.destroy()
+  }, [])
+
+  return <div className="toc" />
+}
+
+export default Toc
+```
+
+## useEffect() で初期化する
+
+useEffect 内で tocbot.init() して初期化します。第二引数に空の配列`[]`を渡すことで最初のマウント時以外は useEffect() が実行されないようにします。
+また `return () => tocbot.destroy()` は、useEffect のクリーンナップで tocbot.destroy() を呼ぶことを意味します。例えば、他のページに遷移して新しく目次を生成する直前に呼ばれ、前回の tocbot の結果を削除します。削除しないと古い結果が残りつづけ意図しない挙動になることがあります。
+
+## tocbot.init() の基本的なオプション
+
+### tocSelector
+
+目次自身を示す DOM の CSS クラスを指定します。この場合は`.toc`です。最終的に`return <div className="toc" />`というコンポーネントを返しています。
+
+```html
+<div class="toc">
+  <ol class="toc-list">
+    ...
+  </ol>
+</div>
+```
+
+実際に html に変換されると構造は上記のように`<div class="toc">...</div>`で囲う結果になります。
+
+### contentSelector
+
+目次を生成する対象の heading 要素を持つ DOM の CSS クラスを指定します。この場合は`.post`です。
+
+`post.tsx`
+
+```tsx
+<Layout>
+  <article>
+    <h1 className={styles.headingXl}>{meta.title}</h1>
+    <LightText className={styles.lightText}>
+      {meta.tags.map((t) => (
+        <Tag key={t} tag={t} />
+      ))}
+      <br />
+      <Date date={meta.date} />
+    </LightText>
+    <div className="post">
+      <MDXProvider components={MDXComponents}>{children}</MDXProvider>
+    </div>
+  </article>
+  <ImageOverlay />
+</Layout>
+```
+
+この[ブログの実装]("https://github.com/kimizuy/blog.kimizuy.dev/blob/main/src/components/post.tsx")を例にすると、記事コンテンツは`{children}`で表示されます。その直上に`<div className="post">`を配置することで tocbot に記事コンテンツの heading タグを認識してもらいます。
+
+`<MDXProvider>` はスタイルコンポーネントです。ひとまず無視して大丈夫です。
+
+### headingSelector
+
+どの heading タグを目次として生成するかを指定します。例えば`'h2, h3, h4'`とすると h1 や h5 は無視されます。
+
+# heading タグの id 属性に見出し文字列を設定する
+
+目次にページ内リンクとしての機能を持たせるために必要です。
+他のマークダウン変換ライブラリ、例えば [remark]("https://github.com/remarkjs/remark") を利用している場合は [remark-autolink-headings]("https://github.com/remarkjs/remark-autolink-headings") などを使うと良いでしょう。
+今回は MDX を利用している場合を紹介します。
+
+```tsx
+const MDXComponents: Components = {
+  return (
+    h1: (props) => {
+      return (
+        <h1 id={props.children} className={styles.h1}>
+          {props.children}
+        </h1>
+      )
+    },
+    h2: (props) => {
+      return (
+        <h2 id={props.children} className={styles.h2}>
+          {props.children}
+        </h2>
+      )
+    },
+    h3: (props) => {
+      return (
+        <h3 id={props.children} className={styles.h3}>
+          {props.children}
+        </h3>
+      )
+    },
+  )
+}
+```
+
+```tsx
+<div className="post">
+  <MDXProvider components={MDXComponents}>{children}</MDXProvider>
+</div>
+```
+
+`props.children`に見出しの文字列が渡されます。それを id に設定しています。
+
+例えば次のようにマークダウンファイルは HTML に変換されます。
+
+```mdx
+# 見出し
+
+本文です。
+```
+
+```html
+<h1 id="見出し" class="mdxComponents_h1__2IZ3_">見出し</h1>
+<p>本文です</p>
+```
+
+これを tocbot がいい感じに読み込んで
+
+```html
+<a href="#見出し" class="toc-link node-name--H1 ">見出し</a>
+```
+
+というリンクを生成します。
+
+# スタイル例
+
+手前味噌ながら、このブログの実装を紹介します。
+
+[toc.css]("https://github.com/kimizuy/blog.kimizuy.dev/blob/main/src/styles/toc.css")
+
+```css
+.toc {
+  background-color: var(--content-bg-primary);
+  border: 1px solid var(--content-border);
+  border-radius: 0.25rem;
+  padding: 1rem;
+  font-size: 0.875rem;
+}
+
+.toc-list {
+}
+
+.toc-list .toc-list {
+  padding-left: 1rem;
+  padding-top: 0.5rem;
+}
+
+.toc-list-item {
+  padding-bottom: 0.5rem;
+}
+
+.toc-list-item:last-child {
+  padding-bottom: 0;
+}
+
+.toc-link {
+  color: var(--text-secondary);
+}
+
+.is-active-link {
+  color: var(--text-primary);
+  font-weight: 700;
+}
+```
+
+色に CSS 変数を使っているのでコピペでは使えません。適宜置き換えてください。
+
+# まとめ
+
+- `tocbot.init()`時に目次の DOM とコンテンツの DOM の CSS クラスを指定する
+- heading タグにちゃんと id 属性を設定する

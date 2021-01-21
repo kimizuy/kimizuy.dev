@@ -6,11 +6,11 @@ import { Meta } from '@/types/post'
 import { MDXProvider } from '@mdx-js/react'
 import Head from 'next/head'
 import Image from 'next/image'
+import Link from 'next/link'
 import { useRouter } from 'next/router'
 import LightText from './lightText'
 import MDXComponents from './mdxComponents'
 import styles from './post.module.css'
-import Tag from './tag'
 
 const Post: React.VFC<{
   meta: Meta
@@ -36,11 +36,15 @@ const Post: React.VFC<{
         <meta name="description" content={meta.description}></meta>
       </Head>
       <Layout>
-        <article>
+        <article className={styles.container}>
           <h1 className={styles.headingXl}>{meta.title}</h1>
           <LightText className={styles.lightText}>
-            {meta.tags.map((t) => (
-              <Tag key={t} tag={t} />
+            {meta.tags.map((tag) => (
+              <>
+                <Link key={tag} href="/tags/[tag]" as={`/tags/${tag}`}>
+                  <a>#{tag}</a>
+                </Link>{' '}
+              </>
             ))}
             <br />
             <Date date={meta.date} />
@@ -48,6 +52,7 @@ const Post: React.VFC<{
           <div className="post">
             <MDXProvider components={MDXComponents}>{children}</MDXProvider>
           </div>
+          <ArticleEnd />
         </article>
         <ImageOverlay />
       </Layout>
@@ -66,6 +71,23 @@ const ImageOverlay: React.VFC = () => {
     <div className={styles.overlay} onClick={() => updateSrc('')}>
       <div className={styles.overlayImgWrapper}>
         <Image src={src} layout="fill" objectFit="contain" />
+      </div>
+    </div>
+  )
+}
+
+const ArticleEnd: React.VFC = () => {
+  return (
+    <div className={styles.articleEndContainer}>
+      <div>
+        <Link href="/">
+          <a>← Back to home</a>
+        </Link>
+      </div>
+      <div>
+        <Link href="https://twitter.com/kimizuy">
+          <a> Discuss on Twitter</a>
+        </Link>
       </div>
     </div>
   )

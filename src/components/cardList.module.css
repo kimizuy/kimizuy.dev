@@ -4,9 +4,11 @@
 
 .card {
   border-top: 1px solid var(--content-border);
-  /* モバイル画面時はタグリスト背景とカード背景を同じ色にする */
-  background-color: var(--bg-primary);
   padding: 1rem;
+}
+
+.card:first-child {
+  border-top: 0;
 }
 
 .imgWrapper {
@@ -14,7 +16,7 @@
 }
 
 .title {
-  padding-bottom: 0.75rem;
+  padding-bottom: 0.8rem;
 }
 
 /* tablet ~ laptop */

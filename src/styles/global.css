@@ -6,7 +6,7 @@ body {
   font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN',
     'Hiragino Sans', Meiryo, sans-serif;
   line-height: 1.6;
-  font-size: 16px;
+  font-size: 15px;
   overflow-wrap: break-word;
 }
 
@@ -27,7 +27,7 @@ p > code {
   background-color: var(--code);
   padding: 0.25rem 0.5rem;
   border-radius: 4px;
-  font-size: 14px;
+  font-size: 0.875rem;
   font-family: Menlo, Monaco, 'Courier New', monospace;
 }
 
@@ -39,4 +39,11 @@ html:focus-within {
 /* FIXME: MDXComponents 内でやりたい */
 div.footnotes {
   margin: 3rem 0 1rem;
+}
+
+@media screen and (min-width: 479px) {
+  html,
+  body {
+    font-size: 16px;
+  }
 }
