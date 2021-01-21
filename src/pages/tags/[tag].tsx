@@ -5,6 +5,7 @@ import { Preview } from '@/types/post'
 import getAllTags from '@/lib/getAllTags'
 import getSelectedTagPreviews from '@/lib/getSelectedTagPreviews'
 import CardList from '@/components/cardList'
+import styles from './tag.module.css'
 
 type Props = {
   selectedTag: string
@@ -17,7 +18,7 @@ const Tag: React.VFC<Props> = ({ selectedTag, selectedTagPreviews }) => {
       <Head>
         <title>{selectedTag}</title>
       </Head>
-      <h1 style={{ padding: '0 1rem' }}>#{selectedTag}</h1>
+      <h1 className={styles.tagTitle}>#{selectedTag}</h1>
       <section>
         <CardList previews={selectedTagPreviews} />
       </section>

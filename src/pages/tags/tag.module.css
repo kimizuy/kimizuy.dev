@@ -1,0 +1,12 @@
+.tagTitle {
+  padding: 1rem;
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
+@media screen and (min-width: 479px) {
+  .tagTitle {
+    padding: 0;
+    margin-bottom: 1rem;
+  }
+}
