@@ -8,6 +8,7 @@ import Head from 'next/head'
 import Image from 'next/image'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
+import { Fragment } from 'react'
 import LightText from './lightText'
 import MDXComponents from './mdxComponents'
 import styles from './post.module.css'
@@ -40,11 +41,11 @@ const Post: React.VFC<{
           <h1 className={styles.headingXl}>{meta.title}</h1>
           <LightText className={styles.lightText}>
             {meta.tags.map((tag) => (
-              <>
-                <Link key={tag} href="/tags/[tag]" as={`/tags/${tag}`}>
+              <Fragment key={tag}>
+                <Link href="/tags/[tag]" as={`/tags/${tag}`}>
                   <a>#{tag}</a>
                 </Link>{' '}
-              </>
+              </Fragment>
             ))}
             <br />
             <Date date={meta.date} />
