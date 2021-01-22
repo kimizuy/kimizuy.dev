@@ -84,3 +84,25 @@
     width: 240px;
   }
 }
+
+/* Image overlay */
+.overlay {
+  position: absolute; /* Sit on top of the page content */
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+  background-color: hsla(0, 0%, 8%, 0.4);
+  cursor: zoom-out;
+}
+
+.overlayImgWrapper {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  width: 98%;
+  height: 80%;
+}

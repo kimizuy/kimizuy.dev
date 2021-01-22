@@ -20,7 +20,6 @@ tocbot はその目次を自動生成してくれるライブラリです。記�
 # 環境
 
 - Next.js: v10.0.5
-
 - MDX: v1.6.22
 
 # tocbot を追加する
@@ -35,7 +34,7 @@ yarn add tocbot
 
 # TOC コンポーネントを作る
 
-```tsx
+```tsx:toc.tsx
 import { useEffect } from 'react'
 import tocbot from 'tocbot'
 
@@ -81,9 +80,7 @@ useEffect 内で tocbot.init() して初期化します。第二引数に空の�
 
 目次を生成する対象の heading 要素を持つ DOM の CSS クラスを指定します。この場合は`.post`です。
 
-`post.tsx`
-
-```tsx
+```tsx:post.tsx
 <Layout>
   <article>
     <h1 className={styles.headingXl}>{meta.title}</h1>
@@ -116,7 +113,7 @@ useEffect 内で tocbot.init() して初期化します。第二引数に空の�
 他のマークダウン変換ライブラリ、例えば [remark]("https://github.com/remarkjs/remark") を利用している場合は [remark-autolink-headings]("https://github.com/remarkjs/remark-autolink-headings") などを使うと良いでしょう。
 今回は MDX を利用している場合を紹介します。
 
-```tsx
+```tsx:mdxComponents.tsx
 const MDXComponents: Components = {
   return (
     h1: (props) => {
@@ -144,7 +141,7 @@ const MDXComponents: Components = {
 }
 ```
 
-```tsx
+```tsx:post.tsx
 <div className="post">
   <MDXProvider components={MDXComponents}>{children}</MDXProvider>
 </div>
@@ -175,11 +172,9 @@ const MDXComponents: Components = {
 
 # スタイル例
 
-手前味噌ながら、このブログの実装を紹介します。
+手前味噌ながら、この[ブログの実装]("https://github.com/kimizuy/blog.kimizuy.dev/blob/main/src/styles/toc.css")を紹介します。
 
-[toc.css]("https://github.com/kimizuy/blog.kimizuy.dev/blob/main/src/styles/toc.css")
-
-```css
+```css:toc.css
 .toc {
   background-color: var(--content-bg-primary);
   border: 1px solid var(--content-border);

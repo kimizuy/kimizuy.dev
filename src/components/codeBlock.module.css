@@ -1,12 +1,29 @@
+.container {
+  position: relative;
+  font-size: 0.875rem;
+  font-family: Menlo, Monaco, 'Courier New', monospace;
+}
+
+.fileName {
+  background-color: var(--content-bg-primary);
+  color: var(--text-secondary);
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px 0 4px 0;
+  font-size: 0.8rem;
+  line-height: 1;
+}
+
 .pre {
   text-align: left;
   margin: 1rem auto;
-  padding: 1rem;
+  padding: 2rem 1rem 1rem;
   overflow: scroll;
 
-  border-radius: 4px;
-  font-size: 0.875rem;
-  font-family: Menlo, Monaco, 'Courier New', monospace;
+  border-radius: 6px 4px 4px 4px;
+  font-family: inherit;
   line-height: 1.9;
 }
 

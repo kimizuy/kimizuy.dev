@@ -1,13 +1,12 @@
 import Date from '@/components/date'
 import Layout from '@/components/layout'
 import { SITE_URL } from '@/lib/constants'
-import { useImageOverlay } from '@/providers/imageOverlayProvider'
 import { Meta } from '@/types/post'
 import { MDXProvider } from '@mdx-js/react'
 import Head from 'next/head'
-import Image from 'next/image'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
+import { Fragment } from 'react'
 import LightText from './lightText'
 import MDXComponents from './mdxComponents'
 import styles from './post.module.css'
@@ -40,11 +39,11 @@ const Post: React.VFC<{
           <h1 className={styles.headingXl}>{meta.title}</h1>
           <LightText className={styles.lightText}>
             {meta.tags.map((tag) => (
-              <>
-                <Link key={tag} href="/tags/[tag]" as={`/tags/${tag}`}>
+              <Fragment key={tag}>
+                <Link href="/tags/[tag]" as={`/tags/${tag}`}>
                   <a>#{tag}</a>
                 </Link>{' '}
-              </>
+              </Fragment>
             ))}
             <br />
             <Date date={meta.date} />
@@ -54,27 +53,12 @@ const Post: React.VFC<{
           </div>
           <ArticleEnd />
         </article>
-        <ImageOverlay />
       </Layout>
     </>
   )
 }
 
 export default Post
-
-const ImageOverlay: React.VFC = () => {
-  const { src, updateSrc } = useImageOverlay()
-
-  if (!src) return null
-
-  return (
-    <div className={styles.overlay} onClick={() => updateSrc('')}>
-      <div className={styles.overlayImgWrapper}>
-        <Image src={src} layout="fill" objectFit="contain" />
-      </div>
-    </div>
-  )
-}
 
 const ArticleEnd: React.VFC = () => {
   return (

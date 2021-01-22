@@ -1,4 +1,6 @@
 import TagList from '@/components/tagList'
+import { useImageOverlay } from '@/providers/imageOverlayProvider'
+import Image from 'next/image'
 import React, { useEffect } from 'react'
 import CopyRight from './copyRight'
 import styles from './layout.module.css'
@@ -48,9 +50,24 @@ const Layout: React.VFC<{
         <footer className={styles.footer}>
           <CopyRight />
         </footer>
+        <ImageOverlay />
       </div>
     </Theme>
   )
 }
 
 export default Layout
+
+const ImageOverlay: React.VFC = () => {
+  const { src, updateSrc } = useImageOverlay()
+
+  if (!src) return null
+
+  return (
+    <div className={styles.overlay} onClick={() => updateSrc('')}>
+      <div className={styles.overlayImgWrapper}>
+        <Image src={src} layout="fill" objectFit="contain" />
+      </div>
+    </div>
+  )
+}

@@ -1,8 +1,9 @@
-import styles from './cardList.module.css'
-import { Preview } from '@/types/post'
-import Link from 'next/link'
 import Date from '@/components/date'
+import { Preview } from '@/types/post'
 import Image from 'next/image'
+import Link from 'next/link'
+import { Fragment } from 'react'
+import styles from './cardList.module.css'
 import LightText from './lightText'
 
 type Props = {
@@ -35,11 +36,11 @@ const Card: React.VFC<{ preview: Preview }> = ({ preview }) => {
           <div className={styles.title}>{meta.title}</div>
           <LightText className={`${styles.marginTopAuto}`}>
             {meta.tags.map((tag) => (
-              <>
-                <Link key={tag} href="/tags/[tag]" as={`/tags/${tag}`}>
+              <Fragment key={tag}>
+                <Link href="/tags/[tag]" as={`/tags/${tag}`}>
                   <a>#{tag}</a>
                 </Link>{' '}
-              </>
+              </Fragment>
             ))}
             <br />
             <Date date={meta.date} />
