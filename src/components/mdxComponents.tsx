@@ -2,10 +2,10 @@ import { useImageOverlay } from '@/providers/imageOverlayProvider'
 import { Components } from '@mdx-js/react'
 import Image from 'next/image'
 import { Fragment } from 'react'
-import CodeBlock from './codeBlock'
+import { CodeBlock } from './codeBlock'
 import styles from './mdxComponents.module.css'
 
-const MDXComponents: Components = {
+export const MDXComponents: Components = {
   img: (props) => {
     const { updateSrc } = useImageOverlay()
     const src: string = props.src
@@ -56,5 +56,3 @@ const MDXComponents: Components = {
   ul: (props) => <ul className={styles.ul}>{props.children}</ul>,
   ol: (props) => <ol className={styles.ol}>{props.children}</ol>,
 }
-
-export default MDXComponents

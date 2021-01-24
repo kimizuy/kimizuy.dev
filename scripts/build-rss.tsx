@@ -1,52 +1,53 @@
-import { Meta } from '@/types/post'
+import { MDXComponents } from '@/components/mdxComponents'
+import { NAME, SITE_TITLE, SITE_URL } from '@/lib/constants'
+import { getAllPostsForRSS } from '@/lib/getAllPostPreviews'
+import { MDXProvider } from '@mdx-js/react'
 import { Feed } from 'feed'
 import fs from 'fs'
 import ReactDOMServer from 'react-dom/server'
-import { dateSortDesc } from '../src/lib/utils'
 
-const importAll = (r) => {
-  return r.keys().map((fileName) => ({
-    link: `/posts${fileName.substr(1).replace(/\/index\.mdx$/, '')}`,
-    module: r(fileName),
-  }))
-}
+const feed = new Feed({
+  title: SITE_TITLE,
+  description: 'Latest posts on kimizuy blog.',
+  id: SITE_URL,
+  link: SITE_URL,
+  language: 'ja',
+  image: `${SITE_URL}/favicon-32x32.png`,
+  favicon: `${SITE_URL}/favicon.ico`,
+  copyright: `All rights reserved ${new Date().getFullYear()}, kimizuy`,
+  feedLinks: {
+    rss: `${SITE_URL}/feed.xml`,
+    json: `${SITE_URL}/feed.json`,
+    atom: `${SITE_URL}/atom.xml`,
+  },
+  author: {
+    name: NAME,
+    link: 'https://twitter.com/kimizuy',
+  },
+})
 
-const getAllPostPreviews = (): {
-  link: string
-  module: { default: any; meta: Meta }
-}[] => {
-  return importAll(
-    require.context('../src/pages/posts/?rss', true, /\.mdx$/)
-  ).sort((a, b) =>
-    dateSortDesc(a.module.meta.date.published, b.module.meta.date.published)
+getAllPostsForRSS().forEach(({ link, module: { meta, default: Content } }) => {
+  const mdx = (
+    <MDXProvider components={MDXComponents}>
+      <Content />
+    </MDXProvider>
   )
-}
+  const html = ReactDOMServer.renderToStaticMarkup(mdx)
+  const postText = `<p><em>(The post <a href="${SITE_URL + link}">${
+    meta.title
+  }</a> appeared first on <a href="${SITE_URL}">kimizuy blog</a>.)</em></p>`
 
-const generate = () => {
-  const feed = new Feed({
-    title: 'Blog – kimizuy',
-    id: 'https://blog.kimizuy.dev',
-    link: 'https://blog.kimizuy.dev',
-    copyright: 'All rights reserved 2020, kimizuy',
-    feedLinks: 'https://blog.kimizuy.dev/feed.xml',
+  feed.addItem({
+    title: meta.title,
+    id: meta.title,
+    link,
+    description: meta.description,
+    content: html + postText,
+    date: new Date(meta.date.published),
+    image: SITE_URL + meta.image,
   })
+})
 
-  const posts = getAllPostPreviews()
-
-  posts.forEach(({ link, module: { default: MDXDocument, meta } }) => {
-    const html = ReactDOMServer.renderToStaticMarkup(<MDXDocument />)
-
-    feed.addItem({
-      title: meta.title,
-      id: link,
-      link: `https://blog.kimizuy.dev${link}`,
-      date: new Date(meta.date.published),
-      description: html,
-    })
-  })
-
-  const rss = feed.rss2()
-  fs.writeFileSync('./.next/static/feed.xml', rss)
-}
-
-generate()
+fs.writeFileSync('./.next/static/feed.xml', feed.rss2())
+fs.writeFileSync('./.next/static/atom.xml', feed.atom1())
+fs.writeFileSync('./.next/static/feed.json', feed.json1())

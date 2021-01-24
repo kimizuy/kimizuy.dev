@@ -5,7 +5,7 @@ import Image from 'next/image'
 import React from 'react'
 import Link from 'next/link'
 
-const Logo: React.VFC = () => {
+export const Logo: React.VFC = () => {
   return (
     <Link href="/">
       <div className={styles.container}>
@@ -23,5 +23,3 @@ const Logo: React.VFC = () => {
     </Link>
   )
 }
-
-export default Logo

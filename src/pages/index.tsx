@@ -1,9 +1,9 @@
-import Layout from '@/components/layout'
-import getAllPostPreviews from '@/lib/getAllPostPreviews'
-import CardList from '@/components/cardList'
+import { CardList } from '@/components/cardList'
+import { Layout } from '@/components/layout'
+import { SITE_URL } from '@/lib/constants'
+import { getAllPostPreviews } from '@/lib/getAllPostPreviews'
 import Head from 'next/head'
 import profile from '../../public/profile.jpg'
-import { SITE_URL } from '@/lib/constants'
 
 const previews = getAllPostPreviews()
 
@@ -30,4 +30,5 @@ const Home: React.VFC = () => {
   )
 }
 
+// eslint-disable-next-line import/no-default-export
 export default Home

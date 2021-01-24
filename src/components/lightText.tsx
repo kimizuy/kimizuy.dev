@@ -5,10 +5,8 @@ type Props = {
   className?: string
 }
 
-const LightText: React.VFC<Props> = (props) => (
+export const LightText: React.VFC<Props> = (props) => (
   <div className={`${styles.lightText} ${props.className}`}>
     {props.children}
   </div>
 )
-
-export default LightText

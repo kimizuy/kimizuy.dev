@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 import tocbot from 'tocbot'
 
-const Toc: React.VFC = () => {
+export const Toc: React.VFC = () => {
   useEffect(() => {
     tocbot.init({
       tocSelector: '.toc',
@@ -14,5 +14,3 @@ const Toc: React.VFC = () => {
 
   return <div className="toc" />
 }
-
-export default Toc

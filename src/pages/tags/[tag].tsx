@@ -1,10 +1,10 @@
+import { CardList } from '@/components/cardList'
+import { Layout } from '@/components/layout'
+import { getAllTags } from '@/lib/getAllTags'
+import { getSelectedTagPreviews } from '@/lib/getSelectedTagPreviews'
+import { Preview } from '@/types/post'
 import { GetStaticPaths, GetStaticProps } from 'next'
 import Head from 'next/head'
-import Layout from '@/components/layout'
-import { Preview } from '@/types/post'
-import getAllTags from '@/lib/getAllTags'
-import getSelectedTagPreviews from '@/lib/getSelectedTagPreviews'
-import CardList from '@/components/cardList'
 import styles from './tag.module.css'
 
 type Props = {
@@ -52,4 +52,5 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   }
 }
 
+// eslint-disable-next-line import/no-default-export
 export default Tag
