@@ -37,6 +37,10 @@
     cursor: pointer;
   }
 
+  .card:first-child {
+    border-top: 1px solid var(--content-border);
+  }
+
   .card:hover,
   .card:focus {
     background-color: var(--content-bg-secondary);

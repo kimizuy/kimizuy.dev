@@ -35,7 +35,7 @@ const Post: React.VFC<{
         <meta name="description" content={meta.description}></meta>
       </Head>
       <Layout>
-        <article className={styles.container}>
+        <article>
           <h1 className={styles.headingXl}>{meta.title}</h1>
           <LightText className={styles.lightText}>
             {meta.tags.map((tag) => (
