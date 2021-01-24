@@ -16,7 +16,7 @@
 .main {
   background-color: var(--bg-primary);
   max-width: 1170px;
-  padding-bottom: 6rem;
+  padding: 1rem 1rem 7rem;
 }
 
 .content {
