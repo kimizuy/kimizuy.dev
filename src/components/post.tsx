@@ -1,5 +1,5 @@
 import Date from '@/components/date'
-import Layout from '@/components/layout'
+import { Layout } from '@/components/layout'
 import { SITE_URL } from '@/lib/constants'
 import { Meta } from '@/types/post'
 import { MDXProvider } from '@mdx-js/react'
@@ -7,18 +7,18 @@ import Head from 'next/head'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { Fragment } from 'react'
-import LightText from './lightText'
-import MDXComponents from './mdxComponents'
+import { LightText } from './lightText'
+import { MDXComponents } from './mdxComponents'
 import styles from './post.module.css'
 
-const Post: React.VFC<{
+export const Post: React.VFC<{
   meta: Meta
   children: React.ReactNode
 }> = ({ meta, children }) => {
   const router = useRouter()
 
   return (
-    <>
+    <Layout>
       <Head>
         <title>{meta.title} – kimizuy blog</title>
         <meta name="twitter:card" content="summary_large_image" />
@@ -34,31 +34,27 @@ const Post: React.VFC<{
         <meta property="og:image" content={`${SITE_URL}${meta.image}`} />
         <meta name="description" content={meta.description}></meta>
       </Head>
-      <Layout>
-        <article>
-          <h1 className={styles.headingXl}>{meta.title}</h1>
-          <LightText className={styles.lightText}>
-            {meta.tags.map((tag) => (
-              <Fragment key={tag}>
-                <Link href="/tags/[tag]" as={`/tags/${tag}`}>
-                  <a>#{tag}</a>
-                </Link>{' '}
-              </Fragment>
-            ))}
-            <br />
-            <Date date={meta.date} />
-          </LightText>
-          <div className="post">
-            <MDXProvider components={MDXComponents}>{children}</MDXProvider>
-          </div>
-          <ArticleEnd />
-        </article>
-      </Layout>
-    </>
+      <article>
+        <h1 className={styles.headingXl}>{meta.title}</h1>
+        <LightText className={styles.lightText}>
+          {meta.tags.map((tag) => (
+            <Fragment key={tag}>
+              <Link href="/tags/[tag]" as={`/tags/${tag}`}>
+                <a>#{tag}</a>
+              </Link>{' '}
+            </Fragment>
+          ))}
+          <br />
+          <Date date={meta.date} />
+        </LightText>
+        <div className="post">
+          <MDXProvider components={MDXComponents}>{children}</MDXProvider>
+        </div>
+        <ArticleEnd />
+      </article>
+    </Layout>
   )
 }
-
-export default Post
 
 const ArticleEnd: React.VFC = () => {
   return (

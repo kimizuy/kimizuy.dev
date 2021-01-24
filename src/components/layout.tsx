@@ -1,14 +1,14 @@
-import TagList from '@/components/tagList'
 import { useImageOverlay } from '@/providers/imageOverlayProvider'
 import Image from 'next/image'
 import React, { useEffect } from 'react'
-import CopyRight from './copyRight'
+import { CopyRight } from './copyRight'
 import styles from './layout.module.css'
-import Logo from './logo'
+import { Logo } from './logo'
+import { TagList } from './tagList'
 import { Theme, ThemeSwitch } from './theme'
-import Toc from './toc'
+import { Toc } from './toc'
 
-const Layout: React.VFC<{
+export const Layout: React.VFC<{
   children: React.ReactNode
   home?: boolean
 }> = ({ children, home }) => {
@@ -55,8 +55,6 @@ const Layout: React.VFC<{
     </Theme>
   )
 }
-
-export default Layout
 
 const ImageOverlay: React.VFC = () => {
   const { src, updateSrc } = useImageOverlay()

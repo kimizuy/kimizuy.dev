@@ -3,7 +3,7 @@ import theme from 'prism-react-renderer/themes/vsDark'
 import React from 'react'
 import styles from './codeBlock.module.css'
 
-const CodeBlock: React.VFC<{
+export const CodeBlock: React.VFC<{
   children: string
   className: string
 }> = ({ children, className }) => {
@@ -42,5 +42,3 @@ const CodeBlock: React.VFC<{
     </div>
   )
 }
-
-export default CodeBlock

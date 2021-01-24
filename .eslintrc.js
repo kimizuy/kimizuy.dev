@@ -1,6 +1,6 @@
 module.exports = {
   parser: '@typescript-eslint/parser',
-  plugins: ['@typescript-eslint', 'prefer-arrow'],
+  plugins: ['@typescript-eslint', 'prefer-arrow', 'import'],
   extends: [
     'eslint:recommended',
     'plugin:react/recommended',
@@ -60,5 +60,6 @@ module.exports = {
         classPropertiesAllowed: false,
       },
     ],
+    'import/no-default-export': 2,
   },
 }

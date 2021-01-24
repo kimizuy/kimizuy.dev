@@ -4,13 +4,13 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { Fragment } from 'react'
 import styles from './cardList.module.css'
-import LightText from './lightText'
+import { LightText } from './lightText'
 
 type Props = {
   previews: Preview[]
 }
 
-const CardList: React.VFC<Props> = (p: Props) => {
+export const CardList: React.VFC<Props> = (p: Props) => {
   return (
     <ul className={styles.cardList}>
       {p.previews.map((preview) => (
@@ -50,5 +50,3 @@ const Card: React.VFC<{ preview: Preview }> = ({ preview }) => {
     </Link>
   )
 }
-
-export default CardList

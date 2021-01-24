@@ -1,6 +1,6 @@
 import styles from './copyRight.module.css'
 
-const CopyRight: React.VFC = () => {
+export const CopyRight: React.VFC = () => {
   return (
     <div className={styles.container}>
       <p>
@@ -31,5 +31,3 @@ const CopyRight: React.VFC = () => {
     </div>
   )
 }
-
-export default CopyRight

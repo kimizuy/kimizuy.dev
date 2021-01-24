@@ -42,7 +42,7 @@ module.exports = {
             ...mdx,
             createLoader(function (src) {
               const content = [
-                'import Post from "@/components/post"',
+                'import { Post } from "@/components/post"',
                 'export { getStaticProps } from "@/lib/getStaticProps"',
                 src,
                 'export default (props) => <Post meta={meta} {...props} />',

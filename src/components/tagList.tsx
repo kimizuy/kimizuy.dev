@@ -1,10 +1,10 @@
 import styles from './tagList.module.css'
 import Link from 'next/link'
-import getAllTags from '@/lib/getAllTags'
+import { getAllTags } from '@/lib/getAllTags'
 
 const tags = getAllTags()
 
-const TagList: React.VFC = () => {
+export const TagList: React.VFC = () => {
   return (
     <ul className={styles.tagList}>
       {tags.map((tag) => (
@@ -21,5 +21,3 @@ const TagButton: React.VFC<{ tag: string }> = ({ tag }) => {
     </Link>
   )
 }
-
-export default TagList

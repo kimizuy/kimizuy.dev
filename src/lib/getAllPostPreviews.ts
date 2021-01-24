@@ -10,7 +10,7 @@ const importAll = (r): Preview[] => {
   )
 }
 
-const getAllPostPreviews = (): Preview[] => {
+export const getAllPostPreviews = (): Preview[] => {
   return importAll(
     require.context('../pages/posts/', true, /\.mdx$/)
   ).sort((a, b) =>
@@ -18,4 +18,10 @@ const getAllPostPreviews = (): Preview[] => {
   )
 }
 
-export default getAllPostPreviews
+export const getAllPostsForRSS = (): Preview[] => {
+  return importAll(
+    require.context('../pages/posts/?rss', true, /\.mdx$/)
+  ).sort((a, b) =>
+    dateSortDesc(a.module.meta.date.published, b.module.meta.date.published)
+  )
+}
