@@ -1,5 +1,5 @@
 @import url('./reset.css');
-@import url('./toc.css');
+@import url('../components/toc.css');
 
 :root {
   --bg-primary: #ffffff;
