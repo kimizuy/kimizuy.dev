@@ -55,6 +55,7 @@ export const MDXComponents: Components = {
     return (
       <div className={styles.imgWrapper}>
         <Image
+          {...props}
           src={src}
           alt={srcName}
           // https://nextjs.org/docs/api-reference/next/image#layout
@@ -102,4 +103,10 @@ export const MDXComponents: Components = {
   },
   ul: (props) => <ul {...props} className={styles.ul} />,
   ol: (props) => <ol {...props} className={styles.ol} />,
+  div: (props) => {
+    if (props.className === 'footnotes') {
+      return <div {...props} className={styles.footnotes} />
+    }
+    return <div {...props} />
+  },
 }

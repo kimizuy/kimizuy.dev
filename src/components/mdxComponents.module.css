@@ -53,6 +53,10 @@
   margin: 1rem 0;
 }
 
+.footnotes {
+  margin: 3rem 0 1rem;
+}
+
 /* Code block */
 .codeBlock {
   position: relative;
