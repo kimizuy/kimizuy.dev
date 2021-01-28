@@ -1,6 +1,30 @@
 @import url('./reset.css');
 @import url('./toc.css');
 
+:root {
+  --bg-primary: #ffffff;
+  --bg-secondary: #f6f8fa;
+  --text-primary: #24292e;
+  --text-secondary: #6a737d;
+  --content-bg-primary: #fafbfc;
+  --content-bg-secondary: #f3f4f6;
+  --content-border: rgba(27, 31, 35, 0.15);
+  --link: #0366d6;
+  --code: var(--content-bg-primary);
+}
+
+[data-theme='dark'] {
+  --bg-primary: #0d1117;
+  --bg-secondary: #161b23;
+  --text-primary: #ffffff;
+  --text-secondary: #b3b3b3;
+  --content-bg-primary: #21262d;
+  --content-bg-secondary: #30363d;
+  --content-border: #30363d;
+  --link: #58a6ff;
+  --code: #1e1e1e;
+}
+
 html,
 body {
   font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN',

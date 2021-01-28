@@ -72,28 +72,34 @@ export const MDXComponents: Components = {
   },
   pre: (props) => <Fragment {...props} />,
   code: CodeBlock,
-  p: (props) => <p className={styles.p}>{props.children}</p>,
+  p: (props) => <p {...props} className={styles.p} />,
   h1: (props) => {
     return (
-      <h1 id={props.children} className={`${styles.heading} ${styles.h1}`}>
-        {props.children}
-      </h1>
+      <h1
+        {...props}
+        id={props.children}
+        className={`${styles.heading} ${styles.h1}`}
+      />
     )
   },
   h2: (props) => {
     return (
-      <h2 id={props.children} className={`${styles.heading} ${styles.h2}`}>
-        {props.children}
-      </h2>
+      <h2
+        {...props}
+        id={props.children}
+        className={`${styles.heading} ${styles.h2}`}
+      />
     )
   },
   h3: (props) => {
     return (
-      <h3 id={props.children} className={`${styles.heading} ${styles.h3}`}>
-        {props.children}
-      </h3>
+      <h3
+        {...props}
+        id={props.children}
+        className={`${styles.heading} ${styles.h3}`}
+      />
     )
   },
-  ul: (props) => <ul className={styles.ul}>{props.children}</ul>,
-  ol: (props) => <ol className={styles.ol}>{props.children}</ol>,
+  ul: (props) => <ul {...props} className={styles.ul} />,
+  ol: (props) => <ol {...props} className={styles.ol} />,
 }

@@ -30,7 +30,7 @@ const Card: React.VFC<{ preview: Preview }> = ({ preview }) => {
     <Link href={link}>
       <li className={styles.card}>
         <div className={styles.imgWrapper}>
-          <Image src={meta.image} layout="fill" />
+          <Image src={meta.image} alt={link} layout="fill" />
         </div>
         <div className={styles.contentWrapper}>
           <div className={styles.title}>{meta.title}</div>

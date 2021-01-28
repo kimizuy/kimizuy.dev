@@ -1,20 +1,8 @@
 import { useTheme } from '@/providers/themeProvider'
-import styles from './theme.module.css'
-
-export const Theme: React.VFC<{ children: React.ReactNode }> = ({
-  children,
-}) => {
-  const { theme } = useTheme()
-
-  return (
-    <div className={theme === 'dark' ? styles.dark : styles.light}>
-      {children}
-    </div>
-  )
-}
+import styles from './themeSwitch.module.css'
 
 export const ThemeSwitch: React.VFC = () => {
-  const { theme, toggleTheme } = useTheme()
+  const { theme, setTheme } = useTheme()
 
   return (
     <div className={styles.switchContainer}>
@@ -22,8 +10,8 @@ export const ThemeSwitch: React.VFC = () => {
         Theme Switch
         <input
           type="checkbox"
-          checked={theme === 'light'}
-          onChange={toggleTheme}
+          checked={theme !== 'dark'}
+          onChange={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
           className={styles.slider}
         />
         <span className={`${styles.slider} ${styles.round}`} />
