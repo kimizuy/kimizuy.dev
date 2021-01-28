@@ -5,7 +5,7 @@ import { CopyRight } from './copyRight'
 import styles from './layout.module.css'
 import { Logo } from './logo'
 import { TagList } from './tagList'
-import { Theme, ThemeSwitch } from './theme'
+import { ThemeSwitch } from './themeSwitch'
 import { Toc } from './toc'
 
 export const Layout: React.VFC<{
@@ -22,37 +22,35 @@ export const Layout: React.VFC<{
   }, [])
 
   return (
-    <Theme>
-      <div className={styles.container}>
-        <header className={styles.header}>
-          <Logo />
-          <ThemeSwitch />
-        </header>
-        <main className={styles.main}>
-          <div className={styles.content}>
-            <section className={styles.article}>{children}</section>
-            <aside className={styles.sideBar}>
-              <div className={styles.sticky}>
-                {home && (
-                  <div className={styles.tagListWrapper}>
-                    <TagList />
-                  </div>
-                )}
-                {!home && (
-                  <div className={styles.tocWrapper}>
-                    <Toc />
-                  </div>
-                )}
-              </div>
-            </aside>
-          </div>
-        </main>
-        <footer className={styles.footer}>
-          <CopyRight />
-        </footer>
-        <ImageOverlay />
-      </div>
-    </Theme>
+    <div className={styles.container}>
+      <header className={styles.header}>
+        <Logo />
+        <ThemeSwitch />
+      </header>
+      <main className={styles.main}>
+        <div className={styles.content}>
+          <section className={styles.article}>{children}</section>
+          <aside className={styles.sideBar}>
+            <div className={styles.sticky}>
+              {home && (
+                <div className={styles.tagListWrapper}>
+                  <TagList />
+                </div>
+              )}
+              {!home && (
+                <div className={styles.tocWrapper}>
+                  <Toc />
+                </div>
+              )}
+            </div>
+          </aside>
+        </div>
+      </main>
+      <footer className={styles.footer}>
+        <CopyRight />
+      </footer>
+      <ImageOverlay />
+    </div>
   )
 }
 
