@@ -1,4 +1,4 @@
-import Date from '@/components/date'
+import { Date } from '@/components/date'
 import { Preview } from '@/types/post'
 import Image from 'next/image'
 import Link from 'next/link'
