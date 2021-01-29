@@ -62,10 +62,10 @@ export const ThemeProvider: React.VFC<{ children: React.ReactNode }> = ({
   useEffect(() => {
     // Always listen to System preference
     const media = window.matchMedia('(prefers-color-scheme: dark)')
-    media.addEventListener('change', handleMediaQuery)
+    media.addListener(handleMediaQuery)
     handleMediaQuery(media)
 
-    return () => media.removeEventListener('change', handleMediaQuery)
+    return () => media.removeListener(handleMediaQuery)
   }, [handleMediaQuery]) // eslint-disable-line
 
   const setTheme = useCallback(

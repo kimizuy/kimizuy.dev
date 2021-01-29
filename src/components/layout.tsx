@@ -33,12 +33,12 @@ export const Layout: React.VFC<{
           <aside className={styles.sideBar}>
             <div className={styles.sticky}>
               {home && (
-                <div className={styles.tagListWrapper}>
+                <div>
                   <TagList />
                 </div>
               )}
               {!home && (
-                <div className={styles.tocWrapper}>
+                <div>
                   <Toc />
                 </div>
               )}

@@ -1,5 +1,5 @@
 @import url('./reset.css');
-@import url('./toc.css');
+@import url('../components/toc.css');
 
 :root {
   --bg-primary: #ffffff;
@@ -58,11 +58,6 @@ p > code {
 /* https://coliss.com/articles/build-websites/operation/css/fixing-smooth-scrolling-with-page-search.html */
 html:focus-within {
   scroll-behavior: smooth;
-}
-
-/* FIXME: MDXComponents 内でやりたい */
-div.footnotes {
-  margin: 3rem 0 1rem;
 }
 
 @media screen and (min-width: 479px) {
