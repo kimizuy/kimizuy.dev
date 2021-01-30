@@ -11,8 +11,16 @@
 }
 
 .heading {
-  padding-top: 2rem;
   font-weight: 700;
+}
+
+.heading::before {
+  display: block;
+  content: ' ';
+  margin-top: -4rem;
+  height: 4rem;
+  visibility: hidden;
+  pointer-events: none;
 }
 
 .heading:focus {
@@ -23,16 +31,17 @@
   font-size: 1.7rem;
   border-bottom: 1px solid var(--content-border);
   padding-bottom: 0.2rem;
-  margin-top: 2rem;
+  margin-top: 3rem;
 }
 
 .h2 {
   font-size: 1.4rem;
-  margin-top: 1rem;
+  margin-top: 2rem;
 }
 
 .h3 {
   font-size: 1.1rem;
+  margin-top: 1rem;
 }
 
 .ul {
