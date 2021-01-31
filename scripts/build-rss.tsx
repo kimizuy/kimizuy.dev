@@ -39,8 +39,8 @@ getAllPostsForRSS().forEach(({ link, module: { meta, default: Content } }) => {
 
   feed.addItem({
     title: meta.title,
-    id: meta.title,
-    link,
+    id: SITE_URL + link,
+    link: SITE_URL + link,
     description: meta.description,
     content: html + postText,
     date: new Date(meta.date.published),
