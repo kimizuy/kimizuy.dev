@@ -1,4 +1,4 @@
-import Date from '@/components/date'
+import { Date } from '@/components/date'
 import { Layout } from '@/components/layout'
 import { SITE_URL } from '@/lib/constants'
 import { Meta } from '@/types/post'
