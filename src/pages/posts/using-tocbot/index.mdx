@@ -45,8 +45,6 @@ const Toc: React.VFC = () => {
       contentSelector: '.post',
       headingSelector: 'h1, h2, h3',
     })
-
-    return () => tocbot.destroy()
   }, [])
 
   return <div className="toc" />
@@ -58,7 +56,6 @@ export default Toc
 ## useEffect() で初期化する
 
 useEffect 内で tocbot.init() して初期化します。第二引数に空の配列`[]`を渡すことで最初のマウント時以外は useEffect() が実行されないようにします。
-また `return () => tocbot.destroy()` は、useEffect のクリーンナップで tocbot.destroy() を呼ぶことを意味します。例えば、他のページに遷移して新しく目次を生成する直前に呼ばれ、前回の tocbot の結果を削除します。削除しないと古い結果が残りつづけ意図しない挙動になることがあります。
 
 ## tocbot.init() の基本的なオプション
 
