@@ -8,9 +8,9 @@ type Props = {
 export const Date: React.VFC<Props> = (p) => {
   return (
     <>
-      published at <Time value={p.date.published} />
+      Published <Time value={p.date.published} />
       <br />
-      {p.date.updated && 'updated at '}
+      {p.date.updated && 'Last updated '}
       {p.date.updated && <Time value={p.date.updated} />}
     </>
   )

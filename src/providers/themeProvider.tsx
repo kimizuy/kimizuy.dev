@@ -10,18 +10,15 @@ import React, {
 import NextHead from 'next/head'
 
 interface UseThemeProps {
-  themes: string[]
+  theme: string
   setTheme: (theme: string) => void
-  theme?: string
-  resolvedTheme?: string
-  systemTheme?: 'dark' | 'light'
 }
 
 const ThemeContext = createContext<UseThemeProps>({
+  theme: 'dark',
   setTheme: (_) => {
     return
   },
-  themes: [],
 })
 export const useTheme = () => useContext(ThemeContext)
 
@@ -29,7 +26,6 @@ export const ThemeProvider: React.VFC<{ children: React.ReactNode }> = ({
   children,
 }) => {
   const [theme, setThemeState] = useState(() => getTheme('theme'))
-  const [resolvedTheme, setResolvedTheme] = useState(() => getTheme('theme'))
 
   const changeTheme = useCallback((theme, updateStorage = true) => {
     const name = theme
@@ -52,7 +48,6 @@ export const ThemeProvider: React.VFC<{ children: React.ReactNode }> = ({
     (e) => {
       const isDark = e.matches
       const systemTheme = isDark ? 'dark' : 'light'
-      setResolvedTheme(systemTheme)
 
       if (theme === 'system') changeTheme(systemTheme, false)
     },
@@ -95,9 +90,6 @@ export const ThemeProvider: React.VFC<{ children: React.ReactNode }> = ({
       value={{
         theme,
         setTheme,
-        resolvedTheme: theme === 'system' ? resolvedTheme : theme,
-        themes: [...['light', 'dark'], 'system'],
-        systemTheme: resolvedTheme as 'light' | 'dark' | undefined,
       }}
     >
       <ThemeScript />
@@ -106,37 +98,30 @@ export const ThemeProvider: React.VFC<{ children: React.ReactNode }> = ({
   )
 }
 
-const ThemeScript = memo(
-  () => {
-    // Code-golfing the amount of characters in the script
-    const optimization = (() => {
-      return `var d=document.documentElement;`
-    })()
+const ThemeScript = memo(() => {
+  // Code-golfing the amount of characters in the script
+  const optimization = (() => {
+    return `var d=document.documentElement;`
+  })()
 
-    const updateDOM = (name: string, literal?: boolean) => {
-      const val = literal ? name : `'${name}'`
+  const updateDOM = (name: string, literal?: boolean) => {
+    const val = literal ? name : `'${name}'`
 
-      return `d.setAttribute('${'data-theme'}', ${val})`
-    }
-
-    return (
-      <NextHead>
-        <script
-          key="next-themes-script"
-          dangerouslySetInnerHTML={{
-            // prettier-ignore
-            __html: `!function(){try {${optimization}var e=localStorage.getItem('theme');if(!e)return localStorage.setItem('theme','light'),${updateDOM('light')};if('system'===e){var t="(prefers-color-scheme: dark)",m=window.matchMedia(t);m.media!==t||m.matches?${updateDOM('dark')}:${updateDOM('light')}}else ${''}${updateDOM('e', true)}}catch(e){}}()`,
-          }}
-        />
-      </NextHead>
-    )
-  },
-  () => {
-    // Only re-render when forcedTheme changes
-    // the rest of the props should be completely stable
-    return true
+    return `d.setAttribute('${'data-theme'}', ${val})`
   }
-)
+
+  return (
+    <NextHead>
+      <script
+        key="next-themes-script"
+        dangerouslySetInnerHTML={{
+          // prettier-ignore
+          __html: `!function(){try {${optimization}var e=localStorage.getItem('theme');if(!e)return localStorage.setItem('theme','light'),${updateDOM('light')};if('system'===e){var t="(prefers-color-scheme: dark)",m=window.matchMedia(t);m.media!==t||m.matches?${updateDOM('dark')}:${updateDOM('light')}}else ${''}${updateDOM('e', true)}}catch(e){}}()`,
+        }}
+      />
+    </NextHead>
+  )
+})
 
 // Helpers
 const getTheme = (key: string) => {

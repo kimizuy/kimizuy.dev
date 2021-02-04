@@ -8,8 +8,6 @@ export const Toc: React.VFC = () => {
       contentSelector: '.post',
       headingSelector: 'h1, h2, h3',
     })
-
-    return () => tocbot.destroy()
   }, [])
 
   return <div className="toc" />
