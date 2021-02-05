@@ -48,7 +48,7 @@ const CodeBlock: React.VFC<{
 
 export const MDXComponents: Components = {
   img: (props) => {
-    const { updateSrc } = useImageOverlay()
+    const { setSrc } = useImageOverlay()
     const src: string = props.src
     const srcName = src.split('/')[src.split('/').length - 1].split('.')[0]
 
@@ -65,7 +65,7 @@ export const MDXComponents: Components = {
           height={658.125}
           className={styles.img}
           onClick={() => {
-            updateSrc(props.src)
+            setSrc(props.src)
           }}
         />
       </div>
