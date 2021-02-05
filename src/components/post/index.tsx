@@ -7,9 +7,9 @@ import Head from 'next/head'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { Fragment } from 'react'
-import { LightText } from './lightText'
+import { LightText } from '../lightText'
 import { MDXComponents } from './mdxComponents'
-import styles from './post.module.css'
+import styles from './index.module.css'
 
 export const Post: React.VFC<{
   meta: Meta

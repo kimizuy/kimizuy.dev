@@ -95,3 +95,30 @@
   width: 98%;
   height: 80%;
 }
+
+/* Logo */
+.logo {
+  display: inline-flex;
+  cursor: pointer;
+}
+
+.logoImgWrapper {
+  position: relative;
+  width: 3rem;
+  height: 3rem;
+}
+
+.logoImgWrapper img {
+  border-radius: 9999px;
+}
+
+.logoTitle {
+  font-size: 1.6rem;
+  font-weight: 800;
+  margin: auto 0.5rem;
+}
+
+/* Copy Right */
+.copyRight {
+  text-align: center;
+}

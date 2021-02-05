@@ -3,7 +3,7 @@ import { createContext, useContext, useEffect, useState } from 'react'
 
 type ImageOverlayContext = {
   src: string
-  updateSrc: (value: string) => void
+  setSrc: (value: string) => void
 }
 
 const imageOverlayContext = createContext<ImageOverlayContext>(
@@ -16,31 +16,31 @@ export const ImageOverlayProvider: React.VFC<{ children: React.ReactNode }> = ({
   children,
 }) => {
   const router = useRouter()
-  const [src, setSrc] = useState('')
+  const [src, setSrcState] = useState('')
   const [imageOverlayLocation, setImageOverlayLocation] = useState('')
   const [scrollPosition, setScrollPosition] = useState(0)
 
   useEffect(() => {
     if (imageOverlayLocation !== router.pathname) {
-      setSrc('')
+      setSrcState('')
       disableScrollLock(0)
     }
   })
 
-  const updateSrc = (value: string) => {
+  const setSrc = (value: string) => {
     if (value) {
-      setSrc(value)
+      setSrcState(value)
       setImageOverlayLocation(router.pathname)
       setScrollPosition(window.scrollY)
       enableScrollLock()
     } else {
-      setSrc('')
+      setSrcState('')
       disableScrollLock(scrollPosition)
     }
   }
 
   return (
-    <imageOverlayContext.Provider value={{ src, updateSrc }}>
+    <imageOverlayContext.Provider value={{ src, setSrc }}>
       {children}
     </imageOverlayContext.Provider>
   )
@@ -55,9 +55,9 @@ const enableScrollLock = () => {
 }
 
 const disableScrollLock = (scrollPosition: number) => {
-  document.body.style.overflow = null
-  document.body.style.top = null
-  document.body.style.position = null
-  document.body.style.width = null
+  document.body.style.overflow = ''
+  document.body.style.top = ''
+  document.body.style.position = ''
+  document.body.style.width = ''
   window.scroll(0, scrollPosition)
 }
