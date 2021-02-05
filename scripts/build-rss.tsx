@@ -1,4 +1,4 @@
-import { MDXComponents } from '@/components/mdxComponents'
+import { MDXComponents } from '@/components/post/mdxComponents'
 import { NAME, SITE_TITLE, SITE_URL } from '@/lib/constants'
 import { getAllPostsForRSS } from '@/lib/getAllPostPreviews'
 import { MDXProvider } from '@mdx-js/react'

@@ -1,10 +1,11 @@
+import { NAME, SITE_TITLE } from '@/lib/constants'
 import { useImageOverlay } from '@/providers/imageOverlayProvider'
 import Image from 'next/image'
+import Link from 'next/link'
 import React, { useEffect } from 'react'
-import { CopyRight } from './copyRight'
-import styles from './layout.module.css'
-import { Logo } from './logo'
-import { TagList } from './tagList'
+import { TagList } from '../tagList'
+// import { CopyRight } from './copyRight'
+import styles from './index.module.css'
 import { ThemeSwitch } from './themeSwitch'
 import { Toc } from './toc'
 
@@ -64,6 +65,57 @@ const ImageOverlay: React.VFC = () => {
       <div className={styles.overlayImgWrapper}>
         <Image src={src} layout="fill" objectFit="contain" />
       </div>
+    </div>
+  )
+}
+
+const Logo: React.VFC = () => {
+  return (
+    <Link href="/">
+      <div className={styles.logo}>
+        <div className={styles.logoImgWrapper}>
+          <Image
+            src="/profile.jpg"
+            alt={NAME}
+            layout="fill"
+            objectFit="contain"
+            priority
+          />
+        </div>
+        <h1 className={styles.logoTitle}>{SITE_TITLE}</h1>
+      </div>
+    </Link>
+  )
+}
+
+const CopyRight: React.VFC = () => {
+  return (
+    <div className={styles.copyRight}>
+      <p>
+        {`© 2020, Built with `}
+        <a href="https://nextjs.org/" target="_blank" rel="noopener noreferrer">
+          Next.js
+        </a>
+      </p>
+      <p>
+        {`createdBy `}
+        <a
+          href="https://twitter.com/kimizuy"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          @kimizuy
+        </a>
+        {` & `}
+        <a
+          href="https://github.com/kimizuy/blog"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Repo
+        </a>
+      </p>
+      <p>This site uses Google Analytics.</p>
     </div>
   )
 }
