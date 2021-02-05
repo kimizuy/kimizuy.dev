@@ -33,17 +33,9 @@ export const Layout: React.VFC<{
           <section className={styles.article}>{children}</section>
           <aside className={styles.sideBar}>
             <div className={styles.sticky}>
-              {home && (
-                <div>
-                  <TagList />
+              {home && <TagList />}
+              {!home && <Toc />}
                 </div>
-              )}
-              {!home && (
-                <div>
-                  <Toc />
-                </div>
-              )}
-            </div>
           </aside>
         </div>
       </main>
