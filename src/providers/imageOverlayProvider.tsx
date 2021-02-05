@@ -55,9 +55,9 @@ const enableScrollLock = () => {
 }
 
 const disableScrollLock = (scrollPosition: number) => {
-  document.body.style.overflow = null
-  document.body.style.top = null
-  document.body.style.position = null
-  document.body.style.width = null
+  document.body.style.overflow = ''
+  document.body.style.top = ''
+  document.body.style.position = ''
+  document.body.style.width = ''
   window.scroll(0, scrollPosition)
 }
