@@ -3,15 +3,13 @@ import { useImageOverlay } from '@/providers/imageOverlayProvider'
 import Image from 'next/image'
 import Link from 'next/link'
 import React, { useEffect } from 'react'
-import { TagList } from '../tagList'
 import styles from './index.module.css'
 import { ThemeSwitch } from './themeSwitch'
-import { Toc } from './toc'
 
 export const Layout: React.VFC<{
   children: React.ReactNode
-  home?: boolean
-}> = ({ children, home }) => {
+  sideBarItem?: JSX.Element
+}> = ({ children, sideBarItem }) => {
   useEffect(() => {
     const setFillHeight = () => {
       const vh = window.innerHeight * 0.01
@@ -31,10 +29,7 @@ export const Layout: React.VFC<{
         <div className={styles.content}>
           <section className={styles.article}>{children}</section>
           <aside className={styles.sideBar}>
-            <div className={styles.sticky}>
-              {home && <TagList />}
-              {!home && <Toc />}
-            </div>
+            <div className={styles.sticky}>{sideBarItem}</div>
           </aside>
         </div>
       </main>

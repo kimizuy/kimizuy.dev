@@ -7,9 +7,10 @@ import Head from 'next/head'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { Fragment } from 'react'
+import { Toc } from '../layout/toc'
 import { LightText } from '../lightText'
-import { MDXComponents } from './mdxComponents'
 import styles from './index.module.css'
+import { MDXComponents } from './mdxComponents'
 
 export const Post: React.VFC<{
   meta: Meta
@@ -18,7 +19,7 @@ export const Post: React.VFC<{
   const router = useRouter()
 
   return (
-    <Layout>
+    <Layout sideBarItem={<Toc />}>
       <Head>
         <title>{meta.title} – kimizuy blog</title>
         <meta name="twitter:card" content="summary_large_image" />
