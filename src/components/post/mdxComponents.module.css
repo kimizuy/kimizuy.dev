@@ -88,10 +88,15 @@
   text-align: left;
   padding: 2rem 1rem 1rem;
   overflow: auto;
-  border-radius: 6px 4px 4px 4px;
+  border-radius: 6px 4px 4px;
   line-height: 1.9;
   font-size: 0.875rem;
   font-family: Menlo, Monaco, 'Courier New', monospace;
+}
+
+.noFileName {
+  padding: 1rem;
+  border-radius: 4px;
 }
 
 .line {

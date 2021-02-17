@@ -9,14 +9,13 @@ import styles from './mdxComponents.module.css'
 const CodeBlock: React.VFC<{
   children: string
   className: string
-}> = ({ children, className }) => {
+}> = ({ children, className = 'markup' }) => {
   const splited = className.replace(/language-/, '').split(':')
   const language = splited[0] as Language
-  const fileName = splited[splited.length - 1]
+  const fileName = splited[1]
 
   return (
     <div className={styles.codeBlock}>
-      <span className={styles.fileName}>{fileName}</span>
       <Highlight
         {...defaultProps}
         theme={theme}
@@ -24,7 +23,13 @@ const CodeBlock: React.VFC<{
         language={language}
       >
         {({ className, style, tokens, getLineProps, getTokenProps }) => (
-          <pre className={`${className} ${styles.pre}`} style={style}>
+          <pre
+            className={`${className} ${styles.pre} ${
+              !fileName && styles.noFileName
+            }`}
+            style={style}
+          >
+            {fileName && <span className={styles.fileName}>{fileName}</span>}
             {tokens.map((line, i) => (
               <div
                 key={i}
