@@ -31,7 +31,9 @@ const CodeBlock: React.VFC<{
                 {...getLineProps({ line, key: i })}
                 className={styles.line}
               >
-                <span className={styles.lineNo}>{i + 1}</span>
+                <span className={styles.lineNo}>
+                  {tokens.length > 1 ? i + 1 : ''}
+                </span>
                 <span className={styles.lineContent}>
                   {line.map((token, key) => (
                     <span key={key} {...getTokenProps({ token, key })} />
