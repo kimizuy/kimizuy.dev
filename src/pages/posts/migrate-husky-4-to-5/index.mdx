@@ -20,7 +20,7 @@ export const meta = {
 
 [https://github.com/typicode/husky-4-to-5](https://github.com/typicode/husky-4-to-5)
 
-```sh
+```bash
 // yarn の場合
 npm exec -- github:typicode/husky-4-to-5 --package-manager yarn
 ```
@@ -40,9 +40,9 @@ npm exec -- github:typicode/husky-4-to-5 --package-manager yarn
   }
 ```
 
-```sh:pre-commit
-#!/bin/sh
-. "$(dirname "$0")/_/husky.sh"
+```bash:pre-commit
+#!/bin/bash
+. "$(dirname "$0")/_/husky.bash"
 
 tsc --noEmit && yarn lint-staged
 ```
