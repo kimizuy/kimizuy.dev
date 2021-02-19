@@ -1,0 +1,27 @@
+import card from './card.png'
+
+export const meta = {
+  title: 'VSCode で schema.prisma をフォーマットする Tips',
+  description:
+    'tldr: prisma の拡張機能をインストール&.prisma ファイルでフォーマットを有効にする',
+  date: { published: '2021-02-19' },
+  tags: ['tips'],
+  image: card,
+}
+
+# はじめに
+
+ほとんどの VSCode 利用者が デフォルトフォーマッターに Prettier を指定していると思います（たぶん）。
+
+そんな場合に VSCode で schema.prisma といったファイルのフォーマットを有効にする方法を紹介します。
+
+# 方法
+
+- まずは [Prisma の拡張機能](https://marketplace.visualstudio.com/items?itemName=Prisma.prisma) を VSCode にインストールします。
+- 次に VSCode の設定ファイルに以下の行を追加します。
+
+```json:settings.json
+  "[prisma]": { "editor.defaultFormatter": "Prisma.prisma"},
+```
+
+以上！
