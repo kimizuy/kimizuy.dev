@@ -116,4 +116,7 @@ export const MDXComponents: Components = {
     }
     return <div {...props} />
   },
+  blockquote: (props) => (
+    <blockquote {...props} className={styles.blockquote} />
+  ),
 }

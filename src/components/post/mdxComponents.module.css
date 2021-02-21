@@ -66,6 +66,19 @@
   margin: 3rem 0 1rem;
 }
 
+.blockquote {
+  color: var(--text-secondary);
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--content-border);
+  border-radius: 4px;
+  padding: 1rem;
+  margin-top: 1rem;
+}
+
+.blockquote p {
+  margin: 0;
+}
+
 /* Code block */
 .codeBlock {
   position: relative;
