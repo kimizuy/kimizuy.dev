@@ -1,0 +1,102 @@
+import card from './card.jpg'
+
+export const meta = {
+  title: 'Next.js の環境変数（.env）の使い方',
+  description: '適切に使い分ける',
+  date: { published: '2021-02-22' },
+  tags: ['next'],
+  image: card,
+}
+
+# はじめに
+
+環境変数はこれまで、next.config.js 内で設定する必要がありましたが v9.4 以降からより直感的に管理できるようになりました。
+
+公開/非公開、開発/本番といった目的によってファイルを使い分けます。個人的に少し混乱した部分などをまとめておきます。
+
+# tldr
+
+- 基本的に開発環境では .env.local のみで十分。このファイルには非公開のシークレットキーなどを保存するため .gitignore にリストしておきます。
+
+- 本番環境での環境変数の設定は .env ファイルではなく Vercel や Netlify といったホスティングサービス側でやります。
+
+[Vercel CLI の基本的な使い方](https://blog.kimizuy.dev/posts/how-to-use-vercel-cli)
+
+# .env ファイルはリポジトリに含めてもいいのか？
+
+.env.local 以外のファイルはリポジトリに入れるべきらしいです。
+
+_備考: .env、.env.development、.env.production ファイルはデフォルトを定義しているので、リポジトリに含めるべきです。_
+
+> Note: .env, .env.development, and .env.production files should be included in your repository as they define defaults.<br/>[https://nextjs.org/docs/basic-features/environment-variables#default-environment-variables](https://nextjs.org/docs/basic-features/environment-variables#default-environment-variables)
+
+公開しても安全な値だけを保存するようにしましょう。
+
+# .env ファイルの種類と違い
+
+## .env.local
+
+- シークレットキーなどを保存します。なので GitHub などにプッシュしてはいけません。
+- 開発環境時（`next dev` したとき）に読み込まれます。
+
+## .env
+
+- 公開しても安全な値を保存します。
+- .env.development や .env.production が無い場合はこのファイルが読み込まれます。
+
+## .env.development
+
+- 公開しても安全な値を保存します。
+- 開発環境時（`next dev` したとき）に読み込まれます。
+
+## .env.production
+
+- 公開しても安全な値を保存します。
+- 本番環境時（`next start` したとき）に読み込まれます。
+
+## .env.test
+
+- jest や cypress などのテスト環境で読み込まれます。
+
+## 優先度
+
+同じ名前の環境変数が複数の環境変数ファイルに保存されている場合は、以下の優先度になります。
+
+### 開発環境
+
+.env.local > .env.development > .env
+
+### 本番環境
+
+.env.production > .env
+
+## 環境変数を公開する
+
+通常、環境変数は Node.js 実行時、つまりサーバサイドの処理で注入されるためクライアントでの利用はできません。
+
+しかし、`NEXT_PUBLIC_`を環境変数のプレフィックスにつけると、その値をブラウザ上に公開できます。
+
+```markup:.env.local
+NEXT_PUBLIC_ENV_VARIABLE="public_variable"
+```
+
+```jsx
+const TestComponent = () => {
+  return <div>{process.env.NEXT_PUBLIC_ENV_VARIABLE}</div>
+}
+```
+
+ただ、環境変数の実体は標準的な JS オブジェクトではないため [Object destructuring は使えません](https://nextjs.org/docs/basic-features/environment-variables#loading-environment-variables)。
+
+```js
+// Does NOT work.
+const { NEXT_PUBLIC_ENV_VARIABLE } = process.env
+```
+
+とは言ったものの、実際に動かしてみると <strong>.env、.env.development、.env.production では Object destructuring が使えました。.env.local ファイルがプロジェクト内に存在すると使えなくなりました。</strong>[leerob.io](https://leerob.io) という Next.js の中の人が運営するサイトでも[やっています](https://github.com/leerob/leerob.io/blob/1153652761bd686ff811c99def35ce8b4152f4a8/lib/spotify.js#L3)。なのでよくわかりません…
+
+環境変数の挙動を試してみたい場合は Next.js の [example](https://github.com/vercel/next.js/tree/canary/examples/environment-variables) が勉強になります。
+
+# 参考
+
+[https://nextjs.org/docs/basic-features/environment-variables](https://nextjs.org/docs/basic-features/environment-variables)
