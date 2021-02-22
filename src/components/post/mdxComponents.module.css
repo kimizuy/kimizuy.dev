@@ -66,6 +66,19 @@
   margin: 3rem 0 1rem;
 }
 
+.blockquote {
+  color: var(--text-secondary);
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--content-border);
+  border-radius: 4px;
+  padding: 1rem;
+  margin-top: 1rem;
+}
+
+.blockquote p {
+  margin: 0;
+}
+
 /* Code block */
 .codeBlock {
   position: relative;
@@ -88,10 +101,15 @@
   text-align: left;
   padding: 2rem 1rem 1rem;
   overflow: auto;
-  border-radius: 6px 4px 4px 4px;
+  border-radius: 6px 4px 4px;
   line-height: 1.9;
   font-size: 0.875rem;
   font-family: Menlo, Monaco, 'Courier New', monospace;
+}
+
+.noFileName {
+  padding: 1rem;
+  border-radius: 4px;
 }
 
 .line {
