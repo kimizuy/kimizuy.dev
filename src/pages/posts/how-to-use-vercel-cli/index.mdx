@@ -1,10 +1,11 @@
 import card from './card.png'
+import usingSecret from './using-secret.png'
 
 export const meta = {
   title: 'Vercel CLI の基本的な使い方',
   description:
     'CLI で手軽にデプロイや各種設定ができると、開発の工程が削減できたり開発の幅が広げられたりします',
-  date: { published: '2021-01-22' },
+  date: { published: '2021-01-22', updated: '2021-02-22' },
   tags: ['vercel'],
   image: card,
 }
@@ -52,7 +53,7 @@ Vercel プロジェクトに設定されている環境変数をリストアッ�
 
 ## vercel env add
 
-Vercel プロジェクトに環境変数を対話形式で追加します。一つずつです。複数の環境変数を一括で設定する方法があったら逆に教えてください。GUI から追加する方法もあります。
+Vercel プロジェクトに環境変数を対話形式で追加します。一つずつです。複数の環境変数を一括で設定する方法があったら逆に教えてください。[GUI から追加する方法](https://vercel.com/docs/environment-variables)もあります。
 
 ## vercel env rm
 
@@ -63,10 +64,22 @@ Vercel プロジェクトに設定されている環境変数を削除します�
 Vercel プロジェクトに設定されている環境変数をローカルにダウンロードします。
 
 デフォルトは .env ファイルです。
-例えば `vercel env pull env.txt` とすれば env.txt としてダウンロードします。
+例えば `vercel env pull .env.local` とすれば .env.local としてダウンロードします。
+
+## vercel secret add `<name> <value>`
+
+シークレットキーを追加します。プロジェクトにアクセスできる人にも知られたくないものが対象になります。
+
+このシークレットキーはプロジェクトではなく、ユーザーアカウントに紐づけられます。以下のようにリストに追加され、そこから選択してプロジェクトに設定します。
+
+<img src={usingSecret} />
 
 # まとめ
 
-基本的な Vercel CLI の説明でした。
+とりあえず`vercel`を使っておけば簡単に初期設定とデプロイができるので便利です。
 
 個人的に GitHub 連携していれば十分かと思っていましたが、手軽にデプロイする環境があるとより円滑に開発が進められると思いました。この記事が誰かのお役に立てれば幸いです。
+
+# 更新
+
+2021-02-22: secret の追加方法やリンクを追記しました。
