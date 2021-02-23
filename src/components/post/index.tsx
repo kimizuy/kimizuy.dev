@@ -67,7 +67,7 @@ const ArticleEnd: React.VFC = () => {
       </div>
       <div>
         <Link href="https://twitter.com/kimizuy">
-          <a> Discuss on Twitter</a>
+          <a>Discuss on Twitter</a>
         </Link>
       </div>
     </div>
