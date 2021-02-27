@@ -3,6 +3,10 @@
   flex-wrap: wrap;
 }
 
+.tagList a {
+  text-decoration: none;
+}
+
 .tag {
   color: var(--link);
   background-color: var(--content-bg-primary);

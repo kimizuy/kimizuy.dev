@@ -2,6 +2,7 @@ import { NAME, SITE_TITLE } from '@/lib/constants'
 import { useImageOverlay } from '@/providers/imageOverlayProvider'
 import Image from 'next/image'
 import Link from 'next/link'
+import { useRouter } from 'next/router'
 import React, { useEffect } from 'react'
 import styles from './index.module.css'
 import { ThemeSwitch } from './themeSwitch'
@@ -56,9 +57,15 @@ const ImageOverlay: React.VFC = () => {
 }
 
 const Logo: React.VFC = () => {
+  const router = useRouter()
+
   return (
     <Link href="/">
-      <div className={styles.logo}>
+      <div
+        className={styles.logo}
+        tabIndex={0}
+        onKeyPress={() => router.push('/')}
+      >
         <div className={styles.logoImgWrapper}>
           <Image
             src="/profile.jpg"
