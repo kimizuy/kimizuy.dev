@@ -1,7 +1,10 @@
 /* eslint-disable func-names */
 const { createLoader } = require('simple-functional-loader')
+const withBundleAnalyzer = require('@next/bundle-analyzer')({
+  enabled: process.env.ANALYZE === 'true',
+})
 
-module.exports = {
+const nextConfig = {
   pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'mdx'],
 
   webpack: (config, options) => {
@@ -83,3 +86,5 @@ module.exports = {
     ]
   },
 }
+
+module.exports = withBundleAnalyzer(nextConfig)
