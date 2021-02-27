@@ -50,7 +50,7 @@ module.exports = {
       ],
     })
 
-    if (!options.dev && options.isServer) {
+    if (options.isServer) {
       const originalEntry = config.entry
 
       config.entry = async () => {
@@ -59,6 +59,15 @@ module.exports = {
 
         return entries
       }
+    }
+
+    // Replace React with Preact only in client production build
+    if (!options.dev & !options.isServer) {
+      Object.assign(config.resolve.alias, {
+        react: 'preact/compat',
+        'react-dom/test-utils': 'preact/test-utils',
+        'react-dom': 'preact/compat',
+      })
     }
 
     return config
