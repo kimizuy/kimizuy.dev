@@ -11,17 +11,15 @@ export const ThemeSwitch: React.VFC = () => {
   if (!mounted) return null
 
   return (
-    <div className={styles.switchContainer}>
-      <label className={styles.switch}>
-        Theme Switch
-        <input
-          type="checkbox"
-          checked={theme !== 'dark'}
-          onChange={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-          className={styles.slider}
-        />
-        <span className={`${styles.slider} ${styles.round}`} />
-      </label>
-    </div>
+    <label className={styles.switch}>
+      Theme Switch
+      <input
+        type="checkbox"
+        checked={theme !== 'dark'}
+        onChange={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+        className={styles.slider}
+      />
+      <span className={`${styles.slider} ${styles.round}`} />
+    </label>
   )
 }
