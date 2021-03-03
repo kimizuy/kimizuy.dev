@@ -11,11 +11,7 @@ export const ThemeSwitch: React.VFC = () => {
   if (!mounted) return null
 
   return (
-    <label
-      className={styles.switch}
-      tabIndex={0}
-      onKeyPress={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-    >
+    <label className={styles.switch}>
       Theme Switch
       <input
         type="checkbox"

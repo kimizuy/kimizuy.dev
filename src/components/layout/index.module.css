@@ -102,6 +102,10 @@
   cursor: pointer;
 }
 
+.logo:hover {
+  text-decoration: none;
+}
+
 .logoImgWrapper {
   position: relative;
   width: 3rem;
