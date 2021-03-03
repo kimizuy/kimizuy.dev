@@ -17,9 +17,9 @@ export const TagList: React.VFC = () => {
 const TagButton: React.VFC<{ tag: string }> = ({ tag }) => {
   return (
     <Link href="/tags/[tag]" as={`/tags/${tag}`}>
-      <a role="listitem" className={styles.tag}>
+      <button role="listitem" className={styles.tag}>
         #{tag}
-      </a>
+      </button>
     </Link>
   )
 }
