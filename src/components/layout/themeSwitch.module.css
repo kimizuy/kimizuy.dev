@@ -14,7 +14,9 @@
 
 /* Hide default HTML checkbox */
 .switch input {
-  display: none;
+  opacity: 0;
+  width: 0;
+  height: 0;
 }
 
 /* The slider */
@@ -54,6 +56,10 @@ input:checked + .slider {
 
 input:focus + .slider {
   box-shadow: 0 0 1px #2196f3;
+}
+
+input:focus + .slider:before {
+  box-shadow: 0 0 8px #2196f3;
 }
 
 input:checked + .slider:before {
