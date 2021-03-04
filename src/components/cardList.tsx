@@ -12,7 +12,7 @@ type Props = {
 
 export const CardList: React.VFC<Props> = (p: Props) => {
   return (
-    <div role="list" className={styles.cardList}>
+    <div className={styles.cardList}>
       {p.previews.map((preview) => (
         <Card preview={preview} key={preview.link} />
       ))}
@@ -28,7 +28,7 @@ const Card: React.VFC<{ preview: Preview }> = ({ preview }) => {
 
   return (
     <Link href={link}>
-      <a role="listitem" className={styles.card}>
+      <a className={styles.card}>
         <div className={styles.imgWrapper}>
           <Image src={meta.image} alt={link} layout="fill" />
         </div>
@@ -38,7 +38,7 @@ const Card: React.VFC<{ preview: Preview }> = ({ preview }) => {
             {meta.tags.map((tag) => (
               <Fragment key={tag}>
                 <Link href="/tags/[tag]" as={`/tags/${tag}`}>
-                  <a tabIndex={-1}>#{tag}</a>
+                  <a>#{tag}</a>
                 </Link>{' '}
               </Fragment>
             ))}
