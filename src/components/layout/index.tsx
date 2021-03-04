@@ -2,7 +2,7 @@ import { NAME, SITE_TITLE } from '@/lib/constants'
 import { useImageOverlay } from '@/providers/imageOverlayProvider'
 import Image from 'next/image'
 import Link from 'next/link'
-import React, { useEffect } from 'react'
+import { useEffect } from 'react'
 import styles from './index.module.css'
 import { ThemeSwitch } from './themeSwitch'
 

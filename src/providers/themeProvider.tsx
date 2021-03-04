@@ -1,5 +1,5 @@
 // Based on: https://github.com/pacocoursey/next-themes
-import React, {
+import {
   createContext,
   useCallback,
   useContext,
