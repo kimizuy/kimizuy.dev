@@ -6,7 +6,7 @@ const tags = getAllTags()
 
 export const TagList: React.VFC = () => {
   return (
-    <div role="list" className={styles.tagList}>
+    <div className={styles.tagList}>
       {tags.map((tag) => (
         <TagButton key={tag} tag={tag} />
       ))}
@@ -17,9 +17,7 @@ export const TagList: React.VFC = () => {
 const TagButton: React.VFC<{ tag: string }> = ({ tag }) => {
   return (
     <Link href="/tags/[tag]" as={`/tags/${tag}`}>
-      <button role="listitem" className={styles.tag}>
-        #{tag}
-      </button>
+      <button className={styles.tag}>#{tag}</button>
     </Link>
   )
 }
