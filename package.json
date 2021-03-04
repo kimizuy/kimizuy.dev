@@ -4,7 +4,7 @@
   "scripts": {
     "dev": "next dev -p 8000",
     "build": "next build && yarn build:rss",
-    "build:rss": "node ./.next/server/scripts/build-rss.js",
+    "build:rss": "node ./.next/serverless/scripts/build-rss.js",
     "build:lhci": "next build",
     "start": "next start",
     "analyze": "ANALYZE=true yarn next build",
