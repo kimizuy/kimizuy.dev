@@ -9,7 +9,7 @@
   --content-bg-secondary: #f3f4f6;
   --content-border: rgba(27, 31, 35, 0.15);
   --link: #0366d6;
-  --code: var(--content-bg-primary);
+  --code: var(--content-bg-secondary);
 }
 
 [data-theme='dark'] {
