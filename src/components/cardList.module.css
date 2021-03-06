@@ -20,6 +20,14 @@
   padding-bottom: 0.8rem;
 }
 
+.card:active {
+  background-color: var(--bg-secondary);
+}
+
+.tag:active {
+  text-decoration: underline;
+}
+
 /* tablet ~ laptop */
 @media screen and (min-width: 479px) {
   .cardList {

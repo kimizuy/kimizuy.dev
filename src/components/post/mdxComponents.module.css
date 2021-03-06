@@ -86,8 +86,8 @@
 }
 
 .fileName {
-  background-color: var(--content-bg-primary);
-  color: var(--text-secondary);
+  background-color: #21262d;
+  color: #b3b3b3;
   position: absolute;
   top: 0;
   left: 0;

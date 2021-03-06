@@ -12,7 +12,12 @@ type Props = {
 
 export const CardList: React.VFC<Props> = (p: Props) => {
   return (
-    <div className={styles.cardList}>
+    <div
+      onTouchStart={() => {
+        return ''
+      }} // Enable :active for iOS
+      className={styles.cardList}
+    >
       {p.previews.map((preview) => (
         <Card preview={preview} key={preview.link} />
       ))}
@@ -38,7 +43,7 @@ const Card: React.VFC<{ preview: Preview }> = ({ preview }) => {
             {meta.tags.map((tag) => (
               <Fragment key={tag}>
                 <Link href="/tags/[tag]" as={`/tags/${tag}`}>
-                  <a>#{tag}</a>
+                  <a className={styles.tag}>#{tag}</a>
                 </Link>{' '}
               </Fragment>
             ))}
