@@ -13,11 +13,9 @@ export const meta = {
 
 # Github Actions の設定ファイルを追加する
 
-プロジェクトのルートに以下の内容のファイルを追加する。
+プロジェクトのルートに`.github/workflows`フォルダを作成し、その中に以下の内容のファイルを追加する。
 
-`./github/workflows/optimize-images.yml`
-
-```yaml
+```yaml:./.github/workflows/optimize-images.yml
 name: Optimize images
 on: pull_request
 jobs:
@@ -52,15 +50,13 @@ jobs:
     # No spaces allowed
 ```
 
-`jpegProgressive` は jpeg ファイルをプログレッシブ形式に変換するかどうか。プログレッシブ形式については[こちら](https://naifix.com/jpeg/)。jpeg はベースラインとプログレッシブの二種類あるのか。へぇー。
+# 実際にプルリクエストを作成してみる
 
-# 実際にプルリクエストを作成する
-
-master に対してプルリクエストを作成すると GitHub Action が実行され少し待って以下のような結果が表示される。
+master に対してプルリクエストを作成すると GitHub Action が実行され、新しく追加した画像が最適化（圧縮）される。
 
 <img src={result} />
 
-注意点として、このアクションが実行されるとプルリクエストに最適化された画像が再度コミットされること。master ← dev のようなプルリクエストの場合、dev ブランチで差分が生じるので混乱しないようにしたい。
+注意点として、このアクションが実行されるとプルリクエストに最適化した画像が再度コミットされること。master ← dev のようなプルリクエストの場合、dev ブランチで差分が生じるので混乱しないようにしたい。
 
 # 参考
 

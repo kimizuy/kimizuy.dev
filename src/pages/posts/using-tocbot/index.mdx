@@ -47,7 +47,7 @@ const Toc: React.VFC = () => {
     })
   }, [])
 
-  return <div className="toc" />
+  return () => tocbot.destroy()
 }
 
 export default Toc
@@ -55,7 +55,7 @@ export default Toc
 
 ## useEffect() で初期化する
 
-useEffect 内で tocbot.init() して初期化します。第二引数に空の配列`[]`を渡すことで最初のマウント時以外は useEffect() が実行されないようにします。
+useEffect 内で tocbot.init() して初期化します。`return () => tocbot.destroy()`はクリーンナップ関数です。次のレンダー時に`tocbot.init()`する直前に呼ばれ、前回の tocbot の結果を削除します。また第二引数に空の配列`[]`を渡すことで最初のマウント時以外は useEffect() が実行されないようにします。
 
 ## tocbot.init() の基本的なオプション
 
@@ -167,42 +167,61 @@ const MDXComponents: Components = {
 
 というリンクを生成します。
 
-# スタイル例
+# 例
 
-手前味噌ながら、この[ブログの実装](https://github.com/kimizuy/blog.kimizuy.dev/blob/main/src/styles/toc.css)を紹介します。
+手前味噌ながら、このブログの実装を紹介します。
 
-```css:toc.css
-.toc {
-  background-color: var(--content-bg-primary);
-  border: 1px solid var(--content-border);
-  border-radius: 0.25rem;
-  padding: 1rem;
-  font-size: 0.875rem;
-}
+```tsx:toc.tsx
+import { useEffect } from 'react'
+import tocbot from 'tocbot'
 
-.toc-list {
-}
+export const Toc: React.VFC = () => {
+  useEffect(() => {
+    tocbot.init({
+      tocSelector: '.toc',
+      contentSelector: '.post',
+      headingSelector: 'h1, h2, h3',
+    })
 
-.toc-list .toc-list {
-  padding-left: 1rem;
-  padding-top: 0.5rem;
-}
+    return () => tocbot.destroy()
+  }, [])
 
-.toc-list-item {
-  padding-bottom: 0.5rem;
-}
+  return (
+    <>
+      <div className="toc" />
+      <style jsx global>{`
+        .toc {
+          background-color: var(--content-bg-primary);
+          border: 1px solid var(--content-border);
+          border-radius: 0.25rem;
+          padding: 1rem;
+          font-size: 0.875rem;
+        }
 
-.toc-list-item:last-child {
-  padding-bottom: 0;
-}
+        .toc-list .toc-list {
+          padding-left: 1rem;
+          padding-top: 0.5rem;
+        }
 
-.toc-link {
-  color: var(--text-secondary);
-}
+        .toc-list-item {
+          padding-bottom: 0.5rem;
+        }
 
-.is-active-link {
-  color: var(--text-primary);
-  font-weight: 700;
+        .toc-list-item:last-child {
+          padding-bottom: 0;
+        }
+
+        .toc-link {
+          color: var(--text-secondary);
+        }
+
+        .is-active-link {
+          color: var(--text-primary);
+          font-weight: 700;
+        }
+      `}</style>
+    </>
+  )
 }
 ```
 
