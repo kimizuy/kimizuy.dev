@@ -76,7 +76,7 @@ const Logo: React.VFC = () => {
 
 const CopyRight: React.VFC = () => {
   return (
-    <div className={styles.copyRight}>
+    <small className={styles.copyRight}>
       <p>
         {`© 2020, Built with `}
         <a href="https://nextjs.org/" target="_blank" rel="noopener noreferrer">
@@ -102,6 +102,6 @@ const CopyRight: React.VFC = () => {
         </a>
       </p>
       <p>This site uses Google Analytics.</p>
-    </div>
+    </small>
   )
 }
