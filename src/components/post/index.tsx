@@ -38,11 +38,11 @@ export const Post: React.VFC<{
           <h1 className={styles.title}>{meta.title}</h1>
           <p className={styles.meta}>
             {meta.tags.map((tag) => (
-              <>
-                <Link key={tag} href="/tags/[tag]" as={`/tags/${tag}`}>
+              <span key={tag}>
+                <Link href="/tags/[tag]" as={`/tags/${tag}`}>
                   <a>#{tag}</a>
                 </Link>{' '}
-              </>
+              </span>
             ))}
             <br />
             <Date date={meta.date} />

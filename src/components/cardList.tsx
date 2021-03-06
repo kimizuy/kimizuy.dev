@@ -2,7 +2,6 @@ import { Date } from '@/components/date'
 import { Preview } from '@/types/post'
 import Image from 'next/image'
 import Link from 'next/link'
-import { Fragment } from 'react'
 import styles from './cardList.module.css'
 
 type Props = {
@@ -43,11 +42,11 @@ const Card: React.VFC<{ preview: Preview }> = ({ preview }) => {
           <footer>
             <p className={styles.meta}>
               {meta.tags.map((tag) => (
-                <>
-                  <Link key={tag} href="/tags/[tag]" as={`/tags/${tag}`}>
+                <span key={tag}>
+                  <Link href="/tags/[tag]" as={`/tags/${tag}`}>
                     <a className={styles.tag}>#{tag}</a>
                   </Link>{' '}
-                </>
+                </span>
               ))}
               <Date date={meta.date} />
             </p>
