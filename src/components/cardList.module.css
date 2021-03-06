@@ -20,6 +20,11 @@
   padding-bottom: 0.8rem;
 }
 
+.meta {
+  margin-top: 1rem;
+  font-size: 0.8rem;
+}
+
 .card:active {
   background-color: var(--bg-secondary);
 }
@@ -86,6 +91,7 @@
   .contentWrapper {
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     height: 100%;
   }
 

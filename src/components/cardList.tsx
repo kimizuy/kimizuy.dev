@@ -4,7 +4,6 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { Fragment } from 'react'
 import styles from './cardList.module.css'
-import { LightText } from './lightText'
 
 type Props = {
   previews: Preview[]
@@ -38,18 +37,21 @@ const Card: React.VFC<{ preview: Preview }> = ({ preview }) => {
           <Image src={meta.image} alt={link} layout="fill" />
         </div>
         <div className={styles.contentWrapper}>
-          <div className={styles.title}>{meta.title}</div>
-          <LightText className={styles.marginTopAuto}>
-            {meta.tags.map((tag) => (
-              <Fragment key={tag}>
-                <Link href="/tags/[tag]" as={`/tags/${tag}`}>
-                  <a className={styles.tag}>#{tag}</a>
-                </Link>{' '}
-              </Fragment>
-            ))}
-            <br />
-            <Date date={meta.date} />
-          </LightText>
+          <header>
+            <h1>{meta.title}</h1>
+          </header>
+          <footer>
+            <p className={styles.meta}>
+              {meta.tags.map((tag) => (
+                <>
+                  <Link key={tag} href="/tags/[tag]" as={`/tags/${tag}`}>
+                    <a className={styles.tag}>#{tag}</a>
+                  </Link>{' '}
+                </>
+              ))}
+              <Date date={meta.date} />
+            </p>
+          </footer>
         </div>
       </a>
     </Link>

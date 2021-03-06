@@ -43,10 +43,6 @@ a:active {
   text-decoration: underline;
 }
 
-p {
-  line-height: 1.9;
-}
-
 p > code {
   background-color: var(--code);
   padding: 0.25rem 0.5rem;

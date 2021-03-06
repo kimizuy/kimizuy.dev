@@ -6,9 +6,7 @@ import { MDXProvider } from '@mdx-js/react'
 import Head from 'next/head'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
-import { Fragment } from 'react'
 import { Toc } from '../layout/toc'
-import { LightText } from '../lightText'
 import styles from './index.module.css'
 import { MDXComponents } from './mdxComponents'
 
@@ -36,22 +34,26 @@ export const Post: React.VFC<{
         <meta name="description" content={meta.description}></meta>
       </Head>
       <article>
-        <h1 className={styles.headingXl}>{meta.title}</h1>
-        <LightText className={styles.lightText}>
-          {meta.tags.map((tag) => (
-            <Fragment key={tag}>
-              <Link href="/tags/[tag]" as={`/tags/${tag}`}>
-                <a>#{tag}</a>
-              </Link>{' '}
-            </Fragment>
-          ))}
-          <br />
-          <Date date={meta.date} />
-        </LightText>
-        <div className="post">
+        <header>
+          <h1 className={styles.title}>{meta.title}</h1>
+          <p className={styles.meta}>
+            {meta.tags.map((tag) => (
+              <>
+                <Link key={tag} href="/tags/[tag]" as={`/tags/${tag}`}>
+                  <a>#{tag}</a>
+                </Link>{' '}
+              </>
+            ))}
+            <br />
+            <Date date={meta.date} />
+          </p>
+        </header>
+        <main className="post">
           <MDXProvider components={MDXComponents}>{children}</MDXProvider>
-        </div>
-        <ArticleEnd />
+        </main>
+        <footer>
+          <ArticleEnd />
+        </footer>
       </article>
     </Layout>
   )

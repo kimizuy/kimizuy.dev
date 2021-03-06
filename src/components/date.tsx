@@ -1,5 +1,6 @@
 import { Meta } from '@/types/post'
 import { format, parseISO } from 'date-fns'
+import styles from './date.module.css'
 
 type Props = {
   date: Meta['date']
@@ -7,12 +8,15 @@ type Props = {
 
 export const Date: React.VFC<Props> = (p) => {
   return (
-    <>
+    <p className={styles.date}>
       Published <Time value={p.date.published} />
       <br />
-      {p.date.updated && 'Last updated '}
-      {p.date.updated && <Time value={p.date.updated} />}
-    </>
+      {p.date.updated && (
+        <>
+          Last updated <Time value={p.date.updated} />
+        </>
+      )}
+    </p>
   )
 }
 
