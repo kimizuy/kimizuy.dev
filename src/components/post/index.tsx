@@ -6,6 +6,7 @@ import { MDXProvider } from '@mdx-js/react'
 import Head from 'next/head'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
+import { Fragment } from 'react'
 import { Toc } from '../layout/toc'
 import styles from './index.module.css'
 import { MDXComponents } from './mdxComponents'
@@ -36,17 +37,17 @@ export const Post: React.VFC<{
       <article>
         <header>
           <h1 className={styles.title}>{meta.title}</h1>
-          <p className={styles.meta}>
+          <small className={styles.meta}>
             {meta.tags.map((tag) => (
-              <span key={tag}>
+              <Fragment key={tag}>
                 <Link href="/tags/[tag]" as={`/tags/${tag}`}>
                   <a>#{tag}</a>
                 </Link>{' '}
-              </span>
+              </Fragment>
             ))}
             <br />
             <Date date={meta.date} />
-          </p>
+          </small>
         </header>
         <main className="post">
           <MDXProvider components={MDXComponents}>{children}</MDXProvider>

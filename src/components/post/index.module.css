@@ -6,8 +6,7 @@
 }
 
 .meta {
-  color: var(--text-secondary);
-  font-size: 0.8rem;
+  display: block;
   margin-top: 1rem;
 }
 
