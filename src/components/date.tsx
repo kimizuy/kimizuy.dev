@@ -8,7 +8,7 @@ type Props = {
 
 export const Date: React.VFC<Props> = (p) => {
   return (
-    <p className={styles.date}>
+    <div className={styles.date}>
       Published <Time value={p.date.published} />
       <br />
       {p.date.updated && (
@@ -16,7 +16,7 @@ export const Date: React.VFC<Props> = (p) => {
           Last updated <Time value={p.date.updated} />
         </>
       )}
-    </p>
+    </div>
   )
 }
 
