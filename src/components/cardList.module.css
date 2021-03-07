@@ -98,8 +98,4 @@
   .contentWrapper a:hover {
     text-decoration: underline;
   }
-
-  .marginTopAuto {
-    margin-top: auto;
-  }
 }
