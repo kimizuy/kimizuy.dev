@@ -2,6 +2,7 @@ import { Date } from '@/components/date'
 import { Preview } from '@/types/post'
 import Image from 'next/image'
 import Link from 'next/link'
+import { Fragment } from 'react'
 import styles from './cardList.module.css'
 
 type Props = {
@@ -10,16 +11,17 @@ type Props = {
 
 export const CardList: React.VFC<Props> = (p: Props) => {
   return (
-    <div
+    <ul
+      // Enable :active for iOS
       onTouchStart={() => {
         return ''
-      }} // Enable :active for iOS
+      }}
       className={styles.cardList}
     >
       {p.previews.map((preview) => (
         <Card preview={preview} key={preview.link} />
       ))}
-    </div>
+    </ul>
   )
 }
 
@@ -30,29 +32,29 @@ const Card: React.VFC<{ preview: Preview }> = ({ preview }) => {
   } = preview
 
   return (
-    <Link href={link}>
-      <a className={styles.card}>
-        <div className={styles.imgWrapper}>
-          <Image src={meta.image} alt={link} layout="fill" />
+    <li className={styles.card}>
+      <div className={styles.imgWrapper}>
+        <Image src={meta.image} alt={link} layout="fill" />
+      </div>
+      <div className={styles.meta}>
+        <div>
+          <Link href={link}>
+            <a className={styles.title}>{meta.title}</a>
+          </Link>
         </div>
-        <div className={styles.contentWrapper}>
-          <header>
-            <h1>{meta.title}</h1>
-          </header>
-          <footer>
-            <p className={styles.meta}>
-              {meta.tags.map((tag) => (
-                <span key={tag}>
-                  <Link href="/tags/[tag]" as={`/tags/${tag}`}>
-                    <a className={styles.tag}>#{tag}</a>
-                  </Link>{' '}
-                </span>
-              ))}
-              <Date date={meta.date} />
-            </p>
-          </footer>
+        <div>
+          <small>
+            {meta.tags.map((tag) => (
+              <Fragment key={tag}>
+                <Link href="/tags/[tag]" as={`/tags/${tag}`}>
+                  <a className={styles.tag}>#{tag}</a>
+                </Link>{' '}
+              </Fragment>
+            ))}
+            <Date date={meta.date} />
+          </small>
         </div>
-      </a>
-    </Link>
+      </div>
+    </li>
   )
 }

@@ -1,10 +1,13 @@
+.cardList {
+  list-style: none;
+}
+
 .cardList a {
   text-decoration: none;
 }
 
 .card {
   border-top: 1px solid var(--content-border);
-  display: block;
   padding: 1rem;
 }
 
@@ -16,19 +19,11 @@
   display: none;
 }
 
-.title {
-  padding-bottom: 0.8rem;
+.meta > * + * {
+  margin-top: 0.5rem;
 }
 
-.meta {
-  margin-top: 1rem;
-  font-size: 0.8rem;
-}
-
-.card:active {
-  background-color: var(--bg-secondary);
-}
-
+.title:active,
 .tag:active {
   text-decoration: underline;
 }
@@ -44,10 +39,11 @@
   .card {
     background-color: var(--content-bg-primary);
     border: 1px solid var(--content-border);
+    border-radius: 0.25rem;
     flex: 0 1 200px;
     display: flex;
     flex-direction: column;
-    border-radius: 0.25rem;
+    position: relative;
     cursor: pointer;
   }
 
@@ -55,18 +51,8 @@
     border-top: 1px solid var(--content-border);
   }
 
-  .card:hover,
-  .card:focus {
-    background-color: var(--content-bg-secondary);
-  }
-
-  .card img {
-    transition: all 0.5s ease;
-  }
-
-  .card:hover img,
-  .card:focus img {
-    transform: scale(1.2);
+  .card:is(:focus-within, :hover) {
+    box-shadow: 0 0 0 0.2rem;
   }
 
   .imgWrapper {
@@ -74,7 +60,6 @@
     display: block;
     position: relative;
     padding-bottom: 56.25%;
-    margin-bottom: 1rem;
     border-radius: 0.5rem;
     cursor: pointer;
     /* はみ出た部分を非表示 */
@@ -88,18 +73,40 @@
     height: 100%;
   }
 
-  .contentWrapper {
+  .card img {
+    transition: transform 0.5s ease;
+  }
+
+  .card:is(:focus-within, :hover) img {
+    transform: scale(1.2);
+  }
+
+  .meta {
+    height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: 100%;
+    margin-top: 1rem;
   }
 
-  .contentWrapper a:hover {
+  .title::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+  }
+
+  .title:active {
+    text-decoration: none;
+  }
+
+  .tag {
+    position: relative;
+  }
+
+  .tag:is(:hover, :focus, :active) {
     text-decoration: underline;
-  }
-
-  .marginTopAuto {
-    margin-top: auto;
   }
 }
