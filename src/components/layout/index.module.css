@@ -97,9 +97,9 @@
 
 /* Logo */
 .logo {
+  color: var(--text-primary);
   display: inline-flex;
   cursor: pointer;
-  color: inherit;
 }
 
 .logo:hover {
