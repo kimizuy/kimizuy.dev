@@ -4,6 +4,7 @@
 
 .cardList a {
   text-decoration: none;
+  outline: none;
 }
 
 .card {
