@@ -15,7 +15,7 @@ export const ThemeSwitch: React.VFC = () => {
       Theme Switch
       <input
         type="checkbox"
-        checked={theme !== 'dark'}
+        checked={theme === 'light'}
         onChange={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
         className={styles.slider}
       />
