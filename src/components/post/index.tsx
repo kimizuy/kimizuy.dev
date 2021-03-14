@@ -7,9 +7,10 @@ import Head from 'next/head'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { Fragment } from 'react'
-import { Toc } from '../layout/toc'
+import { ArticleEnd } from './articleEnd'
 import styles from './index.module.css'
 import { MDXComponents } from './mdxComponents'
+import { Toc } from './toc'
 
 export const Post: React.VFC<{
   meta: Meta
@@ -57,22 +58,5 @@ export const Post: React.VFC<{
         </footer>
       </article>
     </Layout>
-  )
-}
-
-const ArticleEnd: React.VFC = () => {
-  return (
-    <div className={styles.articleEndContainer}>
-      <div>
-        <Link href="/">
-          <a>← Back to home</a>
-        </Link>
-      </div>
-      <div>
-        <Link href="https://twitter.com/kimizuy">
-          <a>Discuss on Twitter</a>
-        </Link>
-      </div>
-    </div>
   )
 }
