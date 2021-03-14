@@ -1,10 +1,9 @@
-import { NAME, SITE_TITLE } from '@/lib/constants'
-import { useImageOverlay } from '@/providers/imageOverlayProvider'
-import Image from 'next/image'
-import Link from 'next/link'
 import { useEffect } from 'react'
+import { ImageOverlay } from './imageOverlay'
 import styles from './index.module.css'
+import { Logo } from './logo'
 import { ThemeSwitch } from './themeSwitch'
+import { CopyRight } from './copyRight'
 
 export const Layout: React.VFC<{
   children: React.ReactNode
@@ -37,81 +36,6 @@ export const Layout: React.VFC<{
         <CopyRight />
       </footer>
       <ImageOverlay />
-    </div>
-  )
-}
-
-const ImageOverlay: React.VFC = () => {
-  const { src, setSrc } = useImageOverlay()
-
-  if (!src) return null
-
-  return (
-    <div className={styles.overlay} onClick={() => setSrc('')}>
-      <div className={styles.overlayImgWrapper}>
-        <Image src={src} layout="fill" objectFit="contain" />
-      </div>
-    </div>
-  )
-}
-
-const Logo: React.VFC = () => {
-  return (
-    <Link href="/">
-      <a className={styles.logo}>
-        <div className={styles.logoImgWrapper}>
-          <Image
-            src="/profile.jpg"
-            alt={NAME}
-            layout="fill"
-            objectFit="contain"
-            priority
-          />
-        </div>
-        <h1 className={styles.logoTitle}>{SITE_TITLE}</h1>
-      </a>
-    </Link>
-  )
-}
-
-const CopyRight: React.VFC = () => {
-  return (
-    <div className={styles.copyRight}>
-      <p>
-        <small>
-          {`© 2020, Built with `}
-          <a
-            href="https://nextjs.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Next.js
-          </a>
-        </small>
-      </p>
-      <p>
-        <small>
-          {`createdBy `}
-          <a
-            href="https://twitter.com/kimizuy"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            @kimizuy
-          </a>
-          {` & `}
-          <a
-            href="https://github.com/kimizuy/blog"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Repo
-          </a>
-        </small>
-      </p>
-      <p>
-        <small>This site uses Google Analytics.</small>
-      </p>
     </div>
   )
 }

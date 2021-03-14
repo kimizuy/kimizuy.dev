@@ -1,0 +1,25 @@
+.logo {
+  color: var(--text-primary);
+  display: inline-flex;
+  cursor: pointer;
+}
+
+.logo:hover {
+  text-decoration: none;
+}
+
+.logoImgWrapper {
+  position: relative;
+  width: 3rem;
+  height: 3rem;
+}
+
+.logoImgWrapper img {
+  border-radius: 9999px;
+}
+
+.logoTitle {
+  font-size: 1.6rem;
+  font-weight: bold;
+  margin: auto 0.5rem;
+}
