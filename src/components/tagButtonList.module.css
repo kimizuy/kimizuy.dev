@@ -1,13 +1,13 @@
-.tagList {
+.tagButtonList {
   display: flex;
   flex-wrap: wrap;
 }
 
-.tagList a {
+.tagButtonList a {
   text-decoration: none;
 }
 
-.tag {
+.tagButton {
   color: var(--link);
   background-color: var(--content-bg-primary);
   border: 1px solid var(--content-border);
@@ -19,12 +19,12 @@
   transition: cubic-bezier(0.17, 0.67, 0.5, 0.71) 100ms;
 }
 
-.tag:last-child {
+.tagButton:last-child {
   margin-right: 0;
 }
 
-.tag:hover,
-.tag:focus {
+.tagButton:hover,
+.tagButton:focus {
   background-color: var(--content-bg-secondary);
 }
 
@@ -33,12 +33,12 @@
     padding: 1rem 1rem 0 1rem;
   }
 
-  .tag {
+  .tagButton {
     margin-right: 1rem;
     margin-bottom: 1rem;
   }
 
-  .tag:last-child {
+  .tagButton:last-child {
     margin-right: 0rem;
   }
 }

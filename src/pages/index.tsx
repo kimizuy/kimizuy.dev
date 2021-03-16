@@ -1,6 +1,6 @@
 import { CardList } from '@/components/cardList'
 import { Layout } from '@/components/layout'
-import { TagList } from '@/components/tagList'
+import { TagButtonList } from '@/components/tagButtonList'
 import { SITE_URL } from '@/lib/constants'
 import { getAllPostPreviews } from '@/lib/getAllPostPreviews'
 import Head from 'next/head'
@@ -10,7 +10,7 @@ const previews = getAllPostPreviews()
 
 const Home: React.VFC = () => {
   return (
-    <Layout sideBarItem={<TagList />}>
+    <Layout sideBarItem={<TagButtonList />}>
       <Head>
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content="@kimizuy" />
