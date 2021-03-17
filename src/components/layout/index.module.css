@@ -24,11 +24,6 @@
   display: none;
 }
 
-.sticky {
-  top: 2rem;
-  position: sticky;
-}
-
 .footer {
   background-color: var(--bg-secondary);
   position: absolute;
@@ -70,5 +65,14 @@
   .sideBar {
     display: block;
     width: 240px;
+  }
+
+  .sticky {
+    top: 2rem;
+    position: sticky;
+  }
+
+  .sticky > * + * {
+    margin-top: 1rem;
   }
 }
