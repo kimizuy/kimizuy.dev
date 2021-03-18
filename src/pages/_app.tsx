@@ -1,11 +1,10 @@
-import '@/styles/global.css'
-import Head from 'next/head'
-import { AppProps } from 'next/app'
-import { ThemeProvider } from '@/providers/themeProvider'
 import { ImageOverlayProvider } from '@/providers/imageOverlayProvider'
-import { useEffect } from 'react'
+import { ThemeProvider } from '@/providers/themeProvider'
+import '@/styles/global.css'
+import { AppProps } from 'next/app'
+import Head from 'next/head'
 import { useRouter } from 'next/router'
-
+import { useEffect } from 'react'
 import * as gtag from '../lib/gtag'
 
 const App: React.VFC<AppProps> = ({ Component, pageProps }) => {

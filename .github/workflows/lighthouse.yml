@@ -18,12 +18,14 @@ jobs:
         with:
           node-version: 12.x
 
-      - name: npm install, build
+      - name: Run npm install, build
+        env:
+          TWITTER_BEARER_TOKEN: ${{ secrets.TWITTER_BEARER_TOKEN }}
         run: |
           npm install
           npm run build:lhci
 
-      - name: run Lighthouse CI
+      - name: Run Lighthouse CI
         run: |
           npm install -g @lhci/cli@0.4.x
           lhci autorun

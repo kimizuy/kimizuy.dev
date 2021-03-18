@@ -5,6 +5,9 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
 })
 
 const nextConfig = {
+  images: {
+    domains: ['pbs.twimg.com'],
+  },
   pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'mdx'],
 
   webpack: (config, options) => {
