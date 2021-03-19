@@ -31,7 +31,6 @@
     "date-fns": "^2.19.0",
     "feed": "^4.2.2",
     "next": "^10.0.8",
-    "node-fetch": "^2.6.1",
     "preact": "^10.5.12",
     "prism-react-renderer": "^1.2.0",
     "react": "^17.0.1",
