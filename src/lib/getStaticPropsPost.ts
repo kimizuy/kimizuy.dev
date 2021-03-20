@@ -1,6 +1,7 @@
+import { GetStaticProps } from 'next'
 import { getAllPostPreviews } from './getAllPostPreviews'
 
-export const getStaticProps = async () => {
+export const getStaticPropsPost: GetStaticProps = async () => {
   return {
     props: {
       posts: getAllPostPreviews().map(({ link, module: { meta } }) => ({
