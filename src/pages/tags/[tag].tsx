@@ -43,7 +43,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 }
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const selectedTag = params.tag as string
+  const selectedTag = params.tag
   const selectedTagPreviews = getSelectedTagPreviews(selectedTag)
   return {
     props: {
