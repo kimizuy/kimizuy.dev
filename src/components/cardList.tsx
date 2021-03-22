@@ -19,7 +19,7 @@ export const CardList: React.VFC<Props> = (p: Props) => {
       className={styles.cardList}
     >
       {p.previews.map((preview) => (
-        <Card preview={preview} key={preview.link} />
+        <Card preview={preview} key={preview.slug} />
       ))}
     </ul>
   )
@@ -27,18 +27,18 @@ export const CardList: React.VFC<Props> = (p: Props) => {
 
 const Card: React.VFC<{ preview: Preview }> = ({ preview }) => {
   const {
-    link,
+    slug,
     module: { meta },
   } = preview
 
   return (
     <li className={styles.card}>
       <div className={styles.imgWrapper}>
-        <Image src={meta.image} alt={link} layout="fill" />
+        <Image src={meta.image} alt={slug} layout="fill" />
       </div>
       <div className={styles.meta}>
         <div>
-          <Link href={link}>
+          <Link href={`/posts/${slug}`}>
             <a className={styles.title}>{meta.title}</a>
           </Link>
         </div>

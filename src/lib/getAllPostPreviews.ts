@@ -3,10 +3,12 @@ import { Preview } from '@/types/post'
 
 const importAll = (r): Preview[] => {
   return r.keys().map(
-    (fileName): Preview => ({
-      link: `/posts${fileName.substr(1).replace(/\/index\.mdx$/, '')}`,
-      module: r(fileName),
-    })
+    (fileName): Preview => {
+      return {
+        slug: fileName.substr(2).replace(/\/index\.mdx$/, ''),
+        module: r(fileName),
+      }
+    }
   )
 }
 

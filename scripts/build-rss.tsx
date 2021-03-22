@@ -26,21 +26,22 @@ const feed = new Feed({
   },
 })
 
-getAllPostsForRSS().forEach(({ link, module: { meta, default: Content } }) => {
+getAllPostsForRSS().forEach(({ slug, module: { meta, default: Content } }) => {
+  const postPath = `/posts/${slug}`
   const mdx = (
     <MDXProvider components={MDXComponents}>
       <Content />
     </MDXProvider>
   )
   const html = ReactDOMServer.renderToStaticMarkup(mdx)
-  const postText = `<p><em>(The post <a href="${SITE_URL + link}">${
+  const postText = `<p><em>(The post <a href="${SITE_URL + postPath}">${
     meta.title
   }</a> appeared first on <a href="${SITE_URL}">kimizuy blog</a>.)</em></p>`
 
   feed.addItem({
     title: meta.title,
-    id: SITE_URL + link,
-    link: SITE_URL + link,
+    id: SITE_URL + postPath,
+    link: SITE_URL + postPath,
     description: meta.description,
     content: html + postText,
     date: new Date(meta.date.published),
