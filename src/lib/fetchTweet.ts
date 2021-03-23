@@ -2,7 +2,7 @@ import { fetchTweetAst } from 'static-tweets'
 
 const TOKEN = process.env.TWITTER_BEARER_TOKEN
 const TWITTER_ID = '706822591617445888'
-const url = `https://api.twitter.com/2/users/${TWITTER_ID}/tweets?tweet.fields=created_at&expansions=author_id&user.fields=created_at&max_results=5`
+const url = `https://api.twitter.com/2/users/${TWITTER_ID}/tweets`
 
 export const fetchTweet = async (): Promise<{
   tweetId: string

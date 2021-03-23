@@ -3,9 +3,9 @@
   "private": true,
   "scripts": {
     "dev": "next dev -p 8000",
-    "build": "next build && yarn build:rss",
+    "build": "next build",
+    "build:prod": "next build && yarn build:rss",
     "build:rss": "node ./.next/serverless/scripts/build-rss.js",
-    "build:lhci": "next build",
     "start": "next start",
     "analyze": "ANALYZE=true yarn next build",
     "tsc-watch": "tsc --noEmit --watch",

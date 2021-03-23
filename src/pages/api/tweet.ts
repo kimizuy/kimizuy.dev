@@ -1,7 +1,7 @@
 import { fetchTweet } from '@/lib/fetchTweet'
 import { NextApiRequest, NextApiResponse } from 'next'
 
-const handler = async (
+const tweetHandler = async (
   req: NextApiRequest,
   res: NextApiResponse
 ): Promise<void> => {
@@ -10,4 +10,4 @@ const handler = async (
 }
 
 // eslint-disable-next-line import/no-default-export
-export default handler
+export default tweetHandler

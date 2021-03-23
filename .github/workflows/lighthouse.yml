@@ -23,7 +23,7 @@ jobs:
           TWITTER_BEARER_TOKEN: ${{ secrets.TWITTER_BEARER_TOKEN }}
         run: |
           npm install
-          npm run build:lhci
+          npm run build
 
       - name: Run Lighthouse CI
         run: |
