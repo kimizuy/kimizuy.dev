@@ -44,7 +44,7 @@ const nextConfig = {
             createLoader(function (src) {
               const content = [
                 'import { Post } from "@/components/post"',
-                'export { getStaticProps } from "@/lib/getStaticProps"',
+                'export { getStaticPropsPost } from "@/lib/getStaticPropsPost"',
                 src,
                 'export default (props) => <Post meta={meta} {...props} />',
               ].join('\n')
