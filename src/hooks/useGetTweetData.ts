@@ -10,7 +10,10 @@ export const useGetTweetData = (initialData: {
   const router = useRouter()
   const { basePath } = router
   const url = basePath + '/api/tweet'
-  const { data, error } = useSWR(url, fetcher, { initialData })
+  const { data, error } = useSWR(url, fetcher, {
+    initialData,
+    revalidateOnMount: true,
+  })
 
   return { data, error }
 }
