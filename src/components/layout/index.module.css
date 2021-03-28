@@ -67,12 +67,13 @@
     width: 240px;
   }
 
-  .sticky {
-    top: 2rem;
-    position: sticky;
+  .sideBarItemWrapper > * + * {
+    margin-top: 1.25rem;
   }
 
-  .sticky > * + * {
-    margin-top: 1.25rem;
+  .sticky {
+    position: sticky;
+    top: 2rem;
+    overflow-y: auto;
   }
 }

@@ -2,11 +2,18 @@
   .tagButtonList {
     display: flex;
     flex-wrap: wrap;
-    margin-top: -1rem;
   }
 
   .tagButtonList a {
     text-decoration: none;
+  }
+
+  /* Flexbox items gap: https://stackoverflow.com/questions/20626685/better-way-to-set-distance-between-flexbox-items/48752954#48752954  */
+  .tagButtonList > * {
+    margin: 0.5rem;
+  }
+  .tagButtonList {
+    margin: -0.5rem;
   }
 
   .tagButton {
@@ -14,17 +21,11 @@
     background-color: var(--content-bg-primary);
     border: 1px solid var(--content-border);
     display: inline-block;
-    margin-right: 1rem;
-    margin-top: 1rem;
     padding: 4px 10px;
     font-size: 0.875rem;
     border-radius: 0.25rem;
     cursor: pointer;
     transition: cubic-bezier(0.17, 0.67, 0.5, 0.71) 100ms;
-  }
-
-  .tagButton:last-child {
-    margin-right: 0;
   }
 
   .tagButton:hover,

@@ -16,6 +16,7 @@ const Home: React.VFC<{ tweetId: string; tweetAst: string }> = (props) => {
 
   return (
     <Layout
+      home
       sideBarItem={
         <>
           <TagButtonList />
