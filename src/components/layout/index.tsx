@@ -7,8 +7,9 @@ import { CopyRight } from './copyRight'
 
 export const Layout: React.VFC<{
   children: React.ReactNode
+  home?: boolean
   sideBarItem?: JSX.Element
-}> = ({ children, sideBarItem }) => {
+}> = ({ children, home = false, sideBarItem }) => {
   useEffect(() => {
     const setFillHeight = () => {
       const vh = window.innerHeight * 0.01
@@ -28,7 +29,13 @@ export const Layout: React.VFC<{
         <div className={styles.content}>
           <section className={styles.article}>{children}</section>
           <aside className={styles.sideBar}>
-            <div className={styles.sticky}>{sideBarItem}</div>
+            <div
+              className={`${styles.sideBarItemWrapper} ${
+                home ? '' : styles.sticky
+              }`}
+            >
+              {sideBarItem}
+            </div>
           </aside>
         </div>
       </main>
