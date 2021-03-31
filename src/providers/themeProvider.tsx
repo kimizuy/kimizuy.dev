@@ -20,7 +20,7 @@ const ThemeContext = createContext<UseThemeProps>({
     return
   },
 })
-export const useTheme = () => useContext(ThemeContext)
+export const useTheme = (): UseThemeProps => useContext(ThemeContext)
 
 export const ThemeProvider: React.VFC<{ children: React.ReactNode }> = ({
   children,
