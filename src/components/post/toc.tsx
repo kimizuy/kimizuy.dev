@@ -15,7 +15,7 @@ export const Toc: React.VFC = () => {
   return (
     <>
       <div className="toc" />
-      <style jsx global>{`
+      <style>{`
         .toc {
           background-color: var(--content-bg-primary);
           border: 1px solid var(--content-border);
