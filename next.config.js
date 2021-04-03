@@ -1,4 +1,3 @@
-/* eslint-disable func-names */
 const { createLoader } = require('simple-functional-loader')
 const withBundleAnalyzer = require('@next/bundle-analyzer')({
   enabled: process.env.ANALYZE === 'true',
@@ -79,7 +78,6 @@ const nextConfig = {
     return config
   },
 
-  // eslint-disable-next-line prefer-arrow/prefer-arrow-functions
   async rewrites() {
     return [
       {
