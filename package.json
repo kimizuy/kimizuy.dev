@@ -29,6 +29,7 @@
     "@next/bundle-analyzer": "^10.1.2",
     "date-fns": "^2.19.0",
     "feed": "^4.2.2",
+    "framer-motion": "^4.1.2",
     "next": "^10.1.2",
     "preact": "^10.5.13",
     "prism-react-renderer": "^1.2.0",
