@@ -42,8 +42,8 @@ const nextConfig = {
             ...mdx,
             createLoader(function (src) {
               const content = [
-                'import { Post } from "@/components/post"',
-                'export { getStaticPropsPost } from "@/lib/getStaticPropsPost"',
+                'import { Post } from "components/post"',
+                'export { getStaticPropsPost } from "lib/getStaticPropsPost"',
                 src,
                 'export default (props) => <Post meta={meta} {...props} />',
               ].join('\n')
@@ -87,9 +87,9 @@ const nextConfig = {
     ]
   },
 
-  future: {
-    webpack5: true,
-  },
+  // future: {
+  //   webpack5: true,
+  // },
 }
 
 module.exports = withBundleAnalyzer(nextConfig)
