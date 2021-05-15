@@ -1,6 +1,6 @@
 .logo {
   color: var(--text-primary);
-  display: inline-flex;
+  display: flex;
   cursor: pointer;
 }
 
@@ -15,7 +15,7 @@
 }
 
 .logoImgWrapper img {
-  border-radius: 9999px;
+  border-radius: 50%;
 }
 
 .logoTitle {

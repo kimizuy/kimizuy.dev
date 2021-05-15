@@ -2,25 +2,18 @@
   .tagButtonList {
     display: flex;
     flex-wrap: wrap;
-  }
-
-  .tagButtonList a {
-    text-decoration: none;
-  }
-
-  /* Flexbox items gap: https://stackoverflow.com/questions/20626685/better-way-to-set-distance-between-flexbox-items/48752954#48752954  */
-  .tagButtonList > * {
-    margin: 0.5rem;
-  }
-  .tagButtonList {
     margin: -0.5rem;
+  }
+
+  .listItem {
+    display: block;
+    margin: 0.5rem;
   }
 
   .tagButton {
     color: var(--link);
     background-color: var(--content-bg-primary);
     border: 1px solid var(--content-border);
-    display: inline-block;
     padding: 4px 10px;
     font-size: 0.875rem;
     border-radius: 0.25rem;

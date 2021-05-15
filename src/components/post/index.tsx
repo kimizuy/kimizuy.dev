@@ -1,12 +1,11 @@
 import { Date } from '@/components/date'
+import { TagLinks } from '@/components/tagLinks'
 import { Layout } from '@/components/layout'
 import { SITE_URL } from '@/lib/constants'
 import { Meta } from '@/types/post'
 import { MDXProvider } from '@mdx-js/react'
 import Head from 'next/head'
-import Link from 'next/link'
 import { useRouter } from 'next/router'
-import { Fragment } from 'react'
 import { ArticleEnd } from './articleEnd'
 import styles from './index.module.css'
 import { MDXComponents } from './mdxComponents'
@@ -38,17 +37,10 @@ export const Post: React.VFC<{
       <article>
         <header>
           <h1 className={styles.title}>{meta.title}</h1>
-          <small className={styles.meta}>
-            {meta.tags.map((tag) => (
-              <Fragment key={tag}>
-                <Link href="/tags/[tag]" as={`/tags/${tag}`}>
-                  <a>#{tag}</a>
-                </Link>{' '}
-              </Fragment>
-            ))}
-            <br />
+          <div className={styles.meta}>
+            <TagLinks tags={meta.tags} />
             <Date date={meta.date} />
-          </small>
+          </div>
         </header>
         <main className="post">
           <MDXProvider components={MDXComponents}>{children}</MDXProvider>
