@@ -1,0 +1,11 @@
+.tags > .tag + .tag {
+  margin-left: 0.25rem;
+}
+
+.tag {
+  position: relative;
+}
+
+.tag:is(:hover, :focus, :active) {
+  text-decoration: underline;
+}

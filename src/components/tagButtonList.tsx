@@ -6,11 +6,13 @@ const tags = getAllTags()
 
 export const TagButtonList: React.VFC = () => {
   return (
-    <div className={styles.tagButtonList}>
+    <ul className={styles.tagButtonList}>
       {tags.map((tag) => (
-        <TagButton key={tag} tag={tag} />
+        <li key={tag} className={styles.listItem}>
+          <TagButton tag={tag} />
+        </li>
       ))}
-    </div>
+    </ul>
   )
 }
 

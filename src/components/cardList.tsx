@@ -2,8 +2,8 @@ import { Date } from '@/components/date'
 import { Preview } from '@/types/post'
 import Image from 'next/image'
 import Link from 'next/link'
-import { Fragment } from 'react'
 import styles from './cardList.module.css'
+import { TagLinks } from './tagLinks'
 
 type Props = {
   previews: Preview[]
@@ -19,7 +19,9 @@ export const CardList: React.VFC<Props> = (p: Props) => {
       className={styles.cardList}
     >
       {p.previews.map((preview) => (
-        <Card preview={preview} key={preview.slug} />
+        <li key={preview.slug} className={styles.listItem}>
+          <Card preview={preview} key={preview.slug} />
+        </li>
       ))}
     </ul>
   )
@@ -32,7 +34,7 @@ const Card: React.VFC<{ preview: Preview }> = ({ preview }) => {
   } = preview
 
   return (
-    <li className={styles.card}>
+    <div className={styles.card}>
       <div className={styles.imgWrapper}>
         <Image src={meta.image} alt={slug} layout="fill" />
       </div>
@@ -42,19 +44,11 @@ const Card: React.VFC<{ preview: Preview }> = ({ preview }) => {
             <a className={styles.title}>{meta.title}</a>
           </Link>
         </div>
-        <div>
-          <small>
-            {meta.tags.map((tag) => (
-              <Fragment key={tag}>
-                <Link href="/tags/[tag]" as={`/tags/${tag}`}>
-                  <a className={styles.tag}>#{tag}</a>
-                </Link>{' '}
-              </Fragment>
-            ))}
-            <Date date={meta.date} />
-          </small>
+        <div className={styles.tagsAndDate}>
+          <TagLinks tags={meta.tags} />
+          <Date date={meta.date} />
         </div>
       </div>
-    </li>
+    </div>
   )
 }
