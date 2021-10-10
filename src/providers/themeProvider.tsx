@@ -80,7 +80,7 @@ export const ThemeProvider: React.VFC<{ children: React.ReactNode }> = ({
       setTheme(theme)
     }
 
-    window.addEventListener('storage', handleStorage)
+    window.addEventListener('storage', handleStorage, { passive: true })
     return () => window.removeEventListener('storage', handleStorage)
     // All of these deps are stable and should never change
   }, []) // eslint-disable-line
