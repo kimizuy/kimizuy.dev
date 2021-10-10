@@ -1,3 +1,4 @@
+import { getSrcName } from '@/lib/utils'
 import { useImageOverlay } from '@/providers/imageOverlayProvider'
 import { Components } from '@mdx-js/react'
 import Image from 'next/image'
@@ -59,7 +60,7 @@ export const MDXComponents: Components = {
     // eslint-disable-next-line react-hooks/rules-of-hooks
     const { setSrc } = useImageOverlay()
     const { src } = props.src
-    const srcName = src.split('/')[src.split('/').length - 1].split('.')[0]
+    const srcName = getSrcName(src)
 
     return (
       <div className={styles.imgWrapper}>
