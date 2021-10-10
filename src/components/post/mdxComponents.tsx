@@ -1,3 +1,4 @@
+import { getSrcName } from '@/lib/utils'
 import { useImageOverlay } from '@/providers/imageOverlayProvider'
 import { Components } from '@mdx-js/react'
 import Image from 'next/image'
@@ -55,9 +56,11 @@ const CodeBlock: React.VFC<{
 
 export const MDXComponents: Components = {
   img: (props) => {
+    // Hooks を含む関数はアッパーケースで書くべきだが、とりあえず回避する
+    // eslint-disable-next-line react-hooks/rules-of-hooks
     const { setSrc } = useImageOverlay()
-    const src: string = props.src
-    const srcName = src.split('/')[src.split('/').length - 1].split('.')[0]
+    const { src } = props.src
+    const srcName = getSrcName(src)
 
     return (
       <div className={styles.imgWrapper}>
