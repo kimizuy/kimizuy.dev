@@ -4,7 +4,6 @@
   "scripts": {
     "dev": "next dev -p 8000",
     "build": "next build",
-    "build:prod": "next build && node ./.next/server/scripts/build-rss.js",
     "start": "next start",
     "analyze": "ANALYZE=true yarn next build",
     "tsc-watch": "tsc --noEmit --watch",

@@ -55,17 +55,16 @@ const CodeBlock: React.VFC<{
 }
 
 export const MDXComponents: Components = {
-  img: (props) => {
+  img: ({ src: imgSrc, ...props }) => {
     // Hooks を含む関数はアッパーケースで書くべきだが、とりあえず回避する
     // eslint-disable-next-line react-hooks/rules-of-hooks
     const { setSrc } = useImageOverlay()
-    const { src } = props.src
+    const { src } = imgSrc
     const srcName = getSrcName(src)
 
     return (
       <div className={styles.imgWrapper}>
         <Image
-          {...props}
           src={src}
           alt={srcName}
           // https://nextjs.org/docs/api-reference/next/image#layout
@@ -75,8 +74,9 @@ export const MDXComponents: Components = {
           height={658.125}
           className={styles.img}
           onClick={() => {
-            setSrc(props.src)
+            setSrc(src)
           }}
+          {...props}
         />
       </div>
     )
@@ -84,35 +84,35 @@ export const MDXComponents: Components = {
   pre: (props) => <Fragment {...props} />,
   code: CodeBlock,
   p: (props) => <p {...props} className={styles.p} />,
-  h1: (props) => {
+  h1: ({ children, props }) => {
     return (
       <h1
-        {...props}
-        id={props.children}
+        id={children}
         className={`${styles.heading} ${styles.h1}`}
+        {...props}
       />
     )
   },
-  h2: (props) => {
+  h2: ({ children, props }) => {
     return (
       <h2
-        {...props}
-        id={props.children}
+        id={children}
         className={`${styles.heading} ${styles.h2}`}
+        {...props}
       />
     )
   },
-  h3: (props) => {
+  h3: ({ children, props }) => {
     return (
       <h3
-        {...props}
-        id={props.children}
+        id={children}
         className={`${styles.heading} ${styles.h3}`}
+        {...props}
       />
     )
   },
-  ul: (props) => <ul {...props} className={styles.ul} />,
-  ol: (props) => <ol {...props} className={styles.ol} />,
+  ul: (props) => <ul className={styles.ul} {...props} />,
+  ol: (props) => <ol className={styles.ol} {...props} />,
   div: (props) => {
     if (props.className === 'footnotes') {
       return <div {...props} className={styles.footnotes} />
@@ -120,6 +120,6 @@ export const MDXComponents: Components = {
     return <div {...props} />
   },
   blockquote: (props) => (
-    <blockquote {...props} className={styles.blockquote} />
+    <blockquote className={styles.blockquote} {...props} />
   ),
 }
