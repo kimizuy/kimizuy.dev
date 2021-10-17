@@ -6,7 +6,7 @@
     "build": "next build",
     "start": "next start",
     "analyze": "ANALYZE=true yarn next build",
-    "tsc-watch": "tsc --noEmit --watch",
+    "typecheck": "tsc --noEmit",
     "fix": "yarn fix:eslint && yarn fix:prettier",
     "fix:eslint": "eslint .",
     "fix:prettier": "prettier --write .",
