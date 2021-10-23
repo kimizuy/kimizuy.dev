@@ -8,7 +8,7 @@ export const ImageOverlay: React.VFC = () => {
 
   if (!src) return null
 
-  const srcName = getSrcName((src as any).src)
+  const srcName = getSrcName(src)
 
   return (
     <div className={styles.overlay} onClick={() => setSrc('')}>
