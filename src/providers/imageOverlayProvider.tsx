@@ -25,7 +25,7 @@ export const ImageOverlayProvider: React.VFC<{ children: React.ReactNode }> = ({
       setSrcState('')
       disableScrollLock(0)
     }
-  })
+  }, [imageOverlayLocation, router.pathname])
 
   const setSrc = (value: string) => {
     if (value) {
