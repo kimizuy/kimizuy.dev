@@ -85,29 +85,23 @@ export const MDXComponents: Components = {
   p: (props) => <p {...props} className={styles.p} />,
   h1: ({ children, props }) => {
     return (
-      <h1
-        id={children}
-        className={`${styles.heading} ${styles.h1}`}
-        {...props}
-      />
+      <h1 id={children} className={`${styles.heading} ${styles.h1}`} {...props}>
+        {children}
+      </h1>
     )
   },
   h2: ({ children, props }) => {
     return (
-      <h2
-        id={children}
-        className={`${styles.heading} ${styles.h2}`}
-        {...props}
-      />
+      <h2 id={children} className={`${styles.heading} ${styles.h2}`} {...props}>
+        {children}
+      </h2>
     )
   },
   h3: ({ children, props }) => {
     return (
-      <h3
-        id={children}
-        className={`${styles.heading} ${styles.h3}`}
-        {...props}
-      />
+      <h3 id={children} className={`${styles.heading} ${styles.h3}`} {...props}>
+        {children}
+      </h3>
     )
   },
   ul: (props) => <ul className={styles.ul} {...props} />,
