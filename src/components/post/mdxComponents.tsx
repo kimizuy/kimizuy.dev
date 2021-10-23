@@ -67,7 +67,6 @@ export const MDXComponents: Components = {
         <Image
           src={src}
           alt={srcName}
-          // https://nextjs.org/docs/api-reference/next/image#layout
           layout="responsive"
           objectFit="contain"
           width={1170}
