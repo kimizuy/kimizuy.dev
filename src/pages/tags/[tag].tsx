@@ -1,5 +1,5 @@
 import { CardList } from '@/components/cardList'
-import { Layout } from '@/components/layout'
+import { ContentLayout } from '@/components/contentLayout'
 import { TagButtonList } from '@/components/tagButtonList'
 import { getAllTags } from '@/lib/getAllTags'
 import { getSelectedTagPreviews } from '@/lib/getSelectedTagPreviews'
@@ -15,7 +15,7 @@ type Props = {
 
 const Tag: React.VFC<Props> = ({ selectedTag, selectedTagPreviews }) => {
   return (
-    <Layout sideBarItem={<TagButtonList />}>
+    <ContentLayout sideBarItem={<TagButtonList />}>
       <Head>
         <title>{selectedTag}</title>
       </Head>
@@ -23,7 +23,7 @@ const Tag: React.VFC<Props> = ({ selectedTag, selectedTagPreviews }) => {
       <section>
         <CardList previews={selectedTagPreviews} />
       </section>
-    </Layout>
+    </ContentLayout>
   )
 }
 

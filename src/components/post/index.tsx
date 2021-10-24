@@ -1,6 +1,5 @@
 import { Date } from '@/components/date'
 import { TagLinks } from '@/components/tagLinks'
-import { Layout } from '@/components/layout'
 import { SITE_URL } from '@/lib/constants'
 import { Meta } from '@/types/post'
 import { MDXProvider } from '@mdx-js/react'
@@ -10,6 +9,7 @@ import { ArticleEnd } from './articleEnd'
 import styles from './index.module.css'
 import { MDXComponents } from './mdxComponents'
 import { Toc } from './toc'
+import { ContentLayout } from '../contentLayout'
 
 export const Post: React.VFC<{
   meta: Meta
@@ -18,7 +18,7 @@ export const Post: React.VFC<{
   const router = useRouter()
 
   return (
-    <Layout sideBarItem={<Toc />}>
+    <ContentLayout sideBarItem={<Toc />}>
       <Head>
         <title>{meta.title} – kimizuy blog</title>
         <meta name="twitter:card" content="summary_large_image" />
@@ -49,6 +49,6 @@ export const Post: React.VFC<{
           <ArticleEnd />
         </footer>
       </article>
-    </Layout>
+    </ContentLayout>
   )
 }

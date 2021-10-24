@@ -20,10 +20,6 @@
   padding: 1rem 1rem 7rem;
 }
 
-.sideBar {
-  display: none;
-}
-
 .footer {
   background-color: var(--bg-secondary);
   position: absolute;
@@ -33,47 +29,11 @@
   padding: 0.5rem;
 }
 
-.backToHome {
-  margin-top: 1rem;
-}
-
-/* tablet */
+/* tablet ~ desktop */
 @media screen and (min-width: 479px) {
   .main {
     margin-left: auto;
     margin-right: auto;
     padding: 2rem 2rem 8rem;
-  }
-
-  .content {
-    display: flex;
-    justify-content: space-between;
-    flex-direction: column-reverse;
-  }
-}
-
-/*  desktop ~ */
-@media screen and (min-width: 767px) {
-  .content {
-    flex-direction: row;
-  }
-
-  .article {
-    width: calc(100% - 272px);
-  }
-
-  .sideBar {
-    display: block;
-    width: 240px;
-  }
-
-  .sideBarItemWrapper > * + * {
-    margin-top: 1.25rem;
-  }
-
-  .sticky {
-    position: sticky;
-    top: 2rem;
-    overflow-y: auto;
   }
 }

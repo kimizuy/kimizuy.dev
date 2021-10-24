@@ -5,11 +5,9 @@ import { Logo } from './logo'
 import { ThemeSwitch } from './themeSwitch'
 import { CopyRight } from './copyRight'
 
-export const Layout: React.VFC<{
+export const GlobalLayout: React.VFC<{
   children: React.ReactNode
-  home?: boolean
-  sideBarItem?: JSX.Element
-}> = ({ children, home = false, sideBarItem }) => {
+}> = ({ children }) => {
   useEffect(() => {
     const setFillHeight = () => {
       const vh = window.innerHeight * 0.01
@@ -25,20 +23,7 @@ export const Layout: React.VFC<{
         <Logo />
         <ThemeSwitch />
       </header>
-      <main className={styles.main}>
-        <div className={styles.content}>
-          <section className={styles.article}>{children}</section>
-          <aside className={styles.sideBar}>
-            <div
-              className={`${styles.sideBarItemWrapper} ${
-                home ? '' : styles.sticky
-              }`}
-            >
-              {sideBarItem}
-            </div>
-          </aside>
-        </div>
-      </main>
+      <main className={styles.main}>{children}</main>
       <footer className={styles.footer}>
         <CopyRight />
       </footer>
