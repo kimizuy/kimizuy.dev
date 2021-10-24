@@ -1,5 +1,5 @@
 import { CardList } from '@/components/cardList'
-import { Layout } from '@/components/layout'
+import { ContentLayout } from '@/components/contentLayout'
 import { TagButtonList } from '@/components/tagButtonList'
 import { useGetTweetData } from '@/hooks/useGetTweetData'
 import { SITE_URL } from '@/lib/constants'
@@ -15,7 +15,7 @@ const Home: React.VFC<{ tweetId: string; tweetAst: string }> = (props) => {
   const { data } = useGetTweetData(props)
 
   return (
-    <Layout
+    <ContentLayout
       home
       sideBarItem={
         <>
@@ -40,7 +40,7 @@ const Home: React.VFC<{ tweetId: string; tweetAst: string }> = (props) => {
         <meta name="description" content="kimizuy のブログです" />
       </Head>
       <CardList previews={previews} />
-    </Layout>
+    </ContentLayout>
   )
 }
 
