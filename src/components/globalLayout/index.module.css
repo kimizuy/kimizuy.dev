@@ -29,10 +29,6 @@
   padding: 0.5rem;
 }
 
-.backToHome {
-  margin-top: 1rem;
-}
-
 /* tablet ~ desktop */
 @media screen and (min-width: 479px) {
   .main {
