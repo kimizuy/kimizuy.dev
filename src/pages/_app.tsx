@@ -1,10 +1,11 @@
+import { GlobalLayout } from '@/components/globalLayout'
 import { ImageOverlayProvider } from '@/providers/imageOverlayProvider'
 import { ThemeProvider } from '@/providers/themeProvider'
 import '@/styles/global.css'
 import { AppProps } from 'next/app'
 import Head from 'next/head'
 import { useRouter } from 'next/router'
-import { useEffect } from 'react'
+import React, { useEffect } from 'react'
 import * as gtag from '../lib/gtag'
 
 const App: React.VFC<AppProps> = ({ Component, pageProps }) => {
@@ -62,7 +63,9 @@ const App: React.VFC<AppProps> = ({ Component, pageProps }) => {
       </Head>
       <ImageOverlayProvider>
         <ThemeProvider>
-          <Component {...pageProps} />
+          <GlobalLayout>
+            <Component {...pageProps} />
+          </GlobalLayout>
         </ThemeProvider>
       </ImageOverlayProvider>
     </>
