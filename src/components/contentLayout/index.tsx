@@ -10,7 +10,7 @@ export const ContentLayout = ({
   sideBarItem?: JSX.Element
 }) => {
   return (
-    <div className={styles.content}>
+    <div className={styles.container}>
       <section className={styles.article}>{children}</section>
       <aside className={styles.sideBar}>
         <div

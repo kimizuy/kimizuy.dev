@@ -4,7 +4,7 @@
 
 /* tablet */
 @media screen and (min-width: 479px) {
-  .content {
+  .container {
     display: flex;
     justify-content: space-between;
     flex-direction: column-reverse;
@@ -13,7 +13,7 @@
 
 /*  desktop ~ */
 @media screen and (min-width: 767px) {
-  .content {
+  .container {
     flex-direction: row;
   }
 
