@@ -6,7 +6,7 @@ const url = `https://api.twitter.com/2/users/${TWITTER_ID}/tweets`
 
 export const fetchTweet = async (): Promise<{
   tweetId: string
-  tweetAst: string
+  tweetAst: unknown
 }> => {
   try {
     const response = await fetch(url, {
