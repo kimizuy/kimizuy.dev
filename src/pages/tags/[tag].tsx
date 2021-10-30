@@ -1,19 +1,16 @@
+import { InferGetStaticPropsType } from 'next'
+import Head from 'next/head'
+import { Page } from '../_app'
+import styles from './tag.module.css'
 import { CardList } from '@/components/cardList'
 import { ContentLayout } from '@/components/contentLayout'
 import { TagButtonList } from '@/components/tagButtonList'
 import { getAllTags } from '@/lib/getAllTags'
 import { getSelectedTagPreviews } from '@/lib/getSelectedTagPreviews'
-import { Preview } from '@/types/post'
-import { GetStaticPaths, GetStaticProps } from 'next'
-import Head from 'next/head'
-import styles from './tag.module.css'
 
-type Props = {
-  selectedTag: string
-  selectedTagPreviews: Preview[]
-}
+type Props = InferGetStaticPropsType<typeof getStaticProps>
 
-const Tag: React.VFC<Props> = ({ selectedTag, selectedTagPreviews }) => {
+const Tag: Page<Props> = ({ selectedTag, selectedTagPreviews }) => {
   return (
     <ContentLayout sideBarItem={<TagButtonList />}>
       <Head>
@@ -27,7 +24,7 @@ const Tag: React.VFC<Props> = ({ selectedTag, selectedTagPreviews }) => {
   )
 }
 
-export const getStaticPaths: GetStaticPaths = async () => {
+export const getStaticPaths = async () => {
   const paths = getAllTags().map((tag) => {
     return {
       params: {
@@ -42,7 +39,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
   }
 }
 
-export const getStaticProps: GetStaticProps = async ({ params }) => {
+export const getStaticProps = async ({ params }) => {
   const selectedTag = params.tag
   const selectedTagPreviews = getSelectedTagPreviews(selectedTag)
   return {
