@@ -4,13 +4,15 @@ import { TagButtonList } from '@/components/tagButtonList'
 import { SITE_URL } from '@/lib/constants'
 import { fetchTweet } from '@/lib/fetchTweet'
 import { getAllPostPreviews } from '@/lib/getAllPostPreviews'
-import { GetStaticProps } from 'next'
+import { InferGetStaticPropsType, NextPage } from 'next'
 import Head from 'next/head'
 import { Tweet as _Tweet } from 'react-static-tweets'
 import useSWR, { SWRConfig } from 'swr'
 import profile from '../../public/profile.jpg'
 
-const Home = ({ fallback }) => {
+type Props = InferGetStaticPropsType<typeof getStaticProps>
+
+const Home: NextPage<Props> = ({ fallback }) => {
   const previews = getAllPostPreviews()
 
   return (
@@ -55,7 +57,7 @@ const Tweet = () => {
   return <_Tweet id={data.tweetId} ast={data.tweetAst} />
 }
 
-export const getStaticProps: GetStaticProps = async () => {
+export const getStaticProps = async () => {
   try {
     const tweet = await fetchTweet()
 
