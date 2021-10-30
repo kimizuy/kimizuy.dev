@@ -1,14 +1,27 @@
-import { GlobalLayout } from '@/components/globalLayout'
-import { ImageOverlayProvider } from '@/providers/imageOverlayProvider'
-import { ThemeProvider } from '@/providers/themeProvider'
-import '@/styles/global.css'
+import { NextPage } from 'next'
 import { AppProps } from 'next/app'
 import Head from 'next/head'
 import { useRouter } from 'next/router'
-import React, { useEffect } from 'react'
+import { ReactNode, useEffect } from 'react'
+import '@/styles/global.css'
 import * as gtag from '../lib/gtag'
+import { GlobalLayout } from '@/components/globalLayout'
+import { ImageOverlayProvider } from '@/providers/imageOverlayProvider'
+import { ThemeProvider } from '@/providers/themeProvider'
 
-const App: React.VFC<AppProps> = ({ Component, pageProps }) => {
+type GetLayout = (page: ReactNode) => ReactNode
+
+export type Page<P = object, IP = P> = NextPage<P, IP> & {
+  getLayout?: GetLayout
+}
+
+type MyAppProps<P = object> = AppProps<P> & {
+  Component: Page<P>
+}
+
+const defaultGetLayout: GetLayout = (page: ReactNode): ReactNode => page
+
+const App = ({ Component, pageProps }: MyAppProps) => {
   const router = useRouter()
   useEffect(() => {
     const handleRouteChange = (url: string) => {
@@ -19,6 +32,8 @@ const App: React.VFC<AppProps> = ({ Component, pageProps }) => {
       router.events.off('routeChangeComplete', handleRouteChange)
     }
   }, [router.events])
+
+  const getLayout = Component.getLayout ?? defaultGetLayout
 
   return (
     <>
@@ -63,9 +78,7 @@ const App: React.VFC<AppProps> = ({ Component, pageProps }) => {
       </Head>
       <ImageOverlayProvider>
         <ThemeProvider>
-          <GlobalLayout>
-            <Component {...pageProps} />
-          </GlobalLayout>
+          <GlobalLayout>{getLayout(<Component {...pageProps} />)}</GlobalLayout>
         </ThemeProvider>
       </ImageOverlayProvider>
     </>

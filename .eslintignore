@@ -2,3 +2,4 @@
 **/.next/*
 **/out/*
 next.config.js
+dist

@@ -1,15 +1,15 @@
-import { Date } from '@/components/date'
-import { TagLinks } from '@/components/tagLinks'
-import { SITE_URL } from '@/lib/constants'
-import { Meta } from '@/types/post'
 import { MDXProvider } from '@mdx-js/react'
 import Head from 'next/head'
 import { useRouter } from 'next/router'
+import { ContentLayout } from '../contentLayout'
 import { ArticleEnd } from './articleEnd'
 import styles from './index.module.css'
 import { MDXComponents } from './mdxComponents'
 import { Toc } from './toc'
-import { ContentLayout } from '../contentLayout'
+import { Date } from '@/components/date'
+import { TagLinks } from '@/components/tagLinks'
+import { SITE_URL } from '@/lib/constants'
+import { Meta } from '@/types/post'
 
 export const Post: React.VFC<{
   meta: Meta

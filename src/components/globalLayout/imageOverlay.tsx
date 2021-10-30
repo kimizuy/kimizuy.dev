@@ -1,7 +1,7 @@
-import { getSrcName } from '@/lib/utils'
-import { useImageOverlay } from '@/providers/imageOverlayProvider'
 import Image from 'next/image'
 import styles from './imageOverlay.module.css'
+import { getSrcName } from '@/lib/utils'
+import { useImageOverlay } from '@/providers/imageOverlayProvider'
 
 export const ImageOverlay: React.VFC = () => {
   const { src, setSrc } = useImageOverlay()

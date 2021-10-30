@@ -1,6 +1,6 @@
-import { Meta } from '@/types/post'
 import { format, parseISO } from 'date-fns'
 import styles from './date.module.css'
+import { Meta } from '@/types/post'
 
 type Props = {
   date: Meta['date']

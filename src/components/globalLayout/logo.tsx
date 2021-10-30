@@ -1,7 +1,7 @@
-import { NAME, SITE_TITLE } from '@/lib/constants'
 import Image from 'next/image'
 import Link from 'next/link'
 import styles from './logo.module.css'
+import { NAME, SITE_TITLE } from '@/lib/constants'
 
 export const Logo: React.VFC = () => {
   return (
