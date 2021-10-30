@@ -1,18 +1,19 @@
+import { InferGetStaticPropsType } from 'next'
+import Head from 'next/head'
+import { Tweet as _Tweet } from 'react-static-tweets'
+import useSWR, { SWRConfig } from 'swr'
+import profile from '../../public/profile.jpg'
+import { Page } from './_app'
 import { CardList } from '@/components/cardList'
 import { ContentLayout } from '@/components/contentLayout'
 import { TagButtonList } from '@/components/tagButtonList'
 import { SITE_URL } from '@/lib/constants'
 import { fetchTweet } from '@/lib/fetchTweet'
 import { getAllPostPreviews } from '@/lib/getAllPostPreviews'
-import { InferGetStaticPropsType, NextPage } from 'next'
-import Head from 'next/head'
-import { Tweet as _Tweet } from 'react-static-tweets'
-import useSWR, { SWRConfig } from 'swr'
-import profile from '../../public/profile.jpg'
 
 type Props = InferGetStaticPropsType<typeof getStaticProps>
 
-const Home: NextPage<Props> = ({ fallback }) => {
+const Home: Page<Props> = ({ fallback }) => {
   const previews = getAllPostPreviews()
 
   return (
@@ -68,6 +69,10 @@ export const getStaticProps = async () => {
   } catch (err) {
     console.error(err)
   }
+}
+
+Home.getLayout = (page) => {
+  return <>{page}</>
 }
 
 // eslint-disable-next-line import/no-default-export
