@@ -1,11 +1,11 @@
-import { GA_TRACKING_ID } from '@/lib/gtag'
 import Document, {
-  Html,
+  DocumentContext,
   Head,
+  Html,
   Main,
   NextScript,
-  DocumentContext,
 } from 'next/document'
+import { GA_TRACKING_ID } from '@/lib/gtag'
 
 class MyDocument extends Document {
   static async getInitialProps(ctx: DocumentContext) {

@@ -1,5 +1,5 @@
-import { fetchTweet } from '@/lib/fetchTweet'
 import { NextApiRequest, NextApiResponse } from 'next'
+import { fetchTweet } from '@/lib/fetchTweet'
 
 const tweetHandler = async (
   req: NextApiRequest,

@@ -1,9 +1,9 @@
-import { Date } from '@/components/date'
-import { Preview } from '@/types/post'
 import Image from 'next/image'
 import Link from 'next/link'
 import styles from './cardList.module.css'
 import { TagLinks } from './tagLinks'
+import { Date } from '@/components/date'
+import { Preview } from '@/types/post'
 
 type Props = {
   previews: Preview[]

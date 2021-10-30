@@ -1,13 +1,13 @@
 // Based on: https://github.com/pacocoursey/next-themes
+import NextHead from 'next/head'
 import {
   createContext,
+  memo,
   useCallback,
   useContext,
   useEffect,
   useState,
-  memo,
 } from 'react'
-import NextHead from 'next/head'
 
 interface UseThemeProps {
   theme: string
@@ -98,6 +98,7 @@ export const ThemeProvider: React.VFC<{ children: React.ReactNode }> = ({
   )
 }
 
+// eslint-disable-next-line react/display-name
 const ThemeScript = memo(() => {
   // Code-golfing the amount of characters in the script
   const optimization = (() => {

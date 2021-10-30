@@ -1,10 +1,10 @@
+import fs from 'fs'
+import { MDXProvider } from '@mdx-js/react'
+import { Feed } from 'feed'
+import ReactDOMServer from 'react-dom/server'
 import { MDXComponents } from '@/components/post/mdxComponents'
 import { NAME, SITE_TITLE, SITE_URL } from '@/lib/constants'
 import { getAllPostsForRSS } from '@/lib/getAllPostPreviews'
-import { MDXProvider } from '@mdx-js/react'
-import { Feed } from 'feed'
-import fs from 'fs'
-import ReactDOMServer from 'react-dom/server'
 
 const feed = new Feed({
   title: SITE_TITLE,

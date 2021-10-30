@@ -1,7 +1,7 @@
 import { getAllPostPreviews } from './getAllPostPreviews'
 
 // FIXME
-export const getSelectedTagPreviews: any = (selectedTag: string) => {
+export const getSelectedTagPreviews = (selectedTag: string) => {
   // issue: https://github.com/vercel/next.js/issues/11993
   return JSON.parse(
     JSON.stringify(

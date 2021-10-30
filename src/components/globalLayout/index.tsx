@@ -1,9 +1,9 @@
 import { useEffect } from 'react'
+import { CopyRight } from './copyRight'
 import { ImageOverlay } from './imageOverlay'
 import styles from './index.module.css'
 import { Logo } from './logo'
 import { ThemeSwitch } from './themeSwitch'
-import { CopyRight } from './copyRight'
 
 export const GlobalLayout: React.VFC<{
   children: React.ReactNode

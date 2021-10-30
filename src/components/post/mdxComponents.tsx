@@ -1,11 +1,11 @@
-import { getSrcName } from '@/lib/utils'
-import { useImageOverlay } from '@/providers/imageOverlayProvider'
 import { Components } from '@mdx-js/react'
 import Image from 'next/image'
-import Highlight, { defaultProps, Language } from 'prism-react-renderer'
+import Highlight, { Language, defaultProps } from 'prism-react-renderer'
 import theme from 'prism-react-renderer/themes/vsDark'
 import { Fragment } from 'react'
 import styles from './mdxComponents.module.css'
+import { getSrcName } from '@/lib/utils'
+import { useImageOverlay } from '@/providers/imageOverlayProvider'
 
 const CodeBlock: React.VFC<{
   children: string
