@@ -1,4 +1,4 @@
-import { InferGetStaticPropsType } from 'next'
+import { GetStaticPropsContext, InferGetStaticPropsType } from 'next'
 import Head from 'next/head'
 import { Page } from '../_app'
 import styles from './tag.module.css'
@@ -39,8 +39,10 @@ export const getStaticPaths = async () => {
   }
 }
 
-export const getStaticProps = async ({ params }) => {
-  const selectedTag = params.tag
+export const getStaticProps = async (
+  context: GetStaticPropsContext<{ tag: string }>
+) => {
+  const selectedTag = context.params.tag
   const selectedTagPreviews = getSelectedTagPreviews(selectedTag)
   return {
     props: {
