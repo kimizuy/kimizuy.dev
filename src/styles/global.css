@@ -63,3 +63,8 @@ html:focus-within {
     font-size: 16px;
   }
 }
+
+/* fix: text-overflow ellipsis not working in nested flexbox */
+.static-tweet-header-author {
+  min-width: 0;
+}
