@@ -26,10 +26,10 @@ const nextConfig = {
     config.module.rules.push({
       test: /\.mdx$/,
       oneOf: [
-        {
-          resourceQuery: /rss/,
-          use: mdx,
-        },
+        // {
+        //   resourceQuery: /rss/,
+        //   use: mdx,
+        // },
         {
           use: [
             ...mdx,
@@ -48,16 +48,16 @@ const nextConfig = {
       ],
     })
 
-    if (options.isServer) {
-      const originalEntry = config.entry
+    // if (options.isServer) {
+    //   const originalEntry = config.entry
 
-      config.entry = async () => {
-        const entries = { ...(await originalEntry()) }
-        entries['./scripts/build-rss.js'] = './scripts/build-rss.tsx'
+    //   config.entry = async () => {
+    //     const entries = { ...(await originalEntry()) }
+    //     entries['./scripts/build-rss.js'] = './scripts/build-rss.tsx'
 
-        return entries
-      }
-    }
+    //     return entries
+    //   }
+    // }
 
     // Replace React with Preact only in client production build
     if (!options.dev && !options.isServer) {
@@ -71,14 +71,14 @@ const nextConfig = {
     return config
   },
 
-  async rewrites() {
-    return [
-      {
-        source: '/feed.xml',
-        destination: '/_next/static/feed.xml',
-      },
-    ]
-  },
+  // async rewrites() {
+  //   return [
+  //     {
+  //       source: '/feed.xml',
+  //       destination: '/_next/static/feed.xml',
+  //     },
+  //   ]
+  // },
 }
 
 module.exports = withBundleAnalyzer(nextConfig)
