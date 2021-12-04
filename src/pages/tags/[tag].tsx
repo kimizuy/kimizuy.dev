@@ -1,18 +1,17 @@
-import { InferGetStaticPropsType } from 'next'
+import { GetStaticPropsContext, InferGetStaticPropsType } from 'next'
 import Head from 'next/head'
 import { Page } from '../_app'
 import styles from './tag.module.css'
 import { CardList } from '@/components/cardList'
 import { ContentLayout } from '@/components/contentLayout'
 import { TagButtonList } from '@/components/tagButtonList'
-import { getAllTags } from '@/lib/getAllTags'
-import { getSelectedTagPreviews } from '@/lib/getSelectedTagPreviews'
+import { getPreviews, getAllTags } from '@/lib/mdx'
 
 type Props = InferGetStaticPropsType<typeof getStaticProps>
 
-const Tag: Page<Props> = ({ selectedTag, selectedTagPreviews }) => {
+const Tag: Page<Props> = ({ previews, selectedTag, selectedTagPreviews }) => {
   return (
-    <ContentLayout sideBarItem={<TagButtonList />}>
+    <ContentLayout sideBarItem={<TagButtonList previews={previews} />}>
       <Head>
         <title>{selectedTag}</title>
       </Head>
@@ -25,13 +24,15 @@ const Tag: Page<Props> = ({ selectedTag, selectedTagPreviews }) => {
 }
 
 export const getStaticPaths = async () => {
-  const paths = getAllTags().map((tag) => {
-    return {
-      params: {
-        tag,
-      },
-    }
-  })
+  const paths = await getAllTags().then((tags) =>
+    tags.map((tag) => {
+      return {
+        params: {
+          tag,
+        },
+      }
+    })
+  )
 
   return {
     paths,
@@ -39,11 +40,18 @@ export const getStaticPaths = async () => {
   }
 }
 
-export const getStaticProps = async ({ params }) => {
-  const selectedTag = params.tag
-  const selectedTagPreviews = getSelectedTagPreviews(selectedTag)
+export const getStaticProps = async (
+  context: GetStaticPropsContext<{ tag: string }>
+) => {
+  const previews = await getPreviews()
+  const selectedTag = context.params.tag
+  const selectedTagPreviews = previews.filter(({ frontmatter }) =>
+    frontmatter.tags.includes(selectedTag)
+  )
+
   return {
     props: {
+      previews,
       selectedTag,
       selectedTagPreviews,
     },

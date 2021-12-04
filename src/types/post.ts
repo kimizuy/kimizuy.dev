@@ -1,15 +1,13 @@
-export type Meta = {
+export type Frontmatter = {
   title: string
   description: string
-  date: {
-    published: string
-    updated?: string
-  }
+  publishedAt: string
   tags: string[]
   image: string
 }
 
 export type Preview = {
   slug: string
-  module: { default: () => JSX.Element; meta: Meta }
+  code: string
+  frontmatter: Frontmatter
 }

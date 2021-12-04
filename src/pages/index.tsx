@@ -4,18 +4,17 @@ import { Tweet as _Tweet } from 'react-static-tweets'
 import useSWR, { SWRConfig } from 'swr'
 import profile from '../../public/profile.jpg'
 import { Page } from './_app'
-import { CardList } from '@/components/cardList'
 import { ContentLayout } from '@/components/contentLayout'
 import { TagButtonList } from '@/components/tagButtonList'
 import { SITE_URL } from '@/lib/constants'
 import { fetchTweet } from '@/lib/fetchTweet'
-import { getAllPostPreviews } from '@/lib/getAllPostPreviews'
+import { getPreviews } from '@/lib/mdx'
+import { CardList } from '@/components/cardList'
+import { generateRSSFeed } from '@/lib/rss'
 
 type Props = InferGetStaticPropsType<typeof getStaticProps>
 
-const Home: Page<Props> = ({ fallback }) => {
-  const previews = getAllPostPreviews()
-
+const Home: Page<Props> = ({ fallback, previews }) => {
   return (
     <SWRConfig
       value={{
@@ -27,7 +26,7 @@ const Home: Page<Props> = ({ fallback }) => {
         home
         sideBarItem={
           <>
-            <TagButtonList />
+            <TagButtonList previews={previews} />
             <Tweet />
           </>
         }
@@ -61,9 +60,12 @@ const Tweet = () => {
 export const getStaticProps = async () => {
   try {
     const tweet = await fetchTweet()
+    const previews = await getPreviews()
+
+    generateRSSFeed(previews)
 
     return {
-      props: { fallback: { '/api/tweet': tweet } },
+      props: { fallback: { '/api/tweet': tweet }, previews },
       revalidate: 10,
     }
   } catch (err) {

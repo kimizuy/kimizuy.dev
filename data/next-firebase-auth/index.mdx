@@ -1,27 +1,10 @@
-import card from './card.jpg'
-import addproj1 from './addproj1.png'
-import addproj2 from './addproj2.png'
-import addproj3 from './addproj3.png'
-import addproj4 from './addproj4.png'
-import copyenvlocal from './copyenvlocal.png'
-import getKey1 from './getKey1.png'
-import getKey2 from './getKey2.png'
-import getkey3 from './getkey3.png'
-import getkey4 from './getkey4.png'
-import getkey5 from './getkey5.png'
-import setkeyonvercel from './setkeyonvercel.png'
-import signin from './signin.png'
-import signinmethod from './signinmethod.png'
-
-export const meta = {
-  title:
-    'Next.js × Firebase Authentication × Vercel で認証アプリをお手軽に作ってデプロイする',
-  description:
-    'Next.js が用意してくれている examples のひとつである with-firebase-authentication を利用すれば、メールアドレスでの認証アプリがとても簡単に作れたのでその方法をまとめる。この記事をざっと読めば必要な環境変数の取得といった環境構築で迷わないようになると思う',
-  date: { published: '2020-08-31', updated: '2020-12-14' },
-  tags: ['next', 'firebase', 'vercel'],
-  image: card,
-}
+---
+title: 'Next.js × Firebase Authentication × Vercel で認証アプリをお手軽に作ってデプロイする'
+description: 'Next.js が用意してくれている examples のひとつである with-firebase-authentication を利用すれば、メールアドレスでの認証アプリがとても簡単に作れたのでその方法をまとめる。この記事をざっと読めば必要な環境変数の取得といった環境構築で迷わないようになると思う'
+publishedAt: '2020-08-31'
+tags: ['next', 'firebase', 'vercel']
+image: 'card.jpg'
+---
 
 本記事は次の技術を利用して、メールアドレスによる認証アプリをデプロイ（公開）するまでの流れをまとめたものである。
 
@@ -47,25 +30,25 @@ Next.js が用意してくれている examples の [with-firebase-authenticatio
 
 ## Firebase にプロジェクトを追加する
 
-<img src={addproj1} />
+![addproj1](addproj1.png)
 
 「プロジェクトを追加」をクリック。
 
-<img src={addproj2} />
+![addproj2](addproj2.png)
 
 適当なプロジェクト名を入力して続行をクリック。ここでは「next-firebase-auth-sample」としている。
 
-<img src={addproj3} />
+![addproj3](addproj3.png)
 
 今回はサンプルアプリの作成のみなので、Google アナリティクスは無効にする。「プロジェクトを作成」をクリック。
 
-<img src={addproj4} />
+![addproj4](addproj4.png)
 
 少し待つとプロジェクト作成が完了する。「続行」をクリック。プロジェクトの追加は以上となる。
 
 ## Sign-in method でメール認証を有効にする
 
-<img src={signinmethod} />
+![signinmethod](signinmethod.png)
 
 [Firebase Console](https://console.firebase.google.com/?hl=ja) を開き、先ほど追加したプロジェクトを選択する。
 
@@ -75,25 +58,25 @@ Authentication > Sign-in method > メール / パスワード とクリックし
 
 Next.js プロジェクトと連携するため Firebase から必要な環境変数（private key 等）を取得していく。
 
-<img src={getKey1} />
+![getKey1](getKey1.png)
 
 設定（歯車マーク） > プロジェクトを設定 と進む。
 
-<img src={getKey2} />
+![getKey2](getKey2.png)
 
 サービスアカウントタブ で「新しい秘密鍵の生成」をクリック。private key などが記された JSON ファイルがダウンロードされる。
 
 ## 環境変数を取得する (2/2)
 
-<img src={getkey3} />
+![getkey3](getkey3.png)
 
 プロジェクトにアプリを追加する。プロジェクトを設定 > 全般 > マイアプリ と進み、「＜/＞」（Web）アイコンをクリック。
 
-<img src={getkey4} />
+![getkey4](getkey4.png)
 
 適当なアプリ名を入力してアプリを登録する。Vercel でホスティングするので Firebase Hosting は不要。
 
-<img src={getkey5} />
+![getkey5](getkey5.png)
 
 `var firebaseConfig = {...}` の値を使う。以上で環境変数の取得は完了。
 
@@ -111,7 +94,7 @@ Next.js プロジェクトと連携するため Firebase から必要な環境�
 
 ※ .env.local ファイルは公開厳禁。テンプレートではすでに gitignore されているため、とくに作業は不要。
 
-<img src={copyenvlocal} />
+![copyenvlocal](copyenvlocal.png)
 
 まず .env.local.example ファイルをコピーして .env.local ファイルを作る。それぞれ対応する値を設定していく。
 
@@ -131,13 +114,13 @@ Vercel で「Import Project」して事前に用意しておいた GitHub リポ
 
 これで認証アプリが Web 上に公開されたが、このままでは認証機能は使えない。Vercel 上で環境変数を設定する（[environment variables](https://vercel.com/blog/environment-variables-ui)）。
 
-<img src={setkeyonvercel} />
+![setkeyonvercel](setkeyonvercel.png)
 
 先ほど公開したプロジェクトの Settings > Environmental Variables と進む。.env.local ファイルと同じ内容をひとつずつ追加していく。
 
 すべて設定し終わってプロジェクトが Rebuild されるのを待つ。これで Vercel の設定は完了。
 
-<img src={signin} />
+![signin](signin.png)
 
 YOUR_PROJECT_NAME.vercel.app 等にアクセスして認証機能が使えるか確認する。
 

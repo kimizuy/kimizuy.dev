@@ -1,21 +1,10 @@
-import card from './card.png'
-import install1 from './install1.png'
-import install2 from './install2.png'
-import pass from './pass.png'
-import addsecret1 from './addsecret1.png'
-import addsecret2 from './addsecret2.png'
-import result1 from './result1.png'
-import result2 from './result2.png'
-import result3 from './result3.png'
-
-export const meta = {
-  title: 'Github Actions × Lighthouse CI を Next.js プロジェクトに導入する',
-  description:
-    '最近いろいろなサイトの Lighthouse スコアを見るのが趣味になっている。このサイトもスコアを参考に修正しているがデプロイする前に確認したい。 ググってみると Github Actions × Lighthouse CI で可能なことがわかった。Next.js プロジェクトでの紹介事例がないようだったのでまとめておく。',
-  date: { published: '2020-08-22', updated: '2020-11-20' },
-  tags: ['next', 'github'],
-  image: card,
-}
+---
+title: 'Github Actions × Lighthouse CI を Next.js プロジェクトに導入する'
+description: '最近いろいろなサイトの Lighthouse スコアを見るのが趣味になっている。このサイトもスコアを参考に修正しているがデプロイする前に確認したい。 ググってみると Github Actions × Lighthouse CI で可能なことがわかった。Next.js プロジェクトでの紹介事例がないようだったのでまとめておく。'
+publishedAt: '2020-08-22'
+tags: ['next', 'github']
+image: 'card.png'
+---
 
 最近いろいろなサイトの Lighthouse スコアを見るのが趣味になっている。このサイトもスコアを参考に修正しているがデプロイする前に確認したい。 ググってみると Github Actions × Lighthouse CI で可能なことがわかった。Next.js プロジェクトでの紹介事例がないようだったのでまとめておく。
 
@@ -35,23 +24,23 @@ export const meta = {
 
 インストールボタンを押す
 
-<img src={install1} />
+![install 1](install1.png)
 
 今回はこのブログのみを対象にしたいので「Only select repositories」を選択する。
 
-<img src={install2} />
+![install 2](install2.png)
 
 認証が完了するとパスが表示されるので、ここの値をメモしておく。
 
-<img src={pass} />
+![pass](pass.png)
 
 Github で対象のリポジトリを開く → Settings → Secrets → New Secret と進む
 
-<img src={addsecret1} />
+![addsecret 1](addsecret1.png)
 
 Name に 「LHCI_GITHUB_APP_TOKEN」、Value にさきほどメモしたパスを入力して「Add secret」する。
 
-<img src={addsecret2} />
+![addsecret 2](addsecret2.png)
 
 # GitHub Actions の設定ファイルを追加する
 
@@ -118,15 +107,15 @@ module.exports = {
 
 設定ではプルリクエストを作成し、プッシュするたびに実行されるようになっている。
 
-<img src={result1} />
+![result 1](result1.png)
 
 「run Lighthouse CI」の URL にアクセスすると結果が見られる
 
-<img src={result2} />
+![result 2](result2.png)
 
 以上。
 
-<img src={result3} />
+![result 3](result3.png)
 
 # 参考
 

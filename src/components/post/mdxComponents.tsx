@@ -1,16 +1,17 @@
-import { Components } from '@mdx-js/react'
+import { ComponentMap } from 'mdx-bundler/client'
 import Image from 'next/image'
 import Highlight, { Language, defaultProps } from 'prism-react-renderer'
 import theme from 'prism-react-renderer/themes/vsDark'
-import { Fragment } from 'react'
 import styles from './mdxComponents.module.css'
-import { getSrcName } from '@/lib/utils'
-import { useImageOverlay } from '@/providers/imageOverlayProvider'
 
-const CodeBlock: React.VFC<{
-  children: string
-  className: string
-}> = ({ children, className = 'markup' }) => {
+const CodeBlock: ComponentMap['pre'] = ({
+  children: { props },
+}: {
+  // とりあえず…
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  children: any
+}) => {
+  const { children, className = 'markup' } = props
   const splited = className.replace(/language-/, '').split(':')
   const language = splited[0] as Language
   const fileName = splited[1]
@@ -54,65 +55,64 @@ const CodeBlock: React.VFC<{
   )
 }
 
-export const MDXComponents: Components = {
-  img: ({ src: imgSrc, ...props }) => {
-    // Hooks を含む関数はアッパーケースで書くべきだが、とりあえず回避する
-    // eslint-disable-next-line react-hooks/rules-of-hooks
-    const { setSrc } = useImageOverlay()
-    const { src } = imgSrc
-    const srcName = getSrcName(src)
-
-    return (
-      <div className={styles.imgWrapper}>
+export const getCustomComponents = (
+  slug: string,
+  setSrc: (value: string) => void
+): ComponentMap => {
+  return {
+    img: ({ src, alt }) => {
+      const imgSrc = `/posts/${slug}/${src}`
+      return (
         <Image
-          src={src}
-          alt={srcName}
-          layout="responsive"
-          objectFit="contain"
+          src={imgSrc}
+          alt={alt}
           width={1170}
           height={658.125}
-          className={styles.img}
+          objectFit="contain"
           onClick={() => {
-            setSrc(src)
+            setSrc(imgSrc)
           }}
-          {...props}
         />
-      </div>
-    )
-  },
-  pre: (props) => <Fragment {...props} />,
-  code: CodeBlock,
-  p: (props) => <p {...props} className={styles.p} />,
-  h1: ({ children, props }) => {
-    return (
-      <h1 id={children} className={`${styles.heading} ${styles.h1}`} {...props}>
+      )
+    },
+    pre: CodeBlock,
+    p: (props) => <p className={styles.p} {...props} />,
+    h1: ({ children }) => (
+      <h1
+        className={`${styles.heading} ${styles.h1}`}
+        id={typeof children === 'string' && children}
+      >
         {children}
       </h1>
-    )
-  },
-  h2: ({ children, props }) => {
-    return (
-      <h2 id={children} className={`${styles.heading} ${styles.h2}`} {...props}>
+    ),
+    h2: ({ children }) => (
+      <h2
+        className={`${styles.heading} ${styles.h2}`}
+        id={typeof children === 'string' && children}
+      >
         {children}
       </h2>
-    )
-  },
-  h3: ({ children, props }) => {
-    return (
-      <h3 id={children} className={`${styles.heading} ${styles.h3}`} {...props}>
-        {children}
-      </h3>
-    )
-  },
-  ul: (props) => <ul className={styles.ul} {...props} />,
-  ol: (props) => <ol className={styles.ol} {...props} />,
-  div: (props) => {
-    if (props.className === 'footnotes') {
-      return <div {...props} className={styles.footnotes} />
-    }
-    return <div {...props} />
-  },
-  blockquote: (props) => (
-    <blockquote className={styles.blockquote} {...props} />
-  ),
+    ),
+    h3: ({ children }) => {
+      return (
+        <h3
+          className={`${styles.heading} ${styles.h3}`}
+          id={typeof children === 'string' && children}
+        >
+          {children}
+        </h3>
+      )
+    },
+    ul: (props) => <ul className={styles.ul} {...props} />,
+    ol: (props) => <ol className={styles.ol} {...props} />,
+    div: (props) => {
+      if (props.className === 'footnotes') {
+        return <div {...props} className={styles.footnotes} />
+      }
+      return <div {...props} />
+    },
+    blockquote: (props) => (
+      <blockquote className={styles.blockquote} {...props} />
+    ),
+  }
 }
