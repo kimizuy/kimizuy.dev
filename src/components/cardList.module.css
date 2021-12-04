@@ -13,10 +13,17 @@
 
 .card {
   padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .imgWrapper {
   display: none;
+}
+
+.frontmatter {
+  margin-top: 0;
 }
 
 .meta > div + div {
@@ -25,6 +32,7 @@
 
 .tagsAndDate {
   font-size: 0.8rem;
+  margin-top: 1rem;
 }
 
 .title:active {
@@ -84,7 +92,7 @@
     height: 100%;
   }
 
-  .meta {
+  .frontmatter {
     height: 100%;
     display: flex;
     flex-direction: column;

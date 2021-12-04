@@ -1,9 +1,9 @@
 import { format, parseISO } from 'date-fns'
 import styles from './date.module.css'
-import { Meta } from '@/types/post'
+import { Frontmatter } from '@/types/post'
 
 type Props = {
-  date: Meta['date']
+  publishedAt: Frontmatter['publishedAt']
 }
 
 export const Date: React.VFC<Props> = (p) => {

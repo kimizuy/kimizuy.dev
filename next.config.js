@@ -1,5 +1,3 @@
-// @ts-check
-const { createLoader } = require('simple-functional-loader')
 const withBundleAnalyzer = require('@next/bundle-analyzer')({
   enabled: process.env.ANALYZE === 'true',
 })
@@ -16,38 +14,6 @@ const nextConfig = {
   pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'mdx'],
 
   webpack: (config, options) => {
-    const mdx = [
-      options.defaultLoaders.babel,
-      {
-        loader: '@mdx-js/loader',
-      },
-    ]
-
-    config.module.rules.push({
-      test: /\.mdx$/,
-      oneOf: [
-        // {
-        //   resourceQuery: /rss/,
-        //   use: mdx,
-        // },
-        {
-          use: [
-            ...mdx,
-            createLoader(function (src) {
-              const content = [
-                'import { Post } from "@/components/post"',
-                'export { getStaticPropsPost } from "@/lib/getStaticPropsPost"',
-                src,
-                'export default (props) => <Post meta={meta} {...props} />',
-              ].join('\n')
-
-              return this.callback(null, content)
-            }),
-          ],
-        },
-      ],
-    })
-
     // if (options.isServer) {
     //   const originalEntry = config.entry
 

@@ -1,10 +1,16 @@
 import Link from 'next/link'
 import styles from './tagButtonList.module.css'
-import { getAllTags } from '@/lib/getAllTags'
+import { Preview } from '@/types/post'
 
-const tags = getAllTags()
+type Props = {
+  previews: Preview[]
+}
 
-export const TagButtonList: React.VFC = () => {
+export const TagButtonList: React.VFC<Props> = ({ previews }) => {
+  const tags = [
+    ...new Set(previews.map((v) => v.frontmatter.tags).flatMap((tag) => tag)),
+  ]
+
   return (
     <ul className={styles.tagButtonList}>
       {tags.map((tag) => (
