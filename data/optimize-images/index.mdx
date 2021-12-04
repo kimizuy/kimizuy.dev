@@ -1,13 +1,10 @@
-import result from './result.png'
-
-export const meta = {
-  title: 'Github Actions で画像最適化を自動化する',
-  description:
-    'またも GitHub Actions。今回はプルリクエスト作成時に自動で画像の最適化・圧縮する方法をまとめる。かなりお手軽',
-  date: { published: '2020-08-26' },
-  tags: ['github'],
-  image: result,
-}
+---
+title: 'Github Actions で画像最適化を自動化する'
+description: 'またも GitHub Actions。今回はプルリクエスト作成時に自動で画像の最適化・圧縮する方法をまとめる。かなりお手軽'
+publishedAt: '2020-08-26'
+tags: ['github']
+image: 'result.png'
+---
 
 またも GitHub Actions。今回はプルリクエスト作成時に自動で画像の最適化・圧縮する方法をまとめる。かなりお手軽。
 
@@ -54,7 +51,7 @@ jobs:
 
 master に対してプルリクエストを作成すると GitHub Action が実行され、新しく追加した画像が最適化（圧縮）される。
 
-<img src={result} />
+![result](result.png)
 
 注意点として、このアクションが実行されるとプルリクエストに最適化した画像が再度コミットされること。master ← dev のようなプルリクエストの場合、dev ブランチで差分が生じるので混乱しないようにしたい。
 
