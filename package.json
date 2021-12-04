@@ -23,7 +23,6 @@
     ]
   },
   "dependencies": {
-    "@mdx-js/react": "^1.6.22",
     "@next/bundle-analyzer": "^12.0.1",
     "date-fns": "^2.21.3",
     "esbuild": "^0.13.12",
@@ -43,7 +42,6 @@
   },
   "devDependencies": {
     "@babel/core": "^7.14.2",
-    "@mdx-js/loader": "^1.6.22",
     "@next/mdx": "^12.0.1",
     "@types/node": "^16.11.6",
     "@types/react": "^17.0.5",
@@ -61,10 +59,8 @@
     "eslint-plugin-react": "^7.23.2",
     "eslint-plugin-react-hooks": "^4.2.0",
     "eslint-plugin-unused-imports": "^1.1.5",
-    "file-loader": "^6.2.0",
     "husky": "^7.0.2",
     "lint-staged": "^11.2.3",
-    "next-transpile-modules": "^9.0.0",
     "prettier": "^2.3.0",
     "type-predicates-generator": "^0.2.1",
     "typescript": "^4.2.4"
