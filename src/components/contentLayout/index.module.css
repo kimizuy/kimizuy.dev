@@ -33,6 +33,5 @@
   .sticky {
     position: sticky;
     top: 2rem;
-    overflow-y: auto;
   }
 }
