@@ -18,12 +18,12 @@ jobs:
         with:
           node-version: 16
 
-      - name: Run npm install, build
+      - name: Run yarn, yarn build
         env:
           TWITTER_BEARER_TOKEN: ${{ secrets.TWITTER_BEARER_TOKEN }}
         run: |
-          npm install
-          npm run build
+          yarn
+          yarn build
 
       - name: Run Lighthouse CI
         run: |
