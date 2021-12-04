@@ -57,24 +57,12 @@ const App = ({ Component, pageProps }: MyAppProps) => {
           href="/favicon-16x16.png"
         />
         <link rel="manifest" href="/site.webmanifest" />
-        {/* <link
+        <link
           rel="alternate"
           type="application/rss+xml"
           title="RSS 2.0"
           href="/feed.xml"
         />
-        <link
-          rel="alternate"
-          type="application/atom+xml"
-          title="Atom 1.0"
-          href="/atom.xml"
-        />
-        <link
-          rel="alternate"
-          type="application/json"
-          title="JSON Feed"
-          href="/feed.json"
-        /> */}
       </Head>
       <ImageOverlayProvider>
         <ThemeProvider>
