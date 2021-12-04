@@ -10,6 +10,7 @@ import { SITE_URL } from '@/lib/constants'
 import { fetchTweet } from '@/lib/fetchTweet'
 import { getPreviews } from '@/lib/mdx'
 import { CardList } from '@/components/cardList'
+import { generateRSSFeed } from '@/lib/rss'
 
 type Props = InferGetStaticPropsType<typeof getStaticProps>
 
@@ -60,6 +61,8 @@ export const getStaticProps = async () => {
   try {
     const tweet = await fetchTweet()
     const previews = await getPreviews()
+
+    generateRSSFeed(previews)
 
     return {
       props: { fallback: { '/api/tweet': tweet }, previews },

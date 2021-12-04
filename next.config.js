@@ -14,17 +14,6 @@ const nextConfig = {
   pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'mdx'],
 
   webpack: (config, options) => {
-    // if (options.isServer) {
-    //   const originalEntry = config.entry
-
-    //   config.entry = async () => {
-    //     const entries = { ...(await originalEntry()) }
-    //     entries['./scripts/build-rss.js'] = './scripts/build-rss.tsx'
-
-    //     return entries
-    //   }
-    // }
-
     // Replace React with Preact only in client production build
     if (!options.dev && !options.isServer) {
       Object.assign(config.resolve.alias, {
@@ -36,15 +25,6 @@ const nextConfig = {
 
     return config
   },
-
-  // async rewrites() {
-  //   return [
-  //     {
-  //       source: '/feed.xml',
-  //       destination: '/_next/static/feed.xml',
-  //     },
-  //   ]
-  // },
 }
 
 module.exports = withBundleAnalyzer(nextConfig)
