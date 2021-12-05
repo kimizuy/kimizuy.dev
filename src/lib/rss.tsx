@@ -46,4 +46,6 @@ export const generateRSSFeed = (previews: Preview[]) => {
   })
 
   writeFileSync('public/feed.xml', feed.rss2())
+  writeFileSync('public/feed.atom', feed.atom1())
+  writeFileSync('public/feed.json', feed.json1())
 }
