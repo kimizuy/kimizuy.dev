@@ -4,6 +4,7 @@ import { Feed } from 'feed'
 import { getMDXComponent } from 'mdx-bundler/client'
 import { SITE_TITLE, SITE_URL, NAME } from './constants'
 import { Preview } from '@/types/post'
+import { getCustomComponents } from '@/components/post/mdxComponents'
 
 export const generateRSSFeed = (previews: Preview[]) => {
   const feed = new Feed({
@@ -27,21 +28,22 @@ export const generateRSSFeed = (previews: Preview[]) => {
   })
 
   previews.forEach(({ slug, code, frontmatter }) => {
-    const postPath = `/posts/${slug}`
+    const postPath = `${SITE_URL}/posts/${slug}`
     const Component = getMDXComponent(code)
-    const html = ReactDOMServer.renderToStaticMarkup(<Component />)
-    const postText = `<p><em>(The post <a href="${SITE_URL + postPath}">${
-      frontmatter.title
-    }</a> appeared first on <a href="${SITE_URL}">kimizuy blog</a>.)</em></p>`
+    const customComponents = getCustomComponents(slug)
+    const html = ReactDOMServer.renderToStaticMarkup(
+      <Component components={customComponents} />
+    )
+    const postText = `<p><em>(The post <a href="${SITE_URL}/${postPath}">${frontmatter.title}</a> appeared first on <a href="${SITE_URL}">kimizuy blog</a>.)</em></p>`
 
     feed.addItem({
       title: frontmatter.title,
-      id: SITE_URL + postPath,
-      link: SITE_URL + postPath,
+      id: postPath,
+      link: postPath,
       description: frontmatter.description,
       content: html + postText,
       date: new Date(frontmatter.publishedAt),
-      image: `${SITE_URL}${postPath}/${frontmatter.image}`,
+      image: `${postPath}/${frontmatter.image}`,
     })
   })
 
