@@ -57,7 +57,7 @@ const CodeBlock: ComponentMap['pre'] = ({
 
 export const getCustomComponents = (
   slug: string,
-  setSrc: (value: string) => void
+  setSrc?: (value: string) => void
 ): ComponentMap => {
   return {
     img: ({ src, alt }) => {
