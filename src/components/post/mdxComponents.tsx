@@ -2,6 +2,7 @@ import { ComponentMap } from 'mdx-bundler/client'
 import Image from 'next/image'
 import Highlight, { Language, defaultProps } from 'prism-react-renderer'
 import theme from 'prism-react-renderer/themes/vsDark'
+import { parse } from '../budoux'
 import styles from './mdxComponents.module.css'
 
 const CodeBlock: ComponentMap['pre'] = ({
@@ -57,7 +58,7 @@ const CodeBlock: ComponentMap['pre'] = ({
 
 export const getCustomComponents = (
   slug: string,
-  setSrc: (value: string) => void
+  setSrc?: (value: string) => void
 ): ComponentMap => {
   return {
     img: ({ src, alt }) => {
@@ -76,7 +77,38 @@ export const getCustomComponents = (
       )
     },
     pre: CodeBlock,
-    p: (props) => <p className={styles.p} {...props} />,
+    p: ({ children, ...props }) => {
+      if (typeof children === 'string') {
+        return (
+          <p className={styles.p} {...props}>
+            {parse(children)}
+          </p>
+        )
+      }
+      return (
+        <p className={styles.p} {...props}>
+          {Array.isArray(children)
+            ? children.map((v) => {
+                if (typeof v === 'string') {
+                  return parse(v)
+                }
+                // if (typeof v === 'object') {
+                //   if ('props' in v) {
+                //     if ('href' in v.props) return v
+                //     if ('children' in v.props) {
+                //       console.log(v.props.children)
+                //       return parse(v.props.children)
+                //     }
+                //     return v
+                //   }
+                //   return v
+                // }
+                return v
+              })
+            : children}
+        </p>
+      )
+    },
     h1: ({ children }) => (
       <h1
         className={`${styles.heading} ${styles.h1}`}
@@ -114,5 +146,31 @@ export const getCustomComponents = (
     blockquote: (props) => (
       <blockquote className={styles.blockquote} {...props} />
     ),
+
+    // use budoux
+    em: ({ children, ...props }) => {
+      if (typeof children === 'string') {
+        return <em {...props}>{parse(children)}</em>
+      }
+      return <em {...props}>{children}</em>
+    },
+    a: ({ children, ...props }) => {
+      if (typeof children === 'string') {
+        return <a {...props}>{parse(children)}</a>
+      }
+      return <a {...props}>{children}</a>
+    },
+    li: ({ children, ...props }) => {
+      if (typeof children === 'string') {
+        return <li {...props}>{parse(children)}</li>
+      }
+      return <li {...props}>{children}</li>
+    },
+    code: ({ children, ...props }) => {
+      if (typeof children === 'string') {
+        return <code {...props}>{parse(children)}</code>
+      }
+      return <code {...props}>{children}</code>
+    },
   }
 }

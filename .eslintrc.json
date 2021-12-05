@@ -19,6 +19,7 @@
     }
   ],
   "rules": {
+    "prefer-template": "error",
     "no-console": [
       "error",
       {
