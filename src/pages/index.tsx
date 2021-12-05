@@ -54,6 +54,7 @@ const Home: Page<Props> = ({ fallback, previews }) => {
 
 const Tweet = () => {
   const { data } = useSWR('/api/tweet', { refreshInterval: 10000 })
+  if (!data) return null
   return <_Tweet id={data.tweetId} ast={data.tweetAst} />
 }
 
@@ -65,7 +66,7 @@ export const getStaticProps = async () => {
     generateRSSFeed(previews)
 
     return {
-      props: { fallback: { '/api/tweet': tweet }, previews },
+      props: { fallback: { '/api/tweet': tweet ? tweet : null }, previews },
       revalidate: 10,
     }
   } catch (err) {
