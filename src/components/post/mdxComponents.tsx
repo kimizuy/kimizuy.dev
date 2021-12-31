@@ -78,34 +78,9 @@ export const getCustomComponents = (
     },
     pre: CodeBlock,
     p: ({ children, ...props }) => {
-      if (typeof children === 'string') {
-        return (
-          <p className={styles.p} {...props}>
-            {parse(children)}
-          </p>
-        )
-      }
       return (
         <p className={styles.p} {...props}>
-          {Array.isArray(children)
-            ? children.map((v) => {
-                if (typeof v === 'string') {
-                  return parse(v)
-                }
-                // if (typeof v === 'object') {
-                //   if ('props' in v) {
-                //     if ('href' in v.props) return v
-                //     if ('children' in v.props) {
-                //       console.log(v.props.children)
-                //       return parse(v.props.children)
-                //     }
-                //     return v
-                //   }
-                //   return v
-                // }
-                return v
-              })
-            : children}
+          {typeof children === 'string' ? parse(children) : children}
         </p>
       )
     },
@@ -147,7 +122,7 @@ export const getCustomComponents = (
       <blockquote className={styles.blockquote} {...props} />
     ),
 
-    // use budoux
+    // use `parse()` from budoux
     em: ({ children, ...props }) => {
       if (typeof children === 'string') {
         return <em {...props}>{parse(children)}</em>
@@ -165,12 +140,6 @@ export const getCustomComponents = (
         return <li {...props}>{parse(children)}</li>
       }
       return <li {...props}>{children}</li>
-    },
-    code: ({ children, ...props }) => {
-      if (typeof children === 'string') {
-        return <code {...props}>{parse(children)}</code>
-      }
-      return <code {...props}>{children}</code>
     },
   }
 }
