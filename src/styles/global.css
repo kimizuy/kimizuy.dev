@@ -25,9 +25,38 @@
   --code: var(--content-bg-secondary);
 }
 
+/* Self-hosted font */
+/* ref: https://google-webfonts-helper.herokuapp.com/fonts/zen-kaku-gothic-new?subsets=japanese */
+/* zen-kaku-gothic-new-regular - japanese */
+@font-face {
+  font-family: 'Zen Kaku Gothic New';
+  font-style: normal;
+  font-weight: 400;
+  src: url('/fonts/zen-kaku-gothic-new-v7-japanese/zen-kaku-gothic-new-v7-japanese-regular.eot'); /* IE9 Compat Modes */
+  src: local(''),
+       url('/fonts/zen-kaku-gothic-new-v7-japanese/zen-kaku-gothic-new-v7-japanese-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('/fonts/zen-kaku-gothic-new-v7-japanese/zen-kaku-gothic-new-v7-japanese-regular.woff2') format('woff2'), /* Super Modern Browsers */
+       url('/fonts/zen-kaku-gothic-new-v7-japanese/zen-kaku-gothic-new-v7-japanese-regular.woff') format('woff'), /* Modern Browsers */
+       url('/fonts/zen-kaku-gothic-new-v7-japanese/zen-kaku-gothic-new-v7-japanese-regular.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('/fonts/zen-kaku-gothic-new-v7-japanese/zen-kaku-gothic-new-v7-japanese-regular.svg#ZenKakuGothicNew') format('svg'); /* Legacy iOS */
+}
+/* zen-kaku-gothic-new-700 - japanese */
+@font-face {
+  font-family: 'Zen Kaku Gothic New';
+  font-style: normal;
+  font-weight: 700;
+  src: url('/fonts/zen-kaku-gothic-new-v7-japanese/zen-kaku-gothic-new-v7-japanese-700.eot'); /* IE9 Compat Modes */
+  src: local(''),
+       url('/fonts/zen-kaku-gothic-new-v7-japanese/zen-kaku-gothic-new-v7-japanese-700.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('/fonts/zen-kaku-gothic-new-v7-japanese/zen-kaku-gothic-new-v7-japanese-700.woff2') format('woff2'), /* Super Modern Browsers */
+       url('/fonts/zen-kaku-gothic-new-v7-japanese/zen-kaku-gothic-new-v7-japanese-700.woff') format('woff'), /* Modern Browsers */
+       url('/fonts/zen-kaku-gothic-new-v7-japanese/zen-kaku-gothic-new-v7-japanese-700.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('/fonts/zen-kaku-gothic-new-v7-japanese/zen-kaku-gothic-new-v7-japanese-700.svg#ZenKakuGothicNew') format('svg'); /* Legacy iOS */
+}
+
 html,
 body {
-  font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN',
+  font-family: 'Zen Kaku Gothic New', 'Hiragino Kaku Gothic ProN',
     'Hiragino Sans', Meiryo, sans-serif;
   line-height: 1.6;
   font-size: 15px;
