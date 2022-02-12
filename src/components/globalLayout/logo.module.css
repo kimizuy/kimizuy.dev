@@ -2,6 +2,7 @@
   color: var(--text-primary);
   display: flex;
   cursor: pointer;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
 }
 
 .logo:hover {
