@@ -30,7 +30,7 @@ image: 'card.png'
   export const metadata = {...}
   ```
 
-  と書くと以下のように import で利用することができる。default export されている `MDXDocument` はマークダウンコンテンツそのもので JSX として埋め込める。
+  と書く以下のように import で利用できる。default export されている `MDXDocument` はマークダウンコンテンツそのもので JSX として埋め込める。
 
   ```jsx
   import React from 'react'
@@ -57,17 +57,17 @@ image: 'card.png'
 
 - [CSS Modules](https://github.com/css-modules/css-modules)
 
-  CSS の名前衝突を回避できる。Next.js が正式サポートしているので特に設定は不要。最初は Styled-Components を使おうと考えたが CSS-in-JS だと SSR になって SSG の強みがなくなってしまうため、こちらを採用した。フィジカルな利点として、スタイリングが分離できるので一つのファイルの行数が削減できてスクロールする回数が減らせる（Styled-Components を使っていたときは行数が増えると同じファイルをウィンドウ分割で開いて見てた）。
+  CSS の名前衝突を回避できる。Next.js が正式サポートしているので特に設定は不要。最初は Styled-Components を使おうと考えたが CSS-in-JS だと SSR になって SSG の強みがなくなってしまうため、こちらを採用した。フィジカルな利点として、スタイリングが分離できるので 1 つのファイルの行数が削減できてスクロールする回数が減らせる（Styled-Components を使っていたときは行数が増えると同じファイルをウィンドウ分割で開いて見てた）。
 
-  ### 追記 (2021/1/28)
+### 追記 (2021/1/28)
 
-  "CSS-in-JS だと SSR になって SSG の強みがなくなってしまう"の部分ですが、ビルド時に静的な CSS として書き出されない（つまり JS によるランタイム実行になる）ためパフォーマンス面で CSS Modules に劣るようです。解決策として [linaria](https://github.com/callstack/linaria) という CSS フレームワークがあります。Styled-Components のように書けてビルド時に CSS ファイルが抽出されるので、パフォーマンスと記法の両方でメリットを得たい場合に選択肢になるかもしれません。
+"CSS-in-JS だと SSR になって SSG の強みがなくなってしまう"の部分ですが、ビルド時に静的な CSS として書き出されない（つまり JS によるランタイム実行になる）ためパフォーマンス面で CSS Modules に劣るようです。解決策として [linaria](https://github.com/callstack/linaria) という CSS フレームワークがあります。Styled-Components のように書けてビルド時に CSS ファイルが抽出されるので、パフォーマンスと記法の両方でメリットを得たい場合は選択肢になりそうです。
 
-  参考:
+参考:
 
-  [Next.js が CSS Modules を推奨する真相に迫りたい](https://zenn.dev/takepepe/scraps/6668e9fe402666)
+[Next.js が CSS Modules を推奨する真相に迫りたい](https://zenn.dev/takepepe/scraps/6668e9fe402666)
 
-  [Next.js × TSX に Zero-runtime CSS in JS の linaria を導入する](https://zenn.dev/meijin/articles/a8163992c8e845fb382f)
+[Next.js × TSX に Zero-runtime CSS in JS の linaria を導入する](https://zenn.dev/meijin/articles/a8163992c8e845fb382f)
 
 - [Storybook](https://storybook.js.org/)
 
@@ -89,7 +89,7 @@ image: 'card.png'
 
 - [dev.to](https://dev.to/)
 
-  ダークテーマの色を参考にした。色はかなり悩んだものの一つだが、他の人はサイトの色選びをどうしてるんだろう。
+  ダークテーマの色を参考にした。色はかなり悩んだものの 1 つだが、他の人はサイトの色選びをどうしてるんだろう。
 
 - [note](https://note.com/)
 

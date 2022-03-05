@@ -52,7 +52,7 @@ export default Toc
 
 ## useEffect() で初期化する
 
-useEffect 内で tocbot.init() して初期化します。`return () => tocbot.destroy()`はクリーンナップ関数です。次のレンダー時に`tocbot.init()`する直前に呼ばれ、前回の tocbot の結果を削除します。また第二引数に空の配列`[]`を渡すことで最初のマウント時以外は useEffect() が実行されないようにします。
+useEffect 内で tocbot.init() して初期化します。`return () => tocbot.destroy()`はクリーンナップ関数です。次のレンダー時に`tocbot.init()`する直前で呼ばれ、前回の tocbot の結果を削除します。また第二引数に空の配列`[]`を渡すことで最初のマウント時以外は useEffect() が実行されないようにします。
 
 ## tocbot.init() の基本的なオプション
 
@@ -68,7 +68,7 @@ useEffect 内で tocbot.init() して初期化します。`return () => tocbot.d
 </div>
 ```
 
-実際に html に変換されると構造は上記のように`<div class="toc">...</div>`で囲う結果になります。
+実際の html に変換されると構造は上記のように`<div class="toc">...</div>`で囲う結果になります。
 
 ### contentSelector
 

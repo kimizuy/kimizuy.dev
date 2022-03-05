@@ -91,7 +91,7 @@ const TestComponent = () => {
 const { NEXT_PUBLIC_ENV_VARIABLE } = process.env
 ```
 
-とは言ったものの、実際に動かしてみると <strong>.env、.env.development、.env.production では Object destructuring が使えました。.env.local ファイルがプロジェクト内に存在すると使えなくなりました。</strong>[leerob.io](https://leerob.io) という Next.js の中の人が運営するサイトでも[やっています](https://github.com/leerob/leerob.io/blob/1153652761bd686ff811c99def35ce8b4152f4a8/lib/spotify.js#L3)。なのでよくわかりません…
+とは言ったものの、実際に動かしてみると <strong>.env、.env.development、.env.production では Object destructuring が使えました。.env.local ファイルがプロジェクト内に存在すると使えなくなりました。</strong>[leerob.io](https://leerob.io) という Next.js の中の人が運営するサイトでも[やっています](https://github.com/leerob/leerob.io/blob/1153652761bd686ff811c99def35ce8b4152f4a8/lib/spotify.js#L3)。なのでよくわかりません。
 
 環境変数の挙動を試してみたい場合は Next.js の [example](https://github.com/vercel/next.js/tree/canary/examples/environment-variables) が勉強になります。
 
