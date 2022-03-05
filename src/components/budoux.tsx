@@ -1,11 +1,27 @@
 import { loadDefaultJapaneseParser } from 'budoux'
+import { ReactNode } from 'react'
 import styles from './budoux.module.css'
 
-export const parse = (text: string) => {
+const parse = (value: string) => {
   const parser = loadDefaultJapaneseParser()
-  return parser.parse(text).map((str) => (
-    <span className={styles.text} key={str}>
-      {str}
+  return parser.parse(value).map((v) => (
+    <span className={styles.text} key={v}>
+      {v}
     </span>
   ))
+}
+
+export const parseChildren = (value: ReactNode) => {
+  if (typeof value === 'string') return parse(value)
+
+  if (Array.isArray(value)) {
+    return value.map((v) => {
+      if (typeof v === 'string') {
+        return parse(v)
+      }
+      return parseChildren(v)
+    })
+  }
+
+  return value
 }
