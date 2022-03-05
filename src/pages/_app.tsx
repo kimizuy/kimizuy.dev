@@ -4,10 +4,10 @@ import Head from 'next/head'
 import { useRouter } from 'next/router'
 import { ReactNode, useEffect } from 'react'
 import '@/styles/global.css'
+import { ThemeProvider } from 'next-themes'
 import * as gtag from '../lib/gtag'
 import { GlobalLayout } from '@/components/globalLayout'
 import { ImageOverlayProvider } from '@/providers/imageOverlayProvider'
-import { ThemeProvider } from '@/providers/themeProvider'
 
 type GetLayout = (page: ReactNode) => ReactNode
 
@@ -77,7 +77,7 @@ const App = ({ Component, pageProps }: MyAppProps) => {
         />
       </Head>
       <ImageOverlayProvider>
-        <ThemeProvider>
+        <ThemeProvider defaultTheme="system">
           <GlobalLayout>{getLayout(<Component {...pageProps} />)}</GlobalLayout>
         </ThemeProvider>
       </ImageOverlayProvider>

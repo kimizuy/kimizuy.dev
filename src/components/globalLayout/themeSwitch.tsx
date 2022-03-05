@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
+import { useTheme } from 'next-themes'
 import styles from './themeSwitch.module.css'
-import { useTheme } from '@/providers/themeProvider'
 
 export const ThemeSwitch: React.VFC = () => {
   const { theme, setTheme } = useTheme()
