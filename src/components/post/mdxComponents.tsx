@@ -2,7 +2,7 @@ import { ComponentMap } from 'mdx-bundler/client'
 import Image from 'next/image'
 import Highlight, { Language, defaultProps } from 'prism-react-renderer'
 import theme from 'prism-react-renderer/themes/vsDark'
-import { parse } from '../budoux'
+import { parseChildren } from '../budoux'
 import styles from './mdxComponents.module.css'
 
 const CodeBlock: ComponentMap['pre'] = ({
@@ -77,17 +77,10 @@ export const getCustomComponents = (
       )
     },
     pre: CodeBlock,
-    p: ({ children, ...props }) => {
-      return (
-        <p className={styles.p} {...props}>
-          {typeof children === 'string' ? parse(children) : children}
-        </p>
-      )
-    },
     h1: ({ children }) => (
       <h1
         className={`${styles.heading} ${styles.h1}`}
-        id={typeof children === 'string' && children}
+        id={typeof children === 'string' ? children : undefined}
       >
         {children}
       </h1>
@@ -95,7 +88,7 @@ export const getCustomComponents = (
     h2: ({ children }) => (
       <h2
         className={`${styles.heading} ${styles.h2}`}
-        id={typeof children === 'string' && children}
+        id={typeof children === 'string' ? children : undefined}
       >
         {children}
       </h2>
@@ -104,7 +97,7 @@ export const getCustomComponents = (
       return (
         <h3
           className={`${styles.heading} ${styles.h3}`}
-          id={typeof children === 'string' && children}
+          id={typeof children === 'string' ? children : undefined}
         >
           {children}
         </h3>
@@ -122,24 +115,22 @@ export const getCustomComponents = (
       <blockquote className={styles.blockquote} {...props} />
     ),
 
-    // use `parse()` from budoux
+    // use budoux
+    p: ({ children, ...props }) => {
+      return (
+        <p className={styles.p} {...props}>
+          {parseChildren(children)}
+        </p>
+      )
+    },
     em: ({ children, ...props }) => {
-      if (typeof children === 'string') {
-        return <em {...props}>{parse(children)}</em>
-      }
-      return <em {...props}>{children}</em>
+      return <em {...props}>{parseChildren(children)}</em>
     },
     a: ({ children, ...props }) => {
-      if (typeof children === 'string') {
-        return <a {...props}>{parse(children)}</a>
-      }
-      return <a {...props}>{children}</a>
+      return <a {...props}>{parseChildren(children)}</a>
     },
     li: ({ children, ...props }) => {
-      if (typeof children === 'string') {
-        return <li {...props}>{parse(children)}</li>
-      }
-      return <li {...props}>{children}</li>
+      return <li {...props}>{parseChildren(children)}</li>
     },
   }
 }

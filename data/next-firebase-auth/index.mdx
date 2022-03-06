@@ -52,7 +52,7 @@ Next.js が用意してくれている examples の [with-firebase-authenticatio
 
 [Firebase Console](https://console.firebase.google.com/?hl=ja) を開き、先ほど追加したプロジェクトを選択する。
 
-Authentication > Sign-in method > メール / パスワード とクリックしていき、メール認証のステータスを有効化する（メールリンクは無効のまま）。
+Authentication > Sign-in method > メール / パスワードとクリックしていき、メール認証のステータスを有効化する（メールリンクは無効のまま）。
 
 ## 環境変数を取得する (1/2)
 
@@ -60,17 +60,17 @@ Next.js プロジェクトと連携するため Firebase から必要な環境�
 
 ![getKey1](getKey1.png)
 
-設定（歯車マーク） > プロジェクトを設定 と進む。
+設定（歯車マーク）> プロジェクトを設定と進む。
 
 ![getKey2](getKey2.png)
 
-サービスアカウントタブ で「新しい秘密鍵の生成」をクリック。private key などが記された JSON ファイルがダウンロードされる。
+サービスアカウントタブで「新しい秘密鍵の生成」をクリック。private key などが記された JSON ファイルがダウンロードされる。
 
 ## 環境変数を取得する (2/2)
 
 ![getkey3](getkey3.png)
 
-プロジェクトにアプリを追加する。プロジェクトを設定 > 全般 > マイアプリ と進み、「＜/＞」（Web）アイコンをクリック。
+プロジェクトにアプリを追加する。プロジェクトを設定 > 全般 > マイアプリと進み、「＜/＞」（Web）アイコンをクリック。
 
 ![getkey4](getkey4.png)
 
@@ -102,7 +102,7 @@ JSON ファイルからは project_id, private_key, client_email を利用する
 
 [^*1]: Firebase の仕様が変わったのか、firebaseConfig に databaseUrl が含まれない場合がある。プロジェクト上に Realtime Database を作成すると生成される変数なので、特に Authentication には直接関係がなく無視してよい。[関連](https://twitter.com/hapitomax/status/1335184425798123520?s=20)
 
-環境変数を設定し終わったら`yarn dev`を実行し、ローカルでメール認証ができるかどうか確認してみる。
+環境変数を設定し終わったら`yarn dev`を実行し、ローカルでメール認証ができるか確認してみる。
 
 認証が上手くいかない場合は、環境変数が正しく設定できているか再確認する。.env.local ファイルの値を変更すると`yarn dev`を実行し直す必要があるので注意。
 
