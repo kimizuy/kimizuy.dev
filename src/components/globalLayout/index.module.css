@@ -30,7 +30,7 @@
 }
 
 /* tablet ~ desktop */
-@media screen and (min-width: 479px) {
+@media screen and (min-width: 480px) {
   .main {
     margin-left: auto;
     margin-right: auto;

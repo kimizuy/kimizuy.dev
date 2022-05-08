@@ -3,7 +3,7 @@
 }
 
 /* tablet */
-@media screen and (min-width: 479px) {
+@media screen and (min-width: 480px) {
   .container {
     display: flex;
     justify-content: space-between;
@@ -12,7 +12,7 @@
 }
 
 /*  desktop ~ */
-@media screen and (min-width: 767px) {
+@media screen and (min-width: 768px) {
   .container {
     flex-direction: row;
   }
