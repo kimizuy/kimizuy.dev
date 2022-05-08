@@ -11,7 +11,7 @@ export const ContentLayout = ({
 }) => {
   return (
     <div className={styles.container}>
-      <section className={styles.article}>{children}</section>
+      <article className={styles.article}>{children}</article>
       <aside className={styles.sideBar}>
         <div
           className={`${styles.sideBarItemWrapper} ${
