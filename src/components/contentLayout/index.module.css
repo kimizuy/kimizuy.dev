@@ -3,7 +3,7 @@
 }
 
 /* tablet */
-@media screen and (min-width: 479px) {
+@media screen and (min-width: 480px) {
   .container {
     display: flex;
     justify-content: space-between;
@@ -12,18 +12,19 @@
 }
 
 /*  desktop ~ */
-@media screen and (min-width: 767px) {
+@media screen and (min-width: 768px) {
   .container {
     flex-direction: row;
   }
 
   .article {
-    width: calc(100% - 272px);
+    flex: 1 1 0;
   }
 
   .sideBar {
+    margin-left: 32px;
+    flex: 0 0 240px;
     display: block;
-    width: 240px;
   }
 
   .sideBarItemWrapper > * + * {

@@ -5,6 +5,7 @@ import { useRouter } from 'next/router'
 import { ReactNode, useEffect } from 'react'
 import '@/styles/global.css'
 import { ThemeProvider } from 'next-themes'
+import { AnimatePresence } from 'framer-motion'
 import * as gtag from '../lib/gtag'
 import { GlobalLayout } from '@/components/globalLayout'
 import { ImageOverlayProvider } from '@/providers/imageOverlayProvider'
@@ -20,6 +21,12 @@ type MyAppProps<P = object> = AppProps<P> & {
 }
 
 const defaultGetLayout: GetLayout = (page: ReactNode): ReactNode => page
+
+const handleExitComplete = () => {
+  if (typeof window !== 'undefined') {
+    window.scrollTo({ top: 0 })
+  }
+}
 
 const App = ({ Component, pageProps }: MyAppProps) => {
   const router = useRouter()
@@ -78,7 +85,16 @@ const App = ({ Component, pageProps }: MyAppProps) => {
       </Head>
       <ImageOverlayProvider>
         <ThemeProvider defaultTheme="system">
-          <GlobalLayout>{getLayout(<Component {...pageProps} />)}</GlobalLayout>
+          <GlobalLayout>
+            {getLayout(
+              <AnimatePresence
+                exitBeforeEnter
+                onExitComplete={handleExitComplete}
+              >
+                <Component {...pageProps} key={router.route} />
+              </AnimatePresence>
+            )}
+          </GlobalLayout>
         </ThemeProvider>
       </ImageOverlayProvider>
     </>

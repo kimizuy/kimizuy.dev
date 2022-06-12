@@ -5,7 +5,7 @@ import { NAME, SITE_TITLE } from '@/lib/constants'
 
 export const Logo: React.VFC = () => {
   return (
-    <Link href="/">
+    <Link scroll={false} href="/">
       <a className={styles.logo}>
         <div className={styles.logoImgWrapper}>
           <Image

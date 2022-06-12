@@ -4,8 +4,8 @@ import styles from './budoux.module.css'
 
 const parse = (value: string) => {
   const parser = loadDefaultJapaneseParser()
-  return parser.parse(value).map((v) => (
-    <span className={styles.text} key={v}>
+  return parser.parse(value).map((v, i) => (
+    <span className={styles.text} key={v + i}>
       {v}
     </span>
   ))
