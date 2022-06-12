@@ -24,7 +24,7 @@ export const TagButtonList: React.VFC<Props> = ({ previews }) => {
 
 const TagButton: React.VFC<{ tag: string }> = ({ tag }) => {
   return (
-    <Link href="/tags/[tag]" as={`/tags/${tag}`} passHref>
+    <Link scroll={false} href="/tags/[tag]" as={`/tags/${tag}`} passHref>
       <button className={styles.tagButton}>#{tag}</button>
     </Link>
   )
