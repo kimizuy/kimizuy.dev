@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import { motion, Transition, Variants } from 'framer-motion'
+import { motion, Variants } from 'framer-motion'
 import { FC } from 'react'
 import styles from './cardList.module.css'
 import { TagLinks } from './tagLinks'
@@ -12,17 +12,13 @@ type Props = {
 }
 
 export const CardList: React.VFC<Props> = (p: Props) => {
-  const transition: Transition = {
-    duration: 0.5,
-    ease: [0.43, 0.13, 0.23, 0.96],
-  }
   const variants: Variants = {
     initial: { scale: 0.9, opacity: 0 },
-    enter: { scale: 1, opacity: 1, transition },
+    enter: { scale: 1, opacity: 1 },
     exit: {
       scale: 0.9,
       opacity: 0,
-      transition,
+      transition: { duration: 0.1 },
     },
   }
 
@@ -32,12 +28,7 @@ export const CardList: React.VFC<Props> = (p: Props) => {
       animate="enter"
       exit="exit"
       variants={{
-        enter: { transition: { staggerChildren: 0.05 } },
-        exit: {
-          transition: {
-            staggerChildren: 0.05,
-          },
-        },
+        enter: { transition: { staggerChildren: 0.1 } },
       }}
       className={styles.cardList}
       // Enable :active for iOS

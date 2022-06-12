@@ -1,4 +1,4 @@
-import { motion, Transition, Variants } from 'framer-motion'
+import { motion, Variants } from 'framer-motion'
 import styles from './index.module.css'
 
 export const ContentLayout = ({
@@ -10,16 +10,12 @@ export const ContentLayout = ({
   home?: boolean
   sideBarItem?: JSX.Element
 }) => {
-  const transition: Transition = {
-    duration: 0.5,
-    ease: [0.43, 0.13, 0.23, 0.96],
-  }
   const variants: Variants = {
     initial: { opacity: 0 },
-    enter: { opacity: 1, transition },
+    enter: { opacity: 1 },
     exit: {
       opacity: 0,
-      transition,
+      transition: { duration: 0.1 },
     },
   }
 
@@ -28,10 +24,9 @@ export const ContentLayout = ({
       initial="initial"
       animate="enter"
       exit="exit"
-      // variants={{
-      //   enter: { transition: { staggerChildren: 0.5 } },
-      //   exit: { transition: { staggerChildren: 0.5 } },
-      // }}
+      variants={{
+        enter: { transition: { staggerChildren: 0.2 } },
+      }}
       className={styles.container}
     >
       <motion.article variants={variants} className={styles.article}>
