@@ -24,7 +24,7 @@
   },
   "dependencies": {
     "@next/bundle-analyzer": "^12.0.1",
-    "budoux": "^0.0.3",
+    "budoux": "^0.4.0",
     "date-fns": "^2.21.3",
     "esbuild": "^0.13.12",
     "feed": "^4.2.2",
