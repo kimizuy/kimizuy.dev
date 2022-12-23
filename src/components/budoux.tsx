@@ -5,32 +5,31 @@ import styles from './budoux.module.css'
 const parser = loadDefaultJapaneseParser()
 
 const isJa = (value: string) => {
-  return value.match(
-    /^[\u30a0-\u30ff\u3040-\u309f\u3005-\u3006\u30e0-\u9fcf]+$/
-  )
-    ? true
-    : false
+  const jaRegex =
+    /([\u3400-\u4DBF\u4E00-\u9FFF\uF900-\uFAFF]|[\uD840-\uD87F][\uDC00-\uDFFF]|[ぁ-んァ-ヶ])/
+
+  return jaRegex.test(value)
 }
 
-const parse = (value: string) => {
-  return parser.parse(value).map((v, i) => {
+const parseOnlyJa = (value: string) => {
+  const parsed = parser.parse(value)
+  const texts = parsed.map((v, i) => {
     if (!isJa(v)) return v
+
     return (
       <span className={styles.text} key={v + i}>
         {v}
       </span>
     )
   })
+
+  return texts
 }
 
 export const parseChildren = (value: ReactNode) => {
-  if (typeof value === 'string') {
-    return parse(value)
-  }
+  if (typeof value === 'string') return parseOnlyJa(value)
 
-  if (Array.isArray(value)) {
-    return value.map((v) => parseChildren(v))
-  }
+  if (Array.isArray(value)) return value.map((v) => parseChildren(v))
 
   return value
 }
