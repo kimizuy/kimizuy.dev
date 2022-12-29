@@ -26,10 +26,10 @@ const parseOnlyJa = (value: string) => {
   return texts
 }
 
-export const parseChildren = (value: ReactNode) => {
+export const recursiveParse = (value: ReactNode) => {
   if (typeof value === 'string') return parseOnlyJa(value)
 
-  if (Array.isArray(value)) return value.map((v) => parseChildren(v))
+  if (Array.isArray(value)) return value.map((v) => recursiveParse(v))
 
   return value
 }

@@ -2,7 +2,7 @@ import { ComponentMap } from 'mdx-bundler/client'
 import Image from 'next/image'
 import Highlight, { Language, defaultProps } from 'prism-react-renderer'
 import theme from 'prism-react-renderer/themes/vsDark'
-import { parseChildren } from '../budoux'
+import { recursiveParse } from '../budoux'
 import styles from './mdxComponents.module.css'
 
 const CodeBlock: ComponentMap['pre'] = ({
@@ -119,18 +119,18 @@ export const getCustomComponents = (
     p: ({ children, ...props }) => {
       return (
         <p className={styles.p} {...props}>
-          {parseChildren(children)}
+          {recursiveParse(children)}
         </p>
       )
     },
     em: ({ children, ...props }) => {
-      return <em {...props}>{parseChildren(children)}</em>
+      return <em {...props}>{recursiveParse(children)}</em>
     },
     a: ({ children, ...props }) => {
-      return <a {...props}>{parseChildren(children)}</a>
+      return <a {...props}>{recursiveParse(children)}</a>
     },
     li: ({ children, ...props }) => {
-      return <li {...props}>{parseChildren(children)}</li>
+      return <li {...props}>{recursiveParse(children)}</li>
     },
   }
 }
