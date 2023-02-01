@@ -2,22 +2,27 @@
 
 import { useEffect } from "react";
 import tocbot from "tocbot";
+import { useWindowWidth } from "../utils/useWindowWidth";
 import "./tocbot.css";
 
 export function Tocbot() {
+  const { width } = useWindowWidth();
+  const isMobile = width <= 768;
+  const offset = isMobile ? 32 : 48;
+
   useEffect(() => {
     tocbot.init({
       tocSelector: ".toc",
       contentSelector: ".post",
-      headingSelector: "h1, h2, h3",
+      headingSelector: "h2, h3, h4",
       orderedList: false,
       // ref: http://tscanlin.github.io/tocbot/#fixed-headers
-      headingsOffset: 48,
-      scrollSmoothOffset: -48,
+      headingsOffset: offset,
+      scrollSmoothOffset: -1 * offset,
     });
 
     return () => tocbot.destroy();
-  }, []);
+  }, [offset]);
 
   return <div className="toc" />;
 }
