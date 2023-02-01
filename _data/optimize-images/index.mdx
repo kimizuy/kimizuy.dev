@@ -9,7 +9,7 @@ export { default as cover } from "./cover.png";
 
 またも GitHub Actions。今回はプルリクエスト作成時に自動で画像の最適化・圧縮する方法をまとめる。かなりお手軽。
 
-# Github Actions の設定ファイルを追加する
+## Github Actions の設定ファイルを追加する
 
 プロジェクトのルートに`.github/workflows`フォルダを作成し、その中に以下の内容のファイルを追加する。
 
@@ -45,10 +45,10 @@ jobs:
     pngQuality: '80'
     webpQuality: '80'
     ignorePaths: 'node_modules/**,build'
-    # No spaces allowed
+    ## No spaces allowed
 ```
 
-# 実際にプルリクエストを作成してみる
+## 実際にプルリクエストを作成してみる
 
 master に対してプルリクエストを作成すると GitHub Action が実行され、新しく追加した画像が最適化（圧縮）される。
 
@@ -56,7 +56,7 @@ master に対してプルリクエストを作成すると GitHub Action が実�
 
 注意点として、このアクションが実行されるとプルリクエストに最適化した画像が再度コミットされること。master ← dev のようなプルリクエストの場合、dev ブランチで差分が生じるので混乱しないようにしたい。
 
-# 参考
+## 参考
 
 [calibreapp/image-actions](https://github.com/calibreapp/image-actions)
 

@@ -9,7 +9,7 @@ export { default as cover } from "./cover.png";
 
 最近いろいろなサイトの Lighthouse スコアを見るのが趣味になっている。このサイトもスコアを参考に修正しているがデプロイする前に確認したい。 ググってみると Github Actions × Lighthouse CI で可能なことがわかった。Next.js プロジェクトでの紹介事例がないようだったのでまとめておく。
 
-# 前提知識
+## 前提知識
 
 - Lighthouse
 
@@ -19,7 +19,7 @@ export { default as cover } from "./cover.png";
 
   GitHub が提供する CI/CD サービス。Github 上でプッシュやプルリクエストが作られたときに自動テストを実行できる。
 
-# Github Actions に Lighthouse CI をインストールする
+## Github Actions に Lighthouse CI をインストールする
 
 [ここから](https://github.com/apps/lighthouse-ci)導入したい Github のリポジトリに対して Lighthouse CI をインストールしていく。
 
@@ -43,7 +43,7 @@ Name に「LHCI_GITHUB_APP_TOKEN」、Value にさきほどメモしたパスを
 
 ![addsecret 2](./addsecret2.png)
 
-# GitHub Actions の設定ファイルを追加する
+## GitHub Actions の設定ファイルを追加する
 
 プロジェクトのルートに .github/workflows/lighthouse.yml を追加する。
 
@@ -72,7 +72,7 @@ jobs:
 
 ちなみに[ここ](https://github.com/GoogleChrome/lighthouse-ci/blob/master/docs/getting-started.md#configure-your-ci-provider)の Github Actions の設定をベースにしている。変更点は node-version を 12.x に設定したのみ（flatMap() を使っているので）。
 
-# Lighthouse CI の設定ファイルを追加する
+## Lighthouse CI の設定ファイルを追加する
 
 プロジェクトのルートに lighthouserc.js を追加する。
 
@@ -91,7 +91,7 @@ module.exports = {
 };
 ```
 
-# package.json に scripts を追加する
+## package.json に scripts を追加する
 
 `build:lhci` と `start` コマンドを追加する。
 
@@ -104,7 +104,7 @@ module.exports = {
 },
 ```
 
-# 実際に実行してみる
+## 実際に実行してみる
 
 設定ではプルリクエストを作成し、プッシュするたび実行されるようになっている。
 
@@ -118,7 +118,7 @@ module.exports = {
 
 ![result 3](./result3.png)
 
-# 参考
+## 参考
 
 [Testing static sites with Lighthouse CI and GitHub Actions](https://jacobtomlinson.dev/posts/2020/testing-static-sites-with-lighthouse-ci-and-github-actions/)
 

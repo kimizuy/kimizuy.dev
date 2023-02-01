@@ -7,7 +7,7 @@ tags: ["next", "mdx"]
 
 export { default as cover } from "./cover.png";
 
-# はじめに
+## はじめに
 
 [tocbot](https://github.com/tscanlin/tocbot) で Table of Contents を作りました。Table of Contents とは記事の見出し（heading 要素）をまとめた目次を指します。例えば、デスクトップのような広い画面でこのサイトの記事を見るとサイドバーに表示されます。
 
@@ -15,12 +15,12 @@ tocbot はその目次を自動生成してくれるライブラリです。記�
 
 本記事では、Next.js × MDX での tocbot の使い方をコード例を示しながら紹介します。いい感じの Table of Contents を作りましょう！
 
-# 環境
+## 環境
 
 - Next.js: v10.0.5
 - MDX: v1.6.22
 
-# tocbot を追加する
+## tocbot を追加する
 
 まず tocbot パッケージをプロジェクトにインストールします。
 
@@ -30,7 +30,7 @@ yarn add tocbot
 // npm install tocbot
 ```
 
-# TOC コンポーネントを作る
+## TOC コンポーネントを作る
 
 ```tsx:toc.tsx
 import { useEffect } from 'react'
@@ -51,13 +51,13 @@ const Toc: React.VFC = () => {
 export default Toc
 ```
 
-## useEffect() で初期化する
+### useEffect() で初期化する
 
 useEffect 内で tocbot.init() して初期化します。`return () => tocbot.destroy()`はクリーンナップ関数です。次のレンダー時に`tocbot.init()`する直前で呼ばれ、前回の tocbot の結果を削除します。また第二引数に空の配列`[]`を渡すことで最初のマウント時以外は useEffect() が実行されないようにします。
 
-## tocbot.init() の基本的なオプション
+### tocbot.init() の基本的なオプション
 
-### tocSelector
+#### tocSelector
 
 目次自身を示す DOM の CSS クラスを指定します。この場合は`.toc`です。最終的に`return <div className="toc" />`というコンポーネントを返しています。
 
@@ -71,7 +71,7 @@ useEffect 内で tocbot.init() して初期化します。`return () => tocbot.d
 
 実際の html に変換されると構造は上記のように`<div class="toc">...</div>`で囲う結果になります。
 
-### contentSelector
+#### contentSelector
 
 目次を生成する対象の heading 要素を持つ DOM の CSS クラスを指定します。この場合は`.post`です。
 
@@ -98,11 +98,11 @@ useEffect 内で tocbot.init() して初期化します。`return () => tocbot.d
 
 `<MDXProvider>` はスタイルコンポーネントです。ひとまず無視して大丈夫です。
 
-### headingSelector
+#### headingSelector
 
 どの heading タグを目次として生成するかを指定します。例えば`'h2, h3, h4'`とすると h1 や h5 は無視されます。
 
-# heading タグの id 属性に見出し文字列を設定する
+## heading タグの id 属性に見出し文字列を設定する
 
 目次にページ内リンクとしての機能を持たせるために必要です。
 他のマークダウン変換ライブラリ、例えば [remark](https://github.com/remarkjs/remark) を利用している場合は [remark-autolink-headings](https://github.com/remarkjs/remark-autolink-headings) などを使うと良いでしょう。
@@ -147,7 +147,7 @@ const MDXComponents: Components = {
 例えば次のようにマークダウンファイルは HTML に変換されます。
 
 ```md:mdx
-# 見出し
+## 見出し
 
 本文です。
 
@@ -166,7 +166,7 @@ const MDXComponents: Components = {
 
 というリンクを生成します。
 
-# 例
+## 例
 
 手前味噌ながら、このブログの実装を紹介します。
 
@@ -226,7 +226,7 @@ export const Toc: React.VFC = () => {
 
 色に CSS 変数を使っているのでコピペでは使えません。適宜置き換えてください。
 
-# まとめ
+## まとめ
 
 - `tocbot.init()`時に目次の DOM とコンテンツの DOM の CSS クラスを指定する
 - heading タグにちゃんと id 属性を設定する
