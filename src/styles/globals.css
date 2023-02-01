@@ -1,0 +1,38 @@
+:root {
+  --bg-primary: #0d1117;
+  --bg-secondary: #161b23;
+  --text-primary: #fff;
+  --text-secondary: #b3b3b3;
+  --content-bg-primary: #21262d;
+  --content-bg-secondary: #30363d;
+  --content-border: #30363d;
+  --link: #58a6ff;
+  --code: #1e1e1e;
+}
+
+html,
+body {
+  font-family:
+    var(--zen-kaku-gothic-new)
+    "Hiragino Kaku Gothic ProN",
+    "Hiragino Sans",
+    Meiryo,
+    sans-serif;
+  line-height: 1.6;
+  overflow-wrap: break-word;
+}
+
+a {
+  color: var(--link);
+  text-decoration: none;
+}
+
+/* https://coliss.com/articles/build-websites/operation/css/fixing-smooth-scrolling-with-page-search.html */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* fix: text-overflow ellipsis not working in nested flexbox */
+.static-tweet-header-author {
+  min-width: 0;
+}

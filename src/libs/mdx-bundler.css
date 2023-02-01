@@ -1,0 +1,44 @@
+.rehype-code-titles {
+  font-size: 14px;
+}
+
+.line-number > span:first-child {
+  display: inline-block;
+  margin-right: 1.6ch;
+  color: #a8a8a8;
+  text-align: right;
+  user-select: none;
+}
+
+.anchor {
+  --gap: 4px;
+
+  display: inline-block;
+  padding: 0 var(--gap);
+  margin-left: calc(-1ch - var(--gap));
+}
+
+.anchor-text {
+  overflow: visible;
+  visibility: hidden;
+}
+
+.anchor-text::before {
+  content: "#";
+}
+
+:is(h1,
+h2,
+h3,
+h4,
+h5):hover .anchor-text {
+  visibility: visible;
+}
+
+p > code {
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  background-color: var(--code);
+  font-family: Menlo, Monaco, "Courier New", monospace;
+  font-size: 0.875rem;
+}

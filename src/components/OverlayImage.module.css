@@ -1,0 +1,18 @@
+.container {
+  position: absolute; /* Sit on top of the page content */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: hsl(0deg 0% 8% / 40%);
+  cursor: zoom-out;
+}
+
+.imageWrapper {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 80%;
+  transform: translate(-50%, -50%);
+}

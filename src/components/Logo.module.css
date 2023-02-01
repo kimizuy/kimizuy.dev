@@ -1,0 +1,29 @@
+.container {
+  display: flex;
+  color: var(--text-primary);
+  cursor: pointer;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+}
+
+.container:hover {
+  text-decoration: none;
+}
+
+.imageWrapper {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 100%;
+}
+
+.image {
+  object-fit: contain;
+}
+
+.title {
+  margin: auto 0.5rem;
+  font-size: 1.6rem;
+  font-weight: bold;
+}

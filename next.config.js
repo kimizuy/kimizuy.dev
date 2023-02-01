@@ -1,27 +1,28 @@
-const withBundleAnalyzer = require('@next/bundle-analyzer')({
-  enabled: process.env.ANALYZE === 'true',
-})
-
-/**
- * @type {import('next').NextConfig}
- */
+/** @type {import('next').NextConfig} */
 const nextConfig = {
+  reactStrictMode: true,
+  swcMinify: true,
   images: {
-    domains: ['pbs.twimg.com'],
+    formats: ["image/avif", "image/webp"],
+  },
+  experimental: {
+    appDir: true,
+    serverComponentsExternalPackages: ["mdx-bundler"],
   },
 
-  webpack: (config, options) => {
-    // Replace React with Preact only in client production build
-    if (!options.dev && !options.isServer) {
-      Object.assign(config.resolve.alias, {
-        react: 'preact/compat',
-        'react-dom/test-utils': 'preact/test-utils',
-        'react-dom': 'preact/compat',
-      })
+  // fix error from budoux: "Module not found: Can't resolve 'canvas'"
+  // ref: https://github.com/vercel/next.js/discussions/43465#discussioncomment-4256927
+  webpack(config, { nextRuntime }) {
+    if (nextRuntime === "nodejs") {
+      config.resolve.alias.canvas = false;
+      // ref: https://github.com/vercel/next.js/issues/44273#issuecomment-1374989371
+      config.externals.push({
+        "utf-8-validate": "commonjs utf-8-validate",
+        bufferutil: "commonjs bufferutil",
+      });
     }
-
-    return config
+    return config;
   },
-}
+};
 
-module.exports = withBundleAnalyzer(nextConfig)
+module.exports = nextConfig;

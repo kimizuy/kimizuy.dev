@@ -1,0 +1,22 @@
+.container {
+  --gap: 0.25rem;
+
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  margin: calc(-1 * var(--gap));
+}
+
+.item {
+  margin: var(--gap);
+}
+
+.link {
+  color: var(--link);
+  font-size: 0.875rem;
+  text-decoration: underline;
+}
+
+.link:is(:hover, :focus, :active) {
+  text-decoration: none;
+}

@@ -3,6 +3,6 @@
 Install it and run:
 
 ```bash
-yarn
-yarn dev
+npm
+npm run dev
 ```

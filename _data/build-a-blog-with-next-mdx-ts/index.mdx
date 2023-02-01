@@ -1,0 +1,111 @@
+---
+title: "Next.js + MDX + TypeScript でブログを作った"
+description: "Next.js と MDX と TypeScript でブログを作った！"
+publishedAt: "2020-08-21"
+tags: ["next", "mdx", "typescript"]
+---
+
+export { default as cover } from "./cover.png";
+
+[Next.js](https://nextjs.org/) と [MDX](https://mdxjs.com/) と [TypeScript](https://www.typescriptlang.org/) でブログを作った！
+
+# 使っている技術
+
+- [Next.js](https://nextjs.org/)
+
+  React 製のフレームワーク。[GatsbyJS](https://www.gatsbyjs.com/) と比較してコントローラブルな点で優位なので採用した。一方、単にブログサイトを作る点では Gatsby の方が便利なプラグインが多い。Next は v9.5 で動的コンテンツを静的ページで生成できる Incremental Static Regeneration という機能の安定板をリリースしている。この機能のデモは[こちら](https://static-tweet.now.sh/)。ツイートを iframe を使わない静的なコンテンツとして生成することでページの表示速度を向上させている。
+
+- [MDX](https://mdxjs.com/)
+
+  マークダウンに JSX を埋め込める。
+
+  <button
+    style={{ backgroundColor: "yellow", cursor: "pointer", margin: "1rem 0" }}
+  >
+    黄色いボタンだよ
+  </button>
+
+  他にも .mdx ファイル内に
+
+  ```js
+  export const metadata = {...}
+  ```
+
+  と書く以下のように import で利用できる。default export されている `MDXDocument` はマークダウンコンテンツそのもので JSX として埋め込める。
+
+  ```jsx
+  import React from "react";
+  import MDXDocument, { metadata } from "posts/post.mdx";
+  export default () => (
+    <>
+      <MDXDocument />
+      <footer>
+        <p>
+          By: {metadata.authors.map((author) => author.name).join(", ") + "."}
+        </p>
+      </footer>
+    </>
+  );
+  ```
+
+- [TypeScript](https://www.typescriptlang.org/)
+
+  JavaScript に静的型づけ機能を加えたプログラミング言語。構造的部分型による柔軟な型づけが可能。型推論に基づくインテリセンスが助かる。ソフトウェアドキュメンテーション的にも導入しない手はない。
+
+- [Vercel](https://vercel.com/dashboard)
+
+  本ブログをデプロイするときに使っているホスティングサービス。GitHub と連携してぽちぽちクリックしているだけでデプロイできた。
+
+- [CSS Modules](https://github.com/css-modules/css-modules)
+
+  CSS の名前衝突を回避できる。Next.js が正式サポートしているので特に設定は不要。最初は Styled-Components を使おうと考えたが CSS-in-JS だと SSR になって SSG の強みがなくなってしまうため、こちらを採用した。フィジカルな利点として、スタイリングが分離できるので 1 つのファイルの行数が削減できてスクロールする回数が減らせる（Styled-Components を使っていたときは行数が増えると同じファイルをウィンドウ分割で開いて見てた）。
+
+### 追記 (2021/1/28)
+
+"CSS-in-JS だと SSR になって SSG の強みがなくなってしまう"の部分ですが、ビルド時に静的な CSS として書き出されない（つまり JS によるランタイム実行になる）ためパフォーマンス面で CSS Modules に劣るようです。解決策として [linaria](https://github.com/callstack/linaria) という CSS フレームワークがあります。Styled-Components のように書けてビルド時に CSS ファイルが抽出されるので、パフォーマンスと記法の両方でメリットを得たい場合は選択肢になりそうです。
+
+参考:
+
+[Next.js が CSS Modules を推奨する真相に迫りたい](https://zenn.dev/takepepe/scraps/6668e9fe402666)
+
+[Next.js × TSX に Zero-runtime CSS in JS の linaria を導入する](https://zenn.dev/meijin/articles/a8163992c8e845fb382f)
+
+- [Storybook](https://storybook.js.org/)
+
+  UI コンポーネントをカタログ化できる。コンポーネント単体の見た目を確認したくて導入したが、今のところ dev モードで十分だし、データの準備など手間も多いのであんまり使っていない。その分記事を書こう。勇み足。
+
+- [Prism.js](https://prismjs.com/)
+
+  syntax highlighter。
+
+# 参考にさせてもらったサイトや記事
+
+## 機能面
+
+- [tailwind Blog](https://blog.tailwindcss.com/)
+
+  Next.js + MDX + tailwindcss で構築されている。ファイルストラクチャや .mdx ファイルからメタ情報を取得するときの方法などを参考にした。本ブログは tailwindcss を使わないうえで TS 化したようなものになっている。
+
+## デザイン面
+
+- [dev.to](https://dev.to/)
+
+  ダークテーマの色を参考にした。色はかなり悩んだものの 1 つだが、他の人はサイトの色選びをどうしてるんだろう。
+
+- [note](https://note.com/)
+
+  カードコンポーネントやレイアウトを参考にした。とくにレイアウトについては紆余曲折があり、「記事を並べるだけなら flexbox で事足りるな」と思って始めたが全然そんなことはなく、変な隙間が空いたりコンポーネント間の gap が指定できなかったりで(厳密には firefox のみ対応)、意外とできないことが多かった。結果的に grid を使ってメディアクエリごとにカラム数を増減させる方法に落ちつく。
+
+- [blog.ojisan.io](https://blog.ojisan.io)
+
+  GatsbyJS + TS のブログ。サイト上の文言や画像がぐわっとなるところなどを参考にした。この記事とは関係ないが、[ESLint の Plugin と Extend の違い](https://blog.ojisan.io/eslint-plugin-and-extend) はめちゃくちゃ読んだ。
+
+## その他
+
+- [mizchi.dev](https://mizchi.dev/)
+
+  Next.js + MDX + AMP + TS のブログ。表示がめちゃくちゃ速いことに感動して Next.js でブログを作るきっかけとなった。Next だけでもまあ速いので本ブログの AMP 化はひとまず見送る。
+
+# さいごに（雑感）
+
+スプラトゥーン 2 をしつつ、とりあえずブログを作るにあたって悩んだところ・はまったところを記事化していく。
