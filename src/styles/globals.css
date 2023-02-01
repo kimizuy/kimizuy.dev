@@ -10,10 +10,25 @@
   --code: #1e1e1e;
 }
 
+@font-face {
+  font-family: "Zen Kaku Gothic New";
+  font-style: normal;
+  font-weight: 400;
+  src: url("/fonts/zen-kaku-gothic-new-v7-japanese/zen-kaku-gothic-new-v7-japanese-regular.woff2") format("woff2"),;
+}
+
+/* zen-kaku-gothic-new-700 - japanese */
+@font-face {
+  font-family: "Zen Kaku Gothic New";
+  font-style: normal;
+  font-weight: 700;
+  src: url("/fonts/zen-kaku-gothic-new-v7-japanese/zen-kaku-gothic-new-v7-japanese-700.woff2") format("woff2"),;
+}
+
 html,
 body {
   font-family:
-    var(--zen-kaku-gothic-new)
+    "Zen Kaku Gothic New",
     "Hiragino Kaku Gothic ProN",
     "Hiragino Sans",
     Meiryo,
