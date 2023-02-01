@@ -35,7 +35,7 @@ export async function bundleMDX(slug: string) {
           // ref: https://neos21.net/blog/2020/11/14-01.html
           {
             behavior: "prepend",
-            properties: { className: "anchor" },
+            properties: { className: "anchor", ariaHidden: true, tabIndex: -1 },
             content: {
               type: "element",
               tagName: "span",
