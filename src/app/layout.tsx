@@ -18,7 +18,13 @@ const zenKakuGothicNew = localFont({
       style: "normal",
     },
   ],
-  variable: "--zen-kaku-gothic-new",
+  display: "swap",
+  fallback: [
+    "Hiragino Kaku Gothic ProN",
+    "Hiragino Sans",
+    "Meiryo",
+    "sans-serif",
+  ],
 });
 
 export default function Layout({ children }: PropsWithChildren) {
