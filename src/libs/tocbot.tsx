@@ -12,7 +12,7 @@ export function Tocbot() {
       headingSelector: "h1, h2, h3",
       orderedList: false,
       // ref: http://tscanlin.github.io/tocbot/#fixed-headers
-      headingsOffset: 160,
+      headingsOffset: 48,
       scrollSmoothOffset: -48,
     });
 
