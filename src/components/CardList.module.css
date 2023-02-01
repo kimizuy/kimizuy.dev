@@ -1,0 +1,109 @@
+.container {
+  list-style: none;
+  outline: none;
+}
+
+.listItem:not(:first-child) {
+  border-top: 1px solid var(--content-border);
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1rem;
+}
+
+.imageWrapper {
+  display: none;
+}
+
+.title {
+  display: block;
+  margin-top: 0.5rem;
+}
+
+.title:active {
+  text-decoration: underline;
+}
+
+.meta {
+  margin-top: 1rem;
+  font-size: 0.8rem;
+}
+
+/* tablet ~ laptop */
+@media screen and (min-width: 480px) {
+  .container {
+    display: grid;
+    gap: 1.25rem;
+    grid-template-columns: repeat(auto-fill, minmax(min(180px, 100%), 1fr));
+  }
+
+  .listItem:not(:first-child) {
+    border-top: none;
+  }
+
+  .card {
+    position: relative;
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    border: 1px solid var(--content-border);
+    border-radius: 0.25rem;
+    background-color: var(--content-bg-primary);
+    cursor: pointer;
+  }
+
+  .image {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .card:is(:focus-within, :hover) {
+    box-shadow: 0 0 0 0.2rem;
+  }
+
+  .card img {
+    transition: transform 0.5s ease;
+  }
+
+  .card:is(:focus-within, :hover) img {
+    transform: scale(1.2);
+  }
+
+  .imageWrapper {
+    position: relative;
+    display: block;
+
+    /* はみ出た部分を非表示 */
+    overflow: hidden;
+    padding-bottom: 56.25%;
+    border-radius: 0.5rem;
+    box-shadow: 0 0 1px 1px var(--content-border);
+    cursor: pointer;
+  }
+
+  .frontmatter {
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-top: 1rem;
+  }
+
+  .title::after {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    content: "";
+  }
+
+  .title:active {
+    text-decoration: none;
+  }
+}

@@ -1,0 +1,119 @@
+.p {
+  margin-top: 1rem;
+  line-height: 1.9;
+}
+
+.imageWrapper {
+  position: relative;
+  overflow: hidden;
+  height: 0;
+  padding-top: calc(9 / 16 * 100%);
+}
+
+.h1 {
+  padding-bottom: 0.2rem;
+  border-bottom: 1px solid var(--content-border);
+  margin-top: 3rem;
+  font-size: 1.7rem;
+}
+
+.h2 {
+  margin-top: 2rem;
+  font-size: 1.4rem;
+}
+
+.h3 {
+  margin-top: 1rem;
+  font-size: 1.1rem;
+}
+
+.h1,
+.h2,
+.h3 {
+  font-weight: 700;
+}
+
+.ul {
+  padding-left: 2.5rem;
+  margin: 1rem 0;
+  list-style: disc;
+}
+
+.ul p {
+  margin: 0.5rem 0;
+}
+
+.ul li {
+  margin: 0.5rem 0;
+}
+
+.ol {
+  margin: 1rem 0;
+}
+
+.footnotes {
+  margin: 3rem 0 1rem;
+}
+
+.blockquote {
+  padding: 1rem;
+  border: 1px solid var(--content-border);
+  border-radius: 4px;
+  margin-top: 1rem;
+  background-color: var(--bg-secondary);
+  color: var(--text-secondary);
+}
+
+.blockquote p {
+  margin: 0;
+}
+
+/* Code block */
+.codeBlock {
+  position: relative;
+  margin: 1rem auto;
+}
+
+.fileName {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px 0;
+  background-color: #21262d;
+  color: #b3b3b3;
+  font-size: 0.8rem;
+  line-height: 1;
+}
+
+.pre {
+  overflow: auto;
+  padding: 2rem 1rem 1rem;
+  border-radius: 6px 4px 4px;
+  font-family: Menlo, Monaco, "Courier New", monospace;
+  font-size: 0.875rem;
+  line-height: 1.9;
+  text-align: left;
+}
+
+.noFileName {
+  padding: 1rem;
+  border-radius: 4px;
+}
+
+.line {
+  display: table-row;
+}
+
+.lineNo {
+  display: table-cell;
+  padding-right: 1em;
+  opacity: 0.6;
+  text-align: right;
+  user-select: none;
+}
+
+.lineContent {
+  display: table-cell;
+  padding-right: 1rem;
+}

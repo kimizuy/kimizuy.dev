@@ -1,0 +1,30 @@
+.toc {
+  padding: 1rem;
+  border: 1px solid var(--content-border);
+  border-radius: 0.25rem;
+  background-color: var(--content-bg-primary);
+  font-size: 0.8rem;
+}
+
+.toc-list .toc-list {
+  padding-top: 0.5rem;
+  padding-left: 1rem;
+}
+
+.toc-list-item {
+  padding-bottom: 0.5rem;
+  list-style: none;
+}
+
+.toc-list-item:last-child {
+  padding-bottom: 0;
+}
+
+.toc-link {
+  color: var(--text-secondary);
+}
+
+.is-active-link {
+  color: var(--text-primary);
+  font-weight: 700;
+}

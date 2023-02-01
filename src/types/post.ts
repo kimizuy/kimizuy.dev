@@ -1,13 +1,8 @@
 export type Frontmatter = {
-  title: string
-  description: string
-  publishedAt: string
-  tags: string[]
-  image: string
-}
+  title: string;
+  description: string;
+  publishedAt: string;
+  tags: string[];
+};
 
-export type Preview = {
-  slug: string
-  code: string
-  frontmatter: Frontmatter
-}
+export type MDXExport = { cover: string };
