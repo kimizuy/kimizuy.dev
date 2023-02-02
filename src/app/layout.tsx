@@ -1,10 +1,10 @@
 import localFont from "@next/font/local";
 import { PropsWithChildren } from "react";
 import { RootLayout } from "../components/RootLayout";
-import "../styles/globals.css";
 import "../styles/reset.css";
+/* prettier-ignore */
+import "../styles/global.css";
 
-// Font files can be colocated inside of `app`
 const zenKakuGothicNew = localFont({
   src: [
     {
@@ -18,7 +18,6 @@ const zenKakuGothicNew = localFont({
       style: "normal",
     },
   ],
-  variable: "--zen-kaku-gothic-new",
 });
 
 export default function Layout({ children }: PropsWithChildren) {

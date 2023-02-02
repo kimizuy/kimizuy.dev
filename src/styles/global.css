@@ -12,12 +12,6 @@
 
 html,
 body {
-  font-family:
-    var(--zen-kaku-gothic-new)
-    "Hiragino Kaku Gothic ProN",
-    "Hiragino Sans",
-    Meiryo,
-    sans-serif;
   line-height: 1.6;
   overflow-wrap: break-word;
 }
