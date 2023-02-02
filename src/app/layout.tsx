@@ -1,6 +1,6 @@
 import { PropsWithChildren } from "react";
 import { RootLayout } from "../components/RootLayout";
-import "../styles/globals.css";
+import "../styles/global.css";
 import "../styles/reset.css";
 
 // FIXME: @next/fonts/google not working
