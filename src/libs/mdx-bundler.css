@@ -11,11 +11,8 @@
 }
 
 .anchor {
-  --gap: 4px;
-
-  display: inline-block;
-  padding: 0 var(--gap);
-  margin-left: calc(-1ch - var(--gap));
+  position: absolute;
+  left: -16px;
 }
 
 .anchor-text {
