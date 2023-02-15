@@ -25,10 +25,10 @@ export type Post = Awaited<ReturnType<typeof getPost>>;
 
 export async function getAllPosts() {
   const posts = await Promise.all(POST_FILE_PATHS.map((slug) => getPost(slug)));
-  const sortedByDate = posts.sort((a, b) =>
+  const sortedDescByDate = posts.sort((a, b) =>
     dateSortDesc(a.frontmatter.publishedAt, b.frontmatter.publishedAt)
   );
-  return sortedByDate;
+  return sortedDescByDate;
 }
 
 export const getAllTags = async () => {
