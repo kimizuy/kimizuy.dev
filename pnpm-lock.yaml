@@ -10,6 +10,7 @@ specifiers:
   '@types/react-dom': ^18.0.10
   budoux: ^0.4.1
   date-fns: ^2.29.3
+  deepl-node: ^1.8.0
   esbuild: ^0.14.54
   eslint: ^8.32.0
   eslint-config-next: ^13.1.5
@@ -50,6 +51,7 @@ dependencies:
   '@types/react-dom': 18.0.11
   budoux: 0.4.1
   date-fns: 2.29.3
+  deepl-node: 1.8.0
   esbuild: 0.14.54
   eslint: 8.34.0
   eslint-config-next: 13.1.6_7kw3g6rralp5ps6mg3uyzz6azm
@@ -990,6 +992,16 @@ packages:
     engines: {node: '>=4'}
     dev: false
 
+  /axios/1.3.3:
+    resolution: {integrity: sha512-eYq77dYIFS77AQlhzEL937yUBSepBfPIe8FcgEDN35vMNZKMrs81pgnyrQpwfy4NF4b4XWX1Zgx7yX+25w8QJA==}
+    dependencies:
+      follow-redirects: 1.15.2
+      form-data: 4.0.0
+      proxy-from-env: 1.1.0
+    transitivePeerDependencies:
+      - debug
+    dev: false
+
   /axobject-query/3.1.1:
     resolution: {integrity: sha512-goKlv8DZrK9hUh975fnHzhNIO4jUnFCfv/dszV5VwUGDFjI6vQ2VwoyjYjYNEbBE8AH87TduWP5uyDR1D+Iteg==}
     dependencies:
@@ -1368,6 +1380,18 @@ packages:
 
   /deep-is/0.1.4:
     resolution: {integrity: sha512-oIPzksmTg4/MriiaYGO+okXDT7ztn/w3Eptv/+gSIdMdKsJo0u4CfYNFJPy+4SKMuCqGw2wxnA+URMg3t8a/bQ==}
+
+  /deepl-node/1.8.0:
+    resolution: {integrity: sha512-q8fQaQ2/HXvXWV9j5mABCH9tIlfWghFeVQfad4yPm8ZcYdhLNLwdmPMqXptL9oVueSRo+UtJR1OlnIm/EvvtAA==}
+    engines: {node: '>=12.0'}
+    dependencies:
+      '@types/node': 18.13.0
+      axios: 1.3.3
+      form-data: 3.0.1
+      loglevel: 1.8.1
+    transitivePeerDependencies:
+      - debug
+    dev: false
 
   /define-lazy-prop/2.0.0:
     resolution: {integrity: sha512-Ds09qNh8yw3khSjiJjiUInaGX9xlqZDY7JVryGxdxV7NPeuqQfplOpQ66yJFZut3jLa5zOwkXw1g9EI2uKh4Og==}
@@ -2289,10 +2313,29 @@ packages:
   /flatted/3.2.7:
     resolution: {integrity: sha512-5nqDSxl8nn5BSNxyR3n4I6eDmbolI6WT+QqR547RwxQapgjQBmtktdP+HTBb/a/zLsbzERTONyUB5pefh5TtjQ==}
 
+  /follow-redirects/1.15.2:
+    resolution: {integrity: sha512-VQLG33o04KaQ8uYi2tVNbdrWp1QWxNNea+nmIB4EVM28v0hmP17z7aG1+wAkNzVq4KeXTq3221ye5qTJP91JwA==}
+    engines: {node: '>=4.0'}
+    peerDependencies:
+      debug: '*'
+    peerDependenciesMeta:
+      debug:
+        optional: true
+    dev: false
+
   /for-each/0.3.3:
     resolution: {integrity: sha512-jqYfLp7mo9vIyQf8ykW2v7A+2N4QjeCeI5+Dz9XraiO1ign81wjiH7Fb9vSOWvQfNtmSa4H2RoQTrrXivdUZmw==}
     dependencies:
       is-callable: 1.2.7
+    dev: false
+
+  /form-data/3.0.1:
+    resolution: {integrity: sha512-RHkBKtLWUVwd7SqRIvCZMEvAMoGUp0XU+seQiZejj0COz3RI3hWP4sCv3gZWWLjJTd7rGwcsF5eKZGii0r/hbg==}
+    engines: {node: '>= 6'}
+    dependencies:
+      asynckit: 0.4.0
+      combined-stream: 1.0.8
+      mime-types: 2.1.35
     dev: false
 
   /form-data/4.0.0:
@@ -3146,6 +3189,11 @@ packages:
   /lodash.truncate/4.4.2:
     resolution: {integrity: sha512-jttmRe7bRse52OsWIMDLaXxWqRAmtIUccAQ3garviCqJjafXOfNMO0yMfNpdD6zbGaTU0P5Nz7e7gAT6cKmJRw==}
     dev: true
+
+  /loglevel/1.8.1:
+    resolution: {integrity: sha512-tCRIJM51SHjAayKwC+QAg8hT8vg6z7GSgLJKGvzuPb1Wc+hLzqtuVLxp6/HzSPOozuK+8ErAhy7U/sVzw8Dgfg==}
+    engines: {node: '>= 0.6.0'}
+    dev: false
 
   /longest-streak/3.1.0:
     resolution: {integrity: sha512-9Ri+o0JYgehTaVBBDoMqIl8GXtbWg711O3srftcHhZ0dqnETqLaoIK0x17fUw9rFSlK/0NlsKe0Ahhyl5pXE2g==}
@@ -4282,6 +4330,10 @@ packages:
 
   /property-information/6.2.0:
     resolution: {integrity: sha512-kma4U7AFCTwpqq5twzC1YVIDXSqg6qQK6JN0smOw8fgRy1OkMi0CYSzFmsy6dnqSenamAtj0CyXMUJ1Mf6oROg==}
+    dev: false
+
+  /proxy-from-env/1.1.0:
+    resolution: {integrity: sha512-D+zkORCbA9f1tdWRK0RaCR3GPv50cMxcrz4X8k5LTSUD1Dkw47mKJEZQNunItRTkWwgtaUSo1RVFRIG9ZXiFYg==}
     dev: false
 
   /psl/1.9.0:
