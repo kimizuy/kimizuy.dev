@@ -55,8 +55,9 @@
     "type-predicates-generator": "^0.3.2"
   },
   "engines": {
-    "npm": "^8.19.2",
+    "pnpm": "^7.27.0",
     "node": "^18.12.1",
-    "yarn": "please-use-npm"
+    "npm": "please-use-pnpm",
+    "yarn": "please-use-pnpm"
   }
 }
