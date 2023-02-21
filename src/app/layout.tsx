@@ -1,8 +1,6 @@
 import localFont from "@next/font/local";
 import { PropsWithChildren } from "react";
 import { RootLayout } from "../components/RootLayout";
-import "../styles/reset.css";
-/* prettier-ignore */
 import "../styles/global.css";
 
 const zenKakuGothicNew = localFont({
