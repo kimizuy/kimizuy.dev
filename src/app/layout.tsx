@@ -1,5 +1,5 @@
 import localFont from "next/font/local";
-import { PropsWithChildren } from "react";
+import { LayoutProps } from "../../.next/types/app/page";
 import { RootLayout } from "../components/RootLayout";
 import "../styles/global.css";
 import { SITE_DESCRIPTION, SITE_TITLE, SITE_URL } from "../utils/constants";
@@ -43,7 +43,7 @@ export const metadata = {
   },
 };
 
-export default function Layout({ children }: PropsWithChildren) {
+export default function Layout({ children }: LayoutProps) {
   return (
     <html lang="ja" className={zenKakuGothicNew.className}>
       <head />
