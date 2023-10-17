@@ -7,10 +7,11 @@ import "./tocbot.css";
 
 export function Tocbot() {
   const { width } = useWindowWidth();
-  const isMobile = width <= 768;
-  const offset = isMobile ? 32 : 48;
 
   useEffect(() => {
+    const isMobile = width ? width <= 768 :undefined;
+    const offset = isMobile ? 32 : 48;
+
     tocbot.init({
       tocSelector: ".toc",
       contentSelector: ".post",
@@ -22,7 +23,7 @@ export function Tocbot() {
     });
 
     return () => tocbot.destroy();
-  }, [offset]);
+  }, [width]);
 
   return <div className="toc" />;
 }
