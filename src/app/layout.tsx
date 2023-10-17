@@ -25,14 +25,6 @@ export const metadata = {
   },
   description: SITE_DESCRIPTION,
   icons: { icon: "/favicon.ico" },
-  twitter: {
-    card: "summary_large_image",
-    site: "@kimizuy",
-    creator: "@kimizuy",
-    title: { default: SITE_TITLE, template: `%s | ${SITE_TITLE}` },
-    description: SITE_DESCRIPTION,
-    images: new URL("/profile.jpg", SITE_URL),
-  },
   openGraph: {
     url: SITE_URL,
     type: "article",
@@ -49,7 +41,6 @@ type Props = {
 export default function Layout({ children }: Props) {
   return (
     <html lang="ja" className={zenKakuGothicNew.className}>
-      <head />
       <body>
         <RootLayout>{children}</RootLayout>
       </body>
