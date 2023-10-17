@@ -33,11 +33,11 @@ export default async function Page({ params }: PageProps) {
   const posts = await getAllPosts();
   const tags = [
     ...new Set(
-      posts.map((post) => post.frontmatter.tags).flatMap((tag) => tag)
+      posts.map((post) => post.frontmatter.tags).flatMap((tag) => tag),
     ),
   ];
   const filteredPostsByTag = posts.filter(({ frontmatter }) =>
-    frontmatter.tags.includes(params.tag)
+    frontmatter.tags.includes(params.tag),
   );
 
   return (

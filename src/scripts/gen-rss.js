@@ -16,7 +16,7 @@ async function generate() {
   await Promise.all(
     posts.map(async (name) => {
       const content = await fs.readFile(
-        path.join(process.cwd(), "_data", name, "index.mdx")
+        path.join(process.cwd(), "_data", name, "index.mdx"),
       );
       const frontmatter = matter(content);
 
@@ -28,7 +28,7 @@ async function generate() {
         categories: frontmatter.data.tags,
         author: "kimizuy",
       });
-    })
+    }),
   );
 
   await fs.writeFile("./public/feed.xml", feed.xml({ indent: true }));

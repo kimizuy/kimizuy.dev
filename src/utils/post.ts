@@ -26,14 +26,14 @@ export type Post = Awaited<ReturnType<typeof getPost>>;
 export async function getAllPosts() {
   const posts = await Promise.all(POST_FILE_PATHS.map((slug) => getPost(slug)));
   const sortedDescByDate = posts.sort((a, b) =>
-    dateSortDesc(a.frontmatter.publishedAt, b.frontmatter.publishedAt)
+    dateSortDesc(a.frontmatter.publishedAt, b.frontmatter.publishedAt),
   );
   return sortedDescByDate;
 }
 
 export const getAllTags = async () => {
   const allTags = await getAllPosts().then((post) =>
-    post.map((v) => v.frontmatter.tags)
+    post.map((v) => v.frontmatter.tags),
   );
   const uniqueTags = [...new Set(allTags.flatMap((tag) => tag))];
   return uniqueTags;
