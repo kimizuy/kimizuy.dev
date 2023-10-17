@@ -17,7 +17,6 @@ export default async function Page() {
       sideBarItem={
         <>
           <TagList tags={tags} />
-          {/* <Tweet /> */}
         </>
       }
     >
