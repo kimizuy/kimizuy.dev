@@ -8,13 +8,17 @@ export default function Home() {
       <Logo />
       <ul className={styles.list}>
         <li>
-          <Link href="https://blog.kimizuy.dev">Blog</Link>
+          <Link href="/blog">Blog</Link>
         </li>
         <li>
-          <Link href="https://github.com/kimizuy">GitHub</Link>
+          <a href="https://github.com/kimizuy" target="_blank">
+            GitHub
+          </a>
         </li>
         <li>
-          <Link href="https://twitter.com/kimizuy">Twitter</Link>
+          <a href="https://twitter.com/kimizuy" target="_blank">
+            Twitter
+          </a>
         </li>
       </ul>
     </div>
