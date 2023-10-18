@@ -1,7 +1,7 @@
 import { Metadata } from "next";
+import "../../../../styles/prism-vsc-dark-plus.css";
 import type { InferGenerateStaticParamsType } from "../../../../types/next";
 import { POST_FILE_PATHS, SITE_URL } from "../../../../utils/constants";
-import "../../../styles/prism-vsc-dark-plus.css";
 
 export async function generateStaticParams() {
   const slugs = POST_FILE_PATHS.map((slug) => ({ slug }));
