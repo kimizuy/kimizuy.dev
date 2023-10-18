@@ -5,9 +5,6 @@ const nextConfig = {
   images: {
     formats: ["image/avif", "image/webp"],
   },
-  experimental: {
-    serverComponentsExternalPackages: ["mdx-bundler"],
-  },
 
   // fix error from budoux: "Module not found: Can't resolve 'canvas'"
   // ref: https://github.com/vercel/next.js/discussions/43465#discussioncomment-4256927
