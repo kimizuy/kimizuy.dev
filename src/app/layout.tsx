@@ -1,5 +1,5 @@
 import localFont from "next/font/local";
-import { RootLayout } from "../components/RootLayout";
+import { RootLayout } from "../components/root-layout";
 import "../styles/global.css";
 import { SITE_DESCRIPTION, SITE_TITLE } from "../utils/constants";
 

@@ -2,7 +2,7 @@
 
 import { motion, Variants } from "framer-motion";
 // import { Post } from "../utils/post";
-import styles from "./CardList.module.css";
+import styles from "./card-list.module.css";
 
 // type Props = {
 //   posts: Post[];

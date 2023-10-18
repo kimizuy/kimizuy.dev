@@ -1,8 +1,8 @@
 "use client";
 
 import Image from "next/image";
-import { useOverlayImage } from "../../providers/OverlayImageProvider";
-import styles from "./PostImage.module.css";
+import { useOverlayImage } from "../../providers/overlay-image-provider";
+import styles from "./post-image.module.css";
 
 interface Props {
   alt: string;

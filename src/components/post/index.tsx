@@ -1,5 +1,5 @@
 // import { Post } from "../../utils/post";
-import { ArticleEnd } from "./ArticleEnd";
+import { ArticleEnd } from "./article-end";
 import styles from "./index.module.css";
 
 // type Props = Post;

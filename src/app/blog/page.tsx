@@ -1,4 +1,4 @@
-import { ContentLayout } from "../../components/ContentLayout";
+import { ContentLayout } from "../../components/content-layout";
 
 export default async function Page() {
   // const posts = await getAllPosts();

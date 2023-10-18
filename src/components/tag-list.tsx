@@ -1,5 +1,5 @@
 import Link from "next/link";
-import styles from "./TagList.module.css";
+import styles from "./tag-list.module.css";
 
 type Props = {
   tags: string[];

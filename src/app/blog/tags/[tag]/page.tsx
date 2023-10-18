@@ -1,5 +1,6 @@
-import { ContentLayout } from "../../../../components/ContentLayout";
 // import { getAllPosts, getAllTags } from "../../../../utils/post";
+
+import { ContentLayout } from "../../../../components/content-layout";
 
 // export async function generateStaticParams() {
 //   const tags = (await getAllTags()).map((tag) => ({ tag }));
@@ -38,14 +39,7 @@ export default async function Page() {
   // );
 
   return (
-    <ContentLayout
-      home
-      sideBarItem={
-        <>
-          {/* <TagList tags={tags} /> */}
-        </>
-      }
-    >
+    <ContentLayout home sideBarItem={<>{/* <TagList tags={tags} /> */}</>}>
       {/* <h1>#{params.tag}</h1>
       <CardList posts={filteredPostsByTag} /> */}
     </ContentLayout>

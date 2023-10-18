@@ -2,7 +2,7 @@
 
 import { AnimatePresence, motion, Variants } from "framer-motion";
 import { ReactNode } from "react";
-import styles from "./ContentLayout.module.css";
+import styles from "./content-layout.module.css";
 
 interface Props {
   children: ReactNode;

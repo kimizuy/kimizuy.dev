@@ -1,6 +1,6 @@
 import { format, parseISO } from "date-fns";
 import { Frontmatter } from "../types/post";
-import styles from "./Date.module.css";
+import styles from "./date.module.css";
 
 type Props = {
   publishedAt: Frontmatter["publishedAt"];
