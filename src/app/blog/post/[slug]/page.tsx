@@ -1,12 +1,12 @@
+import { allPosts } from "contentlayer/generated";
 import { Metadata } from "next";
+import { notFound } from "next/navigation";
 import "../../../../styles/prism-vsc-dark-plus.css";
 import type { InferGenerateStaticParamsType } from "../../../../types/next";
-import { POST_FILE_PATHS, SITE_URL } from "../../../../utils/constants";
+import { SITE_URL } from "../../../../utils/constants";
 
-export async function generateStaticParams() {
-  const slugs = POST_FILE_PATHS.map((slug) => ({ slug }));
-  return slugs;
-}
+export const generateStaticParams = async () =>
+  allPosts.map((post) => ({ slug: post._raw.flattenedPath }));
 
 export type PageProps = InferGenerateStaticParamsType<
   typeof generateStaticParams
@@ -29,8 +29,18 @@ export async function generateMetadata({
 }
 
 export default async function Page({ params }: PageProps) {
-  // const post = await getPost(params.slug);
+  console.log(params.slug, allPosts);
+  const post = allPosts.find((post) => post._raw.flattenedPath === params.slug);
 
-  // return <Post {...post} />;
-  return <div>{params.slug}</div>;
+  if (!post) notFound();
+
+  console.log(post);
+
+  return (
+    <div>
+      <div>{post.title}</div>
+      {/* <div>{post.image}</div> */}
+      {/* <div>{post.title}</div> */}
+    </div>
+  );
 }
