@@ -19,6 +19,7 @@ const zenKakuGothicNew = localFont({
 });
 
 export const metadata = {
+  metadataBase: new URL("https://kimizuy.dev"),
   title: {
     default: SITE_TITLE,
     template: `%s | ${SITE_TITLE}`,
