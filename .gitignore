@@ -38,3 +38,6 @@ next-env.d.ts
 
 # mdx
 public/posts
+
+# contentlayer
+.contentlayer
