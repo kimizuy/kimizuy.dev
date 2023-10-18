@@ -1,7 +1,7 @@
 import localFont from "next/font/local";
 import { RootLayout } from "../components/RootLayout";
 import "../styles/global.css";
-import { SITE_DESCRIPTION, SITE_TITLE, SITE_URL } from "../utils/constants";
+import { SITE_DESCRIPTION, SITE_TITLE } from "../utils/constants";
 
 const zenKakuGothicNew = localFont({
   src: [
@@ -25,13 +25,6 @@ export const metadata = {
   },
   description: SITE_DESCRIPTION,
   icons: { icon: "/favicon.ico" },
-  openGraph: {
-    url: SITE_URL,
-    type: "article",
-    title: { default: SITE_TITLE, template: `%s | ${SITE_TITLE}` },
-    description: SITE_DESCRIPTION,
-    images: new URL("/profile.jpg", SITE_URL),
-  },
 };
 
 type Props = {
