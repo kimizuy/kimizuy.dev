@@ -1,6 +1,6 @@
-import { CardList } from "../components/CardList";
-import { ContentLayout } from "../components/ContentLayout";
-import { TagList } from "../components/TagList";
+import { CardList } from "../components/card-list";
+import { ContentLayout } from "../components/content-layout";
+import { TagList } from "../components/tag-list";
 import { getAllPosts } from "../utils/post";
 
 export default async function Page() {

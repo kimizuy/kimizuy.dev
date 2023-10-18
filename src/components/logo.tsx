@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { NAME, SITE_TITLE } from "../utils/constants";
-import styles from "./Logo.module.css";
+import styles from "./logo.module.css";
 
 export function Logo() {
   return (

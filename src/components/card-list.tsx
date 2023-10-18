@@ -3,10 +3,10 @@
 import { motion, Variants } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import { Date } from "../components/Date";
 import { Post } from "../utils/post";
-import styles from "./CardList.module.css";
-import { TagList } from "./TagList";
+import styles from "./card-list.module.css";
+import { Date } from "./date";
+import { TagList } from "./tag-list";
 
 type Props = {
   posts: Post[];

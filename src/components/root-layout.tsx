@@ -1,7 +1,7 @@
 import { PropsWithChildren } from "react";
-import { CopyRight } from "./CopyRight";
-import { Logo } from "./Logo";
-import styles from "./RootLayout.module.css";
+import { CopyRight } from "./copy-right";
+import { Logo } from "./logo";
+import styles from "./root-layout.module.css";
 
 export function RootLayout({ children }: PropsWithChildren) {
   return (

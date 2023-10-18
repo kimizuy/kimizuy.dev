@@ -1,8 +1,8 @@
 import { getMDXComponent } from "mdx-bundler/client";
 import { ReactNode } from "react";
 import { budouxParse } from "../../libs/budoux";
-import styles from "./MDXComponent.module.css";
-import { PostImage } from "./PostImage";
+import styles from "./mdx-component.module.css";
+import { PostImage } from "./post-image";
 
 interface Props {
   code: string;
