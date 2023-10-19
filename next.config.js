@@ -6,7 +6,7 @@ const nextConfig = {
     // https://nextjs.org/docs/app/api-reference/next-config-js/serverComponentsExternalPackages
     serverComponentsExternalPackages: ["budoux"],
   },
-  rewrites() {
+  async rewrites() {
     return {
       beforeFiles: [
         // rewrite "blog.kimizuy.dev" to "kimizuy.dev/blog"
