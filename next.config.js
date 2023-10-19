@@ -5,15 +5,12 @@ const nextConfig = {
   experimental: {
     serverComponentsExternalPackages: ["budoux"],
   },
-  async rewrites() {
+  async redirects() {
     return [
       {
         source: "/",
         destination: "https://kimizuy.dev/blog",
-      },
-      {
-        source: "/:path*",
-        destination: "https://kimizuy.dev/blog/:path*",
+        permanent: true,
       },
     ];
   },
