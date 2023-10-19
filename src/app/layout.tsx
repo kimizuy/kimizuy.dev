@@ -20,6 +20,7 @@ const zenKakuGothicNew = localFont({
 });
 
 export const metadata = {
+  metabase: new URL(SITE_URL),
   title: {
     default: SITE_TITLE,
     template: `%s | ${SITE_TITLE}`,
