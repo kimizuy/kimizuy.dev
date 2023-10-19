@@ -3,10 +3,10 @@
 import { motion, Variants } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import { Date } from "../components/Date";
 import { Post } from "../utils/post";
-import styles from "./CardList.module.css";
-import { TagList } from "./TagList";
+import styles from "./card-list.module.css";
+import { Date } from "./date";
+import { TagList } from "./tag-list";
 
 type Props = {
   posts: Post[];
@@ -57,7 +57,7 @@ function Card({ slug, frontmatter, cover }: Post) {
         <div className={styles.imageWrapper}>
           <Image alt="" src={cover} fill className={styles.image} />
         </div>
-        <Link href={`/posts/${slug}`} className={styles.title}>
+        <Link href={`/blog/posts/${slug}`} className={styles.title}>
           {frontmatter.title}
         </Link>
       </div>

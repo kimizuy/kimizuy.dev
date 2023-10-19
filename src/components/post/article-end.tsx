@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { TWITTER } from "../../utils/constants";
-import styles from "./ArticleEnd.module.css";
+import styles from "./article-end.module.css";
 
 export function ArticleEnd() {
   return (

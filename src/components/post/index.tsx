@@ -1,9 +1,9 @@
 import { Post } from "../../utils/post";
-import { Date } from "../Date";
-import { TagList } from "../TagList";
-import { ArticleEnd } from "./ArticleEnd";
+import { Date } from "../date";
+import { TagList } from "../tag-list";
+import { ArticleEnd } from "./article-end";
 import styles from "./index.module.css";
-import { MDXComponent } from "./MDXComponent";
+import { MDXComponent } from "./mdx-component";
 
 type Props = Post;
 

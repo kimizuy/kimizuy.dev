@@ -1,5 +1,5 @@
 import { GITHUB, TWITTER } from "../utils/constants";
-import styles from "./CopyRight.module.css";
+import styles from "./copy-right.module.css";
 
 export function CopyRight() {
   return (

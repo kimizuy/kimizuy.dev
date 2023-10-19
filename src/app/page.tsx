@@ -1,27 +1,22 @@
-import { CardList } from "../components/CardList";
-import { ContentLayout } from "../components/ContentLayout";
-import { TagList } from "../components/TagList";
-import { getAllPosts } from "../utils/post";
+import Link from "next/link";
+import { Logo } from "../components/logo";
+import styles from "./home.module.css";
 
-export default async function Page() {
-  const posts = await getAllPosts();
-  const tags = [
-    ...new Set(
-      posts.map((post) => post.frontmatter.tags).flatMap((tag) => tag)
-    ),
-  ];
-
+export default function Home() {
   return (
-    <ContentLayout
-      home
-      sideBarItem={
-        <>
-          <TagList tags={tags} />
-          {/* <Tweet /> */}
-        </>
-      }
-    >
-      <CardList posts={posts} />
-    </ContentLayout>
+    <div className={styles.container}>
+      <Logo />
+      <ul className={styles.list}>
+        <li>
+          <Link href="/blog">Blog</Link>
+        </li>
+        <li>
+          <Link href="https://github.com/kimizuy">GitHub</Link>
+        </li>
+        <li>
+          <Link href="https://twitter.com/kimizuy">Twitter</Link>
+        </li>
+      </ul>
+    </div>
   );
 }
