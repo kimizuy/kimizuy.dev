@@ -11,14 +11,24 @@ const nextConfig = {
       beforeFiles: [
         // rewrite "blog.kimizuy.dev" to "kimizuy.dev/blog"
         {
-          source: "/:path*",
+          source: "/",
           has: [
             {
               type: "host",
               value: "blog.kimizuy.dev",
             },
           ],
-          destination: "/blog/:path*",
+          destination: "/blog",
+        },
+        {
+          source: "/posts/:path*",
+          has: [
+            {
+              type: "host",
+              value: "blog.kimizuy.dev",
+            },
+          ],
+          destination: "/blog/post/:path*",
         },
       ],
     };
