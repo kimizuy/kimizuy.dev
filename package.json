@@ -44,14 +44,17 @@
     "@types/node": "^18.18.6",
     "@types/react": "^18.2.29",
     "@types/react-dom": "^18.2.14",
+    "autoprefixer": "^10.4.16",
     "eslint-config-prettier": "^8.10.0",
     "eslint-plugin-mdx": "^2.2.0",
     "gray-matter": "^4.0.3",
+    "postcss": "^8.4.31",
     "prettier": "^2.8.8",
     "rss": "^1.2.2",
     "stylelint": "^15.11.0",
     "stylelint-config-idiomatic-order": "^9.0.0",
     "stylelint-config-standard": "^30.0.1",
+    "tailwindcss": "^3.3.3",
     "type-predicates-generator": "^0.4.0"
   },
   "engines": {
