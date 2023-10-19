@@ -9,7 +9,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "typecheck": "tsc --noEmit",
+    "typecheck": "tsc",
     "cleanup-post-images": "rm -rf public/posts",
     "generate-type-predicates": "type-predicates-generator -f src/types/post.ts -o src/libs/type-predicates.ts -a"
   },
