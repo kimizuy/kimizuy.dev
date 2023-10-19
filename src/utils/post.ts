@@ -24,7 +24,9 @@ export async function getPost(slug: string) {
 export type Post = Awaited<ReturnType<typeof getPost>>;
 
 export async function getAllPosts() {
-  const posts = await Promise.all(POST_FILE_PATHS.map((slug) => getPost(slug)));
+  const posts = await Promise.all(
+    POST_FILE_PATHS.map(async (slug) => await getPost(slug)),
+  );
   const sortedDescByDate = posts.sort((a, b) =>
     dateSortDesc(a.frontmatter.publishedAt, b.frontmatter.publishedAt)
   );
