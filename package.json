@@ -10,7 +10,7 @@
     "start": "next start",
     "lint": "next lint",
     "typecheck": "tsc",
-    "cleanup-post-images": "rm -rf public/posts",
+    "cleanup-post-images": "rm -rf public/_posts",
     "generate-type-predicates": "type-predicates-generator -f src/types/post.ts -o src/libs/type-predicates.ts -a"
   },
   "dependencies": {
