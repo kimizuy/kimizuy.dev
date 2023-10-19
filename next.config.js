@@ -7,28 +7,27 @@ const nextConfig = {
     serverComponentsExternalPackages: ["budoux"],
   },
   async rewrites() {
+    const oldBlogHost = {
+      type: "host",
+      value: "blog.kimizuy.dev",
+    };
     return {
       beforeFiles: [
         // rewrite "blog.kimizuy.dev" to "kimizuy.dev/blog"
         {
           source: "/",
-          has: [
-            {
-              type: "host",
-              value: "blog.kimizuy.dev",
-            },
-          ],
-          destination: "/blog",
+          has: [oldBlogHost],
+          destination: "https://kimizuy.dev/blog",
         },
         {
           source: "/posts/:path*",
-          has: [
-            {
-              type: "host",
-              value: "blog.kimizuy.dev",
-            },
-          ],
-          destination: "/blog/post/:path*",
+          has: [oldBlogHost],
+          destination: "https://kimizuy.dev/blog/post/:path*",
+        },
+        {
+          source: "/tags/:path*",
+          has: [oldBlogHost],
+          destination: "https://kimizuy.dev/blog/tag/:path*",
         },
       ],
     };
