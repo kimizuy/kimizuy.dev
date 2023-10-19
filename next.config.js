@@ -6,20 +6,16 @@ const nextConfig = {
     serverComponentsExternalPackages: ["budoux"],
   },
   async rewrites() {
-    return {
-      beforeFiles: [
-        {
-          source: "/:path*",
-          has: [
-            {
-              type: "host",
-              value: "blog.kimizuy.dev",
-            },
-          ],
-          destination: "/blog/:path*",
-        },
-      ],
-    };
+    return [
+      {
+        source: "/",
+        destination: "https://kimizuy.dev/blog",
+      },
+      {
+        source: "/:path*",
+        destination: "https://kimizuy.dev/blog/:path*",
+      },
+    ];
   },
 };
 
