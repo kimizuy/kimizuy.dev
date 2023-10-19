@@ -22,7 +22,7 @@ async function generate() {
 
       feed.item({
         title: frontmatter.data.title,
-        url: `/blog/posts/${name}`,
+        url: `/blog/post/${name}`,
         date: frontmatter.data.publishedAt,
         description: frontmatter.data.description,
         categories: frontmatter.data.tags,

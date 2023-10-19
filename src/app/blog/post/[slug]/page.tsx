@@ -27,7 +27,7 @@ export async function generateMetadata({
       images: image,
     },
     openGraph: {
-      url: new URL(`/blog/posts/${params.slug}`, SITE_URL),
+      url: new URL(`/blog/post/${params.slug}`, SITE_URL),
       title: frontmatter.title,
       images: image,
     },
