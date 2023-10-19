@@ -1,7 +1,7 @@
 export type Frontmatter = {
   title: string;
   description: string;
-  publishedAt: string;
+  publishedAt: Date;
   tags: string[];
 };
 

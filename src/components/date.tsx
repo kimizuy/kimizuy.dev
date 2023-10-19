@@ -1,4 +1,4 @@
-import { format, parseISO } from "date-fns";
+import { format } from "date-fns";
 import { Frontmatter } from "../types/post";
 import styles from "./date.module.css";
 
@@ -14,7 +14,7 @@ export function Date({ publishedAt }: Props) {
   );
 }
 
-function Time({ value }: { value: string }) {
-  const date = parseISO(value);
-  return <time dateTime={value}>{format(date, "yyyy/M/d")}</time>;
+function Time({ value }: { value: Date }) {
+  const date = format(value, "yyyy/M/d");
+  return <time dateTime={date}>{date}</time>;
 }
