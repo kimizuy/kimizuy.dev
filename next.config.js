@@ -5,7 +5,7 @@ const nextConfig = {
   experimental: {
     serverComponentsExternalPackages: ["budoux"],
   },
-  rewrites() {
+  async rewrites() {
     return {
       beforeFiles: [
         {
