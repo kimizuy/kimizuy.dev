@@ -7,7 +7,7 @@ import "./tocbot.css";
 
 export function Tocbot() {
   const { width } = useWindowWidth();
-  const isMobile = width ? width <= 768 : null;
+  const isMobile = width ? width <= 768 : undefined;
   const offset = isMobile ? 32 : 48;
 
   useEffect(() => {
