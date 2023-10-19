@@ -57,7 +57,7 @@ function Card({ slug, frontmatter, cover }: Post) {
         <div className={styles.imageWrapper}>
           <Image alt="" src={cover} fill className={styles.image} />
         </div>
-        <Link href={`/posts/${slug}`} className={styles.title}>
+        <Link href={`/blog/posts/${slug}`} className={styles.title}>
           {frontmatter.title}
         </Link>
       </div>

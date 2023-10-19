@@ -1,10 +1,10 @@
 import { Metadata } from "next";
-import { CardList } from "../../../components/card-list";
-import { ContentLayout } from "../../../components/content-layout";
-import { TagList } from "../../../components/tag-list";
-import { InferGenerateStaticParamsType } from "../../../types/next";
-import { SITE_URL } from "../../../utils/constants";
-import { getAllPosts, getAllTags } from "../../../utils/post";
+import { CardList } from "../../../../components/card-list";
+import { ContentLayout } from "../../../../components/content-layout";
+import { TagList } from "../../../../components/tag-list";
+import { InferGenerateStaticParamsType } from "../../../../types/next";
+import { SITE_URL } from "../../../../utils/constants";
+import { getAllPosts, getAllTags } from "../../../../utils/post";
 
 export async function generateStaticParams() {
   const tags = (await getAllTags()).map((tag) => ({ tag }));
