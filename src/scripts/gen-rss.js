@@ -11,24 +11,24 @@ async function generate() {
     feed_url: "https://blog.kimizuy.dev/feed.xml",
   });
 
-  const posts = await fs.readdir(path.join(process.cwd(), "_data"));
+  const posts = await fs.readdir(path.join(process.cwd(), "_posts"));
 
   await Promise.all(
     posts.map(async (name) => {
       const content = await fs.readFile(
-        path.join(process.cwd(), "_data", name, "index.mdx")
+        path.join(process.cwd(), "_posts", name, "index.mdx"),
       );
       const frontmatter = matter(content);
 
       feed.item({
         title: frontmatter.data.title,
-        url: `/blog/posts/${name}`,
+        url: `/blog/post/${name}`,
         date: frontmatter.data.publishedAt,
         description: frontmatter.data.description,
         categories: frontmatter.data.tags,
         author: "kimizuy",
       });
-    })
+    }),
   );
 
   await fs.writeFile("./public/feed.xml", feed.xml({ indent: true }));

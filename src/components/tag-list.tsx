@@ -10,7 +10,7 @@ export function TagList({ tags }: Props) {
     <ul className={styles.container}>
       {tags.map((tag) => (
         <li key={tag} className={styles.item}>
-          <Link href={`/tags/${tag}`} className={styles.link}>
+          <Link href={`/blog/tag/${tag}`} className={styles.link}>
             #{tag}
           </Link>
         </li>

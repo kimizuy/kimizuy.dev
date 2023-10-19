@@ -15,7 +15,7 @@ export async function bundleMDX(slug: string) {
   const postFilePath = path.join(POSTS_PATH, slug, "index.mdx");
   const source = readFileSync(postFilePath, "utf-8");
   const cwd = path.join(POSTS_PATH, slug);
-  const imagesUrl = path.join("posts", slug);
+  const imagesUrl = path.join("_posts", slug);
 
   const result = await _bundleMDX({
     source,
