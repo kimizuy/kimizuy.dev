@@ -10,9 +10,7 @@ export function RootLayout({ children }: PropsWithChildren) {
           <Logo />
         </div>
       </header>
-      <main className="p-4 max-w-6xl w-full mx-auto justify-center grid">
-        {children}
-      </main>
+      <main className="p-4 max-w-6xl w-full mx-auto">{children}</main>
       <footer className="h-20 place-self-center">
         <CopyRight />
       </footer>

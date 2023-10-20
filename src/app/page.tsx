@@ -1,9 +1,8 @@
 import Link from "next/link";
-import styles from "./home.module.css";
 
 export default function Home() {
   return (
-    <div className={styles.container}>
+    <div className="grid place-items-center h-full">
       <div className="flex flex-col gap-8 text-xl">
         <Link href="/blog">Blog</Link>
         <Link href="https://github.com/kimizuy">GitHub</Link>

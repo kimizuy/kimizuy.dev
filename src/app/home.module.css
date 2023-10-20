@@ -1,9 +1,0 @@
-.container {
-  display: grid;
-  place-items: center;
-}
-
-.list {
-  line-height: 2;
-  list-style: none;
-}
