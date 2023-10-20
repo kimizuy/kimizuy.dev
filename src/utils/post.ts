@@ -1,5 +1,5 @@
 import { getMDXExport } from "mdx-bundler/client";
-import { notFound } from "next/navigation";
+import { exit } from "process";
 import { bundleMDX } from "../libs/mdx-bundler";
 import { isFrontmatter, isMDXExport } from "../libs/type-predicates";
 import { POST_FILE_PATHS } from "./constants";
@@ -17,7 +17,7 @@ export async function getPost(slug: string) {
   } catch (error) {
     const errorMessage = getErrorMessage(error);
     console.error(`${slug}: ${errorMessage}`);
-    notFound();
+    exit(1);
   }
 }
 
