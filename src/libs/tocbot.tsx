@@ -13,7 +13,7 @@ export function Tocbot() {
   useEffect(() => {
     tocbot.init({
       tocSelector: ".toc",
-      contentSelector: ".post",
+      contentSelector: ".toc-content",
       headingSelector: "h2, h3, h4",
       orderedList: false,
       // ref: http://tscanlin.github.io/tocbot/#fixed-headers
