@@ -2,7 +2,7 @@ import fs from "fs";
 import path from "path";
 
 export const NAME = "kimizuy";
-export const SITE_TITLE = "kimizuy blog";
+export const SITE_TITLE = "kimizuy.dev";
 export const SITE_DESCRIPTION = "kimizuy のブログです";
 export const SITE_URL = "https://blog.kimizuy.dev";
 export const TWITTER = "https://twitter.com/kimizuy";

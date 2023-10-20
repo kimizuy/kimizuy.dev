@@ -3,12 +3,13 @@
 
   position: relative;
   display: flex;
+  width: fit-content;
   flex-wrap: wrap;
   margin: calc(-1 * var(--gap));
 }
 
 .item {
-  margin: var(--gap);
+  padding: var(--gap);
 }
 
 .link {

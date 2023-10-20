@@ -1,11 +1,12 @@
 import { getMDXExport } from "mdx-bundler/client";
-import { notFound } from "next/navigation";
+import { exit } from "process";
+import { cache } from "react";
 import { bundleMDX } from "../libs/mdx-bundler";
 import { isFrontmatter, isMDXExport } from "../libs/type-predicates";
 import { POST_FILE_PATHS } from "./constants";
 import { dateSortDesc, getErrorMessage } from "./helper";
 
-export async function getPost(slug: string) {
+export const getPost = cache(async (slug: string) => {
   try {
     const { code, frontmatter } = await bundleMDX(slug);
     const exported = getMDXExport(code);
@@ -17,24 +18,25 @@ export async function getPost(slug: string) {
   } catch (error) {
     const errorMessage = getErrorMessage(error);
     console.error(`${slug}: ${errorMessage}`);
-    notFound();
+    exit(1);
   }
-}
+});
 
 export type Post = Awaited<ReturnType<typeof getPost>>;
 
-export async function getAllPosts() {
-  const posts = await Promise.all(POST_FILE_PATHS.map((slug) => getPost(slug)));
+export const getAllPosts = cache(async () => {
+  const posts = await Promise.all(
+    POST_FILE_PATHS.map(async (slug) => await getPost(slug)),
+  );
   const sortedDescByDate = posts.sort((a, b) =>
-    dateSortDesc(a.frontmatter.publishedAt, b.frontmatter.publishedAt)
+    dateSortDesc(a.frontmatter.publishedAt, b.frontmatter.publishedAt),
   );
   return sortedDescByDate;
-}
+});
 
-export const getAllTags = async () => {
-  const allTags = await getAllPosts().then((post) =>
-    post.map((v) => v.frontmatter.tags)
+export const getAllTags = cache(async () => {
+  const allTags = (await getAllPosts()).flatMap(
+    (post) => post.frontmatter.tags,
   );
-  const uniqueTags = [...new Set(allTags.flatMap((tag) => tag))];
-  return uniqueTags;
-};
+  return [...new Set(allTags)];
+});

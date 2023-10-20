@@ -5,7 +5,7 @@ import styles from "./article-end.module.css";
 export function ArticleEnd() {
   return (
     <div className={styles.container}>
-      <Link href="/">← Back to home</Link>
+      <Link href="/blog">← Back to blog home</Link>
       <a href={TWITTER} target="_blank" rel="noreferrer">
         Discuss on Twitter
       </a>

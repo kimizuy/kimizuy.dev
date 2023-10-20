@@ -17,7 +17,7 @@ export function Post({ code, frontmatter }: Props) {
           <Date publishedAt={frontmatter.publishedAt} />
         </div>
       </header>
-      <main className="post">
+      <main className="toc-content">
         <MDXComponent code={code} />
       </main>
       <footer>
