@@ -1,3 +1,4 @@
+import { ExternalLink } from "lucide-react";
 import Link from "next/link";
 
 export default function Home() {
@@ -5,8 +6,22 @@ export default function Home() {
     <div className="grid place-items-center h-full">
       <div className="flex flex-col gap-8 text-xl">
         <Link href="/blog">Blog</Link>
-        <Link href="https://github.com/kimizuy">GitHub</Link>
-        <Link href="https://twitter.com/kimizuy">Twitter</Link>
+        <a
+          href="https://github.com/kimizuy"
+          target="_blank"
+          className="flex items-center gap-1"
+        >
+          GitHub
+          <ExternalLink />
+        </a>
+        <a
+          href="https://twitter.com/kimizuy"
+          target="_blank"
+          className="flex items-center gap-1"
+        >
+          Twitter
+          <ExternalLink />
+        </a>
       </div>
     </div>
   );
