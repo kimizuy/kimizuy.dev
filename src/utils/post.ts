@@ -34,9 +34,8 @@ export async function getAllPosts() {
 }
 
 export const getAllTags = async () => {
-  const allTags = await getAllPosts().then((post) =>
-    post.map((v) => v.frontmatter.tags),
+  const allTags = (await getAllPosts()).flatMap(
+    (post) => post.frontmatter.tags,
   );
-  const uniqueTags = [...new Set(allTags.flatMap((tag) => tag))];
-  return uniqueTags;
+  return [...new Set(allTags)];
 };
