@@ -30,7 +30,7 @@
 }
 
 /* tablet ~ desktop */
-@media screen and (min-width: 480px) {
+@media screen and (width >= 480px) {
   .main {
     padding: 2rem 2rem 8rem;
     margin-right: auto;

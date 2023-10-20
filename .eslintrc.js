@@ -1,6 +1,6 @@
 /** @type {import('eslint/lib/shared/types').ConfigData} */
 const config = {
-  extends: ["next/core-web-vitals", "plugin:mdx/recommended", "prettier"],
+  extends: ["next/core-web-vitals", "plugin:mdx/recommended"],
   rules: {
     "no-console": [
       "warn",
