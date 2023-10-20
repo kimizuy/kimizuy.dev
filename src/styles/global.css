@@ -1,6 +1,4 @@
 /* stylelint-disable at-rule-no-unknown */
-@import url("reset.css");
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
