@@ -1,3 +1,4 @@
+import { Analytics } from "@vercel/analytics/react";
 import localFont from "next/font/local";
 import { LayoutProps } from "../../.next/types/app/page";
 import { RootLayout } from "../components/root-layout";
@@ -50,6 +51,7 @@ export default function Layout({ children }: LayoutProps) {
       <head />
       <body>
         <RootLayout>{children}</RootLayout>
+        <Analytics />
       </body>
     </html>
   );
