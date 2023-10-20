@@ -6,16 +6,14 @@ import styles from "./logo.module.css";
 export function Logo() {
   return (
     <Link href="/" className={styles.container}>
-      <span className={styles.imageWrapper}>
-        <Image
-          src="/profile.jpg"
-          alt={NAME}
-          fill
-          sizes="(max-width: 768px) 100vw, 100vw"
-          priority
-          className={styles.image}
-        />
-      </span>
+      <Image
+        src="/profile.jpg"
+        alt={NAME}
+        width={48}
+        height={48}
+        priority
+        className="rounded-full object-contain"
+      />
       <h1 className={styles.title}>{SITE_TITLE}</h1>
     </Link>
   );
