@@ -1,9 +1,8 @@
 import { GITHUB, TWITTER } from "../utils/constants";
-import styles from "./copy-right.module.css";
 
 export function CopyRight() {
   return (
-    <div className={styles.container}>
+    <div className="text-center">
       <p>
         <small>
           {`© 2020, Built with `}
