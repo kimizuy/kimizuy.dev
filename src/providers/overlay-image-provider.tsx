@@ -3,7 +3,7 @@
 import { usePathname } from "next/navigation";
 import {
   createContext,
-  PropsWithChildren,
+  type PropsWithChildren,
   useContext,
   useEffect,
   useState,
@@ -16,7 +16,7 @@ type Context = {
 
 const OverlayImageContext = createContext<Context>({
   src: undefined,
-  setSrc: () => {},
+  setSrc: () => void 0,
 });
 
 export const useOverlayImage = (): Context => useContext(OverlayImageContext);

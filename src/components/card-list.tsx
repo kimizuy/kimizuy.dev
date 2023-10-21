@@ -1,9 +1,9 @@
 "use client";
 
-import { motion, Variants } from "framer-motion";
+import { motion, type Variants } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import { Post } from "../utils/post";
+import { type Post } from "../utils/post";
 import styles from "./card-list.module.css";
 import { Date } from "./date";
 import { TagList } from "./tag-list";

@@ -1,5 +1,5 @@
 import { format } from "date-fns";
-import { Frontmatter } from "../types/post";
+import { type Frontmatter } from "../types/post";
 import styles from "./date.module.css";
 
 type Props = {

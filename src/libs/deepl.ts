@@ -1,6 +1,6 @@
 import * as deepl from "deepl-node";
 
-const translator = new deepl.Translator(process.env.DEEPL_API_KEY || "");
+const translator = new deepl.Translator(process.env.DEEPL_API_KEY ?? "");
 
 type TranslateTextParameter = Parameters<deepl.Translator["translateText"]>[0];
 

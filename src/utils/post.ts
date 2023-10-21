@@ -9,7 +9,7 @@ import { dateSortDesc, getErrorMessage } from "./helper";
 export const getPost = cache(async (slug: string) => {
   try {
     const { code, frontmatter } = await bundleMDX(slug);
-    const exported = getMDXExport(code);
+    const exported: unknown = getMDXExport(code);
     if (!isFrontmatter(frontmatter) || !isMDXExport(exported)) {
       throw new Error(`Invalid format in "${slug}/index.mdx".`);
     }

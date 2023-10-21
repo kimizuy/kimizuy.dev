@@ -53,11 +53,16 @@ export async function bundleMDX(slug: string) {
         () => {
           return (tree) => {
             visit(tree, "element", (node, _, parent) => {
+              // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
               if (!node.properties.className) return;
+              // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-member-access
               const [token, type] = node.properties.className;
               if (token === "code-line" && type === "line-number") {
+                // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-member-access
                 const lineNumber = node.properties.line;
+                // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
                 const numberDigit = String(parent.children.length).length;
+                // eslint-disable-next-line @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-member-access
                 node.children.unshift({
                   type: "element",
                   tagName: "span",
@@ -67,6 +72,7 @@ export async function bundleMDX(slug: string) {
                   children: [
                     {
                       type: "text",
+                      // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
                       value: lineNumber,
                     },
                   ],

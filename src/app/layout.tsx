@@ -3,7 +3,7 @@ import { Analytics } from "@vercel/analytics/react";
 import localFont from "next/font/local";
 import { CopyRight } from "@/components/copy-right";
 import { Logo } from "@/components/logo";
-import { LayoutProps } from "../../.next/types/app/layout";
+import { type LayoutProps } from "../../.next/types/app/layout";
 import { SITE_DESCRIPTION, SITE_TITLE, SITE_URL } from "../utils/constants";
 
 const zenKakuGothicNew = localFont({

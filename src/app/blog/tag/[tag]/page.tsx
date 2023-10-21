@@ -1,8 +1,7 @@
-import { Metadata } from "next";
+import { type Metadata } from "next";
 import { CardList } from "../../../../components/card-list";
 import { ContentLayout } from "../../../../components/content-layout";
 import { TagList } from "../../../../components/tag-list";
-import { InferGenerateStaticParamsType } from "../../../../types/next";
 import { SITE_URL } from "../../../../utils/constants";
 import { getAllPosts, getAllTags } from "../../../../utils/post";
 
@@ -12,13 +11,9 @@ export async function generateStaticParams() {
   return tags;
 }
 
-export type PageProps = InferGenerateStaticParamsType<
-  typeof generateStaticParams
->;
+export type Props = { params: { tag: string } };
 
-export async function generateMetadata({
-  params,
-}: PageProps): Promise<Metadata> {
+export function generateMetadata({ params }: Props): Metadata {
   const title = params.tag;
 
   return {
@@ -33,7 +28,7 @@ export async function generateMetadata({
   };
 }
 
-export default async function Page({ params }: PageProps) {
+export default async function Page({ params }: Props) {
   const posts = await getAllPosts();
   const tags = await getAllTags();
   const filteredPostsByTag = posts.filter(({ frontmatter }) =>
