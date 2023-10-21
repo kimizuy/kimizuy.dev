@@ -1,7 +1,7 @@
 import "../styles/global.css";
 import { Analytics } from "@vercel/analytics/react";
 import localFont from "next/font/local";
-import { LayoutProps } from "../../.next/types/app/page";
+import { LayoutProps } from "../../.next/types/app/layout";
 import { RootLayout } from "../components/root-layout";
 import { SITE_DESCRIPTION, SITE_TITLE, SITE_URL } from "../utils/constants";
 
