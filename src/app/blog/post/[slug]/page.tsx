@@ -1,9 +1,13 @@
-import "../../../../styles/prism-vsc-dark-plus.css";
+import "@/styles/prism-vsc-dark-plus.css";
 import { Metadata } from "next";
-import { Post } from "../../../../components/post";
-import type { InferGenerateStaticParamsType } from "../../../../types/next";
-import { POST_FILE_PATHS, SITE_URL } from "../../../../utils/constants";
-import { getPost } from "../../../../utils/post";
+import { ContentLayout } from "@/components/content-layout";
+import { OverlayImage } from "@/components/overlay-image";
+import { Post } from "@/components/post";
+import { Toc } from "@/libs/toc";
+import { OverlayImageProvider } from "@/providers/overlay-image-provider";
+import type { InferGenerateStaticParamsType } from "@/types/next";
+import { POST_FILE_PATHS, SITE_URL } from "@/utils/constants";
+import { getPost } from "@/utils/post";
 
 export async function generateStaticParams() {
   const slugs = POST_FILE_PATHS.map((slug) => ({ slug }));
@@ -38,5 +42,12 @@ export async function generateMetadata({
 export default async function Page({ params }: PageProps) {
   const post = await getPost(params.slug);
 
-  return <Post {...post} />;
+  return (
+    <OverlayImageProvider>
+      <ContentLayout sideBarItem={<Toc />}>
+        <Post {...post} />
+      </ContentLayout>
+      <OverlayImage />
+    </OverlayImageProvider>
+  );
 }

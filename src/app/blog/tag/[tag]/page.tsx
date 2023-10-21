@@ -35,24 +35,13 @@ export async function generateMetadata({
 
 export default async function Page({ params }: PageProps) {
   const posts = await getAllPosts();
-  const tags = [
-    ...new Set(
-      posts.map((post) => post.frontmatter.tags).flatMap((tag) => tag),
-    ),
-  ];
+  const tags = await getAllTags();
   const filteredPostsByTag = posts.filter(({ frontmatter }) =>
     frontmatter.tags.includes(params.tag),
   );
 
   return (
-    <ContentLayout
-      home
-      sideBarItem={
-        <>
-          <TagList tags={tags} />
-        </>
-      }
-    >
+    <ContentLayout home sideBarItem={<TagList tags={tags} />}>
       <h1>#{params.tag}</h1>
       <CardList posts={filteredPostsByTag} />
     </ContentLayout>
