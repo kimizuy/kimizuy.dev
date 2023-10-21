@@ -52,15 +52,12 @@ export async function bundleMDX(slug: string) {
         // ref: https://github.com/CanRau/canrau.com
         () => {
           return (tree) => {
-            visit(tree, "element", (node, index, parent) => {
-              if (!node) return;
-
-              let [token, type] = node.properties?.className || [];
-
+            visit(tree, "element", (node, _, parent) => {
+              if (!node.properties.className) return;
+              const [token, type] = node.properties.className;
               if (token === "code-line" && type === "line-number") {
                 const lineNumber = node.properties.line;
                 const numberDigit = String(parent.children.length).length;
-
                 node.children.unshift({
                   type: "element",
                   tagName: "span",
