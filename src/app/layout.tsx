@@ -51,13 +51,13 @@ export default function Layout({ children }: LayoutProps) {
     <html lang="ja" className={zenKakuGothicNew.className}>
       <head />
       <body>
-        <div className="grid grid-rows-[auto,1fr,auto] grid-cols-[100%] min-h-screen bg-slate-950">
+        <div className="grid min-h-screen grid-cols-[100%] grid-rows-[auto,1fr,auto] bg-slate-950">
           <header className="grid h-20 px-3">
             <div className="w-full max-w-7xl place-self-center">
               <Logo />
             </div>
           </header>
-          <main className="p-4 max-w-6xl w-full mx-auto">{children}</main>
+          <main className="mx-auto w-full max-w-6xl p-4">{children}</main>
           <footer className="h-20 place-self-center">
             <CopyRight />
           </footer>

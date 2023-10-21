@@ -2,6 +2,7 @@
 const config = {
   extends: [
     "plugin:mdx/recommended",
+    "plugin:tailwindcss/recommended",
     "plugin:@typescript-eslint/recommended",
     "next/core-web-vitals",
   ],
