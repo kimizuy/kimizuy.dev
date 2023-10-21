@@ -23,7 +23,6 @@
     "date-fns": "^2.30.0",
     "deepl-node": "^1.10.2",
     "esbuild": "^0.19.5",
-    "eslint": "^8.51.0",
     "eslint-config-next": "^13.5.6",
     "framer-motion": "^10.16.4",
     "lucide-react": "^0.288.0",
@@ -40,7 +39,6 @@
     "sharp": "^0.32.6",
     "tailwind-merge": "^1.14.0",
     "tocbot": "^4.21.2",
-    "typescript": "^5.2.2",
     "unist-util-visit": "^5.0.0",
     "webpack": "^5.89.0"
   },
@@ -48,9 +46,14 @@
     "@types/node": "^20.8.7",
     "@types/react": "^18.2.29",
     "@types/react-dom": "^18.2.14",
+    "@typescript-eslint/eslint-plugin": "^6.8.0",
+    "@typescript-eslint/parser": "^6.8.0",
     "autoprefixer": "^10.4.16",
+    "eslint": "^8.51.0",
     "eslint-config-prettier": "^9.0.0",
     "eslint-plugin-mdx": "^2.2.0",
+    "eslint-plugin-simple-import-sort": "^10.0.0",
+    "eslint-plugin-unused-imports": "^3.0.0",
     "gray-matter": "^4.0.3",
     "postcss": "^8.4.31",
     "prettier": "^3.0.3",
@@ -59,7 +62,8 @@
     "stylelint-config-idiomatic-order": "^9.0.0",
     "stylelint-config-standard": "^34.0.0",
     "tailwindcss": "^3.3.3",
-    "type-predicates-generator": "^0.4.0"
+    "type-predicates-generator": "^0.4.0",
+    "typescript": "^5.2.2"
   },
   "engines": {
     "pnpm": "^8.9.0",
