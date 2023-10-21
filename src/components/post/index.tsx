@@ -17,6 +17,7 @@ export function Post({ code, frontmatter }: Props) {
           <Date publishedAt={frontmatter.publishedAt} />
         </div>
       </header>
+      {/* eslint-disable-next-line tailwindcss/no-custom-classname */}
       <main className="toc-content">
         <MDXComponent code={code} />
       </main>
