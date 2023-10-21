@@ -1,3 +1,4 @@
+import "./mdx-bundler.css";
 import { readFileSync } from "fs";
 import { bundleMDX as _bundleMDX } from "mdx-bundler";
 import path from "path";
@@ -9,7 +10,6 @@ import remarkGfm from "remark-gfm";
 import remarkMdxImages from "remark-mdx-images";
 import { visit } from "unist-util-visit";
 import { POSTS_PATH } from "../utils/constants";
-import "./mdx-bundler.css";
 
 export async function bundleMDX(slug: string) {
   const postFilePath = path.join(POSTS_PATH, slug, "index.mdx");

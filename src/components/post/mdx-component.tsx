@@ -25,6 +25,7 @@ export function MDXComponent({ code }: Props) {
           if (className === "footnotes") {
             return <div {...rest} className={styles.footnotes} />;
           }
+
           return <div {...rest} className={className} />;
         },
         blockquote: (props) => (

@@ -14,6 +14,7 @@ export const getPost = cache(async (slug: string) => {
       throw new Error(`Invalid format in "${slug}/index.mdx".`);
     }
     const { cover } = exported;
+
     return { code, frontmatter, cover, slug };
   } catch (error) {
     const errorMessage = getErrorMessage(error);
@@ -31,6 +32,7 @@ export const getAllPosts = cache(async () => {
   const sortedDescByDate = posts.sort((a, b) =>
     dateSortDesc(a.frontmatter.publishedAt, b.frontmatter.publishedAt),
   );
+
   return sortedDescByDate;
 });
 
@@ -38,5 +40,6 @@ export const getAllTags = cache(async () => {
   const allTags = (await getAllPosts()).flatMap(
     (post) => post.frontmatter.tags,
   );
+
   return [...new Set(allTags)];
 });

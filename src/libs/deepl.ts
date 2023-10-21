@@ -8,5 +8,6 @@ export async function translate<T extends TranslateTextParameter>(texts: T) {
   // const targetLanguages = await translator.getTargetLanguages();
 
   const result = await translator.translateText(texts, "ja", "en-US");
+
   return result;
 }

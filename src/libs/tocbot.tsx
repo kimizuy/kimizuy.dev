@@ -1,9 +1,9 @@
 "use client";
 
+import "./tocbot.css";
 import { useEffect } from "react";
 import tocbot from "tocbot";
 import { useWindowWidth } from "../utils/use-window-width";
-import "./tocbot.css";
 
 export function Tocbot() {
   const { width } = useWindowWidth();

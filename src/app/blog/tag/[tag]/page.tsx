@@ -8,6 +8,7 @@ import { getAllPosts, getAllTags } from "../../../../utils/post";
 
 export async function generateStaticParams() {
   const tags = (await getAllTags()).map((tag) => ({ tag }));
+
   return tags;
 }
 

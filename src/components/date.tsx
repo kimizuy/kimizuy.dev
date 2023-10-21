@@ -16,5 +16,6 @@ export function Date({ publishedAt }: Props) {
 
 function Time({ value }: { value: Date }) {
   const date = format(value, "yyyy/M/d");
+
   return <time dateTime={date}>{date}</time>;
 }
