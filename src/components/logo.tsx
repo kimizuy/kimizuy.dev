@@ -14,7 +14,7 @@ export function Logo() {
         priority
         className="rounded-full object-contain"
       />
-      <h1 className={styles.title}>{SITE_TITLE}</h1>
+      <span className={styles.title}>{SITE_TITLE}</span>
     </Link>
   );
 }

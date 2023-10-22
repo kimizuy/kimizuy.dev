@@ -1,11 +1,11 @@
 "use client";
 
+import "./toc.css";
 import { useEffect } from "react";
 import tocbot from "tocbot";
 import { useWindowWidth } from "../utils/use-window-width";
-import "./tocbot.css";
 
-export function Tocbot() {
+export function Toc() {
   const { width } = useWindowWidth();
   const isMobile = width ? width <= 768 : undefined;
   const offset = isMobile ? 32 : 48;

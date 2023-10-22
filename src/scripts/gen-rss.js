@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
 // ref: https://github.com/vercel/next.js/blob/canary/examples/blog/scripts/gen-rss.js
 const { promises: fs } = require("fs");
 const path = require("path");

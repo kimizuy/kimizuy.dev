@@ -1,4 +1,4 @@
-import { Post } from "../../utils/post";
+import { type Post } from "../../utils/post";
 import { Date } from "../date";
 import { TagList } from "../tag-list";
 import { ArticleEnd } from "./article-end";
@@ -17,6 +17,7 @@ export function Post({ code, frontmatter }: Props) {
           <Date publishedAt={frontmatter.publishedAt} />
         </div>
       </header>
+      {/* eslint-disable-next-line tailwindcss/no-custom-classname */}
       <main className="toc-content">
         <MDXComponent code={code} />
       </main>

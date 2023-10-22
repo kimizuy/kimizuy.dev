@@ -1,5 +1,5 @@
 import { loadDefaultJapaneseParser } from "budoux";
-import { ReactNode } from "react";
+import { type ReactNode } from "react";
 import styles from "./budoux.module.css";
 
 const parser = loadDefaultJapaneseParser();
@@ -29,7 +29,8 @@ const parseOnlyJa = (value: string) => {
 export const budouxParse = (value: ReactNode): ReactNode => {
   if (typeof value === "string") return parseOnlyJa(value);
 
-  if (Array.isArray(value)) return value.map((v) => budouxParse(v));
+  if (Array.isArray(value))
+    return value.map((v) => budouxParse(v as ReactNode));
 
   return value;
 };

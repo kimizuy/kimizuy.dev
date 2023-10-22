@@ -1,22 +1,22 @@
-import { Metadata } from "next";
-import { Post } from "../../../../components/post";
-import "../../../../styles/prism-vsc-dark-plus.css";
-import type { InferGenerateStaticParamsType } from "../../../../types/next";
-import { POST_FILE_PATHS, SITE_URL } from "../../../../utils/constants";
-import { getPost } from "../../../../utils/post";
+import "@/styles/prism-vsc-dark-plus.css";
+import { type Metadata } from "next";
+import { ContentLayout } from "@/components/content-layout";
+import { OverlayImage } from "@/components/overlay-image";
+import { Post } from "@/components/post";
+import { Toc } from "@/libs/toc";
+import { OverlayImageProvider } from "@/providers/overlay-image-provider";
+import { POST_FILE_PATHS, SITE_URL } from "@/utils/constants";
+import { getPost } from "@/utils/post";
 
-export async function generateStaticParams() {
+export function generateStaticParams() {
   const slugs = POST_FILE_PATHS.map((slug) => ({ slug }));
+
   return slugs;
 }
 
-export type PageProps = InferGenerateStaticParamsType<
-  typeof generateStaticParams
->;
+type Props = { params: { slug: string } };
 
-export async function generateMetadata({
-  params,
-}: PageProps): Promise<Metadata> {
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { frontmatter, cover } = await getPost(params.slug);
   const image = new URL(cover, SITE_URL);
 
@@ -34,8 +34,15 @@ export async function generateMetadata({
   };
 }
 
-export default async function Page({ params }: PageProps) {
+export default async function Page({ params }: Props) {
   const post = await getPost(params.slug);
 
-  return <Post {...post} />;
+  return (
+    <OverlayImageProvider>
+      <ContentLayout sideBarItem={<Toc />}>
+        <Post {...post} />
+      </ContentLayout>
+      <OverlayImage />
+    </OverlayImageProvider>
+  );
 }

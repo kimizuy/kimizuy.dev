@@ -1,7 +1,7 @@
 "use client";
 
-import { AnimatePresence, motion, Variants } from "framer-motion";
-import { ReactNode } from "react";
+import { AnimatePresence, motion, type Variants } from "framer-motion";
+import { type ReactNode } from "react";
 import styles from "./content-layout.module.css";
 
 interface Props {

@@ -1,5 +1,5 @@
 import { getMDXComponent } from "mdx-bundler/client";
-import { ReactNode } from "react";
+import { type ReactNode } from "react";
 import { budouxParse } from "../../libs/budoux";
 import styles from "./mdx-component.module.css";
 import { PostImage } from "./post-image";
@@ -25,6 +25,7 @@ export function MDXComponent({ code }: Props) {
           if (className === "footnotes") {
             return <div {...rest} className={styles.footnotes} />;
           }
+
           return <div {...rest} className={className} />;
         },
         blockquote: (props) => (
@@ -60,8 +61,8 @@ function isImg(children: ReactNode) {
     children &&
     typeof children === "object" &&
     "type" in children &&
-    typeof children["type"] === "function" &&
-    children["type"]["name"] === "img"
+    typeof children.type === "function" &&
+    children.type.name === "img"
   ) {
     return true;
   } else {
