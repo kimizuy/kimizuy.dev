@@ -10,7 +10,7 @@
     "typecheck": "tsc",
     "cleanup-post-images": "rm -rf public/_posts",
     "gen:type-predicates": "type-predicates-generator -f src/types/post.ts -o src/libs/type-predicates.ts -a",
-    "gen:resume": "md-to-pdf _docs/resume/index.md --config-file=md-to-pdf.config.js"
+    "gen:resume": "node _docs/resume/generate-pdf.js"
   },
   "dependencies": {
     "@mdx-js/loader": "^2.3.0",
