@@ -4,9 +4,9 @@
 
 ## SKILLS
 
-- **Languages**: JavaScript, TypeScript, Java, HTML, CSS
-- **Technologies**: React, Next.js, Firebase, Node.js, Redux
-- **Tools**: Cypress, Jest, Webpack, Figma, Storybook, git
+- **Languages**: TypeScript, JavaScipt, HTML, CSS, Java
+- **Technologies**: React, Next.js, Gatsby, Node.js, Webpack, ESLint, Stylelint, Prettier, REST API, GraphQL, GraphQL Code Generator, emotion, styled-components, vanilla-extract, framer-motion, i18next, Storybook, Chromatic, Cypress, BackstopJS, OpenAPI, Redux, Chart.js, Highcharts, Material UI, Sass/SCSS, tailwindcss
+- **Tools**: Cypress, Jest, Webpack, Figma, Storybook, git, Firebase, Figma, Zeplin, Vercel, Netlify, Hygraph, DatoCMS, Sanity, WordPress
 
 ## WORK EXPERIENCE
 
