@@ -3,7 +3,7 @@
 	margin: 0;
 }
 
-html, body {
+html, body, .markdown-body {
 	font-family: "Helvetica Neue", Helvetica, "Hiragino Sans", "Hiragino Kaku Gothic ProN", Arial, "Yu Gothic", Meiryo, sans-serif !important;
 	font-size: 12px;
 }
