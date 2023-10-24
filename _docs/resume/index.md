@@ -47,6 +47,6 @@ During my tenure at Alterbo, I delivered a web application project to manage air
 
 ## EDUCATION
 
-### July inc. (Tokyo, Japan) | Web & Unity Development Bootcamp | May 2015 - Oct 2015
+### July vocational school (Tokyo, Japan) | Web & Game Development Bootcamp | May 2015 - Oct 2015
 
 ### Ehime University (Ehime, Japan) | Bachelor of Economics | Apr 2010 - Mar 2015
