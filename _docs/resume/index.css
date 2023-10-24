@@ -4,13 +4,11 @@
 }
 
 html, body {
-	font-family: "Helvetica Neue", Helvetica, "Hiragino Sans", "Hiragino Kaku Gothic ProN", Arial, "Yu Gothic", Meiryo, sans-serif  !important;
+	font-family: "Helvetica Neue", Helvetica, "Hiragino Sans", "Hiragino Kaku Gothic ProN", Arial, "Yu Gothic", Meiryo, sans-serif !important;
 	font-size: 12px;
 }
 
 h1, h2, h3, h4 {
-	padding: 0;
-	margin: 0;
 	font-weight: bold;
 
 }
@@ -27,7 +25,7 @@ h2 {
 	margin-bottom: 4px;
 }
 
-* + h2, *:not(h2) + h3, *:not(h3) + h4 {
+* + :is(h2,h3,h4) {
 	margin-top: 0.5em;
 }
 
@@ -41,19 +39,4 @@ p, li {
 
 a {
 	color: #007BFF;
-}
-
-.sb {
-	display: flex;
-	place-content: center space-between;
-}
-
-.sb :nth-child(2) {
-	font-style: italic;
-	font-weight: normal;
-}
-
-.tc {
-	display: grid;
-	grid-template-columns: 1fr 1fr;
 }
