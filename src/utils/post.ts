@@ -1,14 +1,14 @@
 import { getMDXExport } from "mdx-bundler/client";
 import { exit } from "process";
 import { cache } from "react";
-import { bundleMDX } from "../libs/mdx-bundler";
+import { bundlePost } from "../libs/mdx-bundler";
 import { isFrontmatter, isMDXExport } from "../libs/type-predicates";
 import { POST_FILE_PATHS } from "./constants";
 import { dateSortDesc, getErrorMessage } from "./helper";
 
 export const getPost = cache(async (slug: string) => {
   try {
-    const { code, frontmatter } = await bundleMDX(slug);
+    const { code, frontmatter } = await bundlePost(slug);
     const exported: unknown = getMDXExport(code);
     if (!isFrontmatter(frontmatter) || !isMDXExport(exported)) {
       throw new Error(`Invalid format in "${slug}/index.mdx".`);

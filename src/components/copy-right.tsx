@@ -1,4 +1,4 @@
-import { GITHUB, TWITTER } from "../utils/constants";
+import { TWITTER } from "../utils/constants";
 
 export function CopyRight() {
   return (
@@ -20,10 +20,6 @@ export function CopyRight() {
           {`createdBy `}
           <a href={TWITTER} target="_blank" rel="noopener noreferrer">
             @kimizuy
-          </a>
-          {` & `}
-          <a href={GITHUB} target="_blank" rel="noopener noreferrer">
-            Repo
           </a>
         </small>
       </p>

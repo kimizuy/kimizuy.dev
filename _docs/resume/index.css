@@ -1,0 +1,42 @@
+* {
+	padding: 0;
+	margin: 0;
+}
+
+html, body {
+	font-family: "Helvetica Neue", Helvetica, "Hiragino Sans", "Hiragino Kaku Gothic ProN", Arial, "Yu Gothic", Meiryo, sans-serif !important;
+	font-size: 12px;
+}
+
+h1, h2, h3, h4 {
+	font-weight: bold;
+
+}
+
+h1 {
+	padding: 0;
+	border-bottom-width: 0;
+}
+
+h2 {
+	padding-bottom: 2px;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	margin-bottom: 4px;
+}
+
+* + :is(h2,h3,h4) {
+	margin-top: 0.5em;
+}
+
+ul {
+	padding-left: 1.5em;
+}
+
+p, li {
+	line-height: 1.5;
+}
+
+a {
+	color: #007BFF;
+}

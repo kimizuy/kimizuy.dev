@@ -1,6 +1,8 @@
 import "../styles/global.css";
+import "@radix-ui/themes/styles.css";
 import { Analytics } from "@vercel/analytics/react";
 import localFont from "next/font/local";
+import Link from "next/link";
 import { CopyRight } from "@/components/copy-right";
 import { Logo } from "@/components/logo";
 import { type LayoutProps } from "../../.next/types/app/page";
@@ -48,16 +50,21 @@ export const metadata = {
 
 export default function Layout({ children }: LayoutProps) {
   return (
-    <html lang="ja" className={zenKakuGothicNew.className}>
-      <head />
+    <html className={zenKakuGothicNew.className}>
       <body>
         <div className="grid min-h-screen grid-cols-[100%] grid-rows-[auto,1fr,auto] bg-slate-950">
-          <header className="grid h-20 px-3">
-            <div className="w-full max-w-7xl place-self-center">
+          <header className="grid h-20 px-4 sm:px-8">
+            <div className="flex w-full max-w-7xl justify-between place-self-center">
               <Logo />
+              <nav className="flex items-center justify-between gap-2 sm:gap-4">
+                <Link href="/blog">Blog</Link>
+                <Link href="/resume">Resume</Link>
+              </nav>
             </div>
           </header>
-          <main className="mx-auto w-full max-w-6xl p-4">{children}</main>
+          <main className="mx-auto w-full max-w-6xl p-4 sm:p-8">
+            {children}
+          </main>
           <footer className="h-20 place-self-center">
             <CopyRight />
           </footer>

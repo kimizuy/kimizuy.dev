@@ -19,14 +19,7 @@ export function PostImage({ alt, src }: Props) {
         setSrc(src);
       }}
     >
-      <Image
-        alt={alt}
-        src={src}
-        fill
-        // https://nextjs.org/docs/api-reference/next/image#sizes
-        sizes="(max-width: 768px) 100vw, 75vw"
-        style={{ objectFit: "contain" }}
-      />
+      <Image alt={alt} src={src} fill style={{ objectFit: "contain" }} />
     </div>
   );
 }

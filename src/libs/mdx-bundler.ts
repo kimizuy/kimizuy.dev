@@ -1,6 +1,6 @@
 import "./mdx-bundler.css";
 import { readFileSync } from "fs";
-import { bundleMDX as _bundleMDX } from "mdx-bundler";
+import { bundleMDX } from "mdx-bundler";
 import path from "path";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import rehypeCodeTitles from "rehype-code-titles";
@@ -11,13 +11,13 @@ import remarkMdxImages from "remark-mdx-images";
 import { visit } from "unist-util-visit";
 import { POSTS_PATH } from "../utils/constants";
 
-export async function bundleMDX(slug: string) {
+export async function bundlePost(slug: string) {
   const postFilePath = path.join(POSTS_PATH, slug, "index.mdx");
   const source = readFileSync(postFilePath, "utf-8");
   const cwd = path.join(POSTS_PATH, slug);
   const imagesUrl = path.join("_posts", slug);
 
-  const result = await _bundleMDX({
+  const result = await bundleMDX({
     source,
     cwd,
     mdxOptions(options) {
@@ -102,6 +102,16 @@ export async function bundleMDX(slug: string) {
 
       return options;
     },
+  });
+
+  return result;
+}
+
+export async function bundleDoc(doc: "home" | "resume") {
+  const resumeFilePath = path.join(process.cwd(), "_docs", doc, "index.md");
+  const source = readFileSync(resumeFilePath, "utf-8");
+  const result = await bundleMDX({
+    source,
   });
 
   return result;
