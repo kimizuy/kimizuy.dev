@@ -59,7 +59,7 @@ const config = {
     "mdx/code-blocks": true,
     "mdx/language-mapper": {},
   },
-  ignorePatterns: ["type-predicates.ts", ".eslintrc.js", "*.md", "*.mdx"],
+  ignorePatterns: ["type-predicates.ts", "*.js", "*.md", "*.mdx"],
 };
 
 module.exports = config;
