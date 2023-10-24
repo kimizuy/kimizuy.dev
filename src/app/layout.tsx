@@ -1,5 +1,4 @@
 import "../styles/global.css";
-import "@radix-ui/themes/styles.css";
 import { Analytics } from "@vercel/analytics/react";
 import localFont from "next/font/local";
 import Link from "next/link";
