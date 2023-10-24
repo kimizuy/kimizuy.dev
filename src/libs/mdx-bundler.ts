@@ -106,3 +106,13 @@ export async function bundlePost(slug: string) {
 
   return result;
 }
+
+export async function bundleDoc(doc: "home" | "resume") {
+  const resumeFilePath = path.join(process.cwd(), "_docs", doc, "index.md");
+  const source = readFileSync(resumeFilePath, "utf-8");
+  const result = await bundleMDX({
+    source,
+  });
+
+  return result;
+}
