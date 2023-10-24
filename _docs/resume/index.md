@@ -18,45 +18,32 @@ At Gaji-Labo, I participated in several projects with development periods rangin
 
 During my tenure at Alterbo, I delivered a web application project to manage airport user data, where I led front-end development using React, Redux, and TypeScript to enhance user and flight search functionality. Additionally, I developed a Web API with Java and assisted the backend, implementing a system that centralized and digitized customer data, which dramatically enhanced airline staff productivity. Through this project, I exhibited my full-stack development capabilities, ensuring a seamless user experience and better data management for airport personnel.
 
+## PROJECTS <sub><sup>(Note: The projects listed below are representative examples)</sup></sub>
+
+### Gaji-Labo Inc.
+
 #### Corporate Site for BtoB Company
 
-**Role & Responsibilities:** Redesign of the corporate site, user experience enhancement, and new feature development.
-- Redesigned and refactored the corporate site, achieving a significant boost in user experience.
-- Developed a high-performance project from scratch using Next.js.
-- Designed the blog, internationalization, contact form, and IR features, optimizing each component and impressing the client to expand the team.
+- Achieved a significant boost in user experience by redesigning and refactoring the corporate site, and developing a high-performance project from scratch using Next.js.
+- Impressed the client by designing the blog, internationalization, contact form, and IR features, leading to team expansion.
 
 #### BtoB and BtoC Application for Equipment Rental
 
-**Role & Responsibilities:** Agile development team member specializing in front-end tasks.
-- Implemented UI markup with Material UI, resulting in a visually appealing interface.
-- Defined API interfaces via OpenAPI, leading to expedited REST API development with backend engineers.
-- Conducted E2E testing using Cypress, ensuring application robustness.
-- Optimized React code for UI rendering, improving application efficiency especially for large lists.
+- Enhanced visual appeal and expedited REST API development by implementing UI markup with Material UI and defining API interfaces via OpenAPI.
+- Ensured application robustness through E2E testing using Cypress, and improved application efficiency by optimizing React code for UI rendering.
 
 #### Landing Page Site for BtoB Company
 
-**Role & Responsibilities:** Site performance enhancement and codebase improvement.
-- Refactored a 100+ page landing site, enhancing functionality.
-- Transitioned the codebase from JavaScript to TypeScript, improving developer collaboration.
-- Conducted visual regression tests via BackstopJS, ensuring a smooth codebase transition.
-- Improved Core Web Vital scores by 10 points on average, significantly boosting SEO.
+- Enhanced functionality and developer collaboration by refactoring a 100+ page landing site and transitioning the codebase from JavaScript to TypeScript.
+- Boosted SEO significantly by improving Core Web Vital scores by 10 points on average, and ensured a smooth codebase transition through visual regression tests via BackstopJS.
 
-#### Event Application for BtoB Company
-
-**Role & Responsibilities:** UI design conversion for a new event, and React codebase maintenance.
-- Developed a modern web application using Next.js, Firebase Authentication, and Firestore.
-- Employed vanilla-extract, enhancing CSS management with TypeScript.
-- Built and documented a system for non-engineers to enter and edit data directly
-- Optimized React code and updated Firebase SDK, achieving better performance and maintainability.
-
-### [Alterbo Inc.](https://alterbo.jp) (Tokyo, Japan) | System Engineer | Feb 2019 - Mar 2020 (1 yr 2 mos)
+### Alterbo Inc.
 
 #### Web application to manage airport users
 
-**Role & Responsibilities:** Full stack web application development to manage airport user data.
-- Spearheaded front-end development using React, Redux, and TypeScript, enhancing user and flight search functionality.
-- Developed a Web API with Java and assisted backend.
-- Implemented a system that centralized and digitized customer data, dramatically enhancing airline staff productivity.
+- Led front-end development using React, Redux, and TypeScript to enhance user and flight search functionality, and developed a robust app with test-driven development using Jest.
+- Dramatically enhanced airline staff productivity by implementing a system that centralized and digitized customer data, and partially developed Web API using Java to support the back-end.
+
 
 ## EDUCATION
 
