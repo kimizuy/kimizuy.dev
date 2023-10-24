@@ -1,10 +1,26 @@
+/* roboto-regular - latin */
+@font-face {
+	font-family: Roboto;
+	font-style: normal;
+	font-weight: 400;
+	src: url('./roboto/roboto-v30-latin-regular.woff2') format('woff2');
+}
+
+/* roboto-700 - latin */
+@font-face {
+	font-family: Roboto;
+	font-style: normal;
+	font-weight: 700;
+	src: url('./roboto/roboto-v30-latin-700.woff2') format('woff2');
+}
+
 * {
 	padding: 0;
 	margin: 0;
 }
 
-html, body, .markdown-body {
-	font-family: "Helvetica Neue", Helvetica, "Hiragino Sans", "Hiragino Kaku Gothic ProN", Arial, "Yu Gothic", Meiryo, sans-serif !important;
+html, body {
+	font-family: Roboto, Arial, Helvetica, sans-serif;
 	font-size: 12px;
 }
 
