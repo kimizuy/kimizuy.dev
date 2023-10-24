@@ -2,12 +2,6 @@
 
 [kimizuyamasaki@gmail.com](mailto:kimizuyamasaki@gmail.com) | [Github](https://github.com/kimizuy) | [LinkedIn](https://www.linkedin.com/in/kimizuy) | +1 (236) 668-6717 | Vancouver, BC, Canada
 
-## SUMMARY
-
-- Front-end engineer with 3+ years of web development experience and proficient in React and TypeScript.
-- Stand out as a full-stack professional, skilled in working with REST API and GraphQL
-- Expertise in improving site performance and optimizing web applications
-
 ## SKILLS
 
 - **Languages**: JavaScript, TypeScript, Java, HTML, CSS
