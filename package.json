@@ -3,15 +3,14 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "predev": "npm run cleanup-post-images",
-    "dev": "next dev",
-    "prebuild": "npm run cleanup-post-images && node src/scripts/gen-rss.js",
-    "build": "next build",
+    "dev": "pnpm cleanup-post-images && pnpm gen:type-predicates && pnpm next dev",
+    "build": "pnpm cleanup-post-images && node src/scripts/gen-rss.js && pnpm gen:resume && pnpm next build",
     "start": "next start",
     "lint": "next lint",
     "typecheck": "tsc",
     "cleanup-post-images": "rm -rf public/_posts",
-    "generate-type-predicates": "type-predicates-generator -f src/types/post.ts -o src/libs/type-predicates.ts -a"
+    "gen:type-predicates": "type-predicates-generator -f src/types/post.ts -o src/libs/type-predicates.ts -a",
+    "gen:resume": "md-to-pdf _docs/resume.md --config-file=md-to-pdf.config.js"
   },
   "dependencies": {
     "@mdx-js/loader": "^2.3.0",
