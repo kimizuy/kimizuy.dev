@@ -1,6 +1,6 @@
 # Kimizu Yamasaki
 
-[me@kimizuy.dev](mailto:me@kimizuy.dev) | [Github](https://github.com/kimizuy) | [LinkedIn](https://www.linkedin.com/in/kimizuy) | +1 (236) 668-6717 | Vancouver, BC, Canada
+[me@kimizuy.dev](mailto:me@kimizuy.dev) | [kimizuy.dev](https://kimizuy.dev/) | [Github](https://github.com/kimizuy) | [LinkedIn](https://www.linkedin.com/in/kimizuy) | +1 (236) 668-6717 | Vancouver, BC, Canada
 
 ## SKILLS
 

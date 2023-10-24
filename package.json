@@ -10,7 +10,7 @@
     "typecheck": "tsc",
     "cleanup-post-images": "rm -rf public/_posts",
     "gen:type-predicates": "type-predicates-generator -f src/types/post.ts -o src/libs/type-predicates.ts -a",
-    "gen:resume": "md-to-pdf _docs/resume/index.md --config-file=md-to-pdf.config.js"
+    "gen:resume": "node _docs/resume/generate-pdf.js"
   },
   "dependencies": {
     "@mdx-js/loader": "^2.3.0",
@@ -25,7 +25,7 @@
     "eslint-config-next": "^13.5.6",
     "framer-motion": "^10.16.4",
     "lucide-react": "^0.288.0",
-    "md-to-pdf": "^5.2.4",
+    "mdpdf": "^3.0.1",
     "mdx-bundler": "^9.2.1",
     "next": "^13.5.6",
     "react": "^18.2.0",
