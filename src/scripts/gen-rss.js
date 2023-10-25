@@ -8,8 +8,8 @@ const matter = require("gray-matter");
 async function generate() {
   const feed = new RSS({
     title: "kimizuy blog",
-    site_url: "https://blog.kimizuy.dev",
-    feed_url: "https://blog.kimizuy.dev/feed.xml",
+    site_url: "https://kimizuy.dev",
+    feed_url: "https://kimizuy.dev/feed.xml",
   });
 
   const posts = await fs.readdir(path.join(process.cwd(), "_posts"));
