@@ -1,8 +1,10 @@
 import { Download } from "lucide-react";
 import { type Metadata } from "next";
 import { exit } from "process";
+import { ContentLayout } from "@/components/content-layout";
 import { MDXComponent } from "@/components/post/mdx-component";
 import { bundleDoc } from "@/libs/mdx-bundler";
+import { Toc } from "@/libs/toc";
 import { getErrorMessage } from "@/utils/helper";
 
 export const metadata: Metadata = {
@@ -13,8 +15,11 @@ export default async function Page() {
   const { code } = await getResume();
 
   return (
-    <section className="mx-auto max-w-3xl">
-      <MDXComponent code={code} />
+    <ContentLayout sideBarItem={<Toc headingSelector="h2" />}>
+      {/* eslint-disable-next-line tailwindcss/no-custom-classname */}
+      <div className="toc-content">
+        <MDXComponent code={code} />
+      </div>
       <a
         href="/Kimizu Yamasaki - Resume.pdf"
         download
@@ -24,7 +29,7 @@ export default async function Page() {
         Download as PDF
         <Download size={20} />
       </a>
-    </section>
+    </ContentLayout>
   );
 }
 
