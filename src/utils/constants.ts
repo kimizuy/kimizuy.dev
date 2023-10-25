@@ -3,7 +3,8 @@ import path from "path";
 
 export const NAME = "kimizuy";
 export const SITE_TITLE = "kimizuy.dev";
-export const SITE_DESCRIPTION = "kimizuy のブログです";
+export const SITE_DESCRIPTION =
+  "kimizuy is a front-end engineer specializing in React and TypeScript";
 export const SITE_URL = "https://kimizuy.dev";
 export const TWITTER = "https://twitter.com/kimizuy";
 export const GITHUB = "https://github.com/kimizuy/kimizuy.dev";
