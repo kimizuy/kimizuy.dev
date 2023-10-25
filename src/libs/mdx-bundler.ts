@@ -112,6 +112,29 @@ export async function bundleDoc(doc: "home" | "resume") {
   const source = readFileSync(resumeFilePath, "utf-8");
   const result = await bundleMDX({
     source,
+    mdxOptions(options) {
+      options.rehypePlugins = [
+        ...(options.rehypePlugins ?? []),
+        rehypeSlug,
+        [
+          rehypeAutolinkHeadings,
+          {
+            behavior: "prepend",
+            properties: { className: "anchor", ariaHidden: true, tabIndex: -1 },
+            content: {
+              type: "element",
+              tagName: "span",
+              properties: {
+                className: ["anchor-text"],
+                ariaHidden: true,
+              },
+            },
+          },
+        ],
+      ];
+
+      return options;
+    },
   });
 
   return result;
