@@ -1,36 +1,18 @@
-/* roboto-regular - latin */
-@font-face {
-	font-family: Roboto;
-	font-style: normal;
-	font-weight: 400;
-	src: url('./roboto/roboto-v30-latin-regular.woff2') format('woff2');
-}
-
-/* roboto-700 - latin */
-@font-face {
-	font-family: Roboto;
-	font-style: normal;
-	font-weight: 700;
-	src: url('./roboto/roboto-v30-latin-700.woff2') format('woff2');
-}
-
 * {
 	padding: 0;
 	margin: 0;
 }
 
-html, body {
-	font-family: Roboto, Arial, Helvetica, sans-serif;
-	font-size: 12px;
+html, body, .markdown-body {
+	font-family: "Helvetica Neue", Helvetica, "Segoe UI", Arial, freesans, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+	font-size: 11px;
 }
 
 h1, h2, h3, h4 {
 	font-weight: bold;
-
 }
 
 h1 {
-	padding: 0;
 	border-bottom-width: 0;
 }
 
