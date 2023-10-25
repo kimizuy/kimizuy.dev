@@ -20,7 +20,7 @@
 }
 
 html, body {
-	font-family: Roboto, Arial, Helvetica, sans-serif;
+	font-family: "Helvetica Neue", Helvetica, "Hiragino Sans", "Hiragino Kaku Gothic ProN", Arial, "Yu Gothic", Meiryo, sans-serif !important;
 	font-size: 12px;
 }
 
