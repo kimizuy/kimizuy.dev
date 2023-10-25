@@ -15,20 +15,26 @@ export default async function Page() {
   const { code } = await getResume();
 
   return (
-    <ContentLayout sideBarItem={<Toc headingSelector="h2" />}>
+    <ContentLayout
+      sideBarItem={
+        <>
+          <Toc headingSelector="h2" />
+          <a
+            href="/Kimizu Yamasaki - Resume.pdf"
+            download
+            className="mt-12 flex items-center justify-end gap-1 text-xs"
+            target="_blank"
+          >
+            Download as PDF
+            <Download size={16} />
+          </a>
+        </>
+      }
+    >
       {/* eslint-disable-next-line tailwindcss/no-custom-classname */}
       <div className="toc-content">
         <MDXComponent code={code} />
       </div>
-      <a
-        href="/Kimizu Yamasaki - Resume.pdf"
-        download
-        className="mt-12 flex items-center justify-end gap-1"
-        target="_blank"
-      >
-        Download as PDF
-        <Download size={20} />
-      </a>
     </ContentLayout>
   );
 }

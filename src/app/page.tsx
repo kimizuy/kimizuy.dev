@@ -21,55 +21,29 @@ export default async function Home() {
       <section className="[&>*+*]:mt-4">
         <h2 className="text-xl font-bold">My own projects</h2>
         <div className="flex items-center gap-4 overflow-x-auto pb-2 pr-2 sm:gap-8">
-          <div className="grid h-32 shrink-0">
-            <Image
-              alt=""
-              src="/projects/politastv-search.png"
-              width={160}
-              height={160}
-            />
-            <a
-              href="https://politastv-search.vercel.app/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="self-end"
-            >
-              PolitasTV Search
-            </a>
-          </div>
-          <div className="grid h-32 shrink-0">
-            <Image
-              alt=""
-              src="/projects/kimizuy.dev.png"
-              width={160}
-              height={160}
-            />
-            <a
-              href="https://github.com/kimizuy/kimizuy.dev"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-1 self-end"
-            >
-              kimizuy.dev
-              <Github size={20} />
-            </a>
-          </div>
-          <div className="grid h-32 shrink-0">
-            <Image
-              alt=""
-              src="/projects/react-chartjs.png"
-              width={160}
-              height={160}
-            />
-            <a
-              href="https://www.npmjs.com/package/@kimizuy/react-chartjs"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="self-end"
-            >
-              @kimizuy/react-chartjs
-            </a>
-          </div>
+          <ProjectCard
+            name="PolitasTV Search"
+            imageAlt=""
+            imageSrc="/projects/politastv-search.png"
+            url="https://politastv-search.vercel.app/"
+          />
+          <ProjectCard
+            name={
+              <>
+                kimizuy.dev
+                <Github size={20} />
+              </>
+            }
+            imageAlt=""
+            imageSrc="/projects/kimizuy.dev.png"
+            url="https://github.com/kimizuy/kimizuy.dev"
+          />
+          <ProjectCard
+            name="@kimizuy/react-chartjs"
+            imageAlt=""
+            imageSrc="/projects/react-chartjs.png"
+            url="https://www.npmjs.com/package/@kimizuy/react-chartjs"
+          />
         </div>
       </section>
 
@@ -89,6 +63,29 @@ export default async function Home() {
           <ChevronRight />
         </Link>
       </section>
+    </div>
+  );
+}
+
+type ProjectCardProps = {
+  name: JSX.Element | string;
+  imageAlt: string;
+  imageSrc: string;
+  url: string;
+};
+
+function ProjectCard({ name, imageAlt, imageSrc, url }: ProjectCardProps) {
+  return (
+    <div className="grid h-32 shrink-0">
+      <Image alt={imageAlt} src={imageSrc} width={160} height={160} />
+      <a
+        href={url}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="flex items-center gap-1 self-end"
+      >
+        {name}
+      </a>
     </div>
   );
 }

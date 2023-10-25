@@ -1,3 +1,4 @@
+import { ChevronLeft } from "lucide-react";
 import Link from "next/link";
 import { TWITTER } from "../../utils/constants";
 import styles from "./article-end.module.css";
@@ -5,7 +6,10 @@ import styles from "./article-end.module.css";
 export function ArticleEnd() {
   return (
     <div className={styles.container}>
-      <Link href="/blog">← Back to blog home</Link>
+      <Link href="/blog" className="flex items-end">
+        <ChevronLeft />
+        Back to blog home
+      </Link>
       <a href={TWITTER} target="_blank" rel="noreferrer">
         Discuss on Twitter
       </a>

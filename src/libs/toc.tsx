@@ -9,7 +9,7 @@ type Props = { headingSelector?: string };
 
 export function Toc({ headingSelector }: Props) {
   const { width } = useWindowWidth();
-  const isMobile = width ? width <= 768 : undefined;
+  const isMobile = width <= 768;
   const offset = isMobile ? 32 : 48;
 
   useEffect(() => {
