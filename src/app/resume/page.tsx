@@ -1,8 +1,13 @@
 import { Download } from "lucide-react";
+import { type Metadata } from "next";
 import { exit } from "process";
 import { MDXComponent } from "@/components/post/mdx-component";
 import { bundleDoc } from "@/libs/mdx-bundler";
 import { getErrorMessage } from "@/utils/helper";
+
+export const metadata: Metadata = {
+  title: "Resume",
+};
 
 export default async function Page() {
   const { code } = await getResume();
