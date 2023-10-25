@@ -10,7 +10,7 @@
     "typecheck": "tsc",
     "cleanup-post-images": "rm -rf public/_posts",
     "gen:type-predicates": "type-predicates-generator -f src/types/post.ts -o src/libs/type-predicates.ts -a",
-    "gen:resume": "node src/libs/generate-pdf.js"
+    "gen:resume": "electron-pdf _docs/resume/index.md public/Kimizu_Yamasaki_Resume.pdf -c _docs/resume/index.css"
   },
   "dependencies": {
     "@mdx-js/loader": "^2.3.0",
@@ -21,6 +21,7 @@
     "clsx": "^2.0.0",
     "date-fns": "^2.30.0",
     "deepl-node": "^1.10.2",
+    "electron-pdf": "^25.0.0",
     "esbuild": "^0.19.5",
     "eslint-config-next": "^13.5.6",
     "framer-motion": "^10.16.4",
