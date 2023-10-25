@@ -9,14 +9,14 @@ const options = {
   pdf: {
     format: "A4",
     orientation: "portrait",
-    border: { top: "15mm", right: "15mm", bottom: "15mm", left: "15mm" },
+    border: { top: "15mm", right: "20mm", bottom: "15mm", left: "20mm" },
   },
 };
 
 mdpdf
   .convert(options)
   .then((pdfPath) => {
-    console.log("PDF generated at: " + pdfPath);
+    console.info("PDF generated at:", pdfPath);
   })
   .catch((err) => {
     console.error(err);
