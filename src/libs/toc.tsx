@@ -5,7 +5,9 @@ import { useEffect } from "react";
 import tocbot from "tocbot";
 import { useWindowWidth } from "../utils/use-window-width";
 
-export function Toc() {
+type Props = { headingSelector?: string };
+
+export function Toc({ headingSelector }: Props) {
   const { width } = useWindowWidth();
   const isMobile = width ? width <= 768 : undefined;
   const offset = isMobile ? 32 : 48;
@@ -14,7 +16,7 @@ export function Toc() {
     tocbot.init({
       tocSelector: ".toc",
       contentSelector: ".toc-content",
-      headingSelector: "h2, h3, h4",
+      headingSelector: headingSelector ?? "h2, h3, h4",
       orderedList: false,
       // ref: http://tscanlin.github.io/tocbot/#fixed-headers
       headingsOffset: offset,
@@ -22,7 +24,7 @@ export function Toc() {
     });
 
     return () => tocbot.destroy();
-  }, [offset]);
+  }, [headingSelector, offset]);
 
   return <div className="toc" />;
 }

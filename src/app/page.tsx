@@ -1,4 +1,4 @@
-import { ArrowRight, Github } from "lucide-react";
+import { ChevronRight, Github } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { exit } from "process";
@@ -20,7 +20,7 @@ export default async function Home() {
 
       <section className="[&>*+*]:mt-4">
         <h2 className="text-xl font-bold">My own projects</h2>
-        <div className="flex items-center gap-4 overflow-x-auto sm:gap-8">
+        <div className="flex items-center gap-4 overflow-x-auto pb-2 pr-2 sm:gap-8">
           <div className="grid h-32 shrink-0">
             <Image
               alt=""
@@ -84,9 +84,9 @@ export default async function Home() {
             </li>
           ))}
         </ul>
-        <Link href="/blog" className="flex items-center place-self-end">
+        <Link href="/blog" className="flex items-end place-self-end">
           All posts
-          <ArrowRight />
+          <ChevronRight />
         </Link>
       </section>
     </div>
