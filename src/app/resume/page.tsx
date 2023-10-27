@@ -9,6 +9,7 @@ import { getErrorMessage } from "@/utils/helper";
 
 export const metadata: Metadata = {
   title: "Resume",
+  robots: "noindex",
 };
 
 export default async function Page() {
