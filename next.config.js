@@ -21,16 +21,16 @@ function redirectBlog() {
   };
   /** @type {import('next').NextConfig} */
   const config = {
-    // async redirects() {
-    //   return [
-    //     {
-    //       source: "/",
-    //       has: [OLD_BLOG_HOST],
-    //       destination: "https://kimizuy.dev/blog",
-    //       permanent: true,
-    //     },
-    //   ];
-    // },
+    async redirects() {
+      return [
+        {
+          source: "/",
+          has: [OLD_BLOG_HOST],
+          destination: "https://kimizuy.dev/blog",
+          permanent: true,
+        },
+      ];
+    },
     async rewrites() {
       return {
         beforeFiles: [
