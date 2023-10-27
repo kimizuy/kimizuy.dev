@@ -22,24 +22,24 @@ During my tenure at Alterbo, I delivered a web application project to manage air
 
 ### Gaji-Labo Inc.
 
-#### Corporate Site for BtoB Company
+#### Corporate Site for BtoB Company (6 mos)
 
 - Achieved a significant boost in user experience by redesigning and refactoring the corporate site, and developing a high-performance project from scratch using Next.js.
 - Impressed the client by designing the blog, internationalization, contact form, and IR features, leading to team expansion.
 
-#### BtoB and BtoC Application for Equipment Rental
+#### BtoB and BtoC Application for Equipment Rental (3 mos)
 
 - Enhanced visual appeal and expedited REST API development by implementing UI markup with Material UI and defining API interfaces via OpenAPI.
 - Ensured application robustness through E2E testing using Cypress, and improved application efficiency by optimizing React code for UI rendering.
 
-#### Landing Page Site for BtoB Company
+#### Landing Page Site for BtoB Company (3 mos)
 
 - Enhanced functionality and developer collaboration by refactoring a 100+ page landing site and transitioning the codebase from JavaScript to TypeScript.
 - Boosted SEO significantly by improving Core Web Vital scores by 10 points on average, and ensured a smooth codebase transition through visual regression tests via BackstopJS.
 
 ### Alterbo Inc.
 
-#### Web application to manage airport users
+#### Web application to manage airport users (1y 1m)
 
 - Led front-end development using React, Redux, and TypeScript to enhance user and flight search functionality, and developed a robust app with test-driven development using Jest.
 - Dramatically enhanced airline staff productivity by implementing a system that centralized and digitized customer data, and partially developed Web API using Java to support the back-end.
