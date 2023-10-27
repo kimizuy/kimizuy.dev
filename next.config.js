@@ -29,6 +29,12 @@ function redirectBlog() {
           destination: "https://kimizuy.dev/blog",
           permanent: true,
         },
+        {
+          source: "/blog",
+          has: [OLD_BLOG_HOST],
+          destination: "https://kimizuy.dev/blog",
+          permanent: true,
+        },
       ];
     },
     async rewrites() {
