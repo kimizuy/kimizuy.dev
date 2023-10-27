@@ -20,7 +20,7 @@ export default async function Home() {
 
       <section className="[&>*+*]:mt-4">
         <h2 className="text-xl font-bold">My own projects</h2>
-        <div className="flex items-center gap-4 overflow-x-auto pb-2 pr-2 sm:gap-8">
+        <div className="flex items-center gap-4 overflow-y-hidden overflow-x-scroll pb-2 pr-2 sm:gap-8">
           <ProjectCard
             name="PolitasTV Search"
             imageAlt=""
