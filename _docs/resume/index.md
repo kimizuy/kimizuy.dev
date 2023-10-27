@@ -18,7 +18,7 @@ At Gaji-Labo, I participated in several projects with development periods rangin
 
 During my tenure at Alterbo, I delivered a web application project to manage airport user data, where I led front-end development using React, Redux, and TypeScript to enhance user and flight search functionality. Additionally, I developed a Web API with Java and assisted the backend, implementing a system that centralized and digitized customer data, which dramatically enhanced airline staff productivity. Through this project, I exhibited my full-stack development capabilities, ensuring a seamless user experience and better data management for airport personnel.
 
-## PROJECTS <sub><sup>(Note: The projects listed below are representative examples)</sup></sub>
+## PROJECTS <sub><sup>(Note: The projects listed below are representative examples. See the <a href="/resume/project-history">project history</a>)</sup></sub>
 
 ### Gaji-Labo Inc.
 

@@ -107,7 +107,7 @@ export async function bundlePost(slug: string) {
   return result;
 }
 
-export async function bundleDoc(doc: "home" | "resume") {
+export async function bundleDoc(doc: "home" | "resume" | "project-history") {
   const resumeFilePath = path.join(process.cwd(), "_docs", doc, "index.md");
   const source = readFileSync(resumeFilePath, "utf-8");
   const result = await bundleMDX({
