@@ -42,6 +42,7 @@ html,
 body {
   line-height: 1.6;
   overflow-wrap: break-word;
+  scroll-padding-top: 6rem;
 }
 
 a {
