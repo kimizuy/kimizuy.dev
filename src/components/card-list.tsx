@@ -31,7 +31,7 @@ export function CardList({ posts }: Props) {
       variants={{
         enter: { transition: { staggerChildren: 0.1 } },
       }}
-      className={styles.container}
+      className="grid gap-4 outline-none sm:grid-cols-[repeat(auto-fill,minmax(min(10rem,100%),1fr))]"
       // Enable :active for iOS
       onTouchStart={() => {
         return "";
@@ -41,7 +41,7 @@ export function CardList({ posts }: Props) {
         <motion.li
           variants={variants}
           key={post.slug}
-          className={styles.listItem}
+          className="border-b last:border-none sm:border-none"
         >
           <Card {...post} />
         </motion.li>
