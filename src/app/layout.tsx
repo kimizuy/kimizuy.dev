@@ -61,7 +61,7 @@ export default function Layout({ children }: LayoutProps) {
               </nav>
             </div>
           </header>
-          <main className="p-4 sm:p-8">
+          <main className="p-[2rem_1rem_8rem] sm:p-[3rem_1.5rem_10rem]">
             <div className="mx-auto max-w-5xl">{children}</div>
           </main>
           <footer className="h-20 place-self-center">
