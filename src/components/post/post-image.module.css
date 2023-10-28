@@ -1,7 +1,0 @@
-.container {
-  position: relative;
-  overflow: hidden;
-  height: 0;
-  padding-top: calc(9 / 16 * 100%);
-  cursor: zoom-in;
-}

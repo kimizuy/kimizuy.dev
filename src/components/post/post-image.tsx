@@ -2,7 +2,6 @@
 
 import Image from "next/image";
 import { useOverlayImage } from "../../providers/overlay-image-provider";
-import styles from "./post-image.module.css";
 
 interface Props {
   alt: string;
@@ -14,7 +13,7 @@ export function PostImage({ alt, src }: Props) {
 
   return (
     <div
-      className={styles.container}
+      className="relative h-0 cursor-zoom-in overflow-hidden pt-[calc(9/16*100%)]"
       onClick={() => {
         setSrc(src);
       }}

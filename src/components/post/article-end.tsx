@@ -1,11 +1,10 @@
 import { ChevronLeft } from "lucide-react";
 import Link from "next/link";
 import { TWITTER } from "../../utils/constants";
-import styles from "./article-end.module.css";
 
 export function ArticleEnd() {
   return (
-    <div className={styles.container}>
+    <div className="mt-16 flex justify-between">
       <Link href="/blog" className="flex items-end">
         <ChevronLeft />
         Back to blog home
