@@ -19,7 +19,7 @@ export function Post({ code, frontmatter }: Props) {
         </div>
       </header>
       {/* eslint-disable-next-line tailwindcss/no-custom-classname */}
-      <main className="toc-content">
+      <main className="toc-content mt-8">
         <MDXComponent code={code} />
       </main>
       <footer className="mt-8">

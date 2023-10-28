@@ -12,7 +12,7 @@ export function MDXComponent({ code }: Props) {
   const Component = getMDXComponent(code);
 
   return (
-    <div className="mt-8 [&>*+*]:mt-[1em]">
+    <div className="[&>*+*]:mt-[1em]">
       <Component
         components={{
           img: ({ alt, src }) =>
