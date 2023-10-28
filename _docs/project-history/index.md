@@ -4,7 +4,7 @@
 
 ### Gaji-Labo Inc.
 
-#### BtoB company corporate site (6 mos)
+#### Corporate Site for BtoB Company (6 mos)
 
 - Redesigned and refactored the corporate site, achieving a significant boost in user experience.
 - Developed a high-performance project from scratch using Next.js.
@@ -17,7 +17,7 @@
 - Conducted E2E testing using Cypress, ensuring application robustness.
 - Optimized React code for UI rendering, improving application efficiency especially for large lists.
 
-#### BtoB company landing page site (3 mos)
+#### Landing Page Site for BtoB Company (3 mos)
 
 - Refactored a 100+ page landing site, enhancing functionality.
 - Transitioned the codebase from JavaScript to TypeScript, improving developer collaboration.
