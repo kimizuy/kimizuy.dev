@@ -66,10 +66,15 @@
     "type-predicates-generator": "^0.4.0",
     "typescript": "^5.2.2"
   },
+  "engineStrict": true,
   "engines": {
-    "pnpm": "^8.9.0",
-    "node": "^18.12.1",
+    "pnpm": "8.10.0",
+    "node": "18.18.2",
     "npm": "please-use-pnpm",
     "yarn": "please-use-pnpm"
+  },
+  "volta": {
+    "node": "18.18.2",
+    "pnpm": "8.10.0"
   }
 }
