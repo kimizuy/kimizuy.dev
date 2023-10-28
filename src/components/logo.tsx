@@ -1,11 +1,13 @@
 import Image from "next/image";
 import Link from "next/link";
 import { NAME, SITE_TITLE } from "../utils/constants";
-import styles from "./logo.module.css";
 
 export function Logo() {
   return (
-    <Link href="/" className={styles.container}>
+    <Link
+      href="/"
+      className="flex cursor-pointer items-center gap-2 font-sans text-white"
+    >
       <Image
         src="/profile.jpg"
         alt={NAME}
@@ -14,7 +16,7 @@ export function Logo() {
         priority
         className="rounded-full object-contain"
       />
-      <span className={styles.title}>{SITE_TITLE}</span>
+      <span className="text-2xl font-bold">{SITE_TITLE}</span>
     </Link>
   );
 }

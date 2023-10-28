@@ -2,7 +2,7 @@
 
 import { AnimatePresence, motion, type Variants } from "framer-motion";
 import { type ReactNode } from "react";
-import styles from "./content-layout.module.css";
+import { cn } from "@/utils/helper";
 
 interface Props {
   children: ReactNode;
@@ -35,15 +35,16 @@ export function ContentLayout({ children, home, sideBarItem }: Props) {
         variants={{
           enter: { transition: { staggerChildren: 0.2 } },
         }}
-        className={styles.container}
+        className="flex flex-wrap-reverse gap-4"
       >
-        <motion.article variants={variants} className={styles.article}>
+        <motion.article
+          variants={variants}
+          className="min-w-[60%] grow-[999] basis-0"
+        >
           {children}
         </motion.article>
-        <motion.nav variants={variants} className={styles.sideBar}>
-          <div
-            className={`${styles.sideBarItemWrapper} ${!home && styles.sticky}`}
-          >
+        <motion.nav variants={variants} className="grow basis-[12rem]">
+          <div className={cn("[&>*+*]:mt-5", !home && "sticky top-20")}>
             {sideBarItem}
           </div>
         </motion.nav>
