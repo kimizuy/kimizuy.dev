@@ -30,8 +30,8 @@ export default async function Home() {
           <ProjectCard
             name={
               <>
-                kimizuy.dev
                 <Github size={20} />
+                kimizuy.dev
               </>
             }
             imageAlt=""

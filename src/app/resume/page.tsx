@@ -26,8 +26,8 @@ export default async function Page() {
             className="mt-12 flex items-center justify-end gap-1 text-xs"
             target="_blank"
           >
-            Download as PDF
             <Download size={16} />
+            Download as PDF
           </a>
         </>
       }
