@@ -30,7 +30,7 @@ export function CardList({ posts }: Props) {
       variants={{
         enter: { transition: { staggerChildren: 0.1 } },
       }}
-      className="grid gap-4 outline-none sm:grid-cols-[repeat(auto-fill,minmax(min(10rem,100%),1fr))]"
+      className="grid grid-cols-[repeat(auto-fill,minmax(min(12rem,100%),1fr))] gap-4 outline-none"
       // Enable :active for iOS
       onTouchStart={() => {
         return "";
