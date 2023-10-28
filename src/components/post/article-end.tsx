@@ -4,7 +4,7 @@ import { TWITTER } from "../../utils/constants";
 
 export function ArticleEnd() {
   return (
-    <div className="mt-16 flex justify-between">
+    <div className="flex justify-between">
       <Link href="/blog" className="flex items-end">
         <ChevronLeft />
         Back to blog home

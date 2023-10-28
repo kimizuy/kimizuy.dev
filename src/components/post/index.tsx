@@ -22,7 +22,7 @@ export function Post({ code, frontmatter }: Props) {
       <main className="toc-content">
         <MDXComponent code={code} />
       </main>
-      <footer>
+      <footer className="mt-8">
         <ArticleEnd />
       </footer>
     </>
