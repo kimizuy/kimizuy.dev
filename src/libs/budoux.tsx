@@ -1,6 +1,5 @@
 import { loadDefaultJapaneseParser } from "budoux";
-import { type ReactNode } from "react";
-import styles from "./budoux.module.css";
+import { Fragment, type ReactNode } from "react";
 
 const parser = loadDefaultJapaneseParser();
 
@@ -15,11 +14,13 @@ const parseOnlyJa = (value: string) => {
   const parsed = parser.parse(value);
   const texts = parsed.map((v, i) => {
     if (!isJa(v)) return v;
+    if (i === 0) return v;
 
     return (
-      <span className={styles.budoux} key={v + i}>
+      <Fragment key={v + i}>
+        <wbr />
         {v}
-      </span>
+      </Fragment>
     );
   });
 
