@@ -1,5 +1,4 @@
 import Link from "next/link";
-import styles from "./tag-list.module.css";
 
 type Props = {
   tags: string[];
@@ -7,10 +6,13 @@ type Props = {
 
 export function TagList({ tags }: Props) {
   return (
-    <ul className={styles.container}>
+    <ul className="relative flex w-fit flex-wrap gap-1">
       {tags.map((tag) => (
-        <li key={tag} className={styles.item}>
-          <Link href={`/blog/tag/${tag}`} className={styles.link}>
+        <li key={tag}>
+          <Link
+            href={`/blog/tag/${tag}`}
+            className="text-sm underline active:no-underline sm:hover:no-underline"
+          >
             #{tag}
           </Link>
         </li>

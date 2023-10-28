@@ -1,7 +1,7 @@
 import { getMDXComponent } from "mdx-bundler/client";
 import { type ReactNode } from "react";
+import { cn } from "@/utils/helper";
 import { budouxParse } from "../../libs/budoux";
-import styles from "./mdx-component.module.css";
 import { PostImage } from "./post-image";
 
 interface Props {
@@ -12,47 +12,65 @@ export function MDXComponent({ code }: Props) {
   const Component = getMDXComponent(code);
 
   return (
-    <Component
-      components={{
-        img: ({ alt, src }) =>
-          src && alt ? <PostImage alt={alt} src={src} /> : null,
-        h1: (props) => <h1 {...props} className={styles.h1} />,
-        h2: (props) => <h2 {...props} className={styles.h2} />,
-        h3: (props) => <h3 {...props} className={styles.h3} />,
-        ul: (props) => <ul {...props} className={styles.ul} />,
-        ol: (props) => <ol {...props} className={styles.ol} />,
-        div: ({ className, ...rest }) => {
-          if (className === "footnotes") {
-            return <div {...rest} className={styles.footnotes} />;
-          }
+    <div className="mt-8 [&>*+*]:mt-[1em]">
+      <Component
+        components={{
+          img: ({ alt, src }) =>
+            src && alt ? <PostImage alt={alt} src={src} /> : null,
+          h1: (props) => (
+            <h1
+              {...props}
+              className="relative border-b pb-1 text-3xl font-bold"
+            />
+          ),
+          h2: (props) => (
+            <h2 {...props} className="relative text-2xl font-bold" />
+          ),
+          h3: (props) => (
+            <h3 {...props} className="relative text-xl font-bold" />
+          ),
+          h4: (props) => <h3 {...props} className="relative" />,
+          ul: (props) => <ul {...props} className="list-disc pl-10" />,
+          div: ({ className, ...rest }) => {
+            if (className === "footnotes") {
+              return <div {...rest} className="mb-4 mt-12" />;
+            }
 
-          return <div {...rest} className={className} />;
-        },
-        blockquote: (props) => (
-          <blockquote {...props} className={styles.blockquote} />
-        ),
+            return <div {...rest} className={className} />;
+          },
+          blockquote: (props) => (
+            <blockquote {...props} className="rounded border p-4 [&_p]:m-0" />
+          ),
 
-        // use budoux
-        p: ({ children, ...rest }) => {
-          if (isImg(children)) {
-            return <>{children}</>;
-          }
+          p: ({ children, className, ...rest }) => {
+            if (isImg(children)) {
+              return <>{children}</>;
+            }
 
-          return (
-            <p {...rest} className={styles.p}>
-              {budouxParse(children)}
-            </p>
-          );
-        },
-        em: ({ children, ...rest }) => (
-          <em {...rest}>{budouxParse(children)}</em>
-        ),
-        a: ({ children, ...rest }) => <a {...rest}>{budouxParse(children)}</a>,
-        li: ({ children, ...rest }) => (
-          <li {...rest}>{budouxParse(children)}</li>
-        ),
-      }}
-    />
+            return (
+              <p
+                {...rest}
+                className={cn(
+                  className,
+                  "break-keep leading-7 [overflow-wrap:anywhere]",
+                )}
+              >
+                {budouxParse(children)}
+              </p>
+            );
+          },
+          em: ({ children, ...rest }) => (
+            <em {...rest}>{budouxParse(children)}</em>
+          ),
+          a: ({ children, ...rest }) => (
+            <a {...rest}>{budouxParse(children)}</a>
+          ),
+          li: ({ children, ...rest }) => (
+            <li {...rest}>{budouxParse(children)}</li>
+          ),
+        }}
+      />
+    </div>
   );
 }
 

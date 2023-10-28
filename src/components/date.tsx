@@ -1,6 +1,5 @@
 import { format } from "date-fns";
 import { type Frontmatter } from "../types/post";
-import styles from "./date.module.css";
 
 type Props = {
   publishedAt: Frontmatter["publishedAt"];
@@ -8,7 +7,7 @@ type Props = {
 
 export function Date({ publishedAt }: Props) {
   return (
-    <div className={styles.container}>
+    <div className="text-slate-400">
       Published at <Time value={publishedAt} />
     </div>
   );

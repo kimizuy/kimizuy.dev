@@ -53,7 +53,7 @@ export default function Layout({ children }: LayoutProps) {
       <body>
         <div className="grid min-h-screen grid-cols-[100%] grid-rows-[auto,1fr,auto] bg-slate-950">
           <header className="sticky top-0 z-10 grid h-16 bg-inherit px-4 sm:px-8">
-            <div className="flex w-full max-w-7xl justify-between place-self-center">
+            <div className="flex w-full max-w-6xl justify-between place-self-center">
               <Logo />
               <nav className="flex items-center justify-between gap-2 sm:gap-4">
                 <Link href="/blog">Blog</Link>
@@ -61,8 +61,8 @@ export default function Layout({ children }: LayoutProps) {
               </nav>
             </div>
           </header>
-          <main className="mx-auto w-full max-w-6xl p-4 sm:p-8">
-            {children}
+          <main className="p-[2rem_1rem_8rem] sm:p-[3rem_1.5rem_10rem]">
+            <div className="mx-auto max-w-5xl">{children}</div>
           </main>
           <footer className="h-20 place-self-center">
             <CopyRight />
