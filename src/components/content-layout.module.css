@@ -19,7 +19,7 @@
 
 .sideBar {
   display: block;
-  flex-basis: 15rem;
+  flex-basis: 12rem;
   flex-grow: 1;
   margin: var(--gap);
 }
