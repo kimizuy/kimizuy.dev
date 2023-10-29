@@ -14,7 +14,6 @@ export default async function Home() {
   return (
     <div className="mx-auto max-w-3xl [&_section+section]:mt-12">
       <section>
-        <h1 className="text-2xl font-bold">Hi, I&apos;m kimizuy 👋</h1>
         <MDXComponent code={home} />
       </section>
 
