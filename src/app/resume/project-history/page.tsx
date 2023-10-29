@@ -18,7 +18,7 @@ export default async function Page() {
     <ContentLayout
       sideBarItem={
         <>
-          <Toc headingSelector="h3,h4" />
+          <Toc headingSelector="h2,h3" />
         </>
       }
     >
