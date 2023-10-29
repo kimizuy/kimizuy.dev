@@ -30,8 +30,8 @@
 
 p > code {
   padding: 0.25rem 0.5rem;
-  border-radius: 4px;
-  background-color: var(--code);
   font-family: Menlo, Monaco, "Courier New", monospace;
   font-size: 0.875rem;
+  background-color: var(--code);
+  border-radius: 4px;
 }
