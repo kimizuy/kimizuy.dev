@@ -8,14 +8,13 @@ import { getErrorMessage } from "@/utils/helper";
 import { getAllPosts } from "@/utils/post";
 
 export default async function Home() {
-  const { code: home } = await getHome();
+  const { code } = await getHome();
   const recentPosts = (await getAllPosts()).slice(0, 3);
 
   return (
     <div className="mx-auto max-w-3xl [&_section+section]:mt-12">
       <section>
-        <h1 className="text-2xl font-bold">Hi, I&apos;m kimizuy 👋</h1>
-        <MDXComponent code={home} />
+        <MDXComponent code={code} />
       </section>
 
       <section className="[&>*+*]:mt-4">

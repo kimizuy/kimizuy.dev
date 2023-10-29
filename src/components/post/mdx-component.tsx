@@ -18,13 +18,13 @@ export function MDXComponent({ code }: Props) {
           img: ({ alt, src }) =>
             src && alt ? <PostImage alt={alt} src={src} /> : null,
           h1: (props) => (
-            <h1
-              {...props}
-              className="relative border-b pb-1 text-3xl font-bold"
-            />
+            <h1 {...props} className="relative text-3xl font-bold" />
           ),
           h2: (props) => (
-            <h2 {...props} className="relative text-2xl font-bold" />
+            <h2
+              {...props}
+              className="relative border-b pb-1 text-2xl font-bold"
+            />
           ),
           h3: (props) => (
             <h3 {...props} className="relative text-xl font-bold" />
