@@ -1,5 +1,9 @@
 module.exports = {
-  extends: ["stylelint-config-standard", "stylelint-config-idiomatic-order"],
+  extends: [
+    "stylelint-config-standard",
+    "stylelint-config-recess-order",
+    "stylelint-prettier/recommended",
+  ],
   rules: {
     "font-family-no-missing-generic-family-keyword": [
       true,
