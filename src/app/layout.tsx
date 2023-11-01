@@ -52,7 +52,7 @@ export default function Layout({ children }: LayoutProps) {
     <html className={zenKakuGothicNew.className}>
       <body>
         <div className="grid min-h-screen grid-cols-[100%] grid-rows-[auto,1fr,auto] bg-slate-950">
-          <header className="sticky top-0 z-10 grid h-16 bg-inherit px-4 sm:px-8">
+          <header className="sticky top-0 z-10 grid h-14 bg-inherit px-4 sm:h-16 sm:px-8">
             <div className="flex w-full max-w-6xl justify-between place-self-center">
               <Logo />
               <nav className="flex items-center justify-between gap-2 sm:gap-4">
