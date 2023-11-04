@@ -1,8 +1,13 @@
 # How to Use
 
-Install it and run:
+Install packages.
 
 ```bash
-npm
-npm run dev
+pnpm install
+```
+
+And run.
+
+```bash
+pnpm dev
 ```
