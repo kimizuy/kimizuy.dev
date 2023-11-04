@@ -12,6 +12,7 @@ export function Logo() {
         <Image
           src="/profile.jpg"
           alt={NAME}
+          sizes="100vw"
           fill
           priority
           className="rounded-full object-contain"
