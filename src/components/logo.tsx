@@ -8,7 +8,7 @@ export function Logo() {
       href="/"
       className="flex cursor-pointer items-center gap-2 font-sans text-lg text-white sm:text-xl"
     >
-      <div className="relative h-[2em] w-[2em]">
+      <div className="relative h-[1.875em] w-[1.875em]">
         <Image
           src="/profile.jpg"
           alt={NAME}
