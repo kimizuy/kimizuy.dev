@@ -24,7 +24,7 @@ export default async function Home() {
             name="PolitasTV Search"
             imageAlt=""
             imageSrc="/projects/politastv-search.png"
-            url="https://politastv-search.vercel.app/"
+            url="https://www.politastv-search.com/"
           />
           <ProjectCard
             name={

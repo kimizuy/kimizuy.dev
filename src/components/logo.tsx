@@ -6,17 +6,19 @@ export function Logo() {
   return (
     <Link
       href="/"
-      className="flex cursor-pointer items-center gap-2 font-sans text-white"
+      className="flex cursor-pointer items-center gap-2 font-sans text-lg text-white sm:text-xl"
     >
-      <Image
-        src="/profile.jpg"
-        alt={NAME}
-        width={48}
-        height={48}
-        priority
-        className="rounded-full object-contain"
-      />
-      <span className="text-2xl font-bold">{SITE_TITLE}</span>
+      <div className="relative h-[1.875em] w-[1.875em]">
+        <Image
+          src="/profile.jpg"
+          alt={NAME}
+          sizes="100vw"
+          fill
+          priority
+          className="rounded-full object-contain"
+        />
+      </div>
+      <span className="font-bold">{SITE_TITLE}</span>
     </Link>
   );
 }

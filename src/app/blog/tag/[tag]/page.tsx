@@ -18,6 +18,7 @@ export function generateMetadata({ params }: Props): Metadata {
 
   return {
     title,
+    description: `Posts tagged with ${title}`,
     twitter: {
       title,
     },

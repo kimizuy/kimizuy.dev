@@ -22,6 +22,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   return {
     title: frontmatter.title,
+    description: frontmatter.description,
     twitter: {
       title: frontmatter.title,
       images: image,
