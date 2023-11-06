@@ -9,6 +9,7 @@ import { getErrorMessage } from "@/utils/helper";
 
 export const metadata: Metadata = {
   title: "Resume",
+  description: "Here is my latest resume",
   robots: "noindex",
 };
 

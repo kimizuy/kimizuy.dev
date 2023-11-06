@@ -8,6 +8,7 @@ import { getErrorMessage } from "@/utils/helper";
 
 export const metadata: Metadata = {
   title: "Project History",
+  description: "Here is my entire project history",
   robots: "noindex",
 };
 
