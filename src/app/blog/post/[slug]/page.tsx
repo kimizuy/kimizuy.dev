@@ -5,7 +5,7 @@ import { OverlayImage } from "@/components/overlay-image";
 import { Post } from "@/components/post";
 import { Toc } from "@/libs/toc";
 import { OverlayImageProvider } from "@/providers/overlay-image-provider";
-import { POST_FILE_PATHS, SITE_URL } from "@/utils/constants";
+import { POST_FILE_PATHS } from "@/utils/constants";
 import { getPost } from "@/utils/post";
 
 export function generateStaticParams() {
@@ -18,19 +18,19 @@ type Props = { params: { slug: string } };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { frontmatter, cover } = await getPost(params.slug);
-  const image = new URL(cover, SITE_URL);
 
   return {
     title: frontmatter.title,
     description: frontmatter.description,
     twitter: {
       title: frontmatter.title,
-      images: image,
+      images: `/${cover}`,
+      card: "summary",
     },
     openGraph: {
-      url: new URL(`/blog/post/${params.slug}`, SITE_URL),
+      url: `/blog/post/${params.slug}`,
       title: frontmatter.title,
-      images: image,
+      images: `/${cover}`,
     },
   };
 }

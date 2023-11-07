@@ -2,7 +2,6 @@ import { type Metadata } from "next";
 import { CardList } from "../../../../components/card-list";
 import { ContentLayout } from "../../../../components/content-layout";
 import { TagList } from "../../../../components/tag-list";
-import { SITE_URL } from "../../../../utils/constants";
 import { getAllPosts, getAllTags } from "../../../../utils/post";
 
 export async function generateStaticParams() {
@@ -23,7 +22,7 @@ export function generateMetadata({ params }: Props): Metadata {
       title,
     },
     openGraph: {
-      url: new URL(`/blog/tag/${params.tag}`, SITE_URL),
+      url: `/blog/tag/${params.tag}`,
       title,
     },
   };
