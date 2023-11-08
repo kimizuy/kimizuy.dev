@@ -1,4 +1,5 @@
 import { getMDXComponent } from "mdx-bundler/client";
+import Link from "next/link";
 import { type ReactNode } from "react";
 import { cn } from "@/utils/helper";
 import { budouxParse } from "../../libs/budoux";
@@ -62,9 +63,29 @@ export function MDXComponent({ code }: Props) {
           em: ({ children, ...rest }) => (
             <em {...rest}>{budouxParse(children)}</em>
           ),
-          a: ({ children, ...rest }) => (
-            <a {...rest}>{budouxParse(children)}</a>
-          ),
+          a: ({ children, href, className, ...rest }) => {
+            if (!href) return null;
+            const parsed = budouxParse(children);
+            if (isFullUrl(href)) {
+              return (
+                <a
+                  {...rest}
+                  href={href}
+                  className={className}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {parsed}
+                </a>
+              );
+            } else {
+              return (
+                <Link href={href} className={className}>
+                  {parsed}
+                </Link>
+              );
+            }
+          },
           li: ({ children, ...rest }) => (
             <li {...rest}>{budouxParse(children)}</li>
           ),
@@ -84,6 +105,16 @@ function isImg(children: ReactNode) {
   ) {
     return true;
   } else {
+    return false;
+  }
+}
+
+function isFullUrl(url: string): boolean {
+  try {
+    new URL(url);
+
+    return true;
+  } catch (error) {
     return false;
   }
 }

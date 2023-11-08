@@ -31,19 +31,19 @@ export const metadata = {
   description: SITE_DESCRIPTION,
   icons: { icon: "/favicon.ico" },
   twitter: {
-    card: "summary_large_image",
+    card: "summary",
     site: "@kimizuy",
     creator: "@kimizuy",
     title: { default: SITE_TITLE, template: `%s | ${SITE_TITLE}` },
     description: SITE_DESCRIPTION,
-    images: new URL("/profile.jpg", SITE_URL),
+    images: "/profile.jpg",
   },
   openGraph: {
     url: SITE_URL,
     type: "article",
     title: { default: SITE_TITLE, template: `%s | ${SITE_TITLE}` },
     description: SITE_DESCRIPTION,
-    images: new URL("/profile.jpg", SITE_URL),
+    images: "/profile.jpg",
   },
 };
 

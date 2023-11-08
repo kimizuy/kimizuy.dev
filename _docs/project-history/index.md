@@ -38,7 +38,7 @@
 ### In-house corporate website (3 mos)
 
 - Led technology selection, data migration from NetlifyCMS to DatoCMS, and migration to Next.js, completed almost single-handedly
-- Generated CMS Web API types to improve maintainability and developer experience and speed up website updates
+- Automatically generated GraphQL API types for CMS to improve maintainability and developer experience and speed up website updates
 - Built a UI Testing Workflow with Storybook and Chromatic
 - Increased core web vital performance by 10-15 points, improving website loading speed
 
