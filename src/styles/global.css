@@ -47,11 +47,6 @@ a {
   text-decoration: none;
 }
 
-/* https://coliss.com/articles/build-websites/operation/css/fixing-smooth-scrolling-with-page-search.html */
-html:focus-within {
-  scroll-behavior: smooth;
-}
-
 /* fix: text-overflow ellipsis not working in nested flexbox */
 .static-tweet-header-author {
   min-width: 0;
