@@ -1,6 +1,6 @@
 ---
 title: Github Actions × Lighthouse CI を Next.js プロジェクトに導入する
-description: 最近いろいろなサイトの Lighthouse スコアを見るのが趣味になっている。このサイトもスコアを参考に修正しているがデプロイする前に確認したい。 ググってみると Github Actions × Lighthouse CI で可能なことがわかった。Next.js プロジェクトでの紹介事例がないようだったのでまとめておく。
+description: デプロイする前にGithub Actions で Lighthouse スコアを測定する
 publishedAt: 2020-08-22
 tags: [next, github]
 ---
@@ -13,7 +13,7 @@ export { default as cover } from "./cover.png";
 
 - Lighthouse
 
-  Google 製の Web サイト品質評価ソフト。サイトのパフォーマンスや SEO、アクセシビリティを数値化してくれる。Lighthouse CI は開発ワークフローに組み込めるようにしたもの。
+  Google 製の Web サイト品質評価ソフト。サイトのパフォーマンスや SEO、アクセシビリティを数値化してくれる。Lighthouse CI は開発ワークフローへ組み込めるようにしたもの。
 
 - Github Actions
 
@@ -23,7 +23,7 @@ export { default as cover } from "./cover.png";
 
 [ここから](https://github.com/apps/lighthouse-ci)導入したい Github のリポジトリに対して Lighthouse CI をインストールしていく。
 
-インストールボタンを押す
+インストールボタンを押す。
 
 ![install 1](./install1.png)
 
@@ -35,7 +35,7 @@ export { default as cover } from "./cover.png";
 
 ![pass](./pass.png)
 
-Github で対象のリポジトリを開く → Settings → Secrets → New Secret と進む
+Github で対象のリポジトリを開く → Settings → Secrets → New Secret と進む。
 
 ![addsecret 1](./addsecret1.png)
 
@@ -110,7 +110,7 @@ module.exports = {
 
 ![result 1](./result1.png)
 
-「run Lighthouse CI」の URL にアクセスすると結果が見られる
+「run Lighthouse CI」の URL にアクセスすると結果が見られる。
 
 ![result 2](./result2.png)
 
