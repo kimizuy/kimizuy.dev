@@ -38,6 +38,12 @@ export default async function Home() {
             url="https://github.com/kimizuy/kimizuy.dev"
           />
           <ProjectCard
+            name="Twitter clone app"
+            imageAlt=""
+            imageSrc="/projects/twitter-clone.png"
+            url="https://twitter-clone-kimizuy.vercel.app/"
+          />
+          <ProjectCard
             name="@kimizuy/react-chartjs"
             imageAlt=""
             imageSrc="/projects/react-chartjs.png"
