@@ -7,13 +7,13 @@ tags: [next, mdx, typescript]
 
 export { default as cover } from "./cover.png";
 
-[Next.js](https://nextjs.org/) と [MDX](https://mdxjs.com/) と [TypeScript](https://www.typescriptlang.org/) でブログを作った！
+[Next.js](https://nextjs.org/) と [MDX](https://mdxjs.com/) 、 [TypeScript](https://www.typescriptlang.org/) でブログを作った。
 
 ## 使っている技術
 
 - [Next.js](https://nextjs.org/)
 
-  React 製のフレームワーク。[GatsbyJS](https://www.gatsbyjs.com/) と比較してコントローラブルな点で優位なので採用した。一方、単にブログサイトを作る点では Gatsby の方が便利なプラグインが多い。Next は v9.5 で動的コンテンツを静的ページで生成できる Incremental Static Regeneration という機能の安定板をリリースしている。この機能のデモは[こちら](https://static-tweet.now.sh/)。ツイートを iframe を使わない静的なコンテンツとして生成することでページの表示速度を向上させている。
+  React 製のフレームワーク。[GatsbyJS](https://www.gatsbyjs.com/) と比較してコントローラブルな点で優位なので採用した。一方、単にブログサイトを作る点では Gatsby の方が便利なプラグインは多い。Next は v9.5 で動的コンテンツを静的ページで生成できる Incremental Static Regeneration という機能の安定板をリリースしている。この機能のデモは[こちら](https://static-tweet.now.sh/)。ツイートを iframe を使わない静的なコンテンツとして生成することでページの表示速度を向上させている。
 
 - [MDX](https://mdxjs.com/)
 
@@ -58,13 +58,15 @@ export { default as cover } from "./cover.png";
 
 - [CSS Modules](https://github.com/css-modules/css-modules)
 
-  CSS の名前衝突を回避できる。Next.js が正式サポートしているので特に設定は不要。最初は Styled-Components を使おうと考えたが CSS-in-JS だと SSR になって SSG の強みがなくなってしまうため、こちらを採用した。フィジカルな利点として、スタイリングが分離できるので 1 つのファイルの行数が削減できてスクロールする回数が減らせる（Styled-Components を使っていたときは行数が増えると同じファイルをウィンドウ分割で開いて見てた）。
+  CSS の名前衝突を回避できる。Next.js が正式サポートしているので特に設定は不要。最初は Styled-Components を使おうと考えたが CSS-in-JS だと SSR になって SSG の強みがなくなってしまうため、こちらを採用した。フィジカルな利点として、スタイリングが分離できるので 1 つのファイルの行数が削減できてスクロールする回数が減らせる。これまでは Styled-Components を使っていたときは行数が増えると同じファイルをウィンドウ分割で開いて見ていた。
 
 #### 追記 (2021/1/28)
 
-"CSS-in-JS だと SSR になって SSG の強みがなくなってしまう"の部分ですが、ビルド時に静的な CSS として書き出されない（つまり JS によるランタイム実行になる）ためパフォーマンス面で CSS Modules に劣るようです。解決策として [linaria](https://github.com/callstack/linaria) という CSS フレームワークがあります。Styled-Components のように書けてビルド時に CSS ファイルが抽出されるので、パフォーマンスと記法の両方でメリットを得たい場合は選択肢になりそうです。
+"CSS-in-JS だと SSR になって SSG の強みがなくなってしまう"の部分ですが、ビルド時に静的な CSS として書き出されません。つまり クライアント側で JavaScript をインストールして実行し CSS へ変換する必要があり、パフォーマンス面で CSS Modules に劣ります。
 
-参考:
+解決策として [linaria](https://github.com/callstack/linaria) という CSS フレームワークがあります。Styled-Components のように書けてビルド時に静的な CSS ファイルが出力されます。パフォーマンスと記法の両方でメリットを得たい場合は選択肢になりそうです。
+
+##### 参考
 
 [Next.js が CSS Modules を推奨する真相に迫りたい](https://zenn.dev/takepepe/scraps/6668e9fe402666)
 
@@ -94,7 +96,7 @@ export { default as cover } from "./cover.png";
 
 - [note](https://note.com/)
 
-  カードコンポーネントやレイアウトを参考にした。とくにレイアウトについては紆余曲折があり、「記事を並べるだけなら flexbox で事足りるな」と思って始めたが全然そんなことはなく、変な隙間が空いたりコンポーネント間の gap が指定できなかったりで(厳密には firefox のみ対応)、意外とできないことが多かった。結果的に grid を使ってメディアクエリごとにカラム数を増減させる方法に落ちつく。
+カードコンポーネントやレイアウトを参考にした。とくにレイアウトについては紆余曲折があった。「記事を並べるだけなら flexbox で事足りるな」と思って始めたが全然そんなことはなく変な隙間が空いたりコンポーネント間の gap が指定できなかったりで上手くいかないことが多かった。結果的に grid を使ってメディアクエリごとにカラム数を増減させる方法に落ちつく。
 
 - [blog.ojisan.io](https://blog.ojisan.io)
 

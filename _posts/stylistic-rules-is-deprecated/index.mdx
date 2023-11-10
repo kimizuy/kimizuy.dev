@@ -9,9 +9,9 @@ export { default as cover } from "./cover.png";
 
 ## はじめに
 
-[Stylelint](https://stylelint.io/) を v15 にアップグレードしたところ CSS ファイル内の改行に対するフォーマットが効かなくなっており、調べてみると v15 から CSS に関係しない stylistic rules (改行や空白などのコードフォーマット) が非推奨になっていました。
+[Stylelint](https://stylelint.io/) の v15 からは CSS に関係しない stylistic rules (改行や空白などのコードフォーマット) が非推奨になりました。
 
-Stylelint の開発当初はコードフォーマットライブラリが成熟していなかったためフォーマットルールについても Stylelint が担っていましたが、今では [Prettier](https://prettier.io/) などのライブラリが充分に発達したため、Stylelint はコードフォーマットルールを廃止したようです。
+Stylelint の開発当初はコードフォーマットライブラリが成熟していなかったため空白や改行のフォーマットも Stylelint が担っていました。現在は [Prettier](https://prettier.io/) などのライブラリが充分に発達したため、Stylelint はそれらのルールを非推奨にしました。
 
 [Migrating to 15.0.0 - Deprecated stylistic rules](https://stylelint.io/migration-guide/to-15/#deprecated-stylistic-rules)
 
@@ -19,7 +19,7 @@ Stylelint の開発当初はコードフォーマットライブラリが成熟�
 
 [stylelint-stylistic](https://github.com/elirasza/stylelint-stylistic) などのコミュニティプラグインによって stylistic rules も維持可能です。
 
-ただ、今回は特に規模の大きなプロジェクトではなく変更対象のファイルが少ないので、Prettier によるコードフォーマットに移行することにしました。
+ただ、今回は特に規模の大きなプロジェクトではなく変更対象のファイルが少ないので、Prettier によるコードフォーマットへ移行することにしました。
 
 ## 方法
 
@@ -65,7 +65,7 @@ npm run stylelint --fix **/*.css
 
 ### 問題発生
 
-一箇所だけインデントの問題が発生し直せなくなりました😅 幸い（？）、もともと不要なスタイルだっため削除することで対応しました。
+一箇所、インデントのリント合戦が発生し修正できなくなりました（結局、もともと不要なスタイルだったので当該箇所を削除することで対応しました）。
 
 ![incident](./incident.png)
 
@@ -75,7 +75,7 @@ npm run stylelint --fix **/*.css
 
 ## おわりに
 
-これまでは `stylelint-config-prettier` を使って Prettier との競合を打ち消す形でしたが、Stylelint が stylistic rules を廃止することで Prettier との責務が明確になりよりシンプルになりました。
+これまでは `stylelint-config-prettier` を使って Prettier との競合を打ち消す形でした。今後は Stylelint が stylistic rules を廃止することで Prettier との責務が明確になり、よりシンプルに運用できそうですね。
 
 ## 参考
 
