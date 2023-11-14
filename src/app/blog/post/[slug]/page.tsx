@@ -5,14 +5,14 @@ import { OverlayImage } from "@/components/overlay-image";
 import { Post } from "@/components/post";
 import { Toc } from "@/libs/toc";
 import { OverlayImageProvider } from "@/providers/overlay-image-provider";
-import { POST_FILE_PATHS } from "@/utils/constants";
+// import { POST_FILE_PATHS } from "@/utils/constants";
 import { getPost } from "@/utils/post";
 
-export function generateStaticParams() {
-  const slugs = POST_FILE_PATHS.map((slug) => ({ slug }));
+// export function generateStaticParams() {
+//   const slugs = POST_FILE_PATHS.map((slug) => ({ slug }));
 
-  return slugs;
-}
+//   return slugs;
+// }
 
 type Props = { params: { slug: string } };
 
