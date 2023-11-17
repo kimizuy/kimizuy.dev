@@ -1,5 +1,7 @@
 import "./mdx-bundler.css";
 import { readFileSync } from "fs";
+import { type Root } from "hast";
+import { isElement } from "hast-util-is-element";
 import { bundleMDX } from "mdx-bundler";
 import path from "path";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
@@ -8,7 +10,7 @@ import rehypePrism from "rehype-prism-plus";
 import rehypeSlug from "rehype-slug";
 import remarkGfm from "remark-gfm";
 import remarkMdxImages from "remark-mdx-images";
-import { visit } from "unist-util-visit";
+import { SKIP, visit } from "unist-util-visit";
 import { POSTS_PATH } from "../utils/constants";
 
 export async function bundlePost(slug: string) {
@@ -48,7 +50,7 @@ export async function bundlePost(slug: string) {
         [rehypePrism, { showLineNumbers: true }],
 
         () => {
-          return (tree) => {
+          return (tree: Root) => {
             customLineNumber(tree); // ref: https://github.com/CanRau/canrau.com
           };
         },
@@ -111,30 +113,24 @@ export async function bundleDoc(doc: "home" | "resume" | "project-history") {
   return result;
 }
 
-/* eslint-disable @typescript-eslint/no-unsafe-assignment */
-/* eslint-disable @typescript-eslint/no-unsafe-call */
-/* eslint-disable @typescript-eslint/no-explicit-any */
-/* eslint-disable @typescript-eslint/no-unsafe-member-access */
-const customLineNumber = (tree: any) => {
-  visit(tree, "element", (node, _, parent) => {
-    if (!node.properties.className) return;
-    const [token, type] = node.properties.className;
-    if (token === "code-line" && type === "line-number") {
-      const lineNumber = node.properties.line;
-      const numberDigit = String(parent.children.length).length;
-      node.children.unshift({
-        type: "element",
-        tagName: "span",
-        properties: {
-          style: { minWidth: `${numberDigit}ch` },
+const customLineNumber = (tree: Root) => {
+  visit(tree, "element", (node) => {
+    if (!isElement(node, "span")) return;
+    const classes = node.properties.className;
+    if (!Array.isArray(classes)) return SKIP;
+    const [token, type] = classes;
+    if (!(token === "code-line" && type === "line-number")) return SKIP;
+    const lineNumber = String(node.properties.line);
+    node.children.unshift({
+      type: "element",
+      tagName: "span",
+      properties: {},
+      children: [
+        {
+          type: "text",
+          value: lineNumber,
         },
-        children: [
-          {
-            type: "text",
-            value: lineNumber,
-          },
-        ],
-      });
-    }
+      ],
+    });
   });
 };
