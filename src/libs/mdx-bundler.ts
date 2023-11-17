@@ -24,15 +24,13 @@ export async function bundlePost(slug: string) {
       options.remarkPlugins = [
         ...(options.remarkPlugins ?? []),
         remarkGfm,
-        // ref: https://www.timjfoster.com/posts/mdx-bundler-with-images
-        remarkMdxImages,
+        remarkMdxImages, // ref: https://www.timjfoster.com/posts/mdx-bundler-with-images
       ];
       options.rehypePlugins = [
         ...(options.rehypePlugins ?? []),
         rehypeSlug,
         [
-          rehypeAutolinkHeadings,
-          // ref: https://neos21.net/blog/2020/11/14-01.html
+          rehypeAutolinkHeadings, // ref: https://neos21.net/blog/2020/11/14-01.html
           {
             behavior: "prepend",
             properties: { className: "anchor", ariaHidden: true, tabIndex: -1 },
@@ -49,36 +47,9 @@ export async function bundlePost(slug: string) {
         rehypeCodeTitles,
         [rehypePrism, { showLineNumbers: true }],
 
-        // ref: https://github.com/CanRau/canrau.com
         () => {
           return (tree) => {
-            visit(tree, "element", (node, _, parent) => {
-              // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
-              if (!node.properties.className) return;
-              // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-member-access
-              const [token, type] = node.properties.className;
-              if (token === "code-line" && type === "line-number") {
-                // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-member-access
-                const lineNumber = node.properties.line;
-                // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
-                const numberDigit = String(parent.children.length).length;
-                // eslint-disable-next-line @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-member-access
-                node.children.unshift({
-                  type: "element",
-                  tagName: "span",
-                  properties: {
-                    style: { minWidth: `${numberDigit}ch` },
-                  },
-                  children: [
-                    {
-                      type: "text",
-                      // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-                      value: lineNumber,
-                    },
-                  ],
-                });
-              }
-            });
+            customLineNumber(tree); // ref: https://github.com/CanRau/canrau.com
           };
         },
       ];
@@ -139,3 +110,31 @@ export async function bundleDoc(doc: "home" | "resume" | "project-history") {
 
   return result;
 }
+
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
+/* eslint-disable @typescript-eslint/no-unsafe-call */
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable @typescript-eslint/no-unsafe-member-access */
+const customLineNumber = (tree: any) => {
+  visit(tree, "element", (node, _, parent) => {
+    if (!node.properties.className) return;
+    const [token, type] = node.properties.className;
+    if (token === "code-line" && type === "line-number") {
+      const lineNumber = node.properties.line;
+      const numberDigit = String(parent.children.length).length;
+      node.children.unshift({
+        type: "element",
+        tagName: "span",
+        properties: {
+          style: { minWidth: `${numberDigit}ch` },
+        },
+        children: [
+          {
+            type: "text",
+            value: lineNumber,
+          },
+        ],
+      });
+    }
+  });
+};
