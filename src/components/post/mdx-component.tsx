@@ -13,7 +13,7 @@ export function MDXComponent({ code }: Props) {
   const Component = getMDXComponent(code);
 
   return (
-    <div className="[&>*+*]:mt-[1em]">
+    <div className="prose max-w-full dark:prose-invert">
       <Component
         components={{
           img: ({ alt, src }) =>
