@@ -17,7 +17,7 @@ export function MDXComponent({ code }: Props) {
       <Component
         components={{
           img: ({ alt, src }) =>
-            src && alt ? <PostImage alt={alt} src={src} /> : null,
+            src ? <PostImage alt={alt ?? ""} src={src} /> : null,
           h1: (props) => (
             <h1 {...props} className="relative text-3xl font-bold" />
           ),
@@ -63,13 +63,14 @@ export function MDXComponent({ code }: Props) {
           em: ({ children, ...rest }) => (
             <em {...rest}>{budouxParse(children)}</em>
           ),
-          a: ({ children, href, className, ...rest }) => {
+          a: ({ children, href, className, id, ...rest }) => {
             if (!href) return null;
             const parsed = budouxParse(children);
             if (isFullUrl(href)) {
               return (
                 <a
                   {...rest}
+                  id={id}
                   href={href}
                   className={className}
                   target="_blank"
@@ -80,7 +81,7 @@ export function MDXComponent({ code }: Props) {
               );
             } else {
               return (
-                <Link href={href} className={className}>
+                <Link id={id} href={href} className={className}>
                   {parsed}
                 </Link>
               );
