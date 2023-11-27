@@ -1,8 +1,8 @@
 import { getMDXExport } from "mdx-bundler/client";
 import { exit } from "process";
 import { cache } from "react";
-import { bundlePost } from "../libs/mdx-bundler";
-import { isFrontmatter, isMDXExport } from "../libs/type-predicates";
+import { bundlePost } from "@/utils/mdx-bundler";
+import { isFrontmatter, isMDXExport } from "@/utils/type-predicates";
 import { POST_FILE_PATHS } from "./constants";
 import { dateSortDesc, getErrorMessage } from "./helper";
 

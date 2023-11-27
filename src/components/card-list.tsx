@@ -3,7 +3,7 @@
 import { motion, type Variants } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import { type Post } from "../utils/post";
+import { type Post } from "@/utils/post";
 import { Date } from "./date";
 import { TagList } from "./tag-list";
 

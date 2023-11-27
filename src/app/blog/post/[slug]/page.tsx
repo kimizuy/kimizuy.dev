@@ -2,11 +2,11 @@ import "@/styles/prism-vsc-dark-plus.css";
 import { type Metadata } from "next";
 import { ContentLayout } from "@/components/content-layout";
 import { OverlayImage } from "@/components/overlay-image";
+import { OverlayImageProvider } from "@/components/overlay-image-provider";
 import { Post } from "@/components/post";
-import { Toc } from "@/libs/toc";
-import { OverlayImageProvider } from "@/providers/overlay-image-provider";
 import { POST_FILE_PATHS } from "@/utils/constants";
 import { getPost } from "@/utils/post";
+import { Toc } from "@/utils/toc";
 
 export function generateStaticParams() {
   const slugs = POST_FILE_PATHS.map((slug) => ({ slug }));

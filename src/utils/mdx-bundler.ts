@@ -11,7 +11,7 @@ import rehypeSlug from "rehype-slug";
 import remarkGfm from "remark-gfm";
 import remarkMdxImages from "remark-mdx-images";
 import { SKIP, visit } from "unist-util-visit";
-import { POSTS_PATH } from "../utils/constants";
+import { POSTS_PATH } from "@/utils/constants";
 
 export async function bundlePost(slug: string) {
   const postFilePath = path.join(POSTS_PATH, slug, "index.mdx");

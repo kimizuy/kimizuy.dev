@@ -2,7 +2,7 @@ import { getMDXComponent } from "mdx-bundler/client";
 import Link from "next/link";
 import { type ReactNode } from "react";
 import { cn } from "@/utils/helper";
-import { budouxParse } from "../../libs/budoux";
+import { budouxParse } from "@/utils/budoux";
 import { PostImage } from "./post-image";
 
 interface Props {

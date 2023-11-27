@@ -3,8 +3,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { exit } from "process";
 import { MDXComponent } from "@/components/post/mdx-component";
-import { bundleDoc } from "@/libs/mdx-bundler";
 import { getErrorMessage } from "@/utils/helper";
+import { bundleDoc } from "@/utils/mdx-bundler";
 import { getAllPosts } from "@/utils/post";
 
 export default async function Home() {

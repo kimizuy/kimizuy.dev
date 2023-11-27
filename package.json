@@ -4,11 +4,11 @@
   "private": true,
   "scripts": {
     "dev": "pnpm gen:type-predicates && pnpm next dev",
-    "build": "node src/scripts/gen-rss.js && pnpm gen:resume && pnpm next build",
+    "build": "node src/utils/gen-rss.js && pnpm gen:resume && pnpm next build",
     "start": "next start",
     "lint": "next lint",
     "typecheck": "tsc",
-    "gen:type-predicates": "type-predicates-generator -f src/types/post.ts -o src/libs/type-predicates.ts -a",
+    "gen:type-predicates": "type-predicates-generator -f src/types/post.ts -o src/utils/type-predicates.ts -a",
     "gen:resume": "node _docs/resume/generate-pdf.js"
   },
   "dependencies": {

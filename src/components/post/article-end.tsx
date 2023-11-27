@@ -1,6 +1,6 @@
 import { ChevronLeft } from "lucide-react";
 import Link from "next/link";
-import { TWITTER } from "../../utils/constants";
+import { TWITTER } from "@/utils/constants";
 
 export function ArticleEnd() {
   return (

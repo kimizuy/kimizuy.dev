@@ -2,9 +2,9 @@ import { type Metadata } from "next";
 import { exit } from "process";
 import { ContentLayout } from "@/components/content-layout";
 import { MDXComponent } from "@/components/post/mdx-component";
-import { bundleDoc } from "@/libs/mdx-bundler";
-import { Toc } from "@/libs/toc";
 import { getErrorMessage } from "@/utils/helper";
+import { bundleDoc } from "@/utils/mdx-bundler";
+import { Toc } from "@/utils/toc";
 
 export const metadata: Metadata = {
   title: "Project History",

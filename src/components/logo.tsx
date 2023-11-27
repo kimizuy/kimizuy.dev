@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { NAME, SITE_TITLE } from "../utils/constants";
+import { NAME, SITE_TITLE } from "@/utils/constants";
 
 export function Logo() {
   return (

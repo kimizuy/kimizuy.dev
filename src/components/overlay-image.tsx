@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useOverlayImage } from "../providers/overlay-image-provider";
+import { useOverlayImage } from "./overlay-image-provider";
 
 export function OverlayImage() {
   const { src, setSrc } = useOverlayImage();

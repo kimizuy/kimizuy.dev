@@ -1,4 +1,4 @@
-import { TWITTER } from "../utils/constants";
+import { TWITTER } from "@/utils/constants";
 
 export function CopyRight() {
   return (
