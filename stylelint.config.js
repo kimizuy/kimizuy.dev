@@ -19,5 +19,11 @@ module.exports = {
         ignore: ["after-comment"],
       },
     ],
+    "at-rule-no-unknown": [
+      true,
+      {
+        ignoreAtRules: ["tailwind"],
+      },
+    ],
   },
 };

@@ -2,7 +2,7 @@
 
 import { AnimatePresence, motion, type Variants } from "framer-motion";
 import { type ReactNode } from "react";
-import { cn } from "@/utils/helper";
+import { cn } from "@/utils/helpers";
 
 interface Props {
   children: ReactNode;
@@ -44,7 +44,7 @@ export function ContentLayout({ children, home, sideBarItem }: Props) {
           {children}
         </motion.article>
         <motion.nav variants={variants} className="grow basis-[12rem]">
-          <div className={cn("[&>*+*]:mt-5", !home && "sticky top-20")}>
+          <div className={cn("[&>*+*]:mt-5", !home && "sticky top-28")}>
             {sideBarItem}
           </div>
         </motion.nav>

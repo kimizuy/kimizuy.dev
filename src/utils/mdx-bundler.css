@@ -5,14 +5,13 @@
 .line-number > span:first-child {
   display: inline-block;
   margin-right: 1.6ch;
-  color: #a8a8a8;
   text-align: right;
   user-select: none;
 }
 
 .anchor {
   position: absolute;
-  left: -16px;
+  left: -0.75em;
 }
 
 .anchor-text {
@@ -22,6 +21,14 @@
 
 .anchor-text::before {
   content: "#";
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  position: relative;
 }
 
 :is(h1, h2, h3, h4, h5):hover .anchor-text {
@@ -34,4 +41,9 @@ p > code {
   font-size: 0.875rem;
   background-color: var(--code);
   border-radius: 4px;
+}
+
+pre > code {
+  display: block;
+  width: 0;
 }
