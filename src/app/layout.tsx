@@ -4,8 +4,8 @@ import localFont from "next/font/local";
 import Link from "next/link";
 import { CopyRight } from "@/components/copy-right";
 import { Logo } from "@/components/logo";
-import { type LayoutProps } from "../../.next/types/app/page";
 import { SITE_DESCRIPTION, SITE_TITLE, SITE_URL } from "@/utils/constants";
+import { type LayoutProps } from "../../.next/types/app/page";
 
 const zenKakuGothicNew = localFont({
   src: [
