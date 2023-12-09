@@ -38,6 +38,7 @@ next-env.d.ts
 
 # mdx
 public/_posts
+public/_docs
 
 # docs
 Kimizu Yamasaki - Resume.pdf
