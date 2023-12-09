@@ -22,7 +22,11 @@ export function MDXComponent({ code, lang, slug }: Props) {
           img: async ({ alt, src }) => {
             if (!src) return null;
             const translatedAlt = alt
-              ? await translateWithDeepl(alt, lang, "Image alt text")
+              ? await translateWithDeepl({
+                  text: alt,
+                  targetLang: lang,
+                  context: "Image alt text",
+                })
               : "";
 
             return <EnlargeableImage alt={translatedAlt} src={src} />;
