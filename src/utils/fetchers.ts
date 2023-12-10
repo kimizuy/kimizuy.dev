@@ -117,6 +117,8 @@ const translateMarkdownSource = async ({
 }: TranslateMarkdownSourceOptions) => {
   let inFrontmatter = false;
   let inCodeBlock = false;
+  const returnSymbolPattern = /\u21A9/;
+  const htmlTagPattern = /<[^>]+>/;
 
   async function processBatch(batch: string[]) {
     return Promise.all(
@@ -140,7 +142,8 @@ const translateMarkdownSource = async ({
           inFrontmatter ||
           inCodeBlock ||
           trimmedLine.startsWith("export") ||
-          isReturnSymbol(trimmedLine)
+          returnSymbolPattern.test(trimmedLine) ||
+          htmlTagPattern.test(trimmedLine)
         ) {
           return line;
         }
@@ -175,10 +178,6 @@ const translateMarkdownSource = async ({
 
   return translatedLines.join("\n");
 };
-
-function isReturnSymbol(char: string) {
-  return char === "\u21A9";
-}
 
 const turnMarkdownIntoHtml = (markdown: string) => micromark(markdown);
 
