@@ -64,7 +64,6 @@ export type PageProps = Omit<Props, "children">;
 
 export default function RootLayout({ children, params }: Props) {
   const dictionary = getDictionary(params.lang);
-  const isDefaultLocale = params.lang === i18nConfig.defaultLocale;
 
   return (
     <html
@@ -104,12 +103,6 @@ export default function RootLayout({ children, params }: Props) {
               </header>
               <main className="relative p-[2rem_1rem_8rem] md:p-[3rem_2rem_12rem]">
                 <div className="mx-auto max-w-4xl">{children}</div>
-                {!isDefaultLocale ? (
-                  <small
-                    className="absolute bottom-4 right-4 text-muted-foreground sm:bottom-8 sm:right-8"
-                    dangerouslySetInnerHTML={{ __html: dictionary.note }}
-                  />
-                ) : null}
               </main>
               <footer className="grid h-16 place-items-center border-t px-4 md:px-8">
                 <div className="mx-auto grid w-full max-w-6xl items-center">

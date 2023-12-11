@@ -7,7 +7,9 @@ export const en: Dictionary = {
   language: "Language",
   note: `This page is translated by <a href='https://www.deepl.com/' target="_blank" rel="noopener noreferrer">Deepl</a>.`,
   home: "Home",
+  blog: "Blog",
+  resume: "Resume",
   project: "My Projects",
-  recentPosts: "Recent Posts",
+  recentPosts: "Recent Posts (Japanese only)",
   allPosts: "All Posts",
 };

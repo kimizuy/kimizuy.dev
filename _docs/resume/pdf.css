@@ -23,14 +23,13 @@ h1 {
 }
 
 h2 {
-  padding-bottom: 2px;
-  margin-bottom: 4px;
+  padding-bottom: 4px;
   border-bottom-style: solid;
   border-bottom-width: 1px;
 }
 
-* + :is(h2, h3, h4) {
-  margin-top: 0.5em;
+* + :is(h2, h3, h4, ul, p) {
+  margin-top: 0.75em;
 }
 
 ul {
@@ -39,7 +38,7 @@ ul {
 
 p,
 li {
-  line-height: 1.5;
+  line-height: 1.6;
 }
 
 a {

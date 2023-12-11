@@ -1,5 +1,4 @@
 import "./mdx-bundler.css";
-import { existsSync } from "fs";
 import { type Root } from "hast";
 import { isElement } from "hast-util-is-element";
 import { bundleMDX as bundleMDXPrimitive } from "mdx-bundler";
@@ -80,18 +79,3 @@ const customLineNumber = () => (tree: Root) => {
     });
   });
 };
-
-export function getFilePath(targetFolderPath: string): string {
-  const mdFilePath = path.join(targetFolderPath, "index.md");
-  const mdxFilePath = path.join(targetFolderPath, "index.mdx");
-
-  if (existsSync(mdFilePath)) {
-    return mdFilePath;
-  } else if (existsSync(mdxFilePath)) {
-    return mdxFilePath;
-  } else {
-    throw new Error(
-      `Neither index.md nor index.mdx file found for page: ${targetFolderPath}`
-    );
-  }
-}
