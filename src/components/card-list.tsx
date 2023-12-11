@@ -5,15 +5,13 @@ import { motion, type Variants } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { type Post } from "@/utils/fetchers";
-import { cn } from "@/utils/helpers";
 import { TagList } from "./tag-list";
 
 type Props = {
   posts: Post[];
-  className?: string;
 };
 
-export function CardList({ posts, className }: Props) {
+export function CardList({ posts }: Props) {
   const variants: Variants = {
     initial: { scale: 0.9, opacity: 0 },
     enter: { scale: 1, opacity: 1 },
@@ -32,10 +30,7 @@ export function CardList({ posts, className }: Props) {
       variants={{
         enter: { transition: { staggerChildren: 0.1 } },
       }}
-      className={cn(
-        "grid grid-cols-[repeat(auto-fill,minmax(min(12rem,100%),1fr))] gap-4 outline-none",
-        className
-      )}
+      className="grid grid-cols-[repeat(auto-fill,minmax(min(12rem,100%),1fr))] gap-4 outline-none"
       // Enable :active for iOS
       onTouchStart={() => {
         return "";

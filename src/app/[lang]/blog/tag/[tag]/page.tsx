@@ -37,9 +37,11 @@ export default async function Page({ params }: Props) {
   );
 
   return (
-    <ContentLayout home sideBarItem={<TagList tags={tags} />}>
-      <h1 className="text-xl font-bold">#{params.tag}</h1>
-      <CardList posts={filteredPostsByTag} className="mt-4" />
-    </ContentLayout>
+    <>
+      <ContentLayout home sideBarItem={<TagList tags={tags} />}>
+        <h1 className="mb-6 text-4xl font-bold">#{params.tag}</h1>
+        <CardList posts={filteredPostsByTag} />
+      </ContentLayout>
+    </>
   );
 }
