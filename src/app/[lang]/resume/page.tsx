@@ -18,7 +18,7 @@ export function generateMetadata({ params }: Props) {
 }
 
 export default async function Page({ params: { lang } }: Props) {
-  const { code } = await getDoc("resume", lang);
+  const { code } = await getDoc("resume", "en-US");
   const dictionary = getDictionary(lang);
 
   return (
@@ -27,9 +27,9 @@ export default async function Page({ params: { lang } }: Props) {
       <ContentLayout
         sideBarItem={
           <>
-            <Toc headingSelector="h2" />
+            <Toc headingSelector="h2,h3" />
             <a
-              href={`/Kimizu_Yamasaki_Resume_${lang}.pdf`}
+              href={`/Kimizu_Yamasaki_Resume.pdf`}
               download
               className="mt-12 flex items-center justify-end gap-1 text-xs"
               target="_blank"
