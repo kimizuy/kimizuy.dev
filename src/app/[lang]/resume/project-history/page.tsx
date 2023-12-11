@@ -26,7 +26,7 @@ export default async function Page({ params: { lang } }: Props) {
       {/* eslint-disable-next-line tailwindcss/no-custom-classname */}
       <div className="toc-content">
         <Suspense fallback={<div>Loading...</div>}>
-          <MDXComponent code={code} lang={lang} />
+          <MDXComponent code={code} />
         </Suspense>
       </div>
     </ContentLayout>

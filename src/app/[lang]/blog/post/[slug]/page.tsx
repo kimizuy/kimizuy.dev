@@ -23,7 +23,7 @@ export function generateStaticParams() {
 type Props = { params: { slug: string } } & PageProps;
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { frontmatter, cover } = await getPost(params.slug, params.lang);
+  const { frontmatter, cover } = await getPost(params.slug);
 
   return {
     title: frontmatter.title,
@@ -42,7 +42,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default async function Page({ params }: Props) {
-  const { code, frontmatter } = await getPost(params.slug, params.lang);
+  const { code, frontmatter } = await getPost(params.slug);
   const dictionary = getDictionary(params.lang);
 
   return (
@@ -62,7 +62,7 @@ export default async function Page({ params }: Props) {
           {/* eslint-disable-next-line tailwindcss/no-custom-classname */}
           <main className="toc-content">
             <Suspense fallback={<div>Loading...</div>}>
-              <MDXComponent code={code} lang={params.lang} slug={params.slug} />
+              <MDXComponent code={code} slug={params.slug} />
             </Suspense>
           </main>
           <footer>

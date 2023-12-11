@@ -1,35 +1,25 @@
 import { getMDXComponent } from "mdx-bundler/client";
 import path from "path";
 import { cn } from "@/utils/helpers";
-import { type Locale } from "@/utils/i18n-config";
-import { translateWithDeepl } from "@/utils/translate-with-deepl";
 import { EnlargeableImage } from "./enlargeable-image";
 import { Link } from "./link";
 
 interface Props {
   code: string;
-  lang: Locale;
   slug?: string;
 }
 
-export function MDXComponent({ code, lang, slug }: Props) {
+export function MDXComponent({ code, slug }: Props) {
   const Component = getMDXComponent(code);
 
   return (
     <div className="prose max-w-full dark:prose-invert">
       <Component
         components={{
-          img: async ({ alt, src }) => {
+          img: ({ alt, src }) => {
             if (!src) return null;
-            const translatedAlt = alt
-              ? await translateWithDeepl({
-                  text: alt,
-                  targetLang: lang,
-                  context: "Image alt text",
-                })
-              : "";
 
-            return <EnlargeableImage alt={translatedAlt} src={src} />;
+            return <EnlargeableImage alt={alt ?? ""} src={src} />;
           },
           a: ({ children, href, id, className, ...rest }) => {
             if (!href) return null;

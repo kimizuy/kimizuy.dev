@@ -11,14 +11,14 @@ type Props = PageProps;
 
 export default async function Page({ params: { lang } }: Props) {
   const { code } = await getDoc("home", lang);
-  const recentPosts = (await getAllPosts(lang)).slice(0, 3);
+  const recentPosts = (await getAllPosts()).slice(0, 3);
   const dictionary = getDictionary(lang);
 
   return (
     <div className="mx-auto max-w-3xl [&_section+section]:mt-12">
       <section>
         <Suspense fallback={<div>Loading...</div>}>
-          <MDXComponent code={code} lang={lang} />
+          <MDXComponent code={code} />
         </Suspense>
       </section>
 

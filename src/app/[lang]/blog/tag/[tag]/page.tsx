@@ -3,7 +3,7 @@ import { type PageProps } from "@/app/[lang]/layout";
 import { CardList } from "@/components/card-list";
 import { ContentLayout } from "@/components/content-layout";
 import { TagList } from "@/components/tag-list";
-import { getAllPosts,getAllTags } from "@/utils/fetchers";
+import { getAllPosts, getAllTags } from "@/utils/fetchers";
 
 export async function generateStaticParams() {
   const tags = (await getAllTags()).map((tag) => ({ tag }));
@@ -30,10 +30,10 @@ export function generateMetadata({ params }: Props): Metadata {
 }
 
 export default async function Page({ params }: Props) {
-  const posts = await getAllPosts(params.lang);
+  const posts = await getAllPosts();
   const tags = await getAllTags();
   const filteredPostsByTag = posts.filter(({ frontmatter }) =>
-    frontmatter.tags.includes(params.tag)
+    frontmatter.tags.includes(params.tag),
   );
 
   return (

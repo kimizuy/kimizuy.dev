@@ -3,16 +3,13 @@ import { CardList } from "@/components/card-list";
 import { ContentLayout } from "@/components/content-layout";
 import { TagList } from "@/components/tag-list";
 import { getAllPosts, getAllTags } from "@/utils/fetchers";
-import { type PageProps } from "../layout";
 
 export const metadata: Metadata = {
   title: "Blog",
 };
 
-type Props = PageProps;
-
-export default async function Page({ params }: Props) {
-  const posts = await getAllPosts(params.lang);
+export default async function Page() {
+  const posts = await getAllPosts();
   const tags = await getAllTags();
 
   return (
