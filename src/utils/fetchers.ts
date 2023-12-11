@@ -61,20 +61,18 @@ export const getAllTags = cache(async () => {
   return [...new Set(allTags)];
 });
 
-export const getDoc = cache(
-  async (doc: "home" | "resume" | "project-history", lang: Locale) => {
-    try {
-      const filePath = path.join(DOCS_PATH, doc, lang, "index.md");
-      const source = readFileSync(filePath, "utf-8");
-      const cwd = path.join(DOCS_PATH, doc);
-      const imagesUrl = path.join("_docs", doc);
-      const { code } = await bundleMDX({ source, cwd, imagesUrl });
+export const getDoc = cache(async (doc: "home" | "resume", lang: Locale) => {
+  try {
+    const filePath = path.join(DOCS_PATH, doc, lang, "index.md");
+    const source = readFileSync(filePath, "utf-8");
+    const cwd = path.join(DOCS_PATH, doc);
+    const imagesUrl = path.join("_docs", doc);
+    const { code } = await bundleMDX({ source, cwd, imagesUrl });
 
-      return { code };
-    } catch (error) {
-      const errorMessage = getErrorMessage(error);
-      console.error(errorMessage);
-      process.exit(1);
-    }
-  },
-);
+    return { code };
+  } catch (error) {
+    const errorMessage = getErrorMessage(error);
+    console.error(errorMessage);
+    process.exit(1);
+  }
+});
