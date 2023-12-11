@@ -8,7 +8,18 @@ async function generatePdf() {
   const sourcePath = path.join(cwd, "_docs/resume/", "en-US", "index.md");
   const pdf = await mdToPdf(
     { path: sourcePath },
-    { stylesheet: [style] },
+    {
+      stylesheet: [style],
+      pdf_options: {
+        format: "a4",
+        margin: {
+          top: "15mm",
+          right: "20mm",
+          bottom: "15mm",
+          left: "20mm",
+        },
+      },
+    },
   ).catch(console.error);
 
   if (!pdf) return;

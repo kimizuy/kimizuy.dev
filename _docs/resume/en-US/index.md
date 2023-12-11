@@ -18,13 +18,13 @@ I am a front-end developer with a strong focus on front-end technologies. Skille
 
 ### [Gaji-Labo Inc.](https://www.gaji.jp)
 
-Tokyo, Japan | Front-end engineer | Apr 2021 - Jan 2023 (1 yr 10 mos)
+*Tokyo, Japan | Front-end engineer | Apr 2021 - Jan 2023 (1 yr 10 mos)*
 
 At Gaji-Labo, I participated in several projects with development periods ranging from one to six months, significantly improving user experience and site performance through various web technologies. In the corporate site project, I spearheaded a redesign, achieving enhanced user experience. For the equipment rental app, I executed front-end tasks, optimizing the UI and expediting REST API development with backend engineers. In the landing page project, I transitioned the codebase to TypeScript and improved Core Web Vital scores, boosting SEO significantly. Lastly, in the event app project, I led the UI design conversion and React codebase maintenance, enabling better performance and maintainability.
 
 ### [Alterbo Inc.](https://alterbo.jp)
 
- Tokyo, Japan | Software engineer | Feb 2019 - Mar 2020 (1 yr 2 mos)
+*Tokyo, Japan | Software engineer | Feb 2019 - Mar 2020 (1 yr 2 mos)*
 
 During my tenure at Alterbo, I was extensively responsible for the design, development, testing, and maintenance of software for a web application project that managed airport user data. In particular, I led front-end development using React, Redux, and TypeScript to enhance user and flight search functionality. Additionally, I developed a Web API with Java and assisted the backend, implementing a system that centralized and digitized customer data, which dramatically enhanced airline staff productivity. Through this project, I exhibited my full-stack development capabilities, ensuring a seamless user experience and better data management for airport personnel.
 
