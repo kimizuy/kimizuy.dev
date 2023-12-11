@@ -1,4 +1,4 @@
-# Hi, I'm kimizuy 👋
+## Hi, I'm kimizuy 👋
 
 I'm a front-end engineer. With over three years of web development experience, I've honed my skills in React and TypeScript, always with an eye towards optimizing performance. My engineering career began in Tokyo, where I contributed to various projects, ranging from crafting corporate sites to developing applications for managing airport user data.
 
