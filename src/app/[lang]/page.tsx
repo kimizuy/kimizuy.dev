@@ -16,6 +16,7 @@ export default async function Page({ params: { lang } }: Props) {
 
   return (
     <div className="mx-auto max-w-3xl [&_section+section]:mt-12">
+      <h1 className="sr-only">{dictionary.home}</h1>
       <section>
         <Suspense fallback={<div>Loading...</div>}>
           <MDXComponent code={code} />
