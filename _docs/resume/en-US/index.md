@@ -50,7 +50,7 @@ During my tenure at Alterbo, I was extensively responsible for the design, devel
 - Refactored a 100+ page landing site, enhancing functionality.
 - Transitioned the codebase from JavaScript to TypeScript, improving developer collaboration.
 - Conducted visual regression tests via BackstopJS, ensuring a smooth codebase transition.
-- Improved Core Web Vital scores by 10 points on average, significantly boosting SEO.
+- Optimized React code and images to improve site performance by 30%, contributing to SEO and increasing site presence.
 
 #### BtoB company event application (4 mos)
 
@@ -70,7 +70,7 @@ During my tenure at Alterbo, I was extensively responsible for the design, devel
 - Led technology selection, data migration from NetlifyCMS to DatoCMS, and migration to Next.js, completed almost single-handedly.
 - Automatically generated GraphQL API types for CMS to improve maintainability and developer experience and speed up website updates.
 - Built a UI Testing Workflow with Storybook and Chromatic.
-- Increased core web vital performance by 10-15 points, improving website loading speed.
+- Optimized React code and images to improve site performance by 20%, contributing to SEO and increasing site presence.
 
 #### Mobile gaming event website (2 mos)
 
