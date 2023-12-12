@@ -6,7 +6,7 @@ https://www.linkedin.com/in/kimizuy | https://github.com/kimizuy | https://kimiz
 
 ## SUMMARY
 
-I am a front-end developer with a strong focus on front-end technologies. Skilled in TypeScript, JavaScript, HTML, CSS, and Node.js, I have extensive experience with frameworks and tools like Next.js, Gatsby and various headless CMS platforms. Additionally, I am adept at handling REST API and GraphQL, demonstrating my capability in both front-end and backend technologies.
+I am a front-end developer with a strong focus on front-end technologies. Skilled in TypeScript, JavaScript, HTML, CSS, and Node.js, I have extensive experience with frameworks and tools like Next.js, Gatsby and various headless CMS platforms. Additionally, I am adept at handling REST API and GraphQL, demonstrating my capability in both front-end and back-end technologies.
 
 ## SKILLS
 
@@ -20,13 +20,13 @@ I am a front-end developer with a strong focus on front-end technologies. Skille
 
 *Tokyo, Japan | Front-end engineer | Apr 2021 - Jan 2023 (1 yr 10 mos)*
 
-At Gaji-Labo, I participated in several projects with development periods ranging from one to six months, significantly improving user experience and site performance through various web technologies. In the corporate site project, I spearheaded a redesign, achieving enhanced user experience. For the equipment rental app, I executed front-end tasks, optimizing the UI and expediting REST API development with backend engineers. In the landing page project, I transitioned the codebase to TypeScript and improved Core Web Vital scores, boosting SEO significantly. Lastly, in the event app project, I led the UI design conversion and React codebase maintenance, enabling better performance and maintainability.
+At Gaji-Labo, I participated in several projects with development periods ranging from one to six months, significantly improving user experience and site performance through various web technologies. In the corporate site project, I spearheaded a redesign, achieving enhanced user experience. For the equipment rental app, I executed front-end tasks, optimizing the UI and expediting REST API development with back-end engineers. In the landing page project, I transitioned the codebase to TypeScript and improved Core Web Vital scores, boosting SEO significantly. Lastly, in the event app project, I led the UI design conversion and React codebase maintenance, enabling better performance and maintainability.
 
 ### [Alterbo Inc.](https://alterbo.jp)
 
 *Tokyo, Japan | Software engineer | Feb 2019 - Mar 2020 (1 yr 2 mos)*
 
-During my tenure at Alterbo, I was extensively responsible for the design, development, testing, and maintenance of software for a web application project that managed airport user data. In particular, I led front-end development using React, Redux, and TypeScript to enhance user and flight search functionality. Additionally, I developed a Web API with Java and assisted the backend, implementing a system that centralized and digitized customer data, which dramatically enhanced airline staff productivity. Through this project, I exhibited my full-stack development capabilities, ensuring a seamless user experience and better data management for airport personnel.
+During my tenure at Alterbo, I was extensively responsible for the design, development, testing, and maintenance of software for a web application project that managed airport user data. In particular, I led front-end development using React, Redux, and TypeScript to enhance user and flight search functionality. Additionally, I developed a Web API with Java and assisted the back-end, implementing a system that centralized and digitized customer data, which dramatically enhanced airline staff productivity. Through this project, I exhibited my full-stack development capabilities, ensuring a seamless user experience and better data management for airport personnel.
 
 ## PROJECT HISTORY
 
@@ -41,7 +41,7 @@ During my tenure at Alterbo, I was extensively responsible for the design, devel
 #### BtoB and BtoC Application for Equipment Rental (3 mos)
 
 - Implemented UI markup with Material UI, resulting in a visually appealing interface.
-- Defined API interfaces via OpenAPI, leading to expedited REST API development with backend engineers.
+- Defined API interfaces via OpenAPI, leading to expedited REST API development with back-end engineers.
 - Conducted E2E testing using Cypress, ensuring application robustness.
 - Optimized React code for UI rendering, improving application efficiency especially for large lists.
 
@@ -50,7 +50,7 @@ During my tenure at Alterbo, I was extensively responsible for the design, devel
 - Refactored a 100+ page landing site, enhancing functionality.
 - Transitioned the codebase from JavaScript to TypeScript, improving developer collaboration.
 - Conducted visual regression tests via BackstopJS, ensuring a smooth codebase transition.
-- Improved Core Web Vital scores by 10 points on average, significantly boosting SEO.
+- Optimized React code and images to improve site performance by 30%, contributing to SEO and increasing site presence.
 
 #### BtoB company event application (4 mos)
 
@@ -70,7 +70,7 @@ During my tenure at Alterbo, I was extensively responsible for the design, devel
 - Led technology selection, data migration from NetlifyCMS to DatoCMS, and migration to Next.js, completed almost single-handedly.
 - Automatically generated GraphQL API types for CMS to improve maintainability and developer experience and speed up website updates.
 - Built a UI Testing Workflow with Storybook and Chromatic.
-- Increased core web vital performance by 10-15 points, improving website loading speed.
+- Optimized React code and images to improve site performance by 20%, contributing to SEO and increasing site presence.
 
 #### Mobile gaming event website (2 mos)
 
@@ -83,7 +83,7 @@ During my tenure at Alterbo, I was extensively responsible for the design, devel
 
 - Extensive design, development, testing, and maintenance responsibilities.
 - Led front-end development using React, Redux, and TypeScript, enhancing user and flight search functionality.
-- Developed a Web API with Java and assisted backend.
+- Developed a Web API with Java and assisted back-end.
 - Implemented a system that centralized and digitized customer data, dramatically enhancing airline staff productivity.
 
 ## OTHERS
