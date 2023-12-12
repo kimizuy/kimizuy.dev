@@ -35,11 +35,11 @@ export function ContentLayout({ children, home, sideBarItem }: Props) {
         variants={{
           enter: { transition: { staggerChildren: 0.2 } },
         }}
-        className="flex flex-wrap-reverse gap-4"
+        className="flex flex-wrap-reverse gap-6"
       >
         <motion.article
           variants={variants}
-          className="min-w-[60%] grow-[999] basis-0"
+          className="min-w-[66.7%] grow-[999] basis-0"
         >
           {children}
         </motion.article>

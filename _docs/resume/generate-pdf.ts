@@ -1,4 +1,3 @@
-import fs from "fs";
 import { mdToPdf } from "md-to-pdf";
 import path from "path";
 
@@ -6,9 +5,12 @@ async function generatePdf() {
   const cwd = process.cwd();
   const style = path.join(cwd, "_docs/resume/pdf.css");
   const sourcePath = path.join(cwd, "_docs/resume/", "en-US", "index.md");
-  const pdf = await mdToPdf(
+  const dest = path.join(cwd, "public", `Kimizu_Yamasaki_Resume.pdf`);
+
+  await mdToPdf(
     { path: sourcePath },
     {
+      dest,
       stylesheet: [style],
       pdf_options: {
         format: "a4",
@@ -19,12 +21,9 @@ async function generatePdf() {
           left: "20mm",
         },
       },
+      launch_options: { args: ["--no-sandbox"] },
     },
   ).catch(console.error);
-
-  if (!pdf) return;
-  const dest = path.join(cwd, "public", `Kimizu_Yamasaki_Resume.pdf`);
-  fs.writeFileSync(dest, pdf.content);
 }
 
 void generatePdf();
