@@ -6,7 +6,7 @@ https://www.linkedin.com/in/kimizuy | https://github.com/kimizuy | https://kimiz
 
 ## SUMMARY
 
-I am a front-end developer with a strong focus on front-end technologies. Skilled in TypeScript, JavaScript, HTML, CSS, and Node.js, I have extensive experience with frameworks and tools like Next.js, Gatsby and various headless CMS platforms.
+I am a front-end developer with a strong focus on front-end technologies. Skilled in TypeScript, JavaScript, HTML, CSS, and Node.js, I have extensive experience with frameworks and tools like Next.js, Gatsby and various headless CMS platforms. Additionally, I am adept at handling REST API and GraphQL, demonstrating my capability in both front-end and backend technologies.
 
 ## SKILLS
 
