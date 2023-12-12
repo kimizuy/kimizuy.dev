@@ -21,7 +21,7 @@ async function generatePdf() {
           left: "20mm",
         },
       },
-      launch_options: { args: ["--no-sandbox"] },
+      launch_options: { args: ["--no-sandbox"], headless: "new" },
     },
   ).catch(console.error);
 }
