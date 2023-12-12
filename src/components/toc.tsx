@@ -7,9 +7,8 @@ import tocbot from "tocbot";
 type Props = { headingSelector?: string };
 
 export function Toc({ headingSelector }: Props) {
-  const offset = 10 * 16;
-
   useEffect(() => {
+    const offset = 2 * 16;
     tocbot.init({
       tocSelector: ".toc",
       contentSelector: ".toc-content",
@@ -22,7 +21,7 @@ export function Toc({ headingSelector }: Props) {
     });
 
     return () => tocbot.destroy();
-  }, [headingSelector, offset]);
+  }, [headingSelector]);
 
   return <div className="toc" />;
 }
