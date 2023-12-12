@@ -5,7 +5,12 @@ import { Globe, MenuIcon } from "lucide-react";
 import { usePathname, useRouter } from "next/navigation";
 import path from "path";
 import { getDictionary } from "@/utils/get-dictionary";
-import { i18nConfig, isLocale, languages,type Locale } from "@/utils/i18n-config";
+import {
+  i18nConfig,
+  isLocale,
+  languages,
+  type Locale,
+} from "@/utils/i18n-config";
 import { Link } from "./link";
 import { ModeToggle } from "./mode-toggle";
 
@@ -13,6 +18,10 @@ type Props = { lang: Locale };
 
 export function Navigation({ lang }: Props) {
   const dictionary = getDictionary(lang);
+  const pathname = usePathname();
+  const noI18n = ["blog", "resume"].some((p) =>
+    pathname.split(path.sep).includes(p),
+  );
 
   return (
     <nav className="flex gap-2 md:gap-4">
@@ -29,13 +38,17 @@ export function Navigation({ lang }: Props) {
             <Popover.Content className="z-20 m-2 grid place-items-start gap-2 border bg-background p-4 md:hidden">
               <Link href="/blog">Blog</Link>
               <Link href="/resume">Resume</Link>
-              <div className="my-1 w-full border-t" />
-              <Globe
-                size={16}
-                className="text-muted-foreground"
-                aria-label={dictionary.language}
-              />
-              <LanguageChanger lang={lang} />
+              {!noI18n ? (
+                <>
+                  <div className="my-1 w-full border-t" />
+                  <Globe
+                    size={16}
+                    className="text-muted-foreground"
+                    aria-label={dictionary.language}
+                  />
+                  <LanguageChanger lang={lang} />
+                </>
+              ) : null}
             </Popover.Content>
           </Popover.Portal>
         </Popover.Root>
@@ -45,21 +58,23 @@ export function Navigation({ lang }: Props) {
       <div className="hidden gap-4 md:flex">
         <Link href="/blog">Blog</Link>
         <Link href="/resume">Resume</Link>
-        <div className="flex">
-          <Popover.Root>
-            <Popover.Trigger asChild>
-              <button aria-label="Switch language">
-                <Globe />
-              </button>
-            </Popover.Trigger>
-            <Popover.Anchor />
-            <Popover.Portal>
-              <Popover.Content className="z-20 m-2 hidden place-items-start gap-2 border bg-background p-4 md:grid">
-                <LanguageChanger lang={lang} />
-              </Popover.Content>
-            </Popover.Portal>
-          </Popover.Root>
-        </div>
+        {!noI18n ? (
+          <div className="flex">
+            <Popover.Root>
+              <Popover.Trigger asChild>
+                <button aria-label="Switch language">
+                  <Globe />
+                </button>
+              </Popover.Trigger>
+              <Popover.Anchor />
+              <Popover.Portal>
+                <Popover.Content className="z-20 m-2 hidden place-items-start gap-2 border bg-background p-4 md:grid">
+                  <LanguageChanger lang={lang} />
+                </Popover.Content>
+              </Popover.Portal>
+            </Popover.Root>
+          </div>
+        ) : null}
       </div>
 
       <ModeToggle />
