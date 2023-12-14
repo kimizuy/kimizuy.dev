@@ -36,7 +36,7 @@ During my tenure at Alterbo, I was extensively responsible for the design, devel
 
 - Built a corporate website from scratch for a startup that provides customer success services using big data
 - A team of one designer, two front-end engineers, and one back-end engineer
-- Developed a high-performance project from scratch using Next.js and GraphCMS that improved site performance by more than 30%
+- Developed a high-performance project from scratch using Next.js and Hygraph that improved site performance by more than 30%
 - Implemented a blog, internationalization, and contact form as well as landing pages
 
 #### BtoB and BtoC Application for Equipment Rental (3 mos)
