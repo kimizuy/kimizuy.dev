@@ -65,7 +65,6 @@
     "jsdom": "^23.0.1",
     "postcss": "^8.4.32",
     "prettier": "^3.1.1",
-    "puppeteer": "^21.6.0",
     "rss": "^1.2.2",
     "stylelint": "^15.11.0",
     "stylelint-config-recess-order": "^4.4.0",
