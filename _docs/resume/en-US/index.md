@@ -1,6 +1,6 @@
 # Kimizu Yamasaki
 
-me@kimizuy.dev | +1 (236) 668-6717 | Vancouver, BC, Canada
+kimizuyamasaki@gmail.com | +1 (236) 668-6717 | Vancouver, BC, Canada
 
 https://www.linkedin.com/in/kimizuy | https://github.com/kimizuy | https://kimizuy.dev
 
