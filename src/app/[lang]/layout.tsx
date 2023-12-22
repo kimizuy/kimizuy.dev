@@ -68,7 +68,11 @@ export default function RootLayout({ children, params }: Props) {
   return (
     <html
       lang={params.lang}
-      className={cn(inter.variable, zenKakuGothicNew.variable, "scroll-p-20")}
+      className={cn(
+        inter.variable,
+        zenKakuGothicNew.variable,
+        "scroll-p-20 antialiased",
+      )}
     >
       <body>
         <ThemeProvider
