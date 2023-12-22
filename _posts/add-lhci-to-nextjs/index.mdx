@@ -1,6 +1,6 @@
 ---
-title: Github Actions × Lighthouse CI を Next.js プロジェクトに導入する
-description: デプロイする前にGithub Actions で Lighthouse スコアを測定する
+title: GitHub Actions × Lighthouse CI を Next.js プロジェクトに導入する
+description: デプロイする前にGitHub Actions で Lighthouse スコアを測定する
 publishedAt: 2020-08-22
 tags: [next, github]
 ---
@@ -15,13 +15,13 @@ export { default as cover } from "./cover.png";
 
   Google 製の Web サイト品質評価ソフト。サイトのパフォーマンスや SEO、アクセシビリティを数値化してくれる。Lighthouse CI は開発ワークフローへ組み込めるようにしたもの。
 
-- Github Actions
+- GitHub Actions
 
-  GitHub が提供する CI/CD サービス。Github 上でプッシュやプルリクエストが作られたときに自動テストを実行できる。
+  GitHub が提供する CI/CD サービス。GitHub 上でプッシュやプルリクエストが作られたときに自動テストを実行できる。
 
-## Github Actions に Lighthouse CI をインストールする
+## GitHub Actions に Lighthouse CI をインストールする
 
-[ここから](https://github.com/apps/lighthouse-ci)導入したい Github のリポジトリに対して Lighthouse CI をインストールしていく。
+[ここから](https://github.com/apps/lighthouse-ci)導入したい GitHub のリポジトリに対して Lighthouse CI をインストールしていく。
 
 インストールボタンを押す。
 
@@ -35,7 +35,7 @@ export { default as cover } from "./cover.png";
 
 ![pass](./pass.png)
 
-Github で対象のリポジトリを開く → Settings → Secrets → New Secret と進む。
+GitHub で対象のリポジトリを開く → Settings → Secrets → New Secret と進む。
 
 ![addsecret 1](./addsecret1.png)
 
@@ -70,7 +70,7 @@ jobs:
           lhci autorun
 ```
 
-ちなみに[ここ](https://github.com/GoogleChrome/lighthouse-ci/blob/master/docs/getting-started.md#configure-your-ci-provider)の Github Actions の設定をベースにしている。変更点は node-version を 12.x に設定したのみ（flatMap() を使っているので）。
+ちなみに[ここ](https://github.com/GoogleChrome/lighthouse-ci/blob/master/docs/getting-started.md#configure-your-ci-provider)の GitHub Actions の設定をベースにしている。変更点は node-version を 12.x に設定したのみ（flatMap() を使っているので）。
 
 ## Lighthouse CI の設定ファイルを追加する
 

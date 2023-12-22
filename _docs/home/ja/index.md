@@ -5,8 +5,8 @@
 ### 私について
 
 - [履歴書](/resume)
-- [Github](https://github.com/kimizuy)
+- [GitHub](https://github.com/kimizuy)
 
 ### 連絡先
 
-- [me@kimizuy.dev](mailto:me@kimizuy.dev)
+- [kimizuyamasaki@gmail.com](mailto:kimizuyamasaki@gmail.com)
