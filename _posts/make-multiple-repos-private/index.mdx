@@ -15,7 +15,7 @@ export { default as cover } from "./cover.jpg";
 
 [GitHub CLI](https://cli.github.com/)（`gh`）を使う。
 
-## gh cli をインストールする
+## GitHub CLI をインストールする
 
 ```bash
 brew install gh
@@ -27,7 +27,9 @@ brew install gh
 gh auth login
 ```
 
-```
+例えば、以下のような形式でログインする。
+
+```bash
 ? What account do you want to log into? GitHub.com
 ? What is your preferred protocol for Git operations on this host? HTTPS
 ? Authenticate Git with your GitHub credentials? Yes
@@ -78,7 +80,7 @@ for repo in "${repos[@]}"; do
 done
 ```
 
-## gh repo view で private になっていることを確認する
+## もう一度 private になっていることを確認する
 
 ```bash
 gh repo list -L 42
