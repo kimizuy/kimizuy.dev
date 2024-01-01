@@ -9,17 +9,21 @@ export { default as cover } from "./cover.jpg";
 
 ## はじめに
 
-新年に向けて GitHub で公開しているリポジトリをまとめて private にしたいと思い、調べたことをまとめる。
+新年に向けて GitHub で特に公開している必要もないリポジトリをまとめて private にしたいと思い、調べたことをまとめる。
 
 [GitHub CLI](https://cli.github.com/)（`gh`）を使う。
 
 ## GitHub CLI をインストールする
+
+macOS の場合。
 
 ```bash
 brew install gh
 ```
 
 ## gh auth login で GitHub にログインする
+
+GitHub CLI で GitHub にログインする。
 
 ```bash
 gh auth login
@@ -43,7 +47,7 @@ Press Enter to open github.com in your browser...
 
 ## gh repo list でリポジトリ一覧を取得する
 
-`42`の部分は取得するリポジトリ数なので、適宜変更する。
+`42`の部分は取得するリポジトリ数なので、適宜変更する（`-L`を指定しない場合のデフォルトの取得数は 30 になる）。
 
 ```bash
 gh repo list -L 42 --visibility public --json name
