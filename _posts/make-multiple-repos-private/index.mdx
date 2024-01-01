@@ -1,7 +1,7 @@
 ---
 title: GitHub の複数のリポジトリをまとめて private にする
-description: 新年に向けて GitHub で公開しているリポジトリをまとめて private にしたいと思い、調べたことをまとめる
-publishedAt: 2023-12-30
+description: GitHub CLI を使ってまとめてリポジトリを private にする方法
+ublishedAt: 2023-12-30
 tags: [tips]
 ---
 
@@ -47,7 +47,7 @@ Press Enter to open github.com in your browser...
 
 ## gh repo list でリポジトリ一覧を取得する
 
-`42`の部分は取得するリポジトリ数なので、適宜変更する（`-L`を指定しない場合のデフォルトの取得数は 30 になる）。
+`gh repo list`でリポジトリ一覧を取得する。`42`の部分は取得するリポジトリ数なので、適宜変更する（デフォルトのリスト取得数は 30）。
 
 ```bash
 gh repo list -L 42 --visibility public --json name
@@ -69,14 +69,14 @@ gh repo list -L 42 --visibility public --json name
 ]
 ```
 
-公開しておきたいリポジトリは除外しつつ、適当な方法で`("repo1" "repo2" "repo3")`みたいな形式にする。
+上記のリストから公開しておきたいリポジトリは除外しつつ、適当な方法で`("repo1" "repo2" "repo3")`みたいな形式にする。
 
 ## gh repo edit で private にする
 
-`kimizuy`の部分は自分のユーザ名に置き換える。
+ループを回してリポジトリを private にしていく。`kimizuy`の部分は自分のユーザ名に置き換える。
 
 ```bash
-repos=("repo1" "repo2" "repo3") # Replace with your repository names
+repos=("repo1" "repo2" "repo3")
 for repo in "${repos[@]}"; do
   gh repo edit "kimizuy/$repo" --visibility private
 done
@@ -89,9 +89,3 @@ gh repo list -L 42
 ```
 
 `INFO`の部分が`private`になっていれば成功。
-
-## まとめ
-
-GitHub CLI は便利ですね。
-
-以上、GitHub の複数のリポジトリをまとめて private にする方法でした。
