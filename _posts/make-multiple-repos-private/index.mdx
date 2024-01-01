@@ -47,7 +47,7 @@ Press Enter to open github.com in your browser...
 
 ## gh repo list でリポジトリ一覧を取得する
 
-`42`の部分は取得するリポジトリ数なので、適宜変更する。
+`42`の部分は取得するリポジトリ数なので、適宜変更する（`-L`を指定しない場合のデフォルトの取得数は 30 になる）。
 
 ```bash
 gh repo list -L 42 --visibility public --json name
