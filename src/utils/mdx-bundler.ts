@@ -66,10 +66,11 @@ const customLineNumber = () => (tree: Root) => {
     const [token, type] = classes;
     if (!(token === "code-line" && type === "line-number")) return SKIP;
     const lineNumber = String(node.properties.line);
+    const isOneDigit = lineNumber.length === 1;
     node.children.unshift({
       type: "element",
       tagName: "span",
-      properties: {},
+      properties: { class: isOneDigit ? "mr-2ch" : "mr-1ch" },
       children: [
         {
           type: "text",

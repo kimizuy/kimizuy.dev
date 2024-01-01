@@ -4,10 +4,17 @@
 
 .line-number > span:first-child {
   display: inline-block;
-  margin-right: 1.6ch;
   text-align: right;
   user-select: none;
   opacity: 0.6;
+}
+
+.mr-1ch {
+  margin-right: 1ch;
+}
+
+.mr-2ch {
+  margin-right: 2ch;
 }
 
 .anchor {
