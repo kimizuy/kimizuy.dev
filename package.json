@@ -77,13 +77,13 @@
   },
   "engineStrict": true,
   "engines": {
-    "pnpm": "8.x",
-    "node": "18.x",
+    "node": "20.x",
+    "pnpm": "9.x",
     "npm": "please-use-pnpm",
     "yarn": "please-use-pnpm"
   },
   "volta": {
-    "node": "18.19.0",
-    "pnpm": "8.11.0"
+    "node": "20.14.0",
+    "pnpm": "9.4.0"
   }
 }
