@@ -1,4 +1,4 @@
-import { array, date, is, object, type Output, string } from "valibot";
+import { array, date, is, object, type InferOutput, string } from "valibot";
 
 const FrontmatterSchema = object({
   title: string(),
@@ -9,13 +9,14 @@ const FrontmatterSchema = object({
 
 export const isFrontmatter = (
   value: unknown,
-): value is Output<typeof FrontmatterSchema> => is(FrontmatterSchema, value);
+): value is InferOutput<typeof FrontmatterSchema> =>
+  is(FrontmatterSchema, value);
 
 const MDXExportSchema = object({ cover: string() });
 
 export const isMDXExport = (
   value: unknown,
-): value is Output<typeof MDXExportSchema> => is(MDXExportSchema, value);
+): value is InferOutput<typeof MDXExportSchema> => is(MDXExportSchema, value);
 
 if (import.meta.vitest) {
   const { describe, it, expect } = import.meta.vitest;
