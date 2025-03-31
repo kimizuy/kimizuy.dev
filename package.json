@@ -21,7 +21,7 @@
     "clsx": "^2.1.1",
     "date-fns": "^3.6.0",
     "deepl-node": "^1.13.0",
-    "esbuild": "^0.21.5",
+    "esbuild": "^0.25.0",
     "eslint-config-next": "^14.2.4",
     "framer-motion": "^11.2.11",
     "hast-util-is-element": "^3.0.0",
