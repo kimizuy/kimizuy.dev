@@ -39,7 +39,7 @@ export function ContentLayout({ children, home, sideBarItem }: Props) {
 			>
 				<motion.article
 					variants={variants}
-					className="min-w-[66.7%] grow-[999] basis-0"
+					className="min-w-[66.7%] grow-999 basis-0"
 				>
 					{children}
 				</motion.article>

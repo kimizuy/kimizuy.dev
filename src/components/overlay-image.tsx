@@ -10,7 +10,7 @@ export function OverlayImage() {
 
 	return (
 		<div
-			className="relative z-[999]"
+			className="relative z-999"
 			onClick={() => setSrc(undefined)}
 			onKeyDown={() => setSrc(undefined)}
 		>

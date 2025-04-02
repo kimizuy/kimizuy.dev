@@ -30,7 +30,7 @@ export function CardList({ posts }: Props) {
 			variants={{
 				enter: { transition: { staggerChildren: 0.1 } },
 			}}
-			className="grid grid-cols-[repeat(auto-fill,minmax(min(12rem,100%),1fr))] gap-4 outline-none"
+			className="grid grid-cols-[repeat(auto-fill,minmax(min(12rem,100%),1fr))] gap-4 outline-hidden"
 			// Enable :active for iOS
 			onTouchStart={() => {
 				return "";
@@ -47,7 +47,7 @@ export function CardList({ posts }: Props) {
 
 function Card({ slug, frontmatter, cover }: Post) {
 	return (
-		<article className="relative flex h-full cursor-pointer flex-col justify-between rounded border bg-muted p-4 hover:shadow-[0_0_0_0.2rem] [&:hover_img]:scale-125 [&_img]:transition-transform">
+		<article className="relative flex h-full cursor-pointer flex-col justify-between rounded-sm border bg-muted p-4 hover:shadow-[0_0_0_0.2rem] [&:hover_img]:scale-125 [&_img]:transition-transform">
 			<div>
 				<div className="relative block cursor-pointer overflow-hidden rounded-lg pb-[calc(9/16*100%)]">
 					<Image
