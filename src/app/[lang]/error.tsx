@@ -3,17 +3,17 @@
 import { useEffect } from "react";
 
 type Props = {
-  error: Error & { digest?: string };
+	error: Error & { digest?: string };
 };
 
-export default function Error({ error }: Props) {
-  useEffect(() => {
-    console.error(error);
-  }, [error]);
+export default function ErrorComponent({ error }: Props) {
+	useEffect(() => {
+		console.error(error);
+	}, [error]);
 
-  return (
-    <div>
-      <h2>Something went wrong!</h2>
-    </div>
-  );
+	return (
+		<div>
+			<h2>Something went wrong!</h2>
+		</div>
+	);
 }

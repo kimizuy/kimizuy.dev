@@ -1,0 +1,10 @@
+{
+	"eslint.enable": false,
+	"prettier.enable": false,
+	"biome.enabled": true,
+	"editor.defaultFormatter": "biomejs.biome",
+	"editor.codeActionsOnSave": {
+		"source.fixAll.biome": "explicit",
+		"source.organizeImports.biome": "explicit"
+	}
+}
