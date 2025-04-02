@@ -1,6 +1,6 @@
 "use client";
 
-import path from "node:path";
+import path from "path-browserify";
 import { getDictionary } from "@/utils/get-dictionary";
 import {
 	type Locale,

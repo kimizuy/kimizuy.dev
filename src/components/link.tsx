@@ -1,6 +1,6 @@
 "use client";
 
-import path from "node:path";
+import path from "path-browserify";
 import { i18nConfig, isLocale } from "@/utils/i18n-config";
 import NextLink from "next/link";
 import { usePathname } from "next/navigation";
