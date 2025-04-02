@@ -83,9 +83,6 @@ importers:
       remark-gfm:
         specifier: ^4.0.1
         version: 4.0.1
-      remark-mdx-images:
-        specifier: ^3.0.0
-        version: 3.0.0
       server-only:
         specifier: ^0.0.1
         version: 0.0.1
@@ -4418,10 +4415,6 @@ packages:
 
   remark-mdx-frontmatter@4.0.0:
     resolution: {integrity: sha512-PZzAiDGOEfv1Ua7exQ8S5kKxkD8CDaSb4nM+1Mprs6u8dyvQifakh+kCj6NovfGXW+bTvrhjaR3srzjS2qJHKg==}
-
-  remark-mdx-images@3.0.0:
-    resolution: {integrity: sha512-EKpqw11XUprx/kFQPEkH3GdPEqI63Wcq5GT120N2hGlKCSwOM09NtL1i3G9HQ4TBIR2aF471HF5YStME5ukbJw==}
-    deprecated: Use rehype-mdx-import-media instead
 
   remark-mdx@3.0.1:
     resolution: {integrity: sha512-3Pz3yPQ5Rht2pM5R+0J2MrGoBSrzf+tJG94N+t/ilfdh8YLyyKYtidAYwTveB20BoHAcwIopOUqhcmh2F7hGYA==}
@@ -10342,12 +10335,6 @@ snapshots:
       toml: 3.0.0
       unified: 11.0.5
       yaml: 2.7.1
-
-  remark-mdx-images@3.0.0:
-    dependencies:
-      '@types/mdast': 4.0.4
-      unified: 11.0.5
-      unist-util-visit: 5.0.0
 
   remark-mdx@3.0.1:
     dependencies:
