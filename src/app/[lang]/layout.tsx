@@ -75,12 +75,7 @@ export default function RootLayout({ children, params }: Props) {
       )}
     >
       <body>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
+        <ThemeProvider>
           <OverlayImageProvider>
             <div className="grid min-h-screen grid-cols-[100%] grid-rows-[auto,1fr,auto]">
               <header className="sticky top-0 z-10 grid h-16 place-items-center border-b bg-background px-4 md:px-8">
