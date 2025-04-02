@@ -3,7 +3,7 @@ import { ContentLayout } from "@/components/content-layout";
 import { TagList } from "@/components/tag-list";
 import { getAllPosts, getAllTags } from "@/utils/fetchers";
 import { getDictionary } from "@/utils/get-dictionary";
-import { PageProps } from "../../../../.next/types/app/[lang]/layout";
+import { PageProps } from "../../../../.next/types/app/[lang]/page";
 
 export async function generateMetadata({ params }: PageProps) {
   const { lang } = await params;

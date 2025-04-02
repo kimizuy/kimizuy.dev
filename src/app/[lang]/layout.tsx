@@ -14,7 +14,7 @@ import { cn } from "@/utils/helpers";
 import { type Locale } from "@/utils/i18n-config";
 import { i18nConfig } from "@/utils/i18n-config";
 import IconPic from "../icon.jpg";
-import { PageProps } from "../../../.next/types/app/[lang]/layout";
+import { PageProps } from "../../../.next/types/app/[lang]/page";
 import { ReactNode } from "react";
 
 const inter = Inter({

@@ -12,7 +12,7 @@ import { Toc } from "@/components/toc";
 import { POST_FILE_PATHS } from "@/utils/constants";
 import { getPost } from "@/utils/fetchers";
 import { getDictionary } from "@/utils/get-dictionary";
-import { PageProps } from "../../../../../../.next/types/app/[lang]/layout";
+import { PageProps } from "../../../../../../.next/types/app/[lang]/page";
 
 export function generateStaticParams() {
   const slugs = POST_FILE_PATHS.map((slug) => ({ slug }));
