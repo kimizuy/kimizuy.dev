@@ -1,11 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  swcMinify: true,
-  experimental: {
-    // https://nextjs.org/docs/app/api-reference/next-config-js/serverComponentsExternalPackages
-    serverComponentsExternalPackages: ["budoux"],
-  },
+  serverExternalPackages: ["budoux"],
   ...redirectBlog(),
 };
 
