@@ -78,7 +78,7 @@ export default async function Page({ params }: PageProps) {
 }
 
 type ProjectCardProps = {
-  name: JSX.Element | string;
+  name: React.JSX.Element | string;
   imageAlt: string;
   imageSrc: string;
   url: string;

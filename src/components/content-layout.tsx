@@ -7,7 +7,7 @@ import { cn } from "@/utils/helpers";
 interface Props {
   children: ReactNode;
   home?: boolean;
-  sideBarItem?: JSX.Element;
+  sideBarItem?: React.JSX.Element;
 }
 
 export function ContentLayout({ children, home, sideBarItem }: Props) {
