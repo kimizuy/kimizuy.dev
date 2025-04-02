@@ -1,6 +1,6 @@
-import { getMDXComponent } from "mdx-bundler/client";
-import path from "path";
+import path from "node:path";
 import { cn } from "@/utils/helpers";
+import { getMDXComponent } from "mdx-bundler/client";
 import { EnlargeableImage } from "./enlargeable-image";
 import { Link } from "./link";
 
@@ -36,17 +36,17 @@ export function MDXComponent({ code, slug }: Props) {
 									{children}
 								</a>
 							);
-						} else {
-							const isAnchor = href.startsWith("#");
-							const newHref =
-								isAnchor && slug ? path.join("/", "blog", slug, href) : href;
-
-							return (
-								<Link id={id} href={newHref} className={className}>
-									{children}
-								</Link>
-							);
 						}
+
+						const isAnchor = href.startsWith("#");
+						const newHref =
+							isAnchor && slug ? path.join("/", "blog", slug, href) : href;
+
+						return (
+							<Link id={id} href={newHref} className={className}>
+								{children}
+							</Link>
+						);
 					},
 					pre: ({ className, ...rest }) => (
 						<pre

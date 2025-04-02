@@ -6,7 +6,7 @@ type Props = {
 	error: Error & { digest?: string };
 };
 
-export default function Error({ error }: Props) {
+export default function ErrorComponent({ error }: Props) {
 	useEffect(() => {
 		console.error(error);
 	}, [error]);

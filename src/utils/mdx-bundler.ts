@@ -1,12 +1,12 @@
 import "./mdx-bundler.css";
-import { type Root } from "hast";
+import path from "node:path";
+import type { Root } from "hast";
 import { isElement } from "hast-util-is-element";
 import { bundleMDX as bundleMDXPrimitive } from "mdx-bundler";
-import path from "path";
 import rehypeCodeTitles from "rehype-code-titles";
+import rehypeMdxImportMedia from "rehype-mdx-import-media";
 import rehypePrism from "rehype-prism-plus";
 import rehypeSlug from "rehype-slug";
-import rehypeMdxImportMedia from "rehype-mdx-import-media";
 import remarkGfm from "remark-gfm";
 import { SKIP, visit } from "unist-util-visit";
 

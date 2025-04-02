@@ -1,10 +1,10 @@
 "use client";
 
+import path from "node:path";
+import { i18nConfig, isLocale } from "@/utils/i18n-config";
 import NextLink from "next/link";
 import { usePathname } from "next/navigation";
-import path from "path";
-import { type ComponentProps } from "react";
-import { i18nConfig, isLocale } from "@/utils/i18n-config";
+import type { ComponentProps } from "react";
 
 type Props = ComponentProps<typeof NextLink>;
 

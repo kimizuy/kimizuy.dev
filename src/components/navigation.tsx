@@ -1,16 +1,16 @@
 "use client";
 
-import * as Popover from "@radix-ui/react-popover";
-import { Globe, MenuIcon } from "lucide-react";
-import { usePathname, useRouter } from "next/navigation";
-import path from "path";
+import path from "node:path";
 import { getDictionary } from "@/utils/get-dictionary";
 import {
+	type Locale,
 	i18nConfig,
 	isLocale,
 	languages,
-	type Locale,
 } from "@/utils/i18n-config";
+import * as Popover from "@radix-ui/react-popover";
+import { Globe, MenuIcon } from "lucide-react";
+import { usePathname, useRouter } from "next/navigation";
 import { Link } from "./link";
 import { ModeToggle } from "./mode-toggle";
 
@@ -29,7 +29,7 @@ export function Navigation({ lang }: Props) {
 			<div className="flex md:hidden">
 				<Popover.Root>
 					<Popover.Trigger asChild>
-						<button aria-label="Open navigation">
+						<button type="button" aria-label="Open navigation">
 							<MenuIcon />
 						</button>
 					</Popover.Trigger>
@@ -62,7 +62,7 @@ export function Navigation({ lang }: Props) {
 					<div className="flex">
 						<Popover.Root>
 							<Popover.Trigger asChild>
-								<button aria-label="Switch language">
+								<button type="button" aria-label="Switch language">
 									<Globe />
 								</button>
 							</Popover.Trigger>
@@ -92,7 +92,7 @@ function LanguageChanger({ lang }: Props) {
 		const days = 30;
 		const date = new Date();
 		date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
-		const expires = "; expires=" + date.toUTCString();
+		const expires = `; expires=${date.toUTCString()}`;
 		document.cookie = `NEXT_LOCALE=${newLocale};expires=${expires};path=/`;
 		if (isDefaultLocaleNow) {
 			// "/about" -> "/en/about"

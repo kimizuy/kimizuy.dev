@@ -1,8 +1,8 @@
 "use client";
 
-import { AnimatePresence, motion, type Variants } from "framer-motion";
-import { type ReactNode } from "react";
 import { cn } from "@/utils/helpers";
+import { AnimatePresence, type Variants, motion } from "framer-motion";
+import type { ReactNode } from "react";
 
 interface Props {
 	children: ReactNode;

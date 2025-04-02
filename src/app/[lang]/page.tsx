@@ -1,11 +1,11 @@
-import { ChevronRight, Github } from "lucide-react";
-import Image from "next/image";
-import { Suspense } from "react";
 import { Link } from "@/components/link";
 import { MDXComponent } from "@/components/mdx-component";
 import { getAllPosts, getDoc } from "@/utils/fetchers";
 import { getDictionary } from "@/utils/get-dictionary";
-import { PageProps } from "../../../.next/types/app/[lang]/page";
+import { ChevronRight, Github } from "lucide-react";
+import Image from "next/image";
+import { Suspense } from "react";
+import type { PageProps } from "../../../.next/types/app/[lang]/page";
 
 export default async function Page({ params }: PageProps) {
 	const { lang } = await params;

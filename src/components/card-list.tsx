@@ -1,10 +1,10 @@
 "use client";
 
+import type { Post } from "@/utils/fetchers";
 import { format } from "date-fns";
-import { motion, type Variants } from "framer-motion";
+import { type Variants, motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import { type Post } from "@/utils/fetchers";
 import { TagList } from "./tag-list";
 
 type Props = {

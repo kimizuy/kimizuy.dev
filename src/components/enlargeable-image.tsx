@@ -15,6 +15,7 @@ export function EnlargeableImage({ alt, src }: Props) {
 		<span
 			className="relative block h-0 cursor-zoom-in overflow-hidden pt-[calc(9/16*100%)]"
 			onClick={() => setSrc(src)}
+			onKeyDown={() => setSrc(src)}
 		>
 			<NextImage alt={alt} src={src} fill className="m-0 object-contain" />
 		</span>

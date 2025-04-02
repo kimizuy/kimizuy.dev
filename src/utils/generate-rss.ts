@@ -1,8 +1,7 @@
-/* eslint-disable @typescript-eslint/no-var-requires */
 // ref: https://github.com/vercel/next.js/blob/canary/examples/blog/scripts/gen-rss.js
-import fs from "fs/promises";
+import fs from "node:fs/promises";
+import path from "node:path";
 import matter from "gray-matter";
-import path from "path";
 import RSS from "rss";
 import { isFrontmatter } from "./valibot";
 

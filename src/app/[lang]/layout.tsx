@@ -1,8 +1,4 @@
 import "@/styles/globals.css";
-import { Analytics } from "@vercel/analytics/react";
-import { Inter } from "next/font/google";
-import localFont from "next/font/local";
-import Image from "next/image";
 import { Link } from "@/components/link";
 import { Navigation } from "@/components/navigation";
 import { OverlayImage } from "@/components/overlay-image";
@@ -11,11 +7,15 @@ import { ThemeProvider } from "@/components/theme-provider";
 import { SITE_TITLE, SITE_URL } from "@/utils/constants";
 import { getDictionary } from "@/utils/get-dictionary";
 import { cn } from "@/utils/helpers";
-import { type Locale } from "@/utils/i18n-config";
+import type { Locale } from "@/utils/i18n-config";
 import { i18nConfig } from "@/utils/i18n-config";
+import { Analytics } from "@vercel/analytics/react";
+import { Inter } from "next/font/google";
+import localFont from "next/font/local";
+import Image from "next/image";
+import type { ReactNode } from "react";
+import type { PageProps } from "../../../.next/types/app/[lang]/page";
 import IconPic from "../icon.jpg";
-import { PageProps } from "../../../.next/types/app/[lang]/page";
-import { ReactNode } from "react";
 
 const inter = Inter({
 	subsets: ["latin"],

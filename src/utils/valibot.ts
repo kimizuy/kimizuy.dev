@@ -1,4 +1,4 @@
-import { array, date, is, object, type InferOutput, string } from "valibot";
+import { type InferOutput, array, date, is, object, string } from "valibot";
 
 const FrontmatterSchema = object({
 	title: string(),

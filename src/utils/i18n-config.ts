@@ -1,4 +1,4 @@
-import { type SourceLanguageCode, type TargetLanguageCode } from "deepl-node";
+import type { SourceLanguageCode, TargetLanguageCode } from "deepl-node";
 
 export const i18nConfig = {
 	locales: ["ja", "en-US"] satisfies TargetLanguageCode[],

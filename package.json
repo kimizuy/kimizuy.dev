@@ -6,7 +6,7 @@
 		"dev": "next dev",
 		"build": "pnpm gen:rss && pnpm next build",
 		"start": "next start",
-		"lint": "next lint",
+		"lint": "npx @biomejs/biome lint .",
 		"test": "vitest",
 		"typecheck": "tsc",
 		"gen:rss": "tsx src/utils/generate-rss.ts",

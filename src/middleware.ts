@@ -1,5 +1,5 @@
-import { type NextRequest } from "next/server";
 import { i18nRouter } from "next-i18n-router";
+import type { NextRequest } from "next/server";
 import { i18nConfig } from "./utils/i18n-config";
 
 export function middleware(request: NextRequest) {

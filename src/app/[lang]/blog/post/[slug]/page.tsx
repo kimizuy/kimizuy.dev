@@ -1,8 +1,4 @@
 import "@/styles/prism-vsc-dark-plus.css";
-import { format } from "date-fns";
-import { ChevronLeft } from "lucide-react";
-import { type Metadata } from "next";
-import { Suspense } from "react";
 import { ContentLayout } from "@/components/content-layout";
 import { Link } from "@/components/link";
 import { MDXComponent } from "@/components/mdx-component";
@@ -12,7 +8,11 @@ import { Toc } from "@/components/toc";
 import { POST_FILE_PATHS } from "@/utils/constants";
 import { getPost } from "@/utils/fetchers";
 import { getDictionary } from "@/utils/get-dictionary";
-import { PageProps } from "../../../../../../.next/types/app/[lang]/page";
+import { format } from "date-fns";
+import { ChevronLeft } from "lucide-react";
+import type { Metadata } from "next";
+import { Suspense } from "react";
+import type { PageProps } from "../../../../../../.next/types/app/[lang]/page";
 
 export function generateStaticParams() {
 	const slugs = POST_FILE_PATHS.map((slug) => ({ slug }));
@@ -61,7 +61,6 @@ export default async function Page({ params }: PageProps) {
 							</time>
 						</div>
 					</header>
-					{/* eslint-disable-next-line tailwindcss/no-custom-classname */}
 					<main className="toc-content">
 						<Suspense fallback={<div>Loading...</div>}>
 							<MDXComponent code={code} slug={slug} />

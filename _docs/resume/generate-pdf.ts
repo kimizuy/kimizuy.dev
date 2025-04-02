@@ -1,11 +1,11 @@
+import path from "node:path";
 import { mdToPdf } from "md-to-pdf";
-import path from "path";
 
 async function generatePdf() {
 	const cwd = process.cwd();
 	const style = path.join(cwd, "_docs/resume/pdf.css");
 	const sourcePath = path.join(cwd, "_docs/resume/", "en-US", "index.md");
-	const dest = path.join(cwd, "public", `Kimizu_Yamasaki_Resume.pdf`);
+	const dest = path.join(cwd, "public", "Kimizu_Yamasaki_Resume.pdf");
 
 	await mdToPdf(
 		{ path: sourcePath },

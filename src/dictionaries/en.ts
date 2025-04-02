@@ -1,4 +1,4 @@
-import { type Dictionary } from "./ja";
+import type { Dictionary } from "./ja";
 
 export const en: Dictionary = {
 	siteDescription:

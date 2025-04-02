@@ -1,10 +1,10 @@
-import { readFileSync } from "fs";
+import { readFileSync } from "node:fs";
+import path from "node:path";
 import { getMDXExport } from "mdx-bundler/client";
-import path from "path";
 import { cache } from "react";
-import { DOCS_PATH, POST_FILE_PATHS, POSTS_PATH } from "./constants";
+import { DOCS_PATH, POSTS_PATH, POST_FILE_PATHS } from "./constants";
 import { getErrorMessage } from "./helpers";
-import { type Locale } from "./i18n-config";
+import type { Locale } from "./i18n-config";
 import { bundleMDX } from "./mdx-bundler";
 import { isFrontmatter, isMDXExport } from "./valibot";
 

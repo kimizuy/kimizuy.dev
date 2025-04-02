@@ -10,8 +10,12 @@ export function ModeToggle() {
 
 	useEffect(() => setMounted(true), []);
 
+	const handleClick = () => {
+		setTheme(theme === "light" ? "dark" : "light");
+	};
+
 	return (
-		<button onClick={() => setTheme(theme === "light" ? "dark" : "light")}>
+		<button type="button" onClick={handleClick} onKeyDown={handleClick}>
 			<span className="sr-only">Toggle mode</span>
 			{mounted && theme === "dark" ? <Sun /> : <Moon />}
 		</button>
