@@ -5,19 +5,19 @@ import { MDXComponent } from "@/components/mdx-component";
 import { Toc } from "@/components/toc";
 import { getDoc } from "@/utils/fetchers";
 import { getDictionary } from "@/utils/get-dictionary";
-import { type PageProps } from "../layout";
+import { PageProps } from "../../../../.next/types/app/[lang]/layout";
 
-type Props = PageProps;
-
-export function generateMetadata({ params }: Props) {
-  const dictionary = getDictionary(params.lang);
+export async function generateMetadata({ params }: PageProps) {
+  const { lang } = await params;
+  const dictionary = getDictionary(lang);
 
   return {
     title: dictionary.resume,
   };
 }
 
-export default async function Page({ params: { lang } }: Props) {
+export default async function Page({ params }: PageProps) {
+  const { lang } = await params;
   const { code } = await getDoc("resume", "en-US");
   const dictionary = getDictionary(lang);
 

@@ -3,22 +3,22 @@ import { ContentLayout } from "@/components/content-layout";
 import { TagList } from "@/components/tag-list";
 import { getAllPosts, getAllTags } from "@/utils/fetchers";
 import { getDictionary } from "@/utils/get-dictionary";
-import { type PageProps } from "../layout";
+import { PageProps } from "../../../../.next/types/app/[lang]/layout";
 
-export function generateMetadata({ params }: Props) {
-  const dictionary = getDictionary(params.lang);
+export async function generateMetadata({ params }: PageProps) {
+  const { lang } = await params;
+  const dictionary = getDictionary(lang);
 
   return {
     title: dictionary.blog,
   };
 }
 
-type Props = PageProps;
-
-export default async function Page({ params }: Props) {
+export default async function Page({ params }: PageProps) {
+  const { lang } = await params;
   const posts = await getAllPosts();
   const tags = await getAllTags();
-  const dictionary = getDictionary(params.lang);
+  const dictionary = getDictionary(lang);
 
   return (
     <>
