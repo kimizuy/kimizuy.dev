@@ -6,8 +6,8 @@ import path from "path";
 import rehypeCodeTitles from "rehype-code-titles";
 import rehypePrism from "rehype-prism-plus";
 import rehypeSlug from "rehype-slug";
+import rehypeMdxImportMedia from "rehype-mdx-import-media";
 import remarkGfm from "remark-gfm";
-import remarkMdxImages from "remark-mdx-images";
 import { SKIP, visit } from "unist-util-visit";
 
 export async function bundleMDX(options: {
@@ -21,17 +21,13 @@ export async function bundleMDX(options: {
     source,
     cwd,
     mdxOptions(options) {
-      options.remarkPlugins = [
-        ...(options.remarkPlugins ?? []),
-        remarkGfm,
-        remarkMdxImages, // ref: https://www.timjfoster.com/posts/mdx-bundler-with-images
-      ];
+      options.remarkPlugins = [...(options.remarkPlugins ?? []), remarkGfm];
       options.rehypePlugins = [
         ...(options.rehypePlugins ?? []),
         rehypeSlug,
         rehypeCodeTitles,
         [rehypePrism, { showLineNumbers: true }],
-
+        rehypeMdxImportMedia,
         customLineNumber,
       ];
 
