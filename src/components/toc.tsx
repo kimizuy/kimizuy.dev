@@ -18,6 +18,7 @@ export function Toc({ headingSelector }: Props) {
       // ref: http://tscanlin.github.io/tocbot/#fixed-headers
       headingsOffset: offset,
       scrollSmoothOffset: -1 * offset,
+      tocScrollingWrapper: null,
     });
 
     return () => tocbot.destroy();
