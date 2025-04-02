@@ -1,9 +1,9 @@
 "use client";
 
-import path from "path-browserify";
 import { i18nConfig, isLocale } from "@/utils/i18n-config";
 import NextLink from "next/link";
 import { usePathname } from "next/navigation";
+import path from "path-browserify";
 import type { ComponentProps } from "react";
 
 type Props = ComponentProps<typeof NextLink>;

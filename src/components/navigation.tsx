@@ -1,6 +1,5 @@
 "use client";
 
-import path from "path-browserify";
 import { getDictionary } from "@/utils/get-dictionary";
 import {
 	type Locale,
@@ -11,6 +10,7 @@ import {
 import * as Popover from "@radix-ui/react-popover";
 import { Globe, MenuIcon } from "lucide-react";
 import { usePathname, useRouter } from "next/navigation";
+import path from "path-browserify";
 import { Link } from "./link";
 import { ModeToggle } from "./mode-toggle";
 
