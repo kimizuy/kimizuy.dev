@@ -6,43 +6,43 @@ import { getAllPosts, getAllTags } from "@/utils/fetchers";
 import { PageProps } from "../../../../../../.next/types/app/[lang]/page";
 
 export async function generateStaticParams() {
-  const tags = (await getAllTags()).map((tag) => ({ tag }));
+	const tags = (await getAllTags()).map((tag) => ({ tag }));
 
-  return tags;
+	return tags;
 }
 
 export async function generateMetadata({
-  params,
+	params,
 }: PageProps): Promise<Metadata> {
-  const { tag: title } = await params;
+	const { tag: title } = await params;
 
-  return {
-    title,
-    description: `Posts tagged with ${title}`,
-    twitter: {
-      title,
-    },
-    openGraph: {
-      url: `/blog/tag/${title}`,
-      title,
-    },
-  };
+	return {
+		title,
+		description: `Posts tagged with ${title}`,
+		twitter: {
+			title,
+		},
+		openGraph: {
+			url: `/blog/tag/${title}`,
+			title,
+		},
+	};
 }
 
 export default async function Page({ params }: PageProps) {
-  const { tag } = await params;
-  const posts = await getAllPosts();
-  const tags = await getAllTags();
-  const filteredPostsByTag = posts.filter(({ frontmatter }) =>
-    frontmatter.tags.includes(tag),
-  );
+	const { tag } = await params;
+	const posts = await getAllPosts();
+	const tags = await getAllTags();
+	const filteredPostsByTag = posts.filter(({ frontmatter }) =>
+		frontmatter.tags.includes(tag),
+	);
 
-  return (
-    <>
-      <ContentLayout home sideBarItem={<TagList tags={tags} />}>
-        <h1 className="mb-6 text-4xl font-bold">#{tag}</h1>
-        <CardList posts={filteredPostsByTag} />
-      </ContentLayout>
-    </>
-  );
+	return (
+		<>
+			<ContentLayout home sideBarItem={<TagList tags={tags} />}>
+				<h1 className="mb-6 text-4xl font-bold">#{tag}</h1>
+				<CardList posts={filteredPostsByTag} />
+			</ContentLayout>
+		</>
+	);
 }

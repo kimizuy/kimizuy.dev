@@ -9,21 +9,21 @@ import { i18nConfig, isLocale } from "@/utils/i18n-config";
 type Props = ComponentProps<typeof NextLink>;
 
 export function Link({ href, ...props }: Props) {
-  const currentPathname = usePathname();
-  const currentLocale = getLocaleFromPath(currentPathname);
-  const isDefaultLocale = currentLocale === i18nConfig.defaultLocale;
-  const newHref = (() => {
-    if (isDefaultLocale) return href;
-    if (typeof href !== "string") return href;
+	const currentPathname = usePathname();
+	const currentLocale = getLocaleFromPath(currentPathname);
+	const isDefaultLocale = currentLocale === i18nConfig.defaultLocale;
+	const newHref = (() => {
+		if (isDefaultLocale) return href;
+		if (typeof href !== "string") return href;
 
-    return path.join("/", currentLocale, href);
-  })();
+		return path.join("/", currentLocale, href);
+	})();
 
-  return <NextLink {...props} href={newHref} />;
+	return <NextLink {...props} href={newHref} />;
 }
 
 function getLocaleFromPath(path: string) {
-  const [firstSegment] = path.split("/").filter(Boolean);
+	const [firstSegment] = path.split("/").filter(Boolean);
 
-  return isLocale(firstSegment) ? firstSegment : i18nConfig.defaultLocale;
+	return isLocale(firstSegment) ? firstSegment : i18nConfig.defaultLocale;
 }
