@@ -1,22 +1,23 @@
-@import 'tailwindcss';
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
 
 @custom-variant dark (&:is(.dark *));
 
 @theme {
-  --font-sans: var(--font-inter), var(--font-zenKakuGothicNew);
+	--font-sans: var(--font-inter), var(--font-zenKakuGothicNew);
 
-  --background-image-gradient-radial: radial-gradient(var(--tw-gradient-stops));
-  --background-image-gradient-conic: conic-gradient(
-    from 180deg at 50% 50%,
-    var(--tw-gradient-stops)
-  );
+	--background-image-gradient-radial: radial-gradient(var(--tw-gradient-stops));
+	--background-image-gradient-conic: conic-gradient(
+		from 180deg at 50% 50%,
+		var(--tw-gradient-stops)
+	);
 
-  --color-background: hsl(var(--background));
-  --color-foreground: hsl(var(--foreground));
-  --color-border: hsl(var(--border));
+	--color-background: hsl(var(--background));
+	--color-foreground: hsl(var(--foreground));
+	--color-border: hsl(var(--border));
 
-  --color-muted: hsl(var(--muted));
-  --color-muted-foreground: hsl(var(--muted-foreground));
+	--color-muted: hsl(var(--muted));
+	--color-muted-foreground: hsl(var(--muted-foreground));
 }
 
 /*
@@ -28,13 +29,13 @@
   color utility to any element that depends on these defaults.
 */
 @layer base {
-  *,
-  ::after,
-  ::before,
-  ::backdrop,
-  ::file-selector-button {
-    border-color: var(--color-gray-200, currentColor);
-  }
+	*,
+	::after,
+	::before,
+	::backdrop,
+	::file-selector-button {
+		border-color: var(--color-gray-200, currentColor);
+	}
 }
 
 @layer base {
