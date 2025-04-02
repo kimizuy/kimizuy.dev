@@ -3,7 +3,7 @@ import { CardList } from "@/components/card-list";
 import { ContentLayout } from "@/components/content-layout";
 import { TagList } from "@/components/tag-list";
 import { getAllPosts, getAllTags } from "@/utils/fetchers";
-import { PageProps } from "../../../../../../.next/types/app/[lang]/layout";
+import { PageProps } from "../../../../../../.next/types/app/[lang]/page";
 
 export async function generateStaticParams() {
   const tags = (await getAllTags()).map((tag) => ({ tag }));

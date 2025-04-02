@@ -5,11 +5,10 @@ import { Link } from "@/components/link";
 import { MDXComponent } from "@/components/mdx-component";
 import { getAllPosts, getDoc } from "@/utils/fetchers";
 import { getDictionary } from "@/utils/get-dictionary";
-import { type PageProps } from "./layout";
+import { PageProps } from "../../../.next/types/app/[lang]/page";
 
-type Props = PageProps;
-
-export default async function Page({ params: { lang } }: Props) {
+export default async function Page({ params }: PageProps) {
+  const { lang } = await params;
   const { code } = await getDoc("home", lang);
   const recentPosts = (await getAllPosts()).slice(0, 3);
   const dictionary = getDictionary(lang);

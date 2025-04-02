@@ -5,7 +5,7 @@ import { MDXComponent } from "@/components/mdx-component";
 import { Toc } from "@/components/toc";
 import { getDoc } from "@/utils/fetchers";
 import { getDictionary } from "@/utils/get-dictionary";
-import { PageProps } from "../../../../.next/types/app/[lang]/layout";
+import { PageProps } from "../../../../.next/types/app/[lang]/page";
 
 export async function generateMetadata({ params }: PageProps) {
   const { lang } = await params;
