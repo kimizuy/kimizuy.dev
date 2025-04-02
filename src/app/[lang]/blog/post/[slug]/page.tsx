@@ -3,7 +3,6 @@ import { format } from "date-fns";
 import { ChevronLeft } from "lucide-react";
 import { type Metadata } from "next";
 import { Suspense } from "react";
-import { type PageProps } from "@/app/[lang]/layout";
 import { ContentLayout } from "@/components/content-layout";
 import { Link } from "@/components/link";
 import { MDXComponent } from "@/components/mdx-component";
@@ -13,6 +12,7 @@ import { Toc } from "@/components/toc";
 import { POST_FILE_PATHS } from "@/utils/constants";
 import { getPost } from "@/utils/fetchers";
 import { getDictionary } from "@/utils/get-dictionary";
+import { PageProps } from "../../../../../../.next/types/app/[lang]/layout";
 
 export function generateStaticParams() {
   const slugs = POST_FILE_PATHS.map((slug) => ({ slug }));
@@ -20,10 +20,11 @@ export function generateStaticParams() {
   return slugs;
 }
 
-type Props = { params: { slug: string } } & PageProps;
-
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { frontmatter, cover } = await getPost(params.slug);
+export async function generateMetadata({
+  params,
+}: PageProps): Promise<Metadata> {
+  const { slug } = await params;
+  const { frontmatter, cover } = await getPost(slug);
 
   return {
     title: frontmatter.title,
@@ -34,16 +35,17 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       card: "summary",
     },
     openGraph: {
-      url: `/blog/post/${params.slug}`,
+      url: `/blog/post/${slug}`,
       title: frontmatter.title,
       images: `/${cover}`,
     },
   };
 }
 
-export default async function Page({ params }: Props) {
-  const { code, frontmatter } = await getPost(params.slug);
-  const dictionary = getDictionary(params.lang);
+export default async function Page({ params }: PageProps) {
+  const { lang, slug } = await params;
+  const { code, frontmatter } = await getPost(slug);
+  const dictionary = getDictionary(lang);
 
   return (
     <OverlayImageProvider>
@@ -62,7 +64,7 @@ export default async function Page({ params }: Props) {
           {/* eslint-disable-next-line tailwindcss/no-custom-classname */}
           <main className="toc-content">
             <Suspense fallback={<div>Loading...</div>}>
-              <MDXComponent code={code} slug={params.slug} />
+              <MDXComponent code={code} slug={slug} />
             </Suspense>
           </main>
           <footer>

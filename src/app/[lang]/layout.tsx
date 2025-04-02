@@ -14,6 +14,8 @@ import { cn } from "@/utils/helpers";
 import { type Locale } from "@/utils/i18n-config";
 import { i18nConfig } from "@/utils/i18n-config";
 import IconPic from "../icon.jpg";
+import { PageProps } from "../../../.next/types/app/[lang]/layout";
+import { ReactNode } from "react";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -47,8 +49,9 @@ export function generateStaticParams() {
   return i18nConfig.locales.map((locale) => ({ lang: locale }));
 }
 
-export function generateMetadata({ params }: Props) {
-  const dictionaly = getDictionary(params.lang);
+export async function generateMetadata({ params }: PageProps) {
+  const { lang } = await params;
+  const dictionary = getDictionary(lang);
 
   return {
     metadataBase: new URL(SITE_URL),
@@ -56,18 +59,22 @@ export function generateMetadata({ params }: Props) {
       template: `%s | ${SITE_TITLE}`,
       default: SITE_TITLE,
     },
-    description: dictionaly.siteDescription,
+    description: dictionary.siteDescription,
   };
 }
 
-export type PageProps = Omit<Props, "children">;
-
-export default function RootLayout({ children, params }: Props) {
-  const dictionary = getDictionary(params.lang);
+export default async function RootLayout({
+  children,
+  params,
+}: PageProps & {
+  children: ReactNode;
+}) {
+  const { lang } = await params;
+  const dictionary = getDictionary(lang);
 
   return (
     <html
-      lang={params.lang}
+      lang={lang}
       className={cn(
         inter.variable,
         zenKakuGothicNew.variable,
@@ -97,7 +104,7 @@ export default function RootLayout({ children, params }: Props) {
                     </span>
                     {SITE_TITLE}
                   </Link>
-                  <Navigation lang={params.lang} />
+                  <Navigation lang={lang} />
                 </div>
               </header>
               <main className="relative p-[2rem_1rem_8rem] md:p-[3rem_2rem_12rem]">
