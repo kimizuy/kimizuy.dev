@@ -4,7 +4,7 @@
 	"private": true,
 	"scripts": {
 		"dev": "next dev",
-		"build": "pnpm gen:rss && pnpm next build",
+		"build": "pnpm gen:resume && pnpm gen:rss && pnpm next build",
 		"start": "next start",
 		"lint": "npx @biomejs/biome lint .",
 		"test": "vitest",
